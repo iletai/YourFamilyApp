@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		165E973328B7BF3200490E01 /* FacebookLogin in Frameworks */ = {isa = PBXBuildFile; productRef = 165E973228B7BF3200490E01 /* FacebookLogin */; };
 		1665E16428B7427D00CCEA09 /* YourFamilyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1665E16328B7427D00CCEA09 /* YourFamilyApp.swift */; };
 		1665E16628B7427D00CCEA09 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1665E16528B7427D00CCEA09 /* ContentView.swift */; };
 		1665E16828B7427F00CCEA09 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1665E16728B7427F00CCEA09 /* Assets.xcassets */; };
@@ -33,6 +34,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				165E973328B7BF3200490E01 /* FacebookLogin in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -152,6 +154,7 @@
 			);
 			name = YourFamily;
 			packageProductDependencies = (
+				165E973228B7BF3200490E01 /* FacebookLogin */,
 			);
 			productName = YourFamily;
 			productReference = 1665E16028B7427D00CCEA09 /* YourFamily.app */;
@@ -183,6 +186,7 @@
 			mainGroup = 1665E15728B7427D00CCEA09;
 			packageReferences = (
 				16B95A9828B77B3E00CA3B72 /* XCRemoteSwiftPackageReference "SwiftLint" */,
+				165E973128B7BF3200490E01 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */,
 			);
 			productRefGroup = 1665E16128B7427D00CCEA09 /* Products */;
 			projectDirPath = "";
@@ -441,6 +445,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		165E973128B7BF3200490E01 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/facebook/facebook-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 9.0.0;
+			};
+		};
 		16B95A9828B77B3E00CA3B72 /* XCRemoteSwiftPackageReference "SwiftLint" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/realm/SwiftLint.git";
@@ -450,6 +462,14 @@
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		165E973228B7BF3200490E01 /* FacebookLogin */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 165E973128B7BF3200490E01 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */;
+			productName = FacebookLogin;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 1665E15828B7427D00CCEA09 /* Project object */;
 }

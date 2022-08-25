@@ -17,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		165E972F28B7BC8000490E01 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1665E16028B7427D00CCEA09 /* YourFamily.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YourFamily.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1665E16328B7427D00CCEA09 /* YourFamilyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YourFamilyApp.swift; sourceTree = "<group>"; };
 		1665E16528B7427D00CCEA09 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -58,6 +59,7 @@
 		1665E16228B7427D00CCEA09 /* YourFamily */ = {
 			isa = PBXGroup;
 			children = (
+				165E972F28B7BC8000490E01 /* Info.plist */,
 				16B95A8F28B747EB00CA3B72 /* Common */,
 				16B95A8E28B747CE00CA3B72 /* ViewModel */,
 				16B95A8D28B747C600CA3B72 /* Views */,
@@ -365,7 +367,8 @@
 				DEVELOPMENT_ASSET_PATHS = "\"YourFamily/Preview Content\"";
 				DEVELOPMENT_TEAM = AP58YLHQ2S;
 				ENABLE_PREVIEWS = YES;
-				GENERATE_INFOPLIST_FILE = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = /Users/lequangtrongtai/YourFamilyApp/YourFamily/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -394,7 +397,8 @@
 				DEVELOPMENT_ASSET_PATHS = "\"YourFamily/Preview Content\"";
 				DEVELOPMENT_TEAM = AP58YLHQ2S;
 				ENABLE_PREVIEWS = YES;
-				GENERATE_INFOPLIST_FILE = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = /Users/lequangtrongtai/YourFamilyApp/YourFamily/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

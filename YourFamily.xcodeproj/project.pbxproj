@@ -11,6 +11,9 @@
 		1665E16628B7427D00CCEA09 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1665E16528B7427D00CCEA09 /* ContentView.swift */; };
 		1665E16828B7427F00CCEA09 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1665E16728B7427F00CCEA09 /* Assets.xcassets */; };
 		1665E16B28B7427F00CCEA09 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1665E16A28B7427F00CCEA09 /* Preview Assets.xcassets */; };
+		16B95A9328B76FDF00CA3B72 /* AppRouterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16B95A9228B76FDF00CA3B72 /* AppRouterManager.swift */; };
+		16B95A9528B7703C00CA3B72 /* RouterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16B95A9428B7703C00CA3B72 /* RouterView.swift */; };
+		16B95A9728B7707100CA3B72 /* RouterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16B95A9628B7707100CA3B72 /* RouterViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +22,9 @@
 		1665E16528B7427D00CCEA09 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		1665E16728B7427F00CCEA09 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1665E16A28B7427F00CCEA09 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		16B95A9228B76FDF00CA3B72 /* AppRouterManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRouterManager.swift; sourceTree = "<group>"; };
+		16B95A9428B7703C00CA3B72 /* RouterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterView.swift; sourceTree = "<group>"; };
+		16B95A9628B7707100CA3B72 /* RouterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,6 +43,7 @@
 			children = (
 				1665E16228B7427D00CCEA09 /* YourFamily */,
 				1665E16128B7427D00CCEA09 /* Products */,
+				16B95A9D28B7833000CA3B72 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -51,8 +58,10 @@
 		1665E16228B7427D00CCEA09 /* YourFamily */ = {
 			isa = PBXGroup;
 			children = (
-				1665E16328B7427D00CCEA09 /* YourFamilyApp.swift */,
-				1665E16528B7427D00CCEA09 /* ContentView.swift */,
+				16B95A8F28B747EB00CA3B72 /* Common */,
+				16B95A8E28B747CE00CA3B72 /* ViewModel */,
+				16B95A8D28B747C600CA3B72 /* Views */,
+				16B95A8C28B747BD00CA3B72 /* Utils */,
 				1665E16728B7427F00CCEA09 /* Assets.xcassets */,
 				1665E16928B7427F00CCEA09 /* Preview Content */,
 			);
@@ -67,6 +76,62 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		16B95A8C28B747BD00CA3B72 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		16B95A8D28B747C600CA3B72 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				1665E16328B7427D00CCEA09 /* YourFamilyApp.swift */,
+				1665E16528B7427D00CCEA09 /* ContentView.swift */,
+				16B95A9428B7703C00CA3B72 /* RouterView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		16B95A8E28B747CE00CA3B72 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				16B95A9628B7707100CA3B72 /* RouterViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		16B95A8F28B747EB00CA3B72 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				16B95A9128B761AD00CA3B72 /* Manager */,
+				16B95A9028B747F500CA3B72 /* Extension */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		16B95A9028B747F500CA3B72 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		16B95A9128B761AD00CA3B72 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				16B95A9228B76FDF00CA3B72 /* AppRouterManager.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		16B95A9D28B7833000CA3B72 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -77,12 +142,15 @@
 				1665E15C28B7427D00CCEA09 /* Sources */,
 				1665E15D28B7427D00CCEA09 /* Frameworks */,
 				1665E15E28B7427D00CCEA09 /* Resources */,
+				16B95A9B28B7809600CA3B72 /* ShellScript */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = YourFamily;
+			packageProductDependencies = (
+			);
 			productName = YourFamily;
 			productReference = 1665E16028B7427D00CCEA09 /* YourFamily.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +179,9 @@
 				Base,
 			);
 			mainGroup = 1665E15728B7427D00CCEA09;
+			packageReferences = (
+				16B95A9828B77B3E00CA3B72 /* XCRemoteSwiftPackageReference "SwiftLint" */,
+			);
 			productRefGroup = 1665E16128B7427D00CCEA09 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -132,13 +203,36 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		16B95A9B28B7809600CA3B72 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if test -d \"/opt/homebrew/bin/\"; then\n  PATH=\"/opt/homebrew/bin/:${PATH}\"\nfi\n\nexport PATH\n\nif which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		1665E15C28B7427D00CCEA09 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				1665E16628B7427D00CCEA09 /* ContentView.swift in Sources */,
+				16B95A9728B7707100CA3B72 /* RouterViewModel.swift in Sources */,
+				16B95A9328B76FDF00CA3B72 /* AppRouterManager.swift in Sources */,
 				1665E16428B7427D00CCEA09 /* YourFamilyApp.swift in Sources */,
+				16B95A9528B7703C00CA3B72 /* RouterView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -341,6 +435,17 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		16B95A9828B77B3E00CA3B72 /* XCRemoteSwiftPackageReference "SwiftLint" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/SwiftLint.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.9.2;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
 	};
 	rootObject = 1665E15828B7427D00CCEA09 /* Project object */;
 }

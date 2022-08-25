@@ -27,7 +27,7 @@ struct RouterView: View {
         case .setting:
             EmptyView()
         case .login:
-            EmptyView()
+            LoginView()
         }
     }
 }

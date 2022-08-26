@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		1639BD2128B7E382002CCDF5 /* FacebookLogin in Frameworks */ = {isa = PBXBuildFile; productRef = 1639BD2028B7E382002CCDF5 /* FacebookLogin */; };
+		1639BD2328B85777002CCDF5 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1639BD2228B85777002CCDF5 /* ColorExtension.swift */; };
+		1639BD2728B868DD002CCDF5 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1639BD2628B868DD002CCDF5 /* HomeView.swift */; };
 		165E973628B7C4BE00490E01 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 165E973528B7C4BE00490E01 /* LoginView.swift */; };
 		165E973928B7C4E200490E01 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 165E973828B7C4E200490E01 /* LoginViewModel.swift */; };
 		165E973B28B7C87A00490E01 /* AppConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 165E973A28B7C87A00490E01 /* AppConstant.swift */; };
@@ -22,6 +24,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1639BD2228B85777002CCDF5 /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
+		1639BD2628B868DD002CCDF5 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		165E972F28B7BC8000490E01 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		165E973528B7C4BE00490E01 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		165E973828B7C4E200490E01 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
@@ -49,6 +53,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1639BD2428B868C6002CCDF5 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				1639BD2628B868DD002CCDF5 /* HomeView.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		1639BD2528B868CD002CCDF5 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
 		165E973428B7C13C00490E01 /* Login */ = {
 			isa = PBXGroup;
 			children = (
@@ -107,6 +126,7 @@
 		16B95A8C28B747BD00CA3B72 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				1639BD2228B85777002CCDF5 /* ColorExtension.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -114,6 +134,7 @@
 		16B95A8D28B747C600CA3B72 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				1639BD2428B868C6002CCDF5 /* Home */,
 				165E973428B7C13C00490E01 /* Login */,
 				1665E16328B7427D00CCEA09 /* YourFamilyApp.swift */,
 				1665E16528B7427D00CCEA09 /* ContentView.swift */,
@@ -125,6 +146,7 @@
 		16B95A8E28B747CE00CA3B72 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				1639BD2528B868CD002CCDF5 /* Home */,
 				165E973728B7C4D100490E01 /* Login */,
 				16B95A9628B7707100CA3B72 /* RouterViewModel.swift */,
 			);
@@ -267,10 +289,12 @@
 				16B95A9728B7707100CA3B72 /* RouterViewModel.swift in Sources */,
 				16B95A9328B76FDF00CA3B72 /* AppRouterManager.swift in Sources */,
 				1665E16428B7427D00CCEA09 /* YourFamilyApp.swift in Sources */,
+				1639BD2728B868DD002CCDF5 /* HomeView.swift in Sources */,
 				16B95A9528B7703C00CA3B72 /* RouterView.swift in Sources */,
 				165E973928B7C4E200490E01 /* LoginViewModel.swift in Sources */,
 				165E973D28B7CAA800490E01 /* StringExtension.swift in Sources */,
 				165E973B28B7C87A00490E01 /* AppConstant.swift in Sources */,
+				1639BD2328B85777002CCDF5 /* ColorExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

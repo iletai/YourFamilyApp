@@ -16,7 +16,10 @@ final class LoginViewModel: ObservableObject {
     @AppStorage(AppConstant.kLoginEmail) var email = String.empty
 
     init() {
-        Settings.appID = "635879924485117"
+        Settings.appID = AppConstant.kAppIdFacebook
+        if loggedInApp {
+            moveToHome()
+        }
     }
 }
 
@@ -24,23 +27,19 @@ final class LoginViewModel: ObservableObject {
 extension LoginViewModel {
     /// Login Facebook
     func loginWithFacebook() {
-        if loggedInApp {
-            // This user has been loggin
-        } else {
-            loginFacebookManager.logIn(
-                permissions: AppConstant.kLoginParamRequest,
-                from: nil) { (result, error) in
-                    if error != nil {
-                        print(error!.localizedDescription)
-                        return
-                    } else {
-                        if !result!.isCancelled {
-                            self.requestGrapFacebook()
-                            self.loggedInApp = true
-                        }
+        loginFacebookManager.logIn(
+            permissions: AppConstant.kLoginParamRequest,
+            from: nil) { (result, error) in
+                if error != nil {
+                    print(error!.localizedDescription)
+                    return
+                } else {
+                    if !result!.isCancelled {
+                        self.requestGrapFacebook()
+                        self.loggedInApp = true
                     }
+                }
             }
-        }
     }
 
     private func requestGrapFacebook() {
@@ -53,6 +52,11 @@ extension LoginViewModel {
                 return
             }
             self.email = profileDataUser["email"] as? String ?? .empty
+            self.moveToHome()
         }
+    }
+
+    private func moveToHome() {
+        AppRouterManager.shared.setRouterState(.home)
     }
 }

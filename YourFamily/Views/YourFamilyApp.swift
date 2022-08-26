@@ -5,8 +5,8 @@
 //  Created by Lê Quang Trọng Tài on 8/25/22.
 //
 
-import SwiftUI
 import FacebookCore
+import SwiftUI
 
 @main
 struct YourFamilyApp: App {
@@ -20,7 +20,10 @@ struct YourFamilyApp: App {
 }
 
 class AppDelegate: NSObject, UIApplicationDelegate {
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
+    func application(
+        _ application: UIApplication,
+        didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]? = nil
+    ) -> Bool {
         ApplicationDelegate.shared.application(
             application,
             didFinishLaunchingWithOptions:
@@ -29,7 +32,9 @@ class AppDelegate: NSObject, UIApplicationDelegate {
         return true
     }
 
-    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+    func application(
+        _ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey: Any] = [:]
+    ) -> Bool {
         return ApplicationDelegate.shared.application(
             app,
             open: url,

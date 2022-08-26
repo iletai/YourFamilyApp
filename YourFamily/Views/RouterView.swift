@@ -25,7 +25,7 @@ struct RouterView: View {
         case .wallet:
             EmptyView()
         case .setting:
-            EmptyView()
+            SettingView().transition(viewModel.transition)
         case .login:
             LoginView()
         }

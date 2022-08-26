@@ -18,6 +18,7 @@ struct LoginView: View {
             VStack {
                 Spacer()
                 RoundedRectangle(cornerRadius: 20)
+                    .fill(Color.red)
                     .frame(maxWidth: 96, maxHeight: 96)
                     .redacted(reason: .placeholder)
                 Text("Your Family")

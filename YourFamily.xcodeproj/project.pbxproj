@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1639BD2128B7E382002CCDF5 /* FacebookLogin in Frameworks */ = {isa = PBXBuildFile; productRef = 1639BD2028B7E382002CCDF5 /* FacebookLogin */; };
+		1639BD2328B85777002CCDF5 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1639BD2228B85777002CCDF5 /* ColorExtension.swift */; };
+		1639BD2728B868DD002CCDF5 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1639BD2628B868DD002CCDF5 /* HomeView.swift */; };
+		165E973628B7C4BE00490E01 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 165E973528B7C4BE00490E01 /* LoginView.swift */; };
+		165E973928B7C4E200490E01 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 165E973828B7C4E200490E01 /* LoginViewModel.swift */; };
+		165E973B28B7C87A00490E01 /* AppConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 165E973A28B7C87A00490E01 /* AppConstant.swift */; };
+		165E973D28B7CAA800490E01 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 165E973C28B7CAA800490E01 /* StringExtension.swift */; };
 		1665E16428B7427D00CCEA09 /* YourFamilyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1665E16328B7427D00CCEA09 /* YourFamilyApp.swift */; };
 		1665E16628B7427D00CCEA09 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1665E16528B7427D00CCEA09 /* ContentView.swift */; };
 		1665E16828B7427F00CCEA09 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1665E16728B7427F00CCEA09 /* Assets.xcassets */; };
@@ -17,7 +24,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1639BD2228B85777002CCDF5 /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
+		1639BD2628B868DD002CCDF5 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		165E972F28B7BC8000490E01 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		165E973528B7C4BE00490E01 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		165E973828B7C4E200490E01 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		165E973A28B7C87A00490E01 /* AppConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstant.swift; sourceTree = "<group>"; };
+		165E973C28B7CAA800490E01 /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		1665E16028B7427D00CCEA09 /* YourFamily.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YourFamily.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1665E16328B7427D00CCEA09 /* YourFamilyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YourFamilyApp.swift; sourceTree = "<group>"; };
 		1665E16528B7427D00CCEA09 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -33,12 +46,44 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1639BD2128B7E382002CCDF5 /* FacebookLogin in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1639BD2428B868C6002CCDF5 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				1639BD2628B868DD002CCDF5 /* HomeView.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		1639BD2528B868CD002CCDF5 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		165E973428B7C13C00490E01 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				165E973528B7C4BE00490E01 /* LoginView.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		165E973728B7C4D100490E01 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				165E973828B7C4E200490E01 /* LoginViewModel.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
 		1665E15728B7427D00CCEA09 = {
 			isa = PBXGroup;
 			children = (
@@ -81,6 +126,7 @@
 		16B95A8C28B747BD00CA3B72 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				16B95A9028B747F500CA3B72 /* Extension */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -88,6 +134,8 @@
 		16B95A8D28B747C600CA3B72 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				1639BD2428B868C6002CCDF5 /* Home */,
+				165E973428B7C13C00490E01 /* Login */,
 				1665E16328B7427D00CCEA09 /* YourFamilyApp.swift */,
 				1665E16528B7427D00CCEA09 /* ContentView.swift */,
 				16B95A9428B7703C00CA3B72 /* RouterView.swift */,
@@ -98,6 +146,8 @@
 		16B95A8E28B747CE00CA3B72 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				1639BD2528B868CD002CCDF5 /* Home */,
+				165E973728B7C4D100490E01 /* Login */,
 				16B95A9628B7707100CA3B72 /* RouterViewModel.swift */,
 			);
 			path = ViewModel;
@@ -107,7 +157,6 @@
 			isa = PBXGroup;
 			children = (
 				16B95A9128B761AD00CA3B72 /* Manager */,
-				16B95A9028B747F500CA3B72 /* Extension */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -115,6 +164,8 @@
 		16B95A9028B747F500CA3B72 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				165E973C28B7CAA800490E01 /* StringExtension.swift */,
+				1639BD2228B85777002CCDF5 /* ColorExtension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -123,6 +174,7 @@
 			isa = PBXGroup;
 			children = (
 				16B95A9228B76FDF00CA3B72 /* AppRouterManager.swift */,
+				165E973A28B7C87A00490E01 /* AppConstant.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -152,6 +204,7 @@
 			);
 			name = YourFamily;
 			packageProductDependencies = (
+				1639BD2028B7E382002CCDF5 /* FacebookLogin */,
 			);
 			productName = YourFamily;
 			productReference = 1665E16028B7427D00CCEA09 /* YourFamily.app */;
@@ -183,6 +236,7 @@
 			mainGroup = 1665E15728B7427D00CCEA09;
 			packageReferences = (
 				16B95A9828B77B3E00CA3B72 /* XCRemoteSwiftPackageReference "SwiftLint" */,
+				165E973128B7BF3200490E01 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */,
 			);
 			productRefGroup = 1665E16128B7427D00CCEA09 /* Products */;
 			projectDirPath = "";
@@ -230,11 +284,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				165E973628B7C4BE00490E01 /* LoginView.swift in Sources */,
 				1665E16628B7427D00CCEA09 /* ContentView.swift in Sources */,
 				16B95A9728B7707100CA3B72 /* RouterViewModel.swift in Sources */,
 				16B95A9328B76FDF00CA3B72 /* AppRouterManager.swift in Sources */,
 				1665E16428B7427D00CCEA09 /* YourFamilyApp.swift in Sources */,
+				1639BD2728B868DD002CCDF5 /* HomeView.swift in Sources */,
 				16B95A9528B7703C00CA3B72 /* RouterView.swift in Sources */,
+				165E973928B7C4E200490E01 /* LoginViewModel.swift in Sources */,
+				165E973D28B7CAA800490E01 /* StringExtension.swift in Sources */,
+				165E973B28B7C87A00490E01 /* AppConstant.swift in Sources */,
+				1639BD2328B85777002CCDF5 /* ColorExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -383,7 +443,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -413,7 +473,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -441,6 +501,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		165E973128B7BF3200490E01 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/facebook/facebook-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 9.0.0;
+			};
+		};
 		16B95A9828B77B3E00CA3B72 /* XCRemoteSwiftPackageReference "SwiftLint" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/realm/SwiftLint.git";
@@ -450,6 +518,14 @@
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		1639BD2028B7E382002CCDF5 /* FacebookLogin */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 165E973128B7BF3200490E01 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */;
+			productName = FacebookLogin;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 1665E15828B7427D00CCEA09 /* Project object */;
 }

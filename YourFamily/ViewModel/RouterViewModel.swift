@@ -8,7 +8,7 @@
 import SwiftUI
 
 final class RouterViewModel: ObservableObject {
-    @Published var state: AppRouterManager.RouterState = .splash
+    @Published var state: AppRouterManager.RouterState = .login
     @Published var transition: AnyTransition = .identity
 
     func changeRouterStatus(state: AppRouterManager.RouterState,

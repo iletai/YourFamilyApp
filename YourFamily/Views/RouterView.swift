@@ -17,7 +17,7 @@ struct RouterView: View {
         case .forgotPassword:
             EmptyView()
         case .home:
-            EmptyView()
+            HomeView().transition(viewModel.transition)
         case .note:
             EmptyView()
         case .regist:
@@ -27,7 +27,7 @@ struct RouterView: View {
         case .setting:
             EmptyView()
         case .login:
-            EmptyView()
+            LoginView()
         }
     }
 }

@@ -126,7 +126,7 @@
 		16B95A8C28B747BD00CA3B72 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				1639BD2228B85777002CCDF5 /* ColorExtension.swift */,
+				16B95A9028B747F500CA3B72 /* Extension */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -157,7 +157,6 @@
 			isa = PBXGroup;
 			children = (
 				16B95A9128B761AD00CA3B72 /* Manager */,
-				16B95A9028B747F500CA3B72 /* Extension */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -166,6 +165,7 @@
 			isa = PBXGroup;
 			children = (
 				165E973C28B7CAA800490E01 /* StringExtension.swift */,
+				1639BD2228B85777002CCDF5 /* ColorExtension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";

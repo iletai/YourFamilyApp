@@ -8,11 +8,13 @@
 import SwiftUI
 
 struct DateMemoryView: View {
+    @ObservedObject var viewModel = DateMemoryViewModel()
+
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-            .onTapGesture {
-                AppRouterManager.shared.setRouterState(.setting)
-            }
+        CalendarView(
+            contentCalendar: { item in
+                Text(item.date.toDayString)
+            }, selected: viewModel.getCurrentDate())
     }
 }
 

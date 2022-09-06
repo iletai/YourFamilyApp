@@ -34,6 +34,9 @@
 		16828E3428C5A6E40054081A /* DateUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16828E3328C5A6E30054081A /* DateUtils.swift */; };
 		16828E3728C5B2240054081A /* AlertToast in Frameworks */ = {isa = PBXBuildFile; productRef = 16828E3628C5B2240054081A /* AlertToast */; };
 		16AB078128C5E7EF005D885F /* ViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16AB078028C5E7EF005D885F /* ViewExtension.swift */; };
+		16AB078428C5F1D6005D885F /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16AB078328C5F1D6005D885F /* ProfileViewModel.swift */; };
+		16AB078628C71C3A005D885F /* LunarCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16AB078528C71C3A005D885F /* LunarCalendarView.swift */; };
+		16AB078828C7252C005D885F /* YourNoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16AB078728C7252C005D885F /* YourNoteView.swift */; };
 		16B95A9328B76FDF00CA3B72 /* AppRouterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16B95A9228B76FDF00CA3B72 /* AppRouterManager.swift */; };
 		16B95A9528B7703C00CA3B72 /* RouterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16B95A9428B7703C00CA3B72 /* RouterView.swift */; };
 		16B95A9728B7707100CA3B72 /* RouterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16B95A9628B7707100CA3B72 /* RouterViewModel.swift */; };
@@ -64,6 +67,9 @@
 		16828E1C28BD14E50054081A /* DateFormatterExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatterExtension.swift; sourceTree = "<group>"; };
 		16828E3328C5A6E30054081A /* DateUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateUtils.swift; sourceTree = "<group>"; };
 		16AB078028C5E7EF005D885F /* ViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtension.swift; sourceTree = "<group>"; };
+		16AB078328C5F1D6005D885F /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
+		16AB078528C71C3A005D885F /* LunarCalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LunarCalendarView.swift; sourceTree = "<group>"; };
+		16AB078728C7252C005D885F /* YourNoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YourNoteView.swift; sourceTree = "<group>"; };
 		16B95A9228B76FDF00CA3B72 /* AppRouterManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRouterManager.swift; sourceTree = "<group>"; };
 		16B95A9428B7703C00CA3B72 /* RouterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterView.swift; sourceTree = "<group>"; };
 		16B95A9628B7707100CA3B72 /* RouterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterViewModel.swift; sourceTree = "<group>"; };
@@ -106,6 +112,8 @@
 			children = (
 				16828E1128BCBAF40054081A /* Sub */,
 				1639BD2E28B91270002CCDF5 /* DateMemoryView.swift */,
+				16AB078528C71C3A005D885F /* LunarCalendarView.swift */,
+				16AB078728C7252C005D885F /* YourNoteView.swift */,
 			);
 			path = DateMemory;
 			sourceTree = "<group>";
@@ -199,6 +207,14 @@
 			path = Sub;
 			sourceTree = "<group>";
 		};
+		16AB078228C5F1C9005D885F /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				16AB078328C5F1D6005D885F /* ProfileViewModel.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
 		16B95A8C28B747BD00CA3B72 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
@@ -226,6 +242,7 @@
 		16B95A8E28B747CE00CA3B72 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				16AB078228C5F1C9005D885F /* Profile */,
 				1639BD3628B9DA2A002CCDF5 /* DateMemory */,
 				1639BD2528B868CD002CCDF5 /* Home */,
 				165E973728B7C4D100490E01 /* Login */,
@@ -376,12 +393,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				16AB078628C71C3A005D885F /* LunarCalendarView.swift in Sources */,
 				165E973628B7C4BE00490E01 /* LoginView.swift in Sources */,
 				16828E1B28BD11A40054081A /* DateExtension.swift in Sources */,
 				16828E1D28BD14E50054081A /* DateFormatterExtension.swift in Sources */,
 				1665E16628B7427D00CCEA09 /* ContentView.swift in Sources */,
 				16828E1328BCBB150054081A /* CalendarView.swift in Sources */,
 				16B95A9728B7707100CA3B72 /* RouterViewModel.swift in Sources */,
+				16AB078428C5F1D6005D885F /* ProfileViewModel.swift in Sources */,
 				16828E1728BCC0D60054081A /* CalendarPagingCellView.swift in Sources */,
 				16B95A9328B76FDF00CA3B72 /* AppRouterManager.swift in Sources */,
 				1639BD3228B914C2002CCDF5 /* SettingView.swift in Sources */,
@@ -393,6 +412,7 @@
 				16B95A9528B7703C00CA3B72 /* RouterView.swift in Sources */,
 				1639BD2F28B91270002CCDF5 /* DateMemoryView.swift in Sources */,
 				1639BD2C28B8BDB0002CCDF5 /* HomeViewModel.swift in Sources */,
+				16AB078828C7252C005D885F /* YourNoteView.swift in Sources */,
 				165E973928B7C4E200490E01 /* LoginViewModel.swift in Sources */,
 				165E973D28B7CAA800490E01 /* StringExtension.swift in Sources */,
 				16AB078128C5E7EF005D885F /* ViewExtension.swift in Sources */,

@@ -101,7 +101,7 @@ extension CalendarPagingCellView {
         var body: some View {
             ZStack {
                 Text(viewModel.weekdayLabelText)
-                    .fontWeight(.bold)
+                    .fontWeight(.light)
                     .foregroundColor(viewModel.weekdayLabelTextColor)
                     .padding(.bottom, 16)
             }

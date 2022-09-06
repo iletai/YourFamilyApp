@@ -8,7 +8,7 @@
 import Foundation
 
 final class HomeViewModel: ObservableObject {
-    @Published var tabViewCurrentIndex = 2
+    @Published var tabViewCurrentIndex = 1
 
     init() {
     }

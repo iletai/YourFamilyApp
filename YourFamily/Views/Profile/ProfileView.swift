@@ -8,8 +8,22 @@
 import SwiftUI
 
 struct ProfileView: View {
+    @ObservedObject var viewModel = ProfileViewModel()
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ZStack {
+            VStack {
+                HStack(spacing: 12) {
+                    Image(systemName: "star")
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 16).stroke().fill(Color.blue).frame(width: 34, height: 24)
+                        )
+                    Text("Hello, Tai Le!")
+                    Spacer()
+                }
+                Spacer()
+            }
+            .padding(16)
+        }
     }
 }
 

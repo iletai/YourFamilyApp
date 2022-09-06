@@ -12,7 +12,8 @@ import LegacyCoreKit
 
 final class LoginViewModel: ObservableObject {
     @Published var loginFacebookManager = LoginManager()
-    @AppStorage(AppConstant.kLoginKeySave) var loggedInApp = false
+    // TODO: - Dummy to go to app
+    @AppStorage(AppConstant.kLoginKeySave) var loggedInApp = true
     @AppStorage(AppConstant.kLoginEmail) var email = String.empty
 
     init() {

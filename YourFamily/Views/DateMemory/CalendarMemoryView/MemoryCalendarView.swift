@@ -8,7 +8,7 @@
 import Parchment
 import SwiftUI
 
-struct CalendarView<Page: View>: View {
+struct MemoryCalendarView<Page: View>: View {
     private let calendarOptions: PagingOptions
     private let contentCalendar: (CalendarMemoryItem) -> Page
     private let selected: Date
@@ -32,7 +32,7 @@ struct CalendarView<Page: View>: View {
     }
 }
 
-extension CalendarView {
+extension MemoryCalendarView {
     struct CalendarPageController: UIViewControllerRepresentable {
         let calendarOptions: PagingOptions
         let contentCalendar: (CalendarMemoryItem) -> Page
@@ -74,7 +74,7 @@ extension CalendarView {
 
 }
 
-extension CalendarView {
+extension MemoryCalendarView {
     class Coordinator: PagingViewControllerInfiniteDataSource {
         var parent: CalendarPageController
 

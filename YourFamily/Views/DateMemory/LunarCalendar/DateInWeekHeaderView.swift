@@ -22,6 +22,7 @@ struct DateInWeekHeaderView: View {
                     .clipShape(
                         RoundedRectangle(cornerRadius: 20)
                     )
+                    .shadow(color: .gray, radius: 2, x: 0, y: 2)
             )
         }
         .frame(width: CalendarConfig.calendarMonthSize.width, height: 40)
@@ -41,6 +42,7 @@ struct HeaderWeekCalendar: UIViewRepresentable {
                 height: CalendarConfig.calendarHeaderHeight
             )
         )
+        view.calendar = CalendarManager.shared.calendar
         view.delegate = context.coordinator
         return view
     }
@@ -66,6 +68,7 @@ class CVCalendarMenuCoordinartor: NSObject, CVCalendarMenuViewDelegate {
     func dayOfWeekTextUppercase() -> Bool {
         true
     }
+
 }
 
 struct DateInWeekHeaderView_Previews: PreviewProvider {

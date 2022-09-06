@@ -42,8 +42,7 @@ struct DateUtils {
                     second: .zero,
                     nanosecond: .zero
                 )
-            )
-        {
+            ) {
             return Int(current.timeIntervalSince1970 - now.timeIntervalSince1970) / 24 / 60 / 60
         }
         return nil

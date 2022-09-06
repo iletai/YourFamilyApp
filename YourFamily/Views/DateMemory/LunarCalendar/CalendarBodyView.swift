@@ -63,6 +63,10 @@ extension CalendarBodyView {
             .monthView
         }
 
+        func calendar() -> Calendar? {
+            return CalendarManager.shared.calendar
+        }
+
         func firstWeekday() -> Weekday {
             .monday
         }
@@ -73,6 +77,14 @@ extension CalendarBodyView {
 
         func supplementaryView(viewOnDayView dayView: DayView) -> UIView {
             return LunarDateView().makeConfigDateUIView(dayView) ?? UIView()
+        }
+
+        func shouldAnimateResizing() -> Bool {
+            true
+        }
+
+        func shouldShowWeekdaysOut() -> Bool {
+            false
         }
     }
 }

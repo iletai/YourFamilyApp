@@ -22,7 +22,7 @@ struct DateMemoryView: View {
                 .padding(.top)
                 .font(.headline)
                 TabView(selection: $viewModel.tabPageIndex) {
-                    CalendarView(
+                    MemoryCalendarView(
                         contentCalendar: { item in
                             Text(item.date.toDayString)
                         }, selected: viewModel.getCurrentDate()

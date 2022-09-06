@@ -8,7 +8,10 @@
 import SwiftUI
 
 extension Color {
-    static let backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
+    static let backgroundColor = Color.gray
+    static let cB7B7E5 = Color(hex: "B7B7E5")
+    static let cC55CF1 = Color(hex: "C55CF1")
+    static let c949494 = Color(hex: "949494")
 
     // swiftlint:disable identifier_name
     init(hex: String) {

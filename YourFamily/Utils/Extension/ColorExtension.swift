@@ -12,6 +12,7 @@ extension Color {
     static let cB7B7E5 = Color(hex: "B7B7E5")
     static let cC55CF1 = Color(hex: "C55CF1")
     static let c949494 = Color(hex: "949494")
+    static let c232020 = Color(hex: "232020")
 
     // swiftlint:disable identifier_name
     init(hex: String) {

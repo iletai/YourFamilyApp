@@ -66,5 +66,13 @@ extension CalendarBodyView {
         func firstWeekday() -> Weekday {
             .monday
         }
+
+        func supplementaryView(shouldDisplayOnDayView _: DayView) -> Bool {
+            return true
+        }
+
+        func supplementaryView(viewOnDayView dayView: DayView) -> UIView {
+            return LunarDateView().makeConfigDateUIView(dayView) ?? UIView()
+        }
     }
 }

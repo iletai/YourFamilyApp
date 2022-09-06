@@ -25,11 +25,35 @@ struct LunarCalendarView: View {
                         )
                         .shadow(color: .gray, radius: 4)
                 )
+                .padding(.bottom, 16)
+                makeDateRegionView()
                 Spacer()
             }
             .padding()
         }
         .padding(.horizontal, 8)
+    }
+
+    func makeDateRegionView() -> some View {
+        VStack {
+            HStack(spacing: 0) {
+                Image(systemName: "sun.max")
+                Text("Hôm nay: " + currentDate.toFullDateString)
+                    .fontWeight(.semibold)
+                    .font(.system(size: 16))
+                    .padding()
+                Spacer()
+            }
+            .padding(.horizontal, 16)
+            .frame(maxWidth: .infinity)
+        }
+        .background(
+            Color.white
+                .clipShape(
+                    RoundedRectangle(cornerRadius: 16)
+                )
+                .shadow(color: .gray, radius: 4)
+        )
     }
 }
 

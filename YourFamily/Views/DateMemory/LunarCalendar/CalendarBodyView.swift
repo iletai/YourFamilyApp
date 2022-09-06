@@ -54,11 +54,16 @@ extension CalendarBodyView {
         }
 
         func makeCoordinator() -> CalendarCVCCoordinator {
-            CalendarCVCCoordinator()
+            CalendarCVCCoordinator(date: $date)
         }
     }
 
     class CalendarCVCCoordinator: CVCalendarViewDelegate, CVCalendarViewAppearanceDelegate {
+        @Binding var date: Date
+
+        init(date: Binding<Date>) {
+            _date = date
+        }
         func presentationMode() -> CalendarMode {
             .monthView
         }
@@ -85,6 +90,14 @@ extension CalendarBodyView {
 
         func shouldShowWeekdaysOut() -> Bool {
             false
+        }
+
+        func didShowNextMonthView(_ date: Date) {
+            self.date = date
+        }
+
+        func didShowPreviousMonthView(_ date: Date) {
+            self.date = date
         }
     }
 }

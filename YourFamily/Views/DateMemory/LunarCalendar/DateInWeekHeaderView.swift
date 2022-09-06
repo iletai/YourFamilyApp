@@ -20,7 +20,7 @@ struct DateInWeekHeaderView: View {
                 Color.gray
                     .opacity(0.1)
                     .clipShape(
-                        RoundedRectangle(cornerRadius: 20)
+                        RoundedRectangle(cornerRadius: 12)
                     )
                     .shadow(color: .gray, radius: 2, x: 0, y: 2)
             )

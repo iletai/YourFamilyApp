@@ -8,14 +8,16 @@
 import SwiftUI
 
 struct LunarCalendarView: View {
-    @State private var currentDate = Date()
+    @ObservedObject var viewModel = LunarCalendarViewModel()
+
     var body: some View {
         ZStack(alignment: .top) {
             Color.gray.opacity(0.1)
             VStack {
-                VStack(spacing: 0) {
+                VStack(spacing: .zero) {
+                    makeHeaderView()
                     DateInWeekHeaderView()
-                    CalendarBodyView(date: $currentDate)
+                    CalendarBodyView(date: $viewModel.date)
                 }
                 .padding(8)
                 .background(
@@ -32,17 +34,37 @@ struct LunarCalendarView: View {
             .padding()
         }
         .padding(.horizontal, 8)
+        .sheet(isPresented: $viewModel.isShowSetting) {
+            EmptyView()
+        }
+
     }
 
     func makeDateRegionView() -> some View {
         VStack {
-            HStack(spacing: 0) {
+            HStack(spacing: .zero) {
                 Image(systemName: "sun.max")
-                Text("Hôm nay: " + currentDate.toFullDateString)
+                Text("Hôm nay: " + Date().toFullDateString)
                     .fontWeight(.semibold)
                     .font(.system(size: 16))
                     .padding()
                 Spacer()
+                Button {
+                    withAnimation(.linear) {
+                        viewModel.backToCurrentDate()
+                    }
+                } label: {
+                    Image(systemName: "return")
+                        .renderingMode(.template)
+                        .overlay(
+                            Color.gray.opacity(0.2)
+                                .clipShape(Circle())
+                                .frame(width: 40, height: 40)
+                                .padding()
+                                .shadow(color: .blue, radius: 2, x: 0, y: 2)
+                        )
+                }
+
             }
             .padding(.horizontal, 16)
             .frame(maxWidth: .infinity)
@@ -54,6 +76,26 @@ struct LunarCalendarView: View {
                 )
                 .shadow(color: .gray, radius: 4)
         )
+    }
+
+    func makeHeaderView() -> some View {
+        HStack {
+            DatePicker(
+                selection: $viewModel.date,
+                displayedComponents: .date
+            ) {
+            }
+            .labelsHidden()
+            .frame(maxWidth: 120, alignment: .leading)
+            Spacer()
+            Button {
+                viewModel.setStateShowSetting(true)
+            } label: {
+                Image(systemName: "gearshape.fill")
+            }
+
+        }
+        .padding(8)
     }
 }
 

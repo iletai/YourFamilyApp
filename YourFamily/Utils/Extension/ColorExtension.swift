@@ -8,6 +8,8 @@
 import SwiftUI
 
 extension Color {
+    static let backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
+
     // swiftlint:disable identifier_name
     init(hex: String) {
         let hex = hex.trimmingCharacters(in: CharacterSet.alphanumerics.inverted)

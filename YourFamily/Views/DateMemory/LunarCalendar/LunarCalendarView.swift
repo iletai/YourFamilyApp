@@ -35,9 +35,8 @@ struct LunarCalendarView: View {
         }
         .padding(.horizontal, 8)
         .sheet(isPresented: $viewModel.isShowSetting) {
-            EmptyView()
+            SettingLunarCalendarView()
         }
-
     }
 
     func makeDateRegionView() -> some View {

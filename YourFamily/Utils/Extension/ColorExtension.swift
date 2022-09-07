@@ -8,6 +8,17 @@
 import SwiftUI
 
 extension Color {
+    static let backgroundColor = Color.gray
+    static let cB7B7E5 = Color(hex: "B7B7E5")
+    static let cC55CF1 = Color(hex: "C55CF1")
+    static let c949494 = Color(hex: "949494")
+    static let c232020 = Color(hex: "232020")
+    static let c745CF1 = Color(hex: "745CF1")
+    static let c5CCBF1 = Color(hex: "5CCBF1")
+    static let cF18A5C = Color(hex: "F18A5C")
+    static let c051937 = Color(hex: "051937")
+    static let cA8EB12 = Color(hex: "A8EB12")
+
     // swiftlint:disable identifier_name
     init(hex: String) {
         let hex = hex.trimmingCharacters(in: CharacterSet.alphanumerics.inverted)

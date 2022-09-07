@@ -12,18 +12,32 @@ struct ProfileView: View {
     var body: some View {
         ZStack {
             VStack {
-                HStack(spacing: 12) {
-                    Image(systemName: "star")
-                        .overlay(
-                            RoundedRectangle(cornerRadius: 16).stroke().fill(Color.blue).frame(width: 34, height: 24)
-                        )
-                    Text("Hello, Tai Le!")
+                Image("dummyAvatar")
+                    .resizable()
+                    .aspectRatio(9 / 16, contentMode: .fit)
+                Spacer()
+
+            }
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            LinearGradient(
+                colors: [
+                    Color.c232020,
+                    Color.c232020,
+                    Color.c232020.opacity(0.5484),
+                    Color.c232020.opacity(0),
+                ], startPoint: .bottom, endPoint: .top)
+            VStack {
+                HStack {
+                    Text("Alex Dimigo")
+                        .font(.largeTitle)
+                        .fontWeight(.bold)
+                    .foregroundColor(.white)
                     Spacer()
                 }
-                Spacer()
             }
-            .padding(16)
+            .padding()
         }
+        .ignoresSafeArea()
     }
 }
 

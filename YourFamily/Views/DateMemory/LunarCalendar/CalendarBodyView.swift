@@ -20,7 +20,12 @@ struct CalendarBodyView: View {
         ZStack(alignment: .top) {
             CalendarBodyChildView(date: $date)
         }
-        .frame(width: CalendarConfig.calendarMonthSize.width, height: CalendarConfig.calendarMonthSize.height)
+        .frame(
+            width: CalendarConfig.calendarMonthSize.width,
+            height: CVCalendar.CalendarMode(rawValue: LunarSettingManager.displayMode) == .monthView
+            ? CalendarConfig.calendarMonthSize.height
+            : CalendarConfig.calendarWeekSize.height
+        )
     }
 }
 
@@ -33,19 +38,12 @@ extension CalendarBodyView {
         }
 
         func makeUIView(context: Context) -> CVCalendarView {
-            let calendarView = CVCalendarView(
-                frame: CGRect(
-                    x: 0,
-                    y: 0,
-                    width: CalendarConfig.calendarMonthSize.width,
-                    height: CalendarConfig.calendarMonthSize.height
-                )
-            )
-            calendarView.calendarDelegate = context.coordinator as AnyObject
-            calendarView.animatorDelegate = context.coordinator as AnyObject
-            calendarView.calendarAppearanceDelegate = context.coordinator as AnyObject
-            calendarView.commitCalendarViewUpdate()
-            return calendarView
+            CalendarManager.shared.calendarView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+            CalendarManager.shared.calendarView.calendarDelegate = context.coordinator as AnyObject
+            CalendarManager.shared.calendarView.animatorDelegate = context.coordinator as AnyObject
+            CalendarManager.shared.calendarView.calendarAppearanceDelegate = context.coordinator as AnyObject
+            CalendarManager.shared.calendarView.commitCalendarViewUpdate()
+            return CalendarManager.shared.calendarView
         }
 
         func updateUIView(_ uiView: CVCalendarView, context: Context) {
@@ -54,29 +52,34 @@ extension CalendarBodyView {
         }
 
         func makeCoordinator() -> CalendarCVCCoordinator {
-            CalendarCVCCoordinator()
+            CalendarCVCCoordinator(date: $date)
         }
     }
 
     class CalendarCVCCoordinator: CVCalendarViewDelegate, CVCalendarViewAppearanceDelegate {
+        @Binding var date: Date
+
+        init(date: Binding<Date>) {
+            _date = date
+        }
         func presentationMode() -> CalendarMode {
-            .monthView
+            CalendarMode(rawValue: LunarSettingManager.displayMode) ?? .monthView
         }
 
         func calendar() -> Calendar? {
-            return CalendarManager.shared.calendar
+            CalendarManager.shared.calendar
         }
 
         func firstWeekday() -> Weekday {
-            .monday
+            Weekday(rawValue: LunarSettingManager.startDayInWeek) ?? .monday
         }
 
         func supplementaryView(shouldDisplayOnDayView _: DayView) -> Bool {
-            return true
+            LunarSettingManager.isShowLunarDate
         }
 
         func supplementaryView(viewOnDayView dayView: DayView) -> UIView {
-            return LunarDateView().makeConfigDateUIView(dayView) ?? UIView()
+            LunarSettingManager.isShowLunarDate ? LunarDateView().makeConfigDateUIView(dayView) ?? UIView() : UIView()
         }
 
         func shouldAnimateResizing() -> Bool {
@@ -84,7 +87,15 @@ extension CalendarBodyView {
         }
 
         func shouldShowWeekdaysOut() -> Bool {
-            false
+            LunarSettingManager.isShowDateOut
+        }
+
+        func didShowNextMonthView(_ date: Date) {
+            self.date = date
+        }
+
+        func didShowPreviousMonthView(_ date: Date) {
+            self.date = date
         }
     }
 }

@@ -9,10 +9,10 @@ import CVCalendar
 import Foundation
 
 final class SettingViewModel: ObservableObject {
-    @Published var isShowLunarDate = false
-    @Published var isShowDateOut = false
-    @Published var displayMode = CalendarMode.monthView
-    @Published var dayStartWeek = Weekday.monday
+    @Published var isShowLunarDate = LunarSettingManager.isShowLunarDate
+    @Published var isShowDateOut = LunarSettingManager.isShowDateOut
+    @Published var displayMode = CalendarMode(rawValue: LunarSettingManager.displayMode) ?? .monthView
+    @Published var dayStartWeek = Weekday(rawValue: LunarSettingManager.startDayInWeek) ?? .monday
 
     var dayWeek =
     [Weekday.sunday,
@@ -32,10 +32,6 @@ final class SettingViewModel: ObservableObject {
 
 // MARK: Function
 extension SettingViewModel {
-    func setCalendarMode(isShow: Bool) {
-        LunarSettingManager.isShowLunarDate = isShow
-    }
-
     func setDayStartWeek(value: Int) {
         dayStartWeek = Weekday(rawValue: value) ?? .monday
         LunarSettingManager.startDayInWeek = value
@@ -49,11 +45,13 @@ extension SettingViewModel {
     }
 
     func setLunarDate(_ show: Bool) {
+        isShowLunarDate = show
         LunarSettingManager.isShowLunarDate = show
         CalendarManager.shared.calendarView.refeshCalendarMonthView()
     }
 
     func setDateOutEnable(_ show: Bool) {
+        isShowDateOut = show
         LunarSettingManager.isShowDateOut = show
         CalendarManager.shared.calendarView.refeshCalendarMonthView()
     }

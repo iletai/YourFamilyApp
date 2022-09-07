@@ -8,7 +8,7 @@
 import CVCalendar
 import SwiftUI
 
-struct LunarSettingManager {
+struct SettingManager {
     @UserDefault(UserDefaultKey.calendarViewMode, defaultValue: CVCalendarViewPresentationMode.monthView.rawValue)
     static var displayMode: Int
 
@@ -21,4 +21,9 @@ struct LunarSettingManager {
     @UserDefault(UserDefaultKey.dateStartOfWeek, defaultValue: Weekday.monday.rawValue)
     static var startDayInWeek: Int
 
+    @UserDefault(UserDefaultKey.loggedApp, defaultValue: false)
+    static var loggedApp: Bool
+
+    @UserDefault(UserDefaultKey.emailLoggedIn, defaultValue: "")
+    static var emailLoggedIn: String
 }

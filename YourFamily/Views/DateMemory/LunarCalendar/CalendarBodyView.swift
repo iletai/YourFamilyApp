@@ -22,7 +22,7 @@ struct CalendarBodyView: View {
         }
         .frame(
             width: CalendarConfig.calendarMonthSize.width,
-            height: CVCalendar.CalendarMode(rawValue: LunarSettingManager.displayMode) == .monthView
+            height: CVCalendar.CalendarMode(rawValue: SettingManager.displayMode) == .monthView
             ? CalendarConfig.calendarMonthSize.height
             : CalendarConfig.calendarWeekSize.height
         )
@@ -63,7 +63,7 @@ extension CalendarBodyView {
             _date = date
         }
         func presentationMode() -> CalendarMode {
-            CalendarMode(rawValue: LunarSettingManager.displayMode) ?? .monthView
+            CalendarMode(rawValue: SettingManager.displayMode) ?? .monthView
         }
 
         func calendar() -> Calendar? {
@@ -71,15 +71,15 @@ extension CalendarBodyView {
         }
 
         func firstWeekday() -> Weekday {
-            Weekday(rawValue: LunarSettingManager.startDayInWeek) ?? .monday
+            Weekday(rawValue: SettingManager.startDayInWeek) ?? .monday
         }
 
         func supplementaryView(shouldDisplayOnDayView _: DayView) -> Bool {
-            LunarSettingManager.isShowLunarDate
+            SettingManager.isShowLunarDate
         }
 
         func supplementaryView(viewOnDayView dayView: DayView) -> UIView {
-            LunarSettingManager.isShowLunarDate ? LunarDateView().makeConfigDateUIView(dayView) ?? UIView() : UIView()
+            SettingManager.isShowLunarDate ? LunarDateView().makeConfigDateUIView(dayView) ?? UIView() : UIView()
         }
 
         func shouldAnimateResizing() -> Bool {
@@ -87,7 +87,7 @@ extension CalendarBodyView {
         }
 
         func shouldShowWeekdaysOut() -> Bool {
-            LunarSettingManager.isShowDateOut
+            SettingManager.isShowDateOut
         }
 
         func didShowNextMonthView(_ date: Date) {

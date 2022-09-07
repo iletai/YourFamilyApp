@@ -12,9 +12,8 @@ import LegacyCoreKit
 
 final class LoginViewModel: ObservableObject {
     @Published var loginFacebookManager = LoginManager()
-    // TODO: - Dummy to go to app
-    @AppStorage(AppConstant.kLoginKeySave) var loggedInApp = true
-    @AppStorage(AppConstant.kLoginEmail) var email = String.empty
+    @AppStorage(UserDefaultKey.loggedApp.rawValue) var loggedInApp = false
+    @AppStorage(UserDefaultKey.emailLoggedIn.rawValue) var email = String.empty
 
     init() {
         Settings.appID = AppConstant.kAppIdFacebook
@@ -54,6 +53,7 @@ extension LoginViewModel {
             }
             self.email = profileDataUser["email"] as? String ?? .empty
             self.moveToHome()
+            print("email" + self.email)
         }
     }
 

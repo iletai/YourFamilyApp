@@ -10,8 +10,8 @@ import FacebookCore
 import FacebookLogin
 
 final class ProfileViewModel: ObservableObject {
-    init() {
 
+    init() {
     }
 }
 

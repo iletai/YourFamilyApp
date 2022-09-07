@@ -18,7 +18,7 @@
 		162F765B28C796C600BD49A8 /* LunarCalendarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162F765A28C796C600BD49A8 /* LunarCalendarViewModel.swift */; };
 		162F765D28C79B2800BD49A8 /* SettingLunarCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162F765C28C79B2800BD49A8 /* SettingLunarCalendarView.swift */; };
 		162F765F28C84ECB00BD49A8 /* UserDefaultCommon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162F765E28C84ECB00BD49A8 /* UserDefaultCommon.swift */; };
-		162F766228C877FF00BD49A8 /* LunarSettingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162F766128C877FF00BD49A8 /* LunarSettingManager.swift */; };
+		162F766228C877FF00BD49A8 /* SettingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162F766128C877FF00BD49A8 /* SettingManager.swift */; };
 		162F766428C8787900BD49A8 /* SettingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162F766328C8787900BD49A8 /* SettingViewModel.swift */; };
 		1639BD2128B7E382002CCDF5 /* FacebookLogin in Frameworks */ = {isa = PBXBuildFile; productRef = 1639BD2028B7E382002CCDF5 /* FacebookLogin */; };
 		1639BD2328B85777002CCDF5 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1639BD2228B85777002CCDF5 /* ColorExtension.swift */; };
@@ -66,7 +66,7 @@
 		162F765A28C796C600BD49A8 /* LunarCalendarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LunarCalendarViewModel.swift; sourceTree = "<group>"; };
 		162F765C28C79B2800BD49A8 /* SettingLunarCalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingLunarCalendarView.swift; sourceTree = "<group>"; };
 		162F765E28C84ECB00BD49A8 /* UserDefaultCommon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaultCommon.swift; sourceTree = "<group>"; };
-		162F766128C877FF00BD49A8 /* LunarSettingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LunarSettingManager.swift; sourceTree = "<group>"; };
+		162F766128C877FF00BD49A8 /* SettingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingManager.swift; sourceTree = "<group>"; };
 		162F766328C8787900BD49A8 /* SettingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewModel.swift; sourceTree = "<group>"; };
 		1639BD2228B85777002CCDF5 /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
 		1639BD2628B868DD002CCDF5 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -136,7 +136,7 @@
 		162F766028C877F000BD49A8 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
-				162F766128C877FF00BD49A8 /* LunarSettingManager.swift */,
+				162F766128C877FF00BD49A8 /* SettingManager.swift */,
 				162F766328C8787900BD49A8 /* SettingViewModel.swift */,
 			);
 			path = Settings;
@@ -479,7 +479,7 @@
 				16AB078428C5F1D6005D885F /* ProfileViewModel.swift in Sources */,
 				16828E1728BCC0D60054081A /* CalendarPagingCellView.swift in Sources */,
 				16B95A9328B76FDF00CA3B72 /* AppRouterManager.swift in Sources */,
-				162F766228C877FF00BD49A8 /* LunarSettingManager.swift in Sources */,
+				162F766228C877FF00BD49A8 /* SettingManager.swift in Sources */,
 				162F765D28C79B2800BD49A8 /* SettingLunarCalendarView.swift in Sources */,
 				1639BD3228B914C2002CCDF5 /* SettingView.swift in Sources */,
 				162F766428C8787900BD49A8 /* SettingViewModel.swift in Sources */,

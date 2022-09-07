@@ -39,7 +39,9 @@ struct LoginView: View {
                         }
                         .padding()
                         .background(
-                            RoundedRectangle(cornerRadius: 16).stroke(lineWidth: 1))
+                            RoundedRectangle(cornerRadius: 16).fill(Color.c5CCBF1)
+                                .shadow(color: .gray, radius: 2, x: 0, y: 2)
+                        )
                     })
                 Spacer()
             }

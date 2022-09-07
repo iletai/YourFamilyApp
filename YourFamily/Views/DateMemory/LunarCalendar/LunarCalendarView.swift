@@ -9,6 +9,7 @@ import SwiftUI
 
 struct LunarCalendarView: View {
     @ObservedObject var viewModel = LunarCalendarViewModel()
+    @ObservedObject var settingModel = SettingViewModel()
 
     var body: some View {
         ZStack(alignment: .top) {
@@ -36,6 +37,7 @@ struct LunarCalendarView: View {
         .padding(.horizontal, 8)
         .sheet(isPresented: $viewModel.isShowSetting) {
             SettingLunarCalendarView()
+                .environmentObject(settingModel)
         }
     }
 

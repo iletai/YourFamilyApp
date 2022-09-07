@@ -6,8 +6,10 @@
 //
 
 import SwiftUI
+import CVCalendar
 
 struct SettingLunarCalendarView: View {
+    @EnvironmentObject var viewModel: SettingViewModel
     var body: some View {
         ZStack {
             LinearGradient(
@@ -120,7 +122,13 @@ struct SettingLunarCalendarView: View {
                     .foregroundColor(Color.c949494)
             }
             Spacer()
-            Toggle(isOn: .constant(true)) {
+            Picker("", selection: $viewModel.displayMode) {
+                ForEach(viewModel.calendarMode, id: \.self) { dis in
+                    Text(dis.stringValue)
+                }
+            }
+            .onChange(of: viewModel.displayMode) { change in
+                viewModel.setDisplayMode(value: change.rawValue)
             }
         }
     }
@@ -149,8 +157,14 @@ struct SettingLunarCalendarView: View {
                     .foregroundColor(Color.c949494)
             }
             Spacer()
-            Toggle(isOn: .constant(true)) {
+            Picker("", selection: $viewModel.dayStartWeek) {
+                ForEach(viewModel.dayWeek, id: \.self) { dis in
+                    Text(dis.stringValue)
+                }
             }
+        }
+        .onChange(of: viewModel.dayStartWeek) { day in
+            viewModel.setDayStartWeek(value: day.rawValue)
         }
     }
 
@@ -180,7 +194,10 @@ struct SettingLunarCalendarView: View {
                     .foregroundColor(Color.c949494)
             }
             Spacer()
-            Toggle(isOn: .constant(true)) {
+            Toggle(isOn: $viewModel.isShowLunarDate) {
+            }
+            .onChange(of: viewModel.isShowLunarDate) { show in
+                viewModel.setLunarDate(show)
             }
         }
     }
@@ -211,7 +228,10 @@ struct SettingLunarCalendarView: View {
                     .foregroundColor(Color.c949494)
             }
             Spacer()
-            Toggle(isOn: .constant(true)) {
+            Toggle(isOn: $viewModel.isShowDateOut) {
+            }
+            .onChange(of: viewModel.isShowDateOut) { show in
+                viewModel.setDateOutEnable(show)
             }
         }
     }

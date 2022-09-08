@@ -54,6 +54,9 @@
 		16B95A9528B7703C00CA3B72 /* RouterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16B95A9428B7703C00CA3B72 /* RouterView.swift */; };
 		16B95A9728B7707100CA3B72 /* RouterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16B95A9628B7707100CA3B72 /* RouterViewModel.swift */; };
 		16F41FC628C99F8800ACA1DA /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 16F41FC528C99F8800ACA1DA /* Alamofire */; };
+		16F41FCC28CA5BFD00ACA1DA /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 16F41FCB28CA5BFD00ACA1DA /* FirebaseAuth */; };
+		16F41FCE28CA5BFD00ACA1DA /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 16F41FCD28CA5BFD00ACA1DA /* FirebaseDatabase */; };
+		16F41FD028CA5BFD00ACA1DA /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 16F41FCF28CA5BFD00ACA1DA /* FirebaseStorage */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -109,10 +112,13 @@
 				16828E2028BD15F10054081A /* SwiftDate in Frameworks */,
 				16F41FC628C99F8800ACA1DA /* Alamofire in Frameworks */,
 				162F764628C72D2200BD49A8 /* CVCalendar in Frameworks */,
+				16F41FD028CA5BFD00ACA1DA /* FirebaseStorage in Frameworks */,
 				16828E1028BCB7970054081A /* Parchment in Frameworks */,
 				1639BD2A28B8BCAC002CCDF5 /* SwiftUIPager in Frameworks */,
 				16828E3728C5B2240054081A /* AlertToast in Frameworks */,
+				16F41FCE28CA5BFD00ACA1DA /* FirebaseDatabase in Frameworks */,
 				1639BD2128B7E382002CCDF5 /* FacebookLogin in Frameworks */,
+				16F41FCC28CA5BFD00ACA1DA /* FirebaseAuth in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -384,6 +390,9 @@
 				16828E3628C5B2240054081A /* AlertToast */,
 				162F764528C72D2200BD49A8 /* CVCalendar */,
 				16F41FC528C99F8800ACA1DA /* Alamofire */,
+				16F41FCB28CA5BFD00ACA1DA /* FirebaseAuth */,
+				16F41FCD28CA5BFD00ACA1DA /* FirebaseDatabase */,
+				16F41FCF28CA5BFD00ACA1DA /* FirebaseStorage */,
 			);
 			productName = YourFamily;
 			productReference = 1665E16028B7427D00CCEA09 /* YourFamily.app */;
@@ -422,6 +431,7 @@
 				16828E3528C5B2240054081A /* XCRemoteSwiftPackageReference "AlertToast" */,
 				162F764428C72D2200BD49A8 /* XCRemoteSwiftPackageReference "CVCalendar" */,
 				16F41FC428C99F8800ACA1DA /* XCRemoteSwiftPackageReference "Alamofire" */,
+				16F41FCA28CA5BFD00ACA1DA /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			productRefGroup = 1665E16128B7427D00CCEA09 /* Products */;
 			projectDirPath = "";
@@ -777,6 +787,14 @@
 				minimumVersion = 5.0.0;
 			};
 		};
+		16F41FCA28CA5BFD00ACA1DA /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 9.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -814,6 +832,21 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 16F41FC428C99F8800ACA1DA /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
+		};
+		16F41FCB28CA5BFD00ACA1DA /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 16F41FCA28CA5BFD00ACA1DA /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		16F41FCD28CA5BFD00ACA1DA /* FirebaseDatabase */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 16F41FCA28CA5BFD00ACA1DA /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseDatabase;
+		};
+		16F41FCF28CA5BFD00ACA1DA /* FirebaseStorage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 16F41FCA28CA5BFD00ACA1DA /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseStorage;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

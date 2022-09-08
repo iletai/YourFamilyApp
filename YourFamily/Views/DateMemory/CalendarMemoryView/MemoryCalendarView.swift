@@ -24,11 +24,14 @@ struct MemoryCalendarView<Page: View>: View {
     }
 
     var body: some View {
-        CalendarPageController(
-            calendarOptions: calendarOptions,
-            contentCalendar: contentCalendar,
-            selected: selected
-        )
+        ZStack {
+            CalendarPageController(
+                calendarOptions: calendarOptions,
+                contentCalendar: contentCalendar,
+                selected: selected
+            )
+                .padding(8)
+        }
     }
 }
 

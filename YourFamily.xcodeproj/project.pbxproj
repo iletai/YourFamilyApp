@@ -53,6 +53,7 @@
 		16B95A9328B76FDF00CA3B72 /* AppRouterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16B95A9228B76FDF00CA3B72 /* AppRouterManager.swift */; };
 		16B95A9528B7703C00CA3B72 /* RouterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16B95A9428B7703C00CA3B72 /* RouterView.swift */; };
 		16B95A9728B7707100CA3B72 /* RouterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16B95A9628B7707100CA3B72 /* RouterViewModel.swift */; };
+		16F41FC628C99F8800ACA1DA /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 16F41FC528C99F8800ACA1DA /* Alamofire */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -106,6 +107,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				16828E2028BD15F10054081A /* SwiftDate in Frameworks */,
+				16F41FC628C99F8800ACA1DA /* Alamofire in Frameworks */,
 				162F764628C72D2200BD49A8 /* CVCalendar in Frameworks */,
 				16828E1028BCB7970054081A /* Parchment in Frameworks */,
 				1639BD2A28B8BCAC002CCDF5 /* SwiftUIPager in Frameworks */,
@@ -381,6 +383,7 @@
 				16828E1F28BD15F10054081A /* SwiftDate */,
 				16828E3628C5B2240054081A /* AlertToast */,
 				162F764528C72D2200BD49A8 /* CVCalendar */,
+				16F41FC528C99F8800ACA1DA /* Alamofire */,
 			);
 			productName = YourFamily;
 			productReference = 1665E16028B7427D00CCEA09 /* YourFamily.app */;
@@ -418,6 +421,7 @@
 				16828E1E28BD15F10054081A /* XCRemoteSwiftPackageReference "SwiftDate" */,
 				16828E3528C5B2240054081A /* XCRemoteSwiftPackageReference "AlertToast" */,
 				162F764428C72D2200BD49A8 /* XCRemoteSwiftPackageReference "CVCalendar" */,
+				16F41FC428C99F8800ACA1DA /* XCRemoteSwiftPackageReference "Alamofire" */,
 			);
 			productRefGroup = 1665E16128B7427D00CCEA09 /* Products */;
 			projectDirPath = "";
@@ -765,6 +769,14 @@
 				minimumVersion = 0.9.2;
 			};
 		};
+		16F41FC428C99F8800ACA1DA /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -797,6 +809,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 16828E3528C5B2240054081A /* XCRemoteSwiftPackageReference "AlertToast" */;
 			productName = AlertToast;
+		};
+		16F41FC528C99F8800ACA1DA /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 16F41FC428C99F8800ACA1DA /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

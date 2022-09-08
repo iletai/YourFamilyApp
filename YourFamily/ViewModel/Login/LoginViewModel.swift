@@ -12,7 +12,7 @@ import LegacyCoreKit
 
 final class LoginViewModel: ObservableObject {
     @Published var loginFacebookManager = LoginManager()
-    @AppStorage(UserDefaultKey.loggedApp.rawValue) var loggedInApp = false
+    @AppStorage(UserDefaultKey.loggedApp.rawValue) var loggedInApp = true
     @AppStorage(UserDefaultKey.emailLoggedIn.rawValue) var email = String.empty
 
     init() {

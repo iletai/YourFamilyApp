@@ -88,7 +88,7 @@ struct SignUpView: View {
                 Button(
                     action: {
                         withAnimation(.easeOut) {
-                            viewModel.loginWithFacebook()
+                            viewModel.signUpFirebase()
                         }
                     },
                     label: {

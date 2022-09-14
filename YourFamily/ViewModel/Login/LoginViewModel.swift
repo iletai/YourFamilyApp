@@ -74,7 +74,6 @@ extension LoginViewModel {
     }
 
     func loginWithEmail() {
-        
     }
 
     func signUpFirebase() {
@@ -87,7 +86,7 @@ extension LoginViewModel {
             switch authResult {
             case .none:  // Could not create account
                 self.signUpProcessing = false
-            case .some(_):
+            case .some:
                 self.signUpProcessing = false
                 self.moveToHome()
             }

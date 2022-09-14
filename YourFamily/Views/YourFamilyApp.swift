@@ -7,11 +7,15 @@
 
 import FacebookCore
 import SwiftUI
+import Firebase
 
 @main
 struct YourFamilyApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
 
+    init() {
+        FirebaseApp.configure()
+    }
     var body: some Scene {
         WindowGroup {
             AppRouterManager.shared.getRouterView()

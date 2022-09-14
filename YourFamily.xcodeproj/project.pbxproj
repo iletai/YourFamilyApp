@@ -20,6 +20,8 @@
 		162F765F28C84ECB00BD49A8 /* UserDefaultCommon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162F765E28C84ECB00BD49A8 /* UserDefaultCommon.swift */; };
 		162F766228C877FF00BD49A8 /* SettingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162F766128C877FF00BD49A8 /* SettingManager.swift */; };
 		162F766428C8787900BD49A8 /* SettingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162F766328C8787900BD49A8 /* SettingViewModel.swift */; };
+		163639D528D05B97000B0B19 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163639D328D05B97000B0B19 /* Constants.swift */; };
+		163639D828D225A4000B0B19 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163639D728D225A4000B0B19 /* SignUpView.swift */; };
 		1639BD2128B7E382002CCDF5 /* FacebookLogin in Frameworks */ = {isa = PBXBuildFile; productRef = 1639BD2028B7E382002CCDF5 /* FacebookLogin */; };
 		1639BD2328B85777002CCDF5 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1639BD2228B85777002CCDF5 /* ColorExtension.swift */; };
 		1639BD2728B868DD002CCDF5 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1639BD2628B868DD002CCDF5 /* HomeView.swift */; };
@@ -72,6 +74,8 @@
 		162F765E28C84ECB00BD49A8 /* UserDefaultCommon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaultCommon.swift; sourceTree = "<group>"; };
 		162F766128C877FF00BD49A8 /* SettingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingManager.swift; sourceTree = "<group>"; };
 		162F766328C8787900BD49A8 /* SettingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewModel.swift; sourceTree = "<group>"; };
+		163639D328D05B97000B0B19 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		163639D728D225A4000B0B19 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		1639BD2228B85777002CCDF5 /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
 		1639BD2628B868DD002CCDF5 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		1639BD2B28B8BDB0002CCDF5 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
@@ -150,6 +154,14 @@
 			path = Settings;
 			sourceTree = "<group>";
 		};
+		163639D228D05B97000B0B19 /* VNCalendarConverter */ = {
+			isa = PBXGroup;
+			children = (
+				163639D328D05B97000B0B19 /* Constants.swift */,
+			);
+			path = VNCalendarConverter;
+			sourceTree = "<group>";
+		};
 		1639BD2428B868C6002CCDF5 /* Home */ = {
 			isa = PBXGroup;
 			children = (
@@ -208,6 +220,7 @@
 			isa = PBXGroup;
 			children = (
 				165E973528B7C4BE00490E01 /* LoginView.swift */,
+				163639D728D225A4000B0B19 /* SignUpView.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -292,6 +305,7 @@
 		16B95A8C28B747BD00CA3B72 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				163639D228D05B97000B0B19 /* VNCalendarConverter */,
 				162F765E28C84ECB00BD49A8 /* UserDefaultCommon.swift */,
 				16B95A9028B747F500CA3B72 /* Extension */,
 				16828E3328C5A6E30054081A /* DateUtils.swift */,
@@ -499,6 +513,7 @@
 				162F766428C8787900BD49A8 /* SettingViewModel.swift in Sources */,
 				16828E1928BCC53E0054081A /* DateMemoryViewModel.swift in Sources */,
 				162F765328C73C6F00BD49A8 /* CalendarBodyView.swift in Sources */,
+				163639D528D05B97000B0B19 /* Constants.swift in Sources */,
 				1665E16428B7427D00CCEA09 /* YourFamilyApp.swift in Sources */,
 				16828E3428C5A6E40054081A /* DateUtils.swift in Sources */,
 				1639BD2728B868DD002CCDF5 /* HomeView.swift in Sources */,
@@ -514,6 +529,7 @@
 				162F765B28C796C600BD49A8 /* LunarCalendarViewModel.swift in Sources */,
 				16AB078128C5E7EF005D885F /* ViewExtension.swift in Sources */,
 				165E973B28B7C87A00490E01 /* AppConstant.swift in Sources */,
+				163639D828D225A4000B0B19 /* SignUpView.swift in Sources */,
 				16828E1528BCBBE90054081A /* CalendarMemoryItem.swift in Sources */,
 				1639BD2328B85777002CCDF5 /* ColorExtension.swift in Sources */,
 				162F765F28C84ECB00BD49A8 /* UserDefaultCommon.swift in Sources */,

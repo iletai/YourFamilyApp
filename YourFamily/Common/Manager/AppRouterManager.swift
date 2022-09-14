@@ -18,6 +18,7 @@ class AppRouterManager {
         case home
         case setting
         case login
+        case signUp
         case wallet
         case regist
         case forgotPassword

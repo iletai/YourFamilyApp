@@ -28,6 +28,8 @@ struct RouterView: View {
             SettingView().transition(viewModel.transition)
         case .login:
             LoginView()
+        case .signUp:
+            SignUpView()
         }
     }
 }

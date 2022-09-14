@@ -53,7 +53,7 @@ struct HeaderWeekCalendar: UIViewRepresentable {
 
 class CVCalendarMenuCoordinartor: NSObject, CVCalendarMenuViewDelegate {
     func firstWeekday() -> Weekday {
-        Weekday(rawValue: LunarSettingManager.startDayInWeek) ?? .monday
+        Weekday(rawValue: SettingManager.startDayInWeek) ?? .monday
     }
 
     func dayOfWeekTextColor(by weekday: Weekday) -> UIColor {

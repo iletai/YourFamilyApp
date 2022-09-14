@@ -1,18 +1,15 @@
 //
-//  LoginView.swift
+//  SignUpView.swift
 //  YourFamily
 //
-//  Created by Lê Quang Trọng Tài on 8/25/22.
+//  Created by Lê Quang Trọng Tài on 9/14/22.
 //
 
-import FBSDKLoginKit
-import FacebookCore
 import SwiftUI
-import Combine
 
-struct LoginView: View {
+struct SignUpView: View {
     @State private(set) var viewModel = LoginViewModel()
-    @State private var isStrongPassword = false
+
     var body: some View {
         ZStack {
             Color(hex: "F1F3F6").ignoresSafeArea()
@@ -30,12 +27,12 @@ struct LoginView: View {
                     makeButtonArea()
                     Spacer()
                     HStack {
-                        Text("Don't Have Account?")
+                        Text("Already Account?")
                             .foregroundColor(Color.c232020)
                         Button {
-                            AppRouterManager.shared.setRouterState(.signUp, animation: .easeOut(duration: 1))
+                            AppRouterManager.shared.setRouterState(.login, animation: .easeOut(duration: 1))
                         } label: {
-                            Text("Sign Up")
+                            Text("Login")
                                 .padding(.vertical, 8)
                                 .padding(.horizontal, 16)
                                 .background(
@@ -47,14 +44,6 @@ struct LoginView: View {
                 Spacer()
             }
         }
-        .onOpenURL(perform: { url in
-            ApplicationDelegate.shared.application(
-                UIApplication.shared,
-                open: url,
-                sourceApplication: nil,
-                annotation: UIApplication.OpenURLOptionsKey.annotation
-            )
-        })
     }
 
     func makeTextInputArea() -> some View {
@@ -79,6 +68,16 @@ struct LoginView: View {
                     )
                 Spacer(minLength: 24)
             }
+            HStack {
+                Spacer(minLength: 24)
+                SecureField("Repeat Password", text: $viewModel.yourPassword)
+                    .padding(.vertical, 20)
+                    .padding(.horizontal, 20)
+                    .background(
+                        Color.white.clipShape(RoundedRectangle(cornerRadius: 14))
+                    )
+                Spacer(minLength: 24)
+            }
         }
     }
 
@@ -89,20 +88,21 @@ struct LoginView: View {
                 Button(
                     action: {
                         withAnimation(.easeOut) {
-                            viewModel.loginWithEmail()
+                            viewModel.signUpFirebase()
                         }
                     },
                     label: {
-                        HStack {
+                        HStack(spacing: 8) {
                             Image(systemName: "envelope")
                                 .renderingMode(.template)
+                                .foregroundColor(.white)
                                 .frame(maxWidth: 24, maxHeight: 24)
-                            Text("Login")
+                            Text("Sign Up")
                                 .font(.subheadline)
                                 .fontWeight(.semibold)
+                                .foregroundColor(.white)
                         }
-                        .foregroundColor(.white)
-                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .frame(maxWidth: .infinity, alignment: .center)
                         .padding()
                         .background(
                             RoundedRectangle(cornerRadius: 16).fill(Color.c745CF1)
@@ -111,38 +111,12 @@ struct LoginView: View {
                     })
                 Spacer(minLength: 100)
             }
-            HStack {
-                Spacer(minLength: 100)
-                Button(
-                    action: {
-                        withAnimation(.easeOut) {
-                            viewModel.loginWithFacebook()
-                        }
-                    },
-                    label: {
-                        HStack {
-                            Image("facebook")
-                                .frame(maxWidth: 24, maxHeight: 24)
-                            Text("Login with Facebook")
-                                .font(.subheadline)
-                                .fontWeight(.semibold)
-                        }
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                        .padding()
-                        .background(
-                            RoundedRectangle(cornerRadius: 16).fill(Color.c5CCBF1)
-                                .shadow(color: .gray, radius: 2, x: 0, y: 2)
-                        )
-                        .frame(maxWidth: .infinity)
-                    })
-                Spacer(minLength: 100)
-            }
         }
     }
 }
 
-struct LoginView_Previews: PreviewProvider {
+struct SignUpView_Previews: PreviewProvider {
     static var previews: some View {
-        LoginView()
+        SignUpView()
     }
 }

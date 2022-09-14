@@ -15,6 +15,8 @@ enum UserDefaultKey: String {
     case showLunar
     case calendarViewMode
     case dateStartOfWeek
+    case loggedApp
+    case emailLoggedIn
 
     var stringValue: String {
         "UserDefaultsDataStore.Key.\(self.rawValue)"

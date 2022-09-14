@@ -23,34 +23,34 @@
 		<dict>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>fb635879924485117</string>
+				<string>fb599633531643572</string>
 			</array>
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
 	<string>$(CURRENT_PROJECT_VERSION)</string>
 	<key>FacebookAppID</key>
-	<string>635879924485117</string>
+	<string>599633531643572</string>
 	<key>FacebookClientToken</key>
-	<string>44cd23bf51cda8e2ac7b06afd764b3e0</string>
+	<string>cc6d3a31431fcd09b95206adcc7a20db</string>
 	<key>FacebookDisplayName</key>
 	<string>YourFamily</string>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
 		<string>fbapi</string>
 		<string>fb-messenger-share-api</string>
-        <string>fbapi20130214</string>
-        <string>fbapi20130410</string>
-        <string>fbapi20130702</string>
-        <string>fbapi20131010</string>
-        <string>fbapi20131219</string>
-        <string>fbapi20140410</string>
-        <string>fbapi20140116</string>
-        <string>fbapi20150313</string>
-        <string>fbapi20150629</string>
-        <string>fbauth</string>
-        <string>fbauth2</string>
-        <string>fb-messenger-api20140430</string>
+		<string>fbapi20130214</string>
+		<string>fbapi20130410</string>
+		<string>fbapi20130702</string>
+		<string>fbapi20131010</string>
+		<string>fbapi20131219</string>
+		<string>fbapi20140410</string>
+		<string>fbapi20140116</string>
+		<string>fbapi20150313</string>
+		<string>fbapi20150629</string>
+		<string>fbauth</string>
+		<string>fbauth2</string>
+		<string>fb-messenger-api20140430</string>
 	</array>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>

@@ -12,5 +12,5 @@ public struct AppConstant {
     public static let kLoginParamRequest = ["public_profile", "email"]
 
     // SNS
-    public static let kAppIdFacebook = "635879924485117"
+    public static let kAppIdFacebook = "599633531643572"
 }

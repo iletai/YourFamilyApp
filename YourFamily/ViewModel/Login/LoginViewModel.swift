@@ -43,14 +43,14 @@ extension LoginViewModel {
                 return
             } else {
                 if !result!.isCancelled {
-                    self.requestGrapFacebook()
-                    self.loggedInApp = true
+                    self.requestGrapFacebook(result: result!)
                 }
+
             }
         }
     }
 
-    private func requestGrapFacebook() {
+    private func requestGrapFacebook(result: LoginManagerLoginResult) {
         let request = GraphRequest(
             graphPath: "me",
             parameters: ["fields": "email"]
@@ -59,7 +59,19 @@ extension LoginViewModel {
             guard let profileDataUser = res as? [String: Any] else {
                 return
             }
+            // self.loggedInApp = true
             self.email = profileDataUser["email"] as? String ?? .empty
+            guard let token = AccessToken.current?.tokenString else {
+                return
+            }
+            let credential = FacebookAuthProvider.credential(withAccessToken: token)
+            Auth.auth().signIn(with: credential) { res, error in
+                if let error = error {
+                    print(error)
+                    return
+                }
+
+            }
             self.moveToHome()
             print("email" + self.email)
         }
@@ -70,7 +82,17 @@ extension LoginViewModel {
     }
 
     func loginWithFirebase() {
+        guard let token = AccessToken.current?.tokenString else {
+            return
+        }
+        let credential = FacebookAuthProvider.credential(withAccessToken: token)
+        Auth.auth().signIn(with: credential) { res, error in
+            if let error = error {
+                print(error)
+                return
+            }
 
+        }
     }
 
     func loginWithEmail() {

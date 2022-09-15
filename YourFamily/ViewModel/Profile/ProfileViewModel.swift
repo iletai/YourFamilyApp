@@ -10,9 +10,15 @@ import FacebookCore
 import FacebookLogin
 
 final class ProfileViewModel: ObservableObject {
+    @Published var showSettingProfile = false
+    @Published var showMenuProfile = false
 
     init() {
     }
+}
+
+// MARK: - Enum
+extension ProfileViewModel {
 }
 
 // MARK: - Function

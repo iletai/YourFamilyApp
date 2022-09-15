@@ -19,6 +19,9 @@ extension Color {
     static let c051937 = Color(hex: "051937")
     static let cA8EB12 = Color(hex: "A8EB12")
 
+    /// Text Color: 595085
+    static let c595085 = Color(hex: "595085")
+
     // swiftlint:disable identifier_name
     init(hex: String) {
         let hex = hex.trimmingCharacters(in: CharacterSet.alphanumerics.inverted)

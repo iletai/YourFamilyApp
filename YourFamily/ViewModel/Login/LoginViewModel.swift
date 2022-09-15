@@ -30,6 +30,19 @@ final class LoginViewModel: ObservableObject {
     }
 }
 
+// MARK: - Enum
+extension LoginViewModel {
+    enum AuthencationState: CaseIterable, Identifiable {
+        var id: Self {
+            self
+        }
+
+        case none
+        case signIn
+        case signOut
+    }
+}
+
 // MARK: - Function
 extension LoginViewModel {
     /// Login Facebook
@@ -96,6 +109,19 @@ extension LoginViewModel {
     }
 
     func loginWithEmail() {
+        Auth.auth().signIn(withEmail: yourEmail, password: yourPassword) { authResult, error in
+            guard error == nil else {
+                self.loggedInApp = false
+                return
+            }
+            switch authResult {
+            case .none:  // Could not create account
+                self.signUpProcessing = false
+            case .some:
+                self.loggedInApp = true
+                self.moveToHome()
+            }
+        }
     }
 
     func signUpFirebase() {

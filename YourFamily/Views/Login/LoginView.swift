@@ -11,7 +11,7 @@ import SwiftUI
 import Combine
 
 struct LoginView: View {
-    @State private(set) var viewModel = LoginViewModel()
+    @StateObject var viewModel = LoginViewModel()
     @State private var isStrongPassword = false
     var body: some View {
         ZStack {
@@ -55,6 +55,7 @@ struct LoginView: View {
                 annotation: UIApplication.OpenURLOptionsKey.annotation
             )
         })
+        .environmentObject(viewModel)
     }
 
     func makeTextInputArea() -> some View {

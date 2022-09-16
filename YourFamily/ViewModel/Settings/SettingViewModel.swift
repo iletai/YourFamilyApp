@@ -36,6 +36,7 @@ extension SettingViewModel {
         dayStartWeek = Weekday(rawValue: value) ?? .monday
         SettingManager.startDayInWeek = value
         CalendarManager.shared.calendarView.contentController.refreshPresentedMonth()
+        CalendarManager.shared.calendarMenuView.commitMenuViewUpdate()
     }
 
     func setDisplayMode(value: Int) {

@@ -39,63 +39,21 @@ extension CalendarBodyView {
 
         func makeUIView(context: Context) -> CVCalendarView {
             CalendarManager.shared.calendarView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+            CalendarManager.shared.calendarView.calendarAppearanceDelegate = context.coordinator as AnyObject
             CalendarManager.shared.calendarView.calendarDelegate = context.coordinator as AnyObject
             CalendarManager.shared.calendarView.animatorDelegate = context.coordinator as AnyObject
-            CalendarManager.shared.calendarView.calendarAppearanceDelegate = context.coordinator as AnyObject
-            CalendarManager.shared.calendarView.commitCalendarViewUpdate()
+            CalendarManager.shared.calendarView.appearance.setupAppearance()
             return CalendarManager.shared.calendarView
         }
 
         func updateUIView(_ uiView: CVCalendarView, context: Context) {
             uiView.toggleViewWithDate(self.date)
+            uiView.appearance.setupAppearance()
             uiView.commitCalendarViewUpdate()
         }
 
-        func makeCoordinator() -> CalendarCVCCoordinator {
-            CalendarCVCCoordinator(date: $date)
-        }
-    }
-
-    class CalendarCVCCoordinator: CVCalendarViewDelegate, CVCalendarViewAppearanceDelegate {
-        @Binding var date: Date
-
-        init(date: Binding<Date>) {
-            _date = date
-        }
-        func presentationMode() -> CalendarMode {
-            CalendarMode(rawValue: SettingManager.displayMode) ?? .monthView
-        }
-
-        func calendar() -> Calendar? {
-            CalendarManager.shared.calendar
-        }
-
-        func firstWeekday() -> Weekday {
-            Weekday(rawValue: SettingManager.startDayInWeek) ?? .monday
-        }
-
-        func supplementaryView(shouldDisplayOnDayView _: DayView) -> Bool {
-            SettingManager.isShowLunarDate
-        }
-
-        func supplementaryView(viewOnDayView dayView: DayView) -> UIView {
-            SettingManager.isShowLunarDate ? LunarDateView().makeConfigDateUIView(dayView) ?? UIView() : UIView()
-        }
-
-        func shouldAnimateResizing() -> Bool {
-            true
-        }
-
-        func shouldShowWeekdaysOut() -> Bool {
-            SettingManager.isShowDateOut
-        }
-
-        func didShowNextMonthView(_ date: Date) {
-            self.date = date
-        }
-
-        func didShowPreviousMonthView(_ date: Date) {
-            self.date = date
+        func makeCoordinator() -> CalendarCoordinator {
+            CalendarCoordinator(date: $date)
         }
     }
 }

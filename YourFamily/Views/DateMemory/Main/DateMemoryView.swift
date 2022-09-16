@@ -13,7 +13,7 @@ struct DateMemoryView: View {
 
     var body: some View {
         ZStack {
-            VStack {
+            VStack(spacing: 0) {
                 HStack {
                     ForEach(viewModel.tabPageItem) { item in
                         tabButton(title: item.titleText, tag: item.id)
@@ -21,6 +21,10 @@ struct DateMemoryView: View {
                 }
                 .padding(.top)
                 .font(.headline)
+                .background(
+                    Color.c5CCBF1
+                        .ignoresSafeArea()
+                )
                 TabView(selection: $viewModel.tabPageIndex) {
                     MemoryCalendarView(
                         contentCalendar: { item in
@@ -40,11 +44,18 @@ struct DateMemoryView: View {
 
     func tabButton(title: String, tag: DateMemoryViewModel.TabPage) -> some View {
         VStack {
-            Button(title) { withAnimation { viewModel.tabPageIndex = tag } }
-                .frame(maxWidth: .infinity)
-                .foregroundColor(viewModel.tabPageIndex == tag ? .primary : .secondary)
+            Button {
+                withAnimation { viewModel.tabPageIndex = tag }
+            } label: {
+                HStack(spacing: 4) {
+                    Image(systemName: tag.image)
+                    Text(title)
+                }
+            }
+            .frame(maxWidth: .infinity)
+            .foregroundColor(viewModel.tabPageIndex == tag ? .primary : .secondary)
 
-            Color(viewModel.tabPageIndex == tag ? .blue : .clear)
+            Color(viewModel.tabPageIndex == tag ? .white : .clear)
                 .frame(height: 4)
                 .padding(.horizontal)
         }

@@ -9,15 +9,14 @@ import SwiftUI
 
 struct LunarCalendarView: View {
     @ObservedObject var viewModel = LunarCalendarViewModel()
-    @ObservedObject var settingModel = SettingViewModel()
-
+    @StateObject var settingModel = SettingViewModel()
     var body: some View {
         ZStack(alignment: .top) {
             Color.gray.opacity(0.1)
             VStack {
                 VStack(spacing: .zero) {
                     makeHeaderView()
-                    DateInWeekHeaderView()
+                    DateInWeekHeaderView(date: $viewModel.date)
                     CalendarBodyView(date: $viewModel.date)
                 }
                 .padding(8)
@@ -36,8 +35,10 @@ struct LunarCalendarView: View {
         }
         .padding(.horizontal, 8)
         .sheet(isPresented: $viewModel.isShowSetting) {
-            SettingLunarCalendarView()
-                .environmentObject(settingModel)
+            SettingLunarCalendarView(viewModel: settingModel)
+        }
+        .onAppear {
+            CalendarManager.shared.calendarView.appearance.setupAppearance()
         }
     }
 

@@ -47,6 +47,17 @@ extension DateMemoryViewModel {
                 return "Notes"
             }
         }
+
+        var image: String {
+            switch self {
+            case .memory:
+                return "timer.square"
+            case .calendar:
+                return "calendar"
+            case .note:
+                return "highlighter"
+            }
+        }
     }
 }
 

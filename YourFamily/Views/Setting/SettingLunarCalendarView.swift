@@ -9,7 +9,7 @@ import SwiftUI
 import CVCalendar
 
 struct SettingLunarCalendarView: View {
-    @EnvironmentObject var viewModel: SettingViewModel
+    @StateObject var viewModel: SettingViewModel
     var body: some View {
         ZStack {
             LinearGradient(
@@ -239,6 +239,6 @@ struct SettingLunarCalendarView: View {
 
 struct SettingLunarCalendarView_Previews: PreviewProvider {
     static var previews: some View {
-        SettingLunarCalendarView()
+        SettingLunarCalendarView(viewModel: SettingViewModel())
     }
 }

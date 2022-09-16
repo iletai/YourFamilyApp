@@ -39,6 +39,7 @@
 		1665E16628B7427D00CCEA09 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1665E16528B7427D00CCEA09 /* ContentView.swift */; };
 		1665E16828B7427F00CCEA09 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1665E16728B7427F00CCEA09 /* Assets.xcassets */; };
 		1665E16B28B7427F00CCEA09 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1665E16A28B7427F00CCEA09 /* Preview Assets.xcassets */; };
+		167090CE28D42E300022BA8F /* CalendarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167090CD28D42E300022BA8F /* CalendarCoordinator.swift */; };
 		16828E1028BCB7970054081A /* Parchment in Frameworks */ = {isa = PBXBuildFile; productRef = 16828E0F28BCB7970054081A /* Parchment */; };
 		16828E1328BCBB150054081A /* MemoryCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16828E1228BCBB150054081A /* MemoryCalendarView.swift */; };
 		16828E1528BCBBE90054081A /* CalendarMemoryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16828E1428BCBBE90054081A /* CalendarMemoryItem.swift */; };
@@ -94,6 +95,7 @@
 		1665E16528B7427D00CCEA09 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		1665E16728B7427F00CCEA09 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1665E16A28B7427F00CCEA09 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		167090CD28D42E300022BA8F /* CalendarCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarCoordinator.swift; sourceTree = "<group>"; };
 		16828E1228BCBB150054081A /* MemoryCalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryCalendarView.swift; sourceTree = "<group>"; };
 		16828E1428BCBBE90054081A /* CalendarMemoryItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarMemoryItem.swift; sourceTree = "<group>"; };
 		16828E1628BCC0D60054081A /* CalendarPagingCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarPagingCellView.swift; sourceTree = "<group>"; };
@@ -301,6 +303,7 @@
 				162F764E28C731B300BD49A8 /* CalendarManager.swift */,
 				162F765228C73C6F00BD49A8 /* CalendarBodyView.swift */,
 				162F765428C74AD300BD49A8 /* LunarDateView.swift */,
+				167090CD28D42E300022BA8F /* CalendarCoordinator.swift */,
 			);
 			path = LunarCalendar;
 			sourceTree = "<group>";
@@ -500,6 +503,7 @@
 				16AB078628C71C3A005D885F /* LunarCalendarView.swift in Sources */,
 				165E973628B7C4BE00490E01 /* LoginView.swift in Sources */,
 				16828E1B28BD11A40054081A /* DateExtension.swift in Sources */,
+				167090CE28D42E300022BA8F /* CalendarCoordinator.swift in Sources */,
 				16828E1D28BD14E50054081A /* DateFormatterExtension.swift in Sources */,
 				1665E16628B7427D00CCEA09 /* ContentView.swift in Sources */,
 				16828E1328BCBB150054081A /* MemoryCalendarView.swift in Sources */,

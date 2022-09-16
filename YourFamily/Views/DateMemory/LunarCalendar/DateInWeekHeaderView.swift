@@ -9,11 +9,15 @@ import CVCalendar
 import SwiftUI
 
 struct DateInWeekHeaderView: View {
+    @Binding var date: Date
+    init(date: Binding<Date>) {
+        _date = date
+    }
     var body: some View {
         ZStack(alignment: .top) {
             VStack {
                 Spacer()
-                HeaderWeekCalendar()
+                HeaderWeekCalendar(date: $date)
                 Spacer()
             }
             .background(
@@ -30,50 +34,30 @@ struct DateInWeekHeaderView: View {
 }
 
 struct HeaderWeekCalendar: UIViewRepresentable {
-    func makeCoordinator() -> CVCalendarMenuCoordinartor {
-        CVCalendarMenuCoordinartor()
+    @Binding var date: Date
+    init(date: Binding<Date>) {
+        _date = date
+    }
+
+    func makeCoordinator() -> CalendarCoordinator {
+        CalendarCoordinator(date: $date)
     }
 
     func makeUIView(context: Context) -> CVCalendarMenuView {
-        let view = CVCalendarMenuView(
-            frame: CGRect(
-                x: 0, y: 0,
-                width: CalendarConfig.calendarMonthSize.width,
-                height: CalendarConfig.calendarHeaderHeight
-            )
-        )
-        view.calendar = CalendarManager.shared.calendar
-        view.delegate = context.coordinator
-        return view
+        CalendarManager.shared.calendarMenuView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        CalendarManager.shared.calendarMenuView.menuViewDelegate = context.coordinator
+        CalendarManager.shared.calendarMenuView.setupAppearance()
+        CalendarManager.shared.calendarMenuView.commitMenuViewUpdate()
+        return CalendarManager.shared.calendarMenuView
     }
 
     func updateUIView(_ view: CVCalendarMenuView, context: Context) {
+        view.commitMenuViewUpdate()
     }
-}
-
-class CVCalendarMenuCoordinartor: NSObject, CVCalendarMenuViewDelegate {
-    func firstWeekday() -> Weekday {
-        Weekday(rawValue: SettingManager.startDayInWeek) ?? .monday
-    }
-
-    func dayOfWeekTextColor(by weekday: Weekday) -> UIColor {
-        if weekday == .sunday || weekday == .saturday {
-            return .red
-        }
-        return .black
-    }
-    func dayOfWeekBackGroundColor(by weekday: Weekday) -> UIColor {
-        .clear
-    }
-
-    func dayOfWeekTextUppercase() -> Bool {
-        true
-    }
-
 }
 
 struct DateInWeekHeaderView_Previews: PreviewProvider {
     static var previews: some View {
-        DateInWeekHeaderView()
+        DateInWeekHeaderView(date: .constant(Date()))
     }
 }

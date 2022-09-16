@@ -134,7 +134,7 @@ struct ProfileView: View {
                             .padding(.horizontal, 8)
                             .background(
                                 Capsule()
-                                    .strokeBorder(Color.blue, lineWidth: 1)
+                                    .fill(Color.c5CCBF1)
                                     .shadow(color: .gray, radius: 2, x: 0, y: 2)
                             )
                     }
@@ -147,7 +147,7 @@ struct ProfileView: View {
                             .padding(.horizontal, 8)
                             .background(
                                 Capsule()
-                                    .strokeBorder(Color.blue, lineWidth: 1)
+                                    .fill(Color.white)
                                     .shadow(color: .gray, radius: 2, x: 0, y: 2)
                             )
                     }
@@ -155,6 +155,7 @@ struct ProfileView: View {
                 .padding(.top, 8)
             }
         }
+        .frame(maxWidth: .infinity)
     }
 }
 

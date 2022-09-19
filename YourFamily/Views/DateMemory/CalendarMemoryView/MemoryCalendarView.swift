@@ -102,8 +102,7 @@ extension MemoryCalendarView {
         ) -> PagingItem? {
             if let calendarItem = pagingItem as? CalendarMemoryItem,
                 let diff = DateUtils.getDayDiff(calendarItem.date),
-                diff > .zero
-            {
+                diff > .zero {
                 return CalendarMemoryItem(DateUtils.addingDay(calendarItem.date, day: -1))
             }
             return nil

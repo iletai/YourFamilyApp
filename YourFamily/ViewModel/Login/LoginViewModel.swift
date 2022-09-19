@@ -83,6 +83,7 @@ extension LoginViewModel {
                     print(error)
                     return
                 }
+                self.loggedInApp = true
 
             }
             self.moveToHome()

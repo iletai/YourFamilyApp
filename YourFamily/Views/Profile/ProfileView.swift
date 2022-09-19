@@ -22,6 +22,7 @@ struct ProfileView: View {
                     makeCenterProfileArea()
                     Spacer()
                 }
+                .padding(.top, 8)
             }
             .padding(.horizontal, 16)
             .toolbar {
@@ -109,7 +110,7 @@ struct ProfileView: View {
     }
 
     func makeHeaderProfileArea() -> some View {
-        HStack(spacing: 8) {
+        HStack(spacing: 32) {
             Image("dummyAvatar")
                 .resizable()
                 .scaledToFill()
@@ -155,6 +156,12 @@ struct ProfileView: View {
                 .padding(.top, 8)
             }
         }
+        .padding()
+        .background(content: {
+            Color.c949494
+                .opacity(0.3)
+                .cornerRadius(20)
+        })
         .frame(maxWidth: .infinity)
     }
 }

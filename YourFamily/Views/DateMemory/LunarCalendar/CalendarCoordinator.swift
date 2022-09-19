@@ -11,8 +11,7 @@ import SwiftUI
 class CalendarCoordinator: NSObject,
     CVCalendarViewDelegate,
     CVCalendarViewAppearanceDelegate,
-    CVCalendarMenuViewDelegate
-{
+    CVCalendarMenuViewDelegate {
     @Binding var date: Date
 
     init(date: Binding<Date>) {
@@ -24,7 +23,7 @@ class CalendarCoordinator: NSObject,
     }
 
     func dayLabelFont(by _: Weekday, status _: CVStatus, present _: CVPresent) -> UIFont {
-        .boldSystemFont(ofSize: 12)
+        return .boldSystemFont(ofSize: 12)
     }
 
     func dayOfWeekTextColor(by weekday: Weekday) -> UIColor {
@@ -34,6 +33,21 @@ class CalendarCoordinator: NSObject,
         return .black
     }
 
+    func dayLabelWeekdayInTextColor() -> UIColor {
+        return UIColor(Color.red)
+    }
+
+    func dayLabelColor(by weekDay: Weekday, status: CVStatus, present: CVPresent) -> UIColor? {
+        return .black
+    }
+
+    func dayLabelPresentWeekdayTextColor() -> UIColor {
+        return .black
+    }
+
+    func dayLabelPresentWeekdaySelectedTextColor() -> UIColor {
+        return .red
+    }
     func dayOfWeekFont() -> UIFont { .boldSystemFont(ofSize: 12) }
 
     func dayOfWeekBackGroundColor(by weekday: Weekday) -> UIColor {

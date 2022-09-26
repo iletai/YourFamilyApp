@@ -14,7 +14,7 @@ final class DateMemoryViewModel: ObservableObject {
     @Published var weekdayLabelTextColor = Color.blue
     @Published var dateLabelText = String.empty
     @Published var dateLabelBackgroundColor = Color.clear
-    @Published var tabPageIndex = TabPage.memory
+    @Published var tabPageIndex = TabPage.calendar
     @Published var tabPageItem = TabPage.allCases
     @Published var tabPageSelected = 0
 

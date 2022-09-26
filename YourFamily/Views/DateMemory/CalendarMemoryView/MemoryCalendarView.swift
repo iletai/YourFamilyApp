@@ -56,7 +56,7 @@ extension MemoryCalendarView {
             pagingViewController.textColor = UIColor.gray
             pagingViewController.indicatorColor = UIColor.clear
             pagingViewController.borderOptions = .hidden
-            pagingViewController.collectionView.isScrollEnabled = false
+            pagingViewController.collectionView.isScrollEnabled = true
             pagingViewController.select(pagingItem: CalendarMemoryItem(Date()))
 
             return pagingViewController

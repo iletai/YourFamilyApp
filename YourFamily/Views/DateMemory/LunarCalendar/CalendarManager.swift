@@ -13,7 +13,7 @@ import CoreGraphics
 public class CalendarManager {
     private init() {
         calendar = Calendar.gregorian
-        calendar.locale = .autoupdatingCurrent
+        calendar.locale = Locales.vietnamese.toLocale()
         calendarView = CVCalendarView(
             frame: CGRect(
                 x: 0,

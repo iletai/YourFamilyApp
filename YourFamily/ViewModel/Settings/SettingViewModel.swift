@@ -40,6 +40,7 @@ extension SettingViewModel {
     }
 
     func setDisplayMode(value: Int) {
+        return
         displayMode = CalendarMode(rawValue: value) ?? .monthView
         SettingManager.displayMode = value
         CalendarManager.shared.calendarView.changeModeBySetting(mode: value)

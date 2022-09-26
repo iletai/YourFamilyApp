@@ -5,9 +5,10 @@
 //  Created by Lê Quang Trọng Tài on 9/5/22.
 //
 
-import Foundation
 import FacebookCore
 import FacebookLogin
+import Foundation
+import SwiftUI
 
 final class ProfileViewModel: ObservableObject {
     @Published var showSettingProfile = false

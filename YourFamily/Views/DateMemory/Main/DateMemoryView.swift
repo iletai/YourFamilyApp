@@ -9,7 +9,7 @@ import Parchment
 import SwiftUI
 
 struct DateMemoryView: View {
-    @ObservedObject var viewModel = DateMemoryViewModel()
+    @StateObject var viewModel = DateMemoryViewModel()
 
     var body: some View {
         ZStack {

@@ -44,14 +44,16 @@ struct HeaderWeekCalendar: UIViewRepresentable {
     }
 
     func makeUIView(context: Context) -> CVCalendarMenuView {
-        CalendarManager.shared.calendarMenuView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        CalendarManager.shared.calendarMenuView.menuViewDelegate = context.coordinator
-        CalendarManager.shared.calendarMenuView.setupAppearance()
-        CalendarManager.shared.calendarMenuView.commitMenuViewUpdate()
-        return CalendarManager.shared.calendarMenuView
+        let calendarMenu = CVCalendarMenuView()
+        calendarMenu.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        calendarMenu.menuViewDelegate = context.coordinator
+        calendarMenu.setupAppearance()
+        calendarMenu.commitMenuViewUpdate()
+        return calendarMenu
     }
 
     func updateUIView(_ view: CVCalendarMenuView, context: Context) {
+        view.setupAppearance()
         view.commitMenuViewUpdate()
     }
 }

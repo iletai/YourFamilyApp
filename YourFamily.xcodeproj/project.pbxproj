@@ -58,6 +58,7 @@
 		16B95A9328B76FDF00CA3B72 /* AppRouterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16B95A9228B76FDF00CA3B72 /* AppRouterManager.swift */; };
 		16B95A9528B7703C00CA3B72 /* RouterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16B95A9428B7703C00CA3B72 /* RouterView.swift */; };
 		16B95A9728B7707100CA3B72 /* RouterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16B95A9628B7707100CA3B72 /* RouterViewModel.swift */; };
+		16DBF79E28E1A097006DDBE7 /* MenuViewProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16DBF79D28E1A097006DDBE7 /* MenuViewProfile.swift */; };
 		16F41FC628C99F8800ACA1DA /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 16F41FC528C99F8800ACA1DA /* Alamofire */; };
 		16F41FCC28CA5BFD00ACA1DA /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 16F41FCB28CA5BFD00ACA1DA /* FirebaseAuth */; };
 		16F41FCE28CA5BFD00ACA1DA /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 16F41FCD28CA5BFD00ACA1DA /* FirebaseDatabase */; };
@@ -112,6 +113,7 @@
 		16B95A9228B76FDF00CA3B72 /* AppRouterManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRouterManager.swift; sourceTree = "<group>"; };
 		16B95A9428B7703C00CA3B72 /* RouterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterView.swift; sourceTree = "<group>"; };
 		16B95A9628B7707100CA3B72 /* RouterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterViewModel.swift; sourceTree = "<group>"; };
+		16DBF79D28E1A097006DDBE7 /* MenuViewProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewProfile.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -208,6 +210,7 @@
 			isa = PBXGroup;
 			children = (
 				1639BD3428B91939002CCDF5 /* ProfileView.swift */,
+				16DBF79D28E1A097006DDBE7 /* MenuViewProfile.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -522,6 +525,7 @@
 				162F765D28C79B2800BD49A8 /* SettingLunarCalendarView.swift in Sources */,
 				1639BD3228B914C2002CCDF5 /* SettingView.swift in Sources */,
 				162F766428C8787900BD49A8 /* SettingViewModel.swift in Sources */,
+				16DBF79E28E1A097006DDBE7 /* MenuViewProfile.swift in Sources */,
 				16828E1928BCC53E0054081A /* DateMemoryViewModel.swift in Sources */,
 				162F765328C73C6F00BD49A8 /* CalendarBodyView.swift in Sources */,
 				167090D028D484370022BA8F /* MemoryCardView.swift in Sources */,
@@ -679,6 +683,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = NO;
 				INFOPLIST_FILE = /Users/lequangtrongtai/YourFamilyApp/YourFamily/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -709,6 +714,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = NO;
 				INFOPLIST_FILE = /Users/lequangtrongtai/YourFamilyApp/YourFamily/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

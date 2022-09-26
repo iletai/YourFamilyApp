@@ -8,55 +8,77 @@
 import SwiftUI
 
 struct ProfileView: View {
-    @ObservedObject var viewModel = ProfileViewModel()
+    @StateObject var viewModel = ProfileViewModel()
     var body: some View {
         NavigationView {
-            ZStack {
-                Color.c745CF1
-                    .opacity(0.1)
-                    .scaledToFill()
-                    .ignoresSafeArea()
-                VStack {
-                    makeHeaderProfileArea()
-                    makeCenterProfileArea()
-                    makeCenterProfileArea()
-                    Spacer()
-                }
-                .padding(.top, 8)
-            }
-            .padding(.horizontal, 16)
-            .toolbar {
-                ToolbarItem(placement: .principal) {
+            GeometryReader { geo in
+                ZStack(alignment: .leading) {
+                    Color.c745CF1
+                        .opacity(0.1)
+                        .scaledToFill()
+                        .ignoresSafeArea()
                     VStack {
-                        Text("Profile")
-                            .font(.subheadline)
-                            .fontWeight(.semibold)
-                            .bold()
-                            .foregroundColor(.c595085)
+                        makeHeaderProfileArea()
+                        makeCenterProfileArea()
+                        makeCenterProfileArea()
+                        Spacer()
+                    }
+                    .offset(x: viewModel.showMenuProfile ? geo.size.width / 2 : 0)
+                    .padding(.top, 8)
+                    .padding(.horizontal, viewModel.showMenuProfile ? 0 : 16)
+                    .frame(width: geo.size.width, height: geo.size.height)
+                    if viewModel.showMenuProfile {
+                        MenuViewProfile()
+                            .frame(width: geo.size.width / 2)
+                            .transition(.move(edge: .leading))
                     }
                 }
+                .toolbar {
+                    ToolbarItem(placement: .principal) {
+                        VStack {
+                            Text("Profile")
+                                .font(.subheadline)
+                                .fontWeight(.semibold)
+                                .bold()
+                                .foregroundColor(.c595085)
+                        }
+                    }
+                }
+                .gesture(
+                    DragGesture()
+                        .onEnded {
+                            if $0.translation.width < -100 {
+                                withAnimation {
+                                    self.viewModel.showMenuProfile = false
+                                }
+                            }
+                        }
+                )
+                .navigationBarItems(
+                    leading:
+                        Button(
+                            action: {
+                                withAnimation {
+                                    self.viewModel.showMenuProfile.toggle()
+                                }
+                            },
+                            label: {
+                                Image(systemName: "line.3.horizontal")
+                                    .renderingMode(.template)
+                                    .foregroundColor(.c595085)
+                            }),
+                    trailing:
+                        Button(
+                            action: {
+                            },
+                            label: {
+                                Image(systemName: "circle.hexagonpath")
+                                    .renderingMode(.template)
+                                    .foregroundColor(.c595085)
+                            })
+                )
+                .navigationBarTitleDisplayMode(.inline)
             }
-            .navigationBarItems(
-                leading:
-                    Button(
-                        action: {
-                        },
-                        label: {
-                            Image(systemName: "line.3.horizontal")
-                                .renderingMode(.template)
-                                .foregroundColor(.c595085)
-                        }),
-                trailing:
-                    Button(
-                        action: {
-                        },
-                        label: {
-                            Image(systemName: "circle.hexagonpath")
-                                .renderingMode(.template)
-                                .foregroundColor(.c595085)
-                        })
-            )
-            .navigationBarTitleDisplayMode(.inline)
         }
     }
 

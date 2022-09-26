@@ -38,17 +38,19 @@ extension CalendarBodyView {
         }
 
         func makeUIView(context: Context) -> CVCalendarView {
-            CalendarManager.shared.calendarView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-            CalendarManager.shared.calendarView.calendarAppearanceDelegate = context.coordinator as AnyObject
-            CalendarManager.shared.calendarView.calendarDelegate = context.coordinator as AnyObject
-            CalendarManager.shared.calendarView.animatorDelegate = context.coordinator as AnyObject
+            CalendarManager.shared.calendarView.calendarAppearanceDelegate = context.coordinator
             CalendarManager.shared.calendarView.appearance.setupAppearance()
+            CalendarManager.shared.calendarView.calendarDelegate = context.coordinator
+            CalendarManager.shared.calendarView.animatorDelegate = context.coordinator
+            CalendarManager.shared.calendarView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+            CalendarManager.shared.calendarView.commitCalendarViewUpdate()
             return CalendarManager.shared.calendarView
         }
 
         func updateUIView(_ uiView: CVCalendarView, context: Context) {
             uiView.toggleViewWithDate(self.date)
             uiView.appearance.setupAppearance()
+            context.coordinator.calendarView = uiView
             uiView.commitCalendarViewUpdate()
         }
 

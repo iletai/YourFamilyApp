@@ -46,6 +46,13 @@ struct ProfileView: View {
                 }
                 .gesture(
                     DragGesture()
+                        .onChanged {
+                            if $0.translation.width > 100 {
+                                withAnimation {
+                                    self.viewModel.showMenuProfile = true
+                                }
+                            }
+                        }
                         .onEnded {
                             if $0.translation.width < -100 {
                                 withAnimation {

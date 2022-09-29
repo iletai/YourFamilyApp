@@ -5,10 +5,11 @@
 //  Created by Lê Quang Trọng Tài on 8/26/22.
 //
 
+import Combine
 import SwiftUI
 
 struct HomeView: View {
-    @State var viewModel = HomeViewModel()
+    @StateObject var viewModel = HomeViewModel()
 
     var body: some View {
         TabView(selection: $viewModel.tabViewCurrentIndex) {

@@ -55,6 +55,9 @@ struct LoginView: View {
                 annotation: UIApplication.OpenURLOptionsKey.annotation
             )
         })
+        .onAppear {
+            viewModel.moveToHome()
+        }
         .environmentObject(viewModel)
     }
 

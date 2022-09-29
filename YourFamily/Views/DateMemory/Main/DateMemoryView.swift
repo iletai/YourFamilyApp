@@ -27,7 +27,7 @@ struct DateMemoryView: View {
                 )
                 TabView(selection: $viewModel.tabPageIndex) {
                     MemoryCalendarView(
-                        contentCalendar: { item in
+                        contentCalendar: { _ in
                             MemoryCardView()
                                 .frame(maxWidth: .infinity)
                         }, selected: viewModel.getCurrentDate()

@@ -24,9 +24,6 @@ final class LoginViewModel: ObservableObject {
     init() {
         Settings.appID = AppConstant.kAppIdFacebook
         isSignUp = !loggedInApp
-        if loggedInApp {
-            moveToHome()
-        }
     }
 }
 
@@ -73,7 +70,7 @@ extension LoginViewModel {
                 return
             }
             // self.loggedInApp = true
-            self.email = profileDataUser["email"] as? String ?? .empty
+            SettingManager.emailLoggedIn = profileDataUser["email"] as? String ?? .empty
             guard let token = AccessToken.current?.tokenString else {
                 return
             }
@@ -91,8 +88,10 @@ extension LoginViewModel {
         }
     }
 
-    private func moveToHome() {
-        AppRouterManager.shared.setRouterState(.home)
+    func moveToHome() {
+        if loggedInApp {
+            AppRouterManager.shared.setRouterState(.home)
+        }
     }
 
     func loginWithFirebase() {

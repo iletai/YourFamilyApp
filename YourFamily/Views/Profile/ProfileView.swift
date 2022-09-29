@@ -21,15 +21,16 @@ struct ProfileView: View {
                         makeHeaderProfileArea()
                         makeCenterProfileArea()
                         makeCenterProfileArea()
+                        makeFamilyOnlineArea()
                         Spacer()
                     }
-                    .offset(x: viewModel.showMenuProfile ? geo.size.width / 2 : 0)
+                    .offset(x: viewModel.showMenuProfile ? geo.size.width - 64 : 0)
                     .padding(.top, 8)
                     .padding(.horizontal, viewModel.showMenuProfile ? 0 : 16)
                     .frame(width: geo.size.width, height: geo.size.height)
                     if viewModel.showMenuProfile {
-                        MenuViewProfile()
-                            .frame(width: geo.size.width / 2)
+                        MenuViewProfile(viewModel: viewModel)
+                            .frame(width: geo.size.width - 64)
                             .transition(.move(edge: .leading))
                     }
                 }
@@ -86,6 +87,18 @@ struct ProfileView: View {
                 )
                 .navigationBarTitleDisplayMode(.inline)
             }
+            .actionSheet(isPresented: $viewModel.isShowActionSheet) {
+                .init(
+                    title: Text("Settings"), message: Text("What do you want to do?"),
+                    buttons: [
+                        .destructive(
+                            Text("Sign Out"),
+                            action: {
+                                viewModel.signOut()
+                            }),
+                        .cancel()
+                    ])
+            }
         }
     }
 
@@ -138,6 +151,7 @@ struct ProfileView: View {
         }
     }
 
+    // swiftlint:disable function_body_length
     func makeHeaderProfileArea() -> some View {
         HStack(spacing: 32) {
             Image("dummyAvatar")
@@ -145,8 +159,19 @@ struct ProfileView: View {
                 .scaledToFill()
                 .frame(maxWidth: 120, maxHeight: 120)
                 .clipShape(Circle())
+                .overlay(
+                    Button(action: {
+                        // TODO: image picker profile
+                    }, label: {
+                        Image(systemName: "plus.app")
+                            .padding(4)
+                            .background(Color.white.clipShape(Capsule()))
+                    })
+                    .offset(x: 30, y: 45)
+                )
+                .shadow(radius: 4, x: 0, y: 2)
             VStack(alignment: .leading, spacing: 4) {
-                Text("Angelica Jackson")
+                Text(viewModel.username.uppercased())
                     .font(.system(size: 14))
                     .fontWeight(.bold)
                     .foregroundColor(.c595085)
@@ -169,6 +194,7 @@ struct ProfileView: View {
                             )
                     }
                     Button {
+                        viewModel.showActionSheetSignOut()
                     } label: {
                         Text("Log Out")
                             .font(.system(size: 10))
@@ -187,11 +213,64 @@ struct ProfileView: View {
         }
         .padding()
         .background(content: {
-            Color.c949494
+            Color.c745CF1
                 .opacity(0.3)
                 .cornerRadius(20)
         })
         .frame(maxWidth: .infinity)
+    }
+
+    func makeFamilyOnlineArea() -> some View {
+        VStack(alignment: .leading) {
+            Text("Family Member")
+                .font(.system(size: 20))
+                .fontWeight(.semibold)
+            ScrollView(.horizontal, showsIndicators: false) {
+                HStack {
+                    Image("dummyAvatar")
+                        .resizable()
+                        .scaledToFit()
+                        .clipShape(Circle())
+                        .frame(width: 68, height: 68)
+                        .padding(.bottom, 16)
+                        .overlay(
+                            Circle().fill(.green)
+                                .frame(width: 10, height: 10)
+                                .offset(x: 20, y: -25)
+                        )
+                        .background(
+                            VStack {
+                                Spacer()
+                                Text("Alex")
+                                    .font(.system(size: 12))
+                                    .fontWeight(.bold)
+                                    .foregroundColor(Color.cF18A5C)
+                            }
+                        )
+                    Image("dummyAvatar")
+                        .resizable()
+                        .scaledToFit()
+                        .clipShape(Circle())
+                        .frame(width: 68, height: 68)
+                        .padding(.bottom, 16)
+                        .overlay(
+                            Circle().fill(.green)
+                                .frame(width: 10, height: 10)
+                                .offset(x: 20, y: -25)
+                        )
+                        .background(
+                            VStack {
+                                Spacer()
+                                Text("Aler")
+                                    .font(.system(size: 12))
+                                    .fontWeight(.bold)
+                                    .foregroundColor(Color.cF18A5C)
+                            }
+                        )
+                    Spacer()
+                }
+            }
+        }
     }
 }
 

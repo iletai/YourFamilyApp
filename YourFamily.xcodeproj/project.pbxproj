@@ -59,6 +59,7 @@
 		16B95A9528B7703C00CA3B72 /* RouterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16B95A9428B7703C00CA3B72 /* RouterView.swift */; };
 		16B95A9728B7707100CA3B72 /* RouterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16B95A9628B7707100CA3B72 /* RouterViewModel.swift */; };
 		16DBF79E28E1A097006DDBE7 /* MenuViewProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16DBF79D28E1A097006DDBE7 /* MenuViewProfile.swift */; };
+		16DBF7A028E47F2B006DDBE7 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16DBF79F28E47F2B006DDBE7 /* ImagePicker.swift */; };
 		16F41FC628C99F8800ACA1DA /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 16F41FC528C99F8800ACA1DA /* Alamofire */; };
 		16F41FCC28CA5BFD00ACA1DA /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 16F41FCB28CA5BFD00ACA1DA /* FirebaseAuth */; };
 		16F41FCE28CA5BFD00ACA1DA /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 16F41FCD28CA5BFD00ACA1DA /* FirebaseDatabase */; };
@@ -114,6 +115,7 @@
 		16B95A9428B7703C00CA3B72 /* RouterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterView.swift; sourceTree = "<group>"; };
 		16B95A9628B7707100CA3B72 /* RouterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterViewModel.swift; sourceTree = "<group>"; };
 		16DBF79D28E1A097006DDBE7 /* MenuViewProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewProfile.swift; sourceTree = "<group>"; };
+		16DBF79F28E47F2B006DDBE7 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -357,6 +359,7 @@
 			isa = PBXGroup;
 			children = (
 				16B95A9128B761AD00CA3B72 /* Manager */,
+				16DBF79F28E47F2B006DDBE7 /* ImagePicker.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -535,6 +538,7 @@
 				1639BD2728B868DD002CCDF5 /* HomeView.swift in Sources */,
 				1639BD3528B91939002CCDF5 /* ProfileView.swift in Sources */,
 				16B95A9528B7703C00CA3B72 /* RouterView.swift in Sources */,
+				16DBF7A028E47F2B006DDBE7 /* ImagePicker.swift in Sources */,
 				1639BD2F28B91270002CCDF5 /* DateMemoryView.swift in Sources */,
 				1639BD2C28B8BDB0002CCDF5 /* HomeViewModel.swift in Sources */,
 				162F764928C7300500BD49A8 /* DateInWeekHeaderView.swift in Sources */,

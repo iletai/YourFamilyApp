@@ -8,53 +8,77 @@
 import SwiftUI
 
 struct MenuViewProfile: View {
+    @StateObject var viewModel: ProfileViewModel
+
     var body: some View {
         ZStack {
             VStack(spacing: 16) {
-                HStack {
-                    Image("dummyAvatar")
-                        .resizable(resizingMode: .stretch)
-                        .scaledToFit()
-                        .clipShape(Circle())
-                    .frame(width: 48, height: 48)
-                    Spacer()
-                }
-                HStack {
-                    Text("Hello, Tai Le!")
-                        .font(.system(size: 20))
-                    Spacer()
-                }
-                HStack {
-                    Button {
-                    } label: {
-                        Text("Edit Profile")
-                            .font(.system(size: 20))
-                            .fontWeight(.bold)
+                VStack(spacing: 16) {
+                    HStack {
+                        Image("dummyAvatar")
+                            .resizable(resizingMode: .stretch)
+                            .scaledToFit()
+                            .clipShape(Circle())
+                            .frame(width: 48, height: 48)
+                        Spacer()
                     }
-                    Spacer()
-                }
-                HStack {
-                    Button {
-                    } label: {
-                        Text("Setting")
+                    HStack {
+                        Text("Hello, " + viewModel.username)
                             .font(.system(size: 20))
-                            .fontWeight(.bold)
+                        Spacer()
                     }
-                    Spacer()
-                }
-                HStack {
-                    Button {
-                    } label: {
-                        Text("Support")
-                            .font(.system(size: 20))
-                            .fontWeight(.bold)
+                    HStack {
+                        Button {
+                        } label: {
+                            Text("Edit Profile")
+                                .font(.system(size: 20))
+                                .fontWeight(.bold)
+                        }
+                        Spacer()
                     }
-                    Spacer()
+                    HStack {
+                        Button {
+                        } label: {
+                            Text("Setting")
+                                .font(.system(size: 20))
+                                .fontWeight(.bold)
+                        }
+                        Spacer()
+                    }
+                    HStack {
+                        Button {
+                        } label: {
+                            Text("Support")
+                                .font(.system(size: 20))
+                                .fontWeight(.bold)
+                        }
+                        Spacer()
+                    }
                 }
+                .padding()
                 Spacer()
+                HStack {
+                    Button {
+                        viewModel.showActionSheetSignOut()
+                    } label: {
+                        Text("SignOut")
+                    }
+                    Button {
+                    } label: {
+                        Text("Close")
+                    }
+
+                    Button {
+                        viewModel.backToHome()
+                    } label: {
+                        Text("Home")
+                    }
+                    Spacer()
+                }
+                .padding()
+                .background(Color.cF18A5C.ignoresSafeArea())
             }
             .foregroundColor(.white)
-            .padding()
         }
         .background(
             LinearGradient(
@@ -74,6 +98,6 @@ struct MenuViewProfile: View {
 
 struct MenuViewProfile_Previews: PreviewProvider {
     static var previews: some View {
-        MenuViewProfile()
+        MenuViewProfile(viewModel: ProfileViewModel())
     }
 }

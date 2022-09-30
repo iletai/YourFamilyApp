@@ -32,6 +32,7 @@ struct ProfileView: View {
                         MenuViewProfile(viewModel: viewModel)
                             .frame(width: geo.size.width - 64)
                             .transition(.move(edge: .leading))
+                            .zIndex(0)
                     }
                 }
                 .toolbar {

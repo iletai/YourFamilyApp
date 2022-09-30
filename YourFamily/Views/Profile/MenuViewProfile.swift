@@ -9,6 +9,7 @@ import SwiftUI
 
 struct MenuViewProfile: View {
     @StateObject var viewModel: ProfileViewModel
+    @State private var tabBar: UITabBar! = nil
 
     var body: some View {
         ZStack {

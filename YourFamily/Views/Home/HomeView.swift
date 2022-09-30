@@ -17,22 +17,22 @@ struct HomeView: View {
                 .tabItem {
                     Label("Home", systemImage: "house.circle")
                 }
-                .tag(0)
+                .tag(HomeViewModel.HomeTabView.home.tabIndexValue)
             DateMemoryView()
                 .tabItem {
                     Label("Memories", systemImage: "arrow.clockwise.heart")
                 }
-                .tag(1)
+                .tag(HomeViewModel.HomeTabView.memories.tabIndexValue)
             SettingView()
                 .tabItem {
                     Label("Settings", systemImage: "circle.grid.cross")
                 }
-                .tag(2)
+                .tag(HomeViewModel.HomeTabView.setting.tabIndexValue)
             ProfileView()
                 .tabItem {
                     Label("Profile", systemImage: "person.crop.square")
                 }
-                .tag(3)
+                .tag(HomeViewModel.HomeTabView.profile.tabIndexValue)
         }
     }
 }

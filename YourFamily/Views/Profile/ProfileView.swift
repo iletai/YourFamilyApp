@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+// swiftlint:disable type_body_length
 struct ProfileView: View {
     @StateObject var viewModel = ProfileViewModel()
     var body: some View {
@@ -29,10 +30,7 @@ struct ProfileView: View {
                     .padding(.horizontal, viewModel.showMenuProfile ? 0 : 16)
                     .frame(width: geo.size.width, height: geo.size.height)
                     if viewModel.showMenuProfile {
-                        MenuViewProfile(viewModel: viewModel)
-                            .frame(width: geo.size.width - 64)
-                            .transition(.move(edge: .leading))
-                            .zIndex(0)
+                        menuView
                     }
                 }
                 .toolbar {
@@ -89,20 +87,22 @@ struct ProfileView: View {
                 .navigationBarTitleDisplayMode(.inline)
             }
             .actionSheet(isPresented: $viewModel.isShowActionSheet) {
-                .init(
-                    title: Text("Settings"), message: Text("What do you want to do?"),
-                    buttons: [
-                        .destructive(
-                            Text("Sign Out"),
-                            action: {
-                                viewModel.signOut()
-                            }),
-                        .cancel()
-                    ])
+                actionSheetLogOut
+            }
+            .sheet(isPresented: $viewModel.isShowPickerImage) {
+                ImagePicker()
+                    .environmentObject(self.viewModel.userData ?? UserData())
+            }
+            .onChange(of: viewModel.userData.image ?? UIImage()) { newValue in
+                viewModel.storageManager.uploadFirebaseImage(newValue)
+            }
+            .onAppear {
+                viewModel.fetchUserImage()
             }
         }
     }
 
+    // MARK: - Bookmark Center Profile
     func makeCenterProfileArea() -> some View {
         HStack {
             VStack(spacing: 10) {
@@ -155,14 +155,14 @@ struct ProfileView: View {
     // swiftlint:disable function_body_length
     func makeHeaderProfileArea() -> some View {
         HStack(spacing: 32) {
-            Image("dummyAvatar")
+            Image(uiImage: viewModel.userData.image ?? UIImage())
                 .resizable()
                 .scaledToFill()
                 .frame(maxWidth: 120, maxHeight: 120)
                 .clipShape(Circle())
                 .overlay(
                     Button(action: {
-                        // TODO: image picker profile
+                        viewModel.isShowPickerImage.toggle()
                     }, label: {
                         Image(systemName: "plus.app")
                             .padding(4)
@@ -221,6 +221,7 @@ struct ProfileView: View {
         .frame(maxWidth: .infinity)
     }
 
+    // MARK: - Online Member
     func makeFamilyOnlineArea() -> some View {
         VStack(alignment: .leading) {
             Text("Family Member")
@@ -272,6 +273,27 @@ struct ProfileView: View {
                 }
             }
         }
+    }
+
+    // MARK: - Menu View
+    var menuView: some View {
+        MenuViewProfile(viewModel: viewModel)
+            .frame(width: UIScreen.main.bounds.width - 64)
+            .transition(.move(edge: .leading))
+            .zIndex(0)
+    }
+
+    var actionSheetLogOut: ActionSheet {
+        ActionSheet(
+            title: Text("Settings"), message: Text("What do you want to do?"),
+            buttons: [
+                .destructive(
+                    Text("Sign Out"),
+                    action: {
+                        viewModel.signOut()
+                    }),
+                .cancel()
+            ])
     }
 }
 

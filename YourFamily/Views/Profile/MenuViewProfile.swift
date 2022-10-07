@@ -16,7 +16,7 @@ struct MenuViewProfile: View {
             VStack(spacing: 16) {
                 VStack(spacing: 16) {
                     HStack {
-                        Image("dummyAvatar")
+                        Image(uiImage: viewModel.userData.image ?? UIImage())
                             .resizable(resizingMode: .stretch)
                             .scaledToFit()
                             .clipShape(Circle())

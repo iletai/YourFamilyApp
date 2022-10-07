@@ -17,6 +17,9 @@ final class ProfileViewModel: ObservableObject {
     @Published var username = SettingManager.emailLoggedIn
     @Published var isUserLoggedOut = false
     @Published var isShowActionSheet = false
+    @Published var isShowPickerImage = false
+    @Published var userData = UserData()
+    @Published var storageManager = FileStoreManager()
 
     init() {
         DispatchQueue.main.async {
@@ -32,6 +35,12 @@ extension ProfileViewModel {
 // MARK: - Function
 extension ProfileViewModel {
     func getProfileImage() {
+    }
+
+    func fetchUserImage() {
+        DispatchQueue.main.async {
+            self.userData.image = self.storageManager.getListStorage()
+        }
     }
 
     func showActionSheetSignOut() {

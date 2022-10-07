@@ -66,6 +66,18 @@
 		16F41FCC28CA5BFD00ACA1DA /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 16F41FCB28CA5BFD00ACA1DA /* FirebaseAuth */; };
 		16F41FCE28CA5BFD00ACA1DA /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 16F41FCD28CA5BFD00ACA1DA /* FirebaseDatabase */; };
 		16F41FD028CA5BFD00ACA1DA /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 16F41FCF28CA5BFD00ACA1DA /* FirebaseStorage */; };
+		16FAAB6D28EC23D800E30F65 /* FileStoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16FAAB6C28EC23D800E30F65 /* FileStoreManager.swift */; };
+		16FAAB6F28EC27FF00E30F65 /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16FAAB6E28EC27FF00E30F65 /* UIImageExtension.swift */; };
+		16FAAB7128ED28FD00E30F65 /* FirebaseReference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16FAAB7028ED28FD00E30F65 /* FirebaseReference.swift */; };
+		16FAAB7328ED2B9C00E30F65 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 16FAAB7228ED2B9C00E30F65 /* FirebaseFirestore */; };
+		16FAAB7628EEC18300E30F65 /* FUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16FAAB7528EEC18300E30F65 /* FUser.swift */; };
+		16FAAB7A28EFD48600E30F65 /* NetworkServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16FAAB7928EFD48600E30F65 /* NetworkServiceProtocol.swift */; };
+		16FAAB7C28EFD55800E30F65 /* NetworkServiceDefine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16FAAB7B28EFD55800E30F65 /* NetworkServiceDefine.swift */; };
+		16FAAB7E28EFD7A900E30F65 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16FAAB7D28EFD7A800E30F65 /* NetworkService.swift */; };
+		16FAAB8128EFFB3300E30F65 /* FirebaseNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16FAAB8028EFFB3300E30F65 /* FirebaseNetworkService.swift */; };
+		16FAAB8328EFFC7600E30F65 /* SeverConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16FAAB8228EFFC7600E30F65 /* SeverConstant.swift */; };
+		16FAAB8528F0009800E30F65 /* AlamofireNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16FAAB8428F0009800E30F65 /* AlamofireNetworkService.swift */; };
+		16FAAB8728F0011600E30F65 /* SessionNetworkExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16FAAB8628F0011600E30F65 /* SessionNetworkExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -119,6 +131,17 @@
 		16B95A9628B7707100CA3B72 /* RouterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterViewModel.swift; sourceTree = "<group>"; };
 		16DBF79D28E1A097006DDBE7 /* MenuViewProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewProfile.swift; sourceTree = "<group>"; };
 		16DBF79F28E47F2B006DDBE7 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		16FAAB6C28EC23D800E30F65 /* FileStoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileStoreManager.swift; sourceTree = "<group>"; };
+		16FAAB6E28EC27FF00E30F65 /* UIImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtension.swift; sourceTree = "<group>"; };
+		16FAAB7028ED28FD00E30F65 /* FirebaseReference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseReference.swift; sourceTree = "<group>"; };
+		16FAAB7528EEC18300E30F65 /* FUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FUser.swift; path = YourFamily/Utils/FUser.swift; sourceTree = SOURCE_ROOT; };
+		16FAAB7928EFD48600E30F65 /* NetworkServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServiceProtocol.swift; sourceTree = "<group>"; };
+		16FAAB7B28EFD55800E30F65 /* NetworkServiceDefine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServiceDefine.swift; sourceTree = "<group>"; };
+		16FAAB7D28EFD7A800E30F65 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		16FAAB8028EFFB3300E30F65 /* FirebaseNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseNetworkService.swift; sourceTree = "<group>"; };
+		16FAAB8228EFFC7600E30F65 /* SeverConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeverConstant.swift; sourceTree = "<group>"; };
+		16FAAB8428F0009800E30F65 /* AlamofireNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlamofireNetworkService.swift; sourceTree = "<group>"; };
+		16FAAB8628F0011600E30F65 /* SessionNetworkExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionNetworkExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,6 +154,7 @@
 				162F764628C72D2200BD49A8 /* CVCalendar in Frameworks */,
 				16F41FD028CA5BFD00ACA1DA /* FirebaseStorage in Frameworks */,
 				16828E1028BCB7970054081A /* Parchment in Frameworks */,
+				16FAAB7328ED2B9C00E30F65 /* FirebaseFirestore in Frameworks */,
 				1639BD2A28B8BCAC002CCDF5 /* SwiftUIPager in Frameworks */,
 				1682048E28E578230085C8B6 /* BarcodeScanner in Frameworks */,
 				16828E3728C5B2240054081A /* AlertToast in Frameworks */,
@@ -268,6 +292,8 @@
 		1665E16228B7427D00CCEA09 /* YourFamily */ = {
 			isa = PBXGroup;
 			children = (
+				16FAAB7728EFD46200E30F65 /* Repository */,
+				16FAAB7428EEC17A00E30F65 /* Model */,
 				163639D928D238B7000B0B19 /* GoogleService-Info.plist */,
 				165E972F28B7BC8000490E01 /* Info.plist */,
 				16B95A8F28B747EB00CA3B72 /* Common */,
@@ -335,6 +361,7 @@
 				162F765E28C84ECB00BD49A8 /* UserDefaultCommon.swift */,
 				16B95A9028B747F500CA3B72 /* Extension */,
 				16828E3328C5A6E30054081A /* DateUtils.swift */,
+				16FAAB7028ED28FD00E30F65 /* FirebaseReference.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -373,6 +400,7 @@
 			children = (
 				16B95A9128B761AD00CA3B72 /* Manager */,
 				16DBF79F28E47F2B006DDBE7 /* ImagePicker.swift */,
+				16FAAB8228EFFC7600E30F65 /* SeverConstant.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -387,6 +415,8 @@
 				16AB078028C5E7EF005D885F /* ViewExtension.swift */,
 				162F765028C73C0400BD49A8 /* ShapeExtension.swift */,
 				162F765628C779C100BD49A8 /* CGFloatExtension.swift */,
+				16FAAB6E28EC27FF00E30F65 /* UIImageExtension.swift */,
+				16FAAB8628F0011600E30F65 /* SessionNetworkExtension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -396,6 +426,7 @@
 			children = (
 				16B95A9228B76FDF00CA3B72 /* AppRouterManager.swift */,
 				165E973A28B7C87A00490E01 /* AppConstant.swift */,
+				16FAAB6C28EC23D800E30F65 /* FileStoreManager.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -405,6 +436,42 @@
 			children = (
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		16FAAB7428EEC17A00E30F65 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				16FAAB7528EEC18300E30F65 /* FUser.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		16FAAB7728EFD46200E30F65 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				16FAAB7F28EFF86300E30F65 /* FirebaseDB */,
+				16FAAB7828EFD47100E30F65 /* DataLayer */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		16FAAB7828EFD47100E30F65 /* DataLayer */ = {
+			isa = PBXGroup;
+			children = (
+				16FAAB7928EFD48600E30F65 /* NetworkServiceProtocol.swift */,
+				16FAAB7B28EFD55800E30F65 /* NetworkServiceDefine.swift */,
+				16FAAB7D28EFD7A800E30F65 /* NetworkService.swift */,
+				16FAAB8428F0009800E30F65 /* AlamofireNetworkService.swift */,
+			);
+			path = DataLayer;
+			sourceTree = "<group>";
+		};
+		16FAAB7F28EFF86300E30F65 /* FirebaseDB */ = {
+			isa = PBXGroup;
+			children = (
+				16FAAB8028EFFB3300E30F65 /* FirebaseNetworkService.swift */,
+			);
+			path = FirebaseDB;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -436,6 +503,7 @@
 				16F41FCD28CA5BFD00ACA1DA /* FirebaseDatabase */,
 				16F41FCF28CA5BFD00ACA1DA /* FirebaseStorage */,
 				1682048D28E578230085C8B6 /* BarcodeScanner */,
+				16FAAB7228ED2B9C00E30F65 /* FirebaseFirestore */,
 			);
 			productName = YourFamily;
 			productReference = 1665E16028B7427D00CCEA09 /* YourFamily.app */;
@@ -527,6 +595,9 @@
 				16AB078628C71C3A005D885F /* LunarCalendarView.swift in Sources */,
 				165E973628B7C4BE00490E01 /* LoginView.swift in Sources */,
 				16828E1B28BD11A40054081A /* DateExtension.swift in Sources */,
+				16FAAB8728F0011600E30F65 /* SessionNetworkExtension.swift in Sources */,
+				16FAAB8128EFFB3300E30F65 /* FirebaseNetworkService.swift in Sources */,
+				16FAAB8528F0009800E30F65 /* AlamofireNetworkService.swift in Sources */,
 				167090CE28D42E300022BA8F /* CalendarCoordinator.swift in Sources */,
 				16828E1D28BD14E50054081A /* DateFormatterExtension.swift in Sources */,
 				1682049128E57A440085C8B6 /* BarcodeScanerView.swift in Sources */,
@@ -535,6 +606,7 @@
 				16B95A9728B7707100CA3B72 /* RouterViewModel.swift in Sources */,
 				162F764B28C7305500BD49A8 /* CalendarConfig.swift in Sources */,
 				162F764F28C731B300BD49A8 /* CalendarManager.swift in Sources */,
+				16FAAB6F28EC27FF00E30F65 /* UIImageExtension.swift in Sources */,
 				162F765528C74AD300BD49A8 /* LunarDateView.swift in Sources */,
 				162F765728C779C100BD49A8 /* CGFloatExtension.swift in Sources */,
 				16AB078428C5F1D6005D885F /* ProfileViewModel.swift in Sources */,
@@ -545,8 +617,10 @@
 				1639BD3228B914C2002CCDF5 /* SettingView.swift in Sources */,
 				162F766428C8787900BD49A8 /* SettingViewModel.swift in Sources */,
 				16DBF79E28E1A097006DDBE7 /* MenuViewProfile.swift in Sources */,
+				16FAAB6D28EC23D800E30F65 /* FileStoreManager.swift in Sources */,
 				16828E1928BCC53E0054081A /* DateMemoryViewModel.swift in Sources */,
 				162F765328C73C6F00BD49A8 /* CalendarBodyView.swift in Sources */,
+				16FAAB7A28EFD48600E30F65 /* NetworkServiceProtocol.swift in Sources */,
 				167090D028D484370022BA8F /* MemoryCardView.swift in Sources */,
 				163639D528D05B97000B0B19 /* Constants.swift in Sources */,
 				1665E16428B7427D00CCEA09 /* YourFamilyApp.swift in Sources */,
@@ -556,18 +630,23 @@
 				16B95A9528B7703C00CA3B72 /* RouterView.swift in Sources */,
 				16DBF7A028E47F2B006DDBE7 /* ImagePicker.swift in Sources */,
 				1639BD2F28B91270002CCDF5 /* DateMemoryView.swift in Sources */,
+				16FAAB7128ED28FD00E30F65 /* FirebaseReference.swift in Sources */,
 				1639BD2C28B8BDB0002CCDF5 /* HomeViewModel.swift in Sources */,
+				16FAAB7C28EFD55800E30F65 /* NetworkServiceDefine.swift in Sources */,
 				162F764928C7300500BD49A8 /* DateInWeekHeaderView.swift in Sources */,
 				16AB078828C7252C005D885F /* YourNoteView.swift in Sources */,
 				162F765128C73C0400BD49A8 /* ShapeExtension.swift in Sources */,
 				165E973928B7C4E200490E01 /* LoginViewModel.swift in Sources */,
+				16FAAB8328EFFC7600E30F65 /* SeverConstant.swift in Sources */,
 				165E973D28B7CAA800490E01 /* StringExtension.swift in Sources */,
 				162F765B28C796C600BD49A8 /* LunarCalendarViewModel.swift in Sources */,
 				16AB078128C5E7EF005D885F /* ViewExtension.swift in Sources */,
 				165E973B28B7C87A00490E01 /* AppConstant.swift in Sources */,
 				163639D828D225A4000B0B19 /* SignUpView.swift in Sources */,
+				16FAAB7628EEC18300E30F65 /* FUser.swift in Sources */,
 				16828E1528BCBBE90054081A /* CalendarMemoryItem.swift in Sources */,
 				1639BD2328B85777002CCDF5 /* ColorExtension.swift in Sources */,
+				16FAAB7E28EFD7A900E30F65 /* NetworkService.swift in Sources */,
 				162F765F28C84ECB00BD49A8 /* UserDefaultCommon.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -914,6 +993,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 16F41FCA28CA5BFD00ACA1DA /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseStorage;
+		};
+		16FAAB7228ED2B9C00E30F65 /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 16F41FCA28CA5BFD00ACA1DA /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

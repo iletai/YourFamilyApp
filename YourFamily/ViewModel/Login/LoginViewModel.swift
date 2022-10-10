@@ -20,6 +20,7 @@ final class LoginViewModel: ObservableObject {
     @Published var repeatPassword = String.empty
     @Published var yourEmail = String.empty
     @Published var isSignUp = false
+    @Published var isShowError = false
 
     init() {
         Settings.appID = AppConstant.kAppIdFacebook
@@ -80,6 +81,7 @@ extension LoginViewModel {
                     print(error)
                     return
                 }
+                print(res?.user.displayName ?? .empty)
                 self.loggedInApp = true
 
             }
@@ -104,15 +106,22 @@ extension LoginViewModel {
                 print(error)
                 return
             }
-
+            print(res?.user.displayName ?? .empty)
         }
     }
 
     func loginWithEmail() {
+        guard !yourEmail.isEmpty, !yourPassword.isEmpty else {
+            isShowError = true
+            return
+        }
         Auth.auth().signIn(withEmail: yourEmail, password: yourPassword) { authResult, error in
             guard error == nil else {
                 self.loggedInApp = false
                 return
+            }
+            if authResult!.user.isEmailVerified {
+                // Download User Info
             }
             switch authResult {
             case .none:  // Could not create account
@@ -131,6 +140,9 @@ extension LoginViewModel {
                 self.signUpProcessing = false
                 return
             }
+            authResult!.user.sendEmailVerification { (error) in
+                print("verification email sent error is: ", error!.localizedDescription)
+            }
             switch authResult {
             case .none:  // Could not create account
                 self.signUpProcessing = false
@@ -141,8 +153,10 @@ extension LoginViewModel {
         }
     }
 
+    // swiftlint:disable line_length
     public func isValidPassword(_ validateValue: String) -> Bool {
-        let passwordRegex = "(?:(?:(?=.*?[0-9])(?=.*?[-!@#$%&*ˆ+=_])|(?:(?=.*?[0-9])|(?=.*?[A-Z])|(?=.*?[-!@#$%&*ˆ+=_])))|(?=.*?[a-z])(?=.*?[0-9])(?=.*?[-!@#$%&*ˆ+=_]))[A-Za-z0-9-!@#$%&*ˆ+=_]{6,15}"
+        let passwordRegex =
+            "(?:(?:(?=.*?[0-9])(?=.*?[-!@#$%&*ˆ+=_])|(?:(?=.*?[0-9])|(?=.*?[A-Z])|(?=.*?[-!@#$%&*ˆ+=_])))|(?=.*?[a-z])(?=.*?[0-9])(?=.*?[-!@#$%&*ˆ+=_]))[A-Za-z0-9-!@#$%&*ˆ+=_]{6,15}"
         return NSPredicate(format: "SELF MATCHES %@", passwordRegex).evaluate(with: validateValue)
     }
 }

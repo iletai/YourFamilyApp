@@ -15,11 +15,11 @@ class FUser {
 
     var onBoarding: Bool
 
-    init(_id: String, _emailAdress: String, _phoneNumber: String, _onBoarding: Bool) {
-        id = _id
-        emailAdress = _emailAdress
-        phoneNumber = _phoneNumber
-        onBoarding = false
+    init(id: String, emailAdress: String, phoneNumber: String, onBoarding: Bool) {
+        self.id = id
+        self.emailAdress = emailAdress
+        self.phoneNumber = phoneNumber
+        self.onBoarding = false
     }
 
     class func currentUser() -> FUser? {

@@ -18,7 +18,9 @@ class AlamofireNetworkService {
 }
 
 extension AlamofireNetworkService: NetworkServiceProtocol {
-    func makeRequest<T: Codable>(info: RequestInfo, params: T) -> AnyPublisher<Data, NetworkServiceError> {
+    func makeRequest<T: Codable>(info: RequestInfo, params: T) -> AnyPublisher<
+        Data, NetworkServiceError
+    > {
         let httpMethod = getRequestMethod(info.httpMethod)
         let jsonEndcoder = JSONEncoder()
         jsonEndcoder.keyEncodingStrategy = .convertToSnakeCase
@@ -38,6 +40,7 @@ extension AlamofireNetworkService: NetworkServiceProtocol {
         )
         .responseString { response in
             if let httpResponse = response.response {
+                print(httpResponse)
             }
         }
         .validate(statusCode: 200..<300)
@@ -47,6 +50,7 @@ extension AlamofireNetworkService: NetworkServiceProtocol {
         .publishData()
         .value()
         .mapError { afError -> NetworkServiceError in
+            print(afError)
             return NetworkServiceError.noResponse
         }
 

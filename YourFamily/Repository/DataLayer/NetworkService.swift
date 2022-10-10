@@ -10,8 +10,8 @@ import Foundation
 
 struct NetworkService {
     public enum NetworkServiceType {
-        case Alamofire
-        case URLSession
+        case alamofire
+        case urlSession
     }
 
     private let pNetworkService: NetworkServiceProtocol

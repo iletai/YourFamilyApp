@@ -9,10 +9,10 @@ import Foundation
 import FirebaseFirestore
 
 enum FCollectionReference: String {
-    case User
-    case Memory
+    case user
+    case memory
 }
 
-func FirebaseReference(_ collectionRef: FCollectionReference) -> CollectionReference {
+func firebaseReference(_ collectionRef: FCollectionReference) -> CollectionReference {
     return Firestore.firestore().collection(collectionRef.rawValue)
 }

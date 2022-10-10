@@ -91,7 +91,7 @@ struct ProfileView: View {
             }
             .sheet(isPresented: $viewModel.isShowPickerImage) {
                 ImagePicker()
-                    .environmentObject(self.viewModel.userData ?? UserData())
+                    .environmentObject(self.viewModel.userData)
             }
             .onChange(of: viewModel.userData.image ?? UIImage()) { newValue in
                 viewModel.storageManager.uploadFirebaseImage(newValue)
@@ -160,6 +160,10 @@ struct ProfileView: View {
                 .scaledToFill()
                 .frame(maxWidth: 120, maxHeight: 120)
                 .clipShape(Circle())
+                .overlay(
+                    Circle()
+                        .stroke(.blue, lineWidth: 2)
+                )
                 .overlay(
                     Button(action: {
                         viewModel.isShowPickerImage.toggle()

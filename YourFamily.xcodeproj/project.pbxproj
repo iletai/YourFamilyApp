@@ -75,7 +75,7 @@
 		16FAAB7C28EFD55800E30F65 /* NetworkServiceDefine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16FAAB7B28EFD55800E30F65 /* NetworkServiceDefine.swift */; };
 		16FAAB7E28EFD7A900E30F65 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16FAAB7D28EFD7A800E30F65 /* NetworkService.swift */; };
 		16FAAB8128EFFB3300E30F65 /* FirebaseNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16FAAB8028EFFB3300E30F65 /* FirebaseNetworkService.swift */; };
-		16FAAB8328EFFC7600E30F65 /* SeverConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16FAAB8228EFFC7600E30F65 /* SeverConstant.swift */; };
+		16FAAB8328EFFC7600E30F65 /* ServerConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16FAAB8228EFFC7600E30F65 /* ServerConstant.swift */; };
 		16FAAB8528F0009800E30F65 /* AlamofireNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16FAAB8428F0009800E30F65 /* AlamofireNetworkService.swift */; };
 		16FAAB8728F0011600E30F65 /* SessionNetworkExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16FAAB8628F0011600E30F65 /* SessionNetworkExtension.swift */; };
 /* End PBXBuildFile section */
@@ -139,7 +139,7 @@
 		16FAAB7B28EFD55800E30F65 /* NetworkServiceDefine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServiceDefine.swift; sourceTree = "<group>"; };
 		16FAAB7D28EFD7A800E30F65 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		16FAAB8028EFFB3300E30F65 /* FirebaseNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseNetworkService.swift; sourceTree = "<group>"; };
-		16FAAB8228EFFC7600E30F65 /* SeverConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeverConstant.swift; sourceTree = "<group>"; };
+		16FAAB8228EFFC7600E30F65 /* ServerConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerConstant.swift; sourceTree = "<group>"; };
 		16FAAB8428F0009800E30F65 /* AlamofireNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlamofireNetworkService.swift; sourceTree = "<group>"; };
 		16FAAB8628F0011600E30F65 /* SessionNetworkExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionNetworkExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -400,7 +400,7 @@
 			children = (
 				16B95A9128B761AD00CA3B72 /* Manager */,
 				16DBF79F28E47F2B006DDBE7 /* ImagePicker.swift */,
-				16FAAB8228EFFC7600E30F65 /* SeverConstant.swift */,
+				16FAAB8228EFFC7600E30F65 /* ServerConstant.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -637,7 +637,7 @@
 				16AB078828C7252C005D885F /* YourNoteView.swift in Sources */,
 				162F765128C73C0400BD49A8 /* ShapeExtension.swift in Sources */,
 				165E973928B7C4E200490E01 /* LoginViewModel.swift in Sources */,
-				16FAAB8328EFFC7600E30F65 /* SeverConstant.swift in Sources */,
+				16FAAB8328EFFC7600E30F65 /* ServerConstant.swift in Sources */,
 				165E973D28B7CAA800490E01 /* StringExtension.swift in Sources */,
 				162F765B28C796C600BD49A8 /* LunarCalendarViewModel.swift in Sources */,
 				16AB078128C5E7EF005D885F /* ViewExtension.swift in Sources */,

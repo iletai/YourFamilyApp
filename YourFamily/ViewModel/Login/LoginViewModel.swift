@@ -56,22 +56,21 @@ extension LoginViewModel {
                 if !result!.isCancelled {
                     self.requestGrapFacebook(result: result!)
                 }
-
             }
         }
     }
 
     private func requestGrapFacebook(result: LoginManagerLoginResult) {
         let request = GraphRequest(
-            graphPath: "me",
-            parameters: ["fields": "email"]
+            graphPath: ServerConstant.Param.me,
+            parameters: ServerConstant.Param.paramRequest
         )
         request.start { (_, res, _) in
             guard let profileDataUser = res as? [String: Any] else {
                 return
             }
             // self.loggedInApp = true
-            SettingManager.emailLoggedIn = profileDataUser["email"] as? String ?? .empty
+            SettingManager.emailLoggedIn = profileDataUser[ServerConstant.Param.email] as? String ?? .empty
             guard let token = AccessToken.current?.tokenString else {
                 return
             }
@@ -86,7 +85,7 @@ extension LoginViewModel {
 
             }
             self.moveToHome()
-            print("email" + self.email)
+            print("Email Requested: " + self.email)
         }
     }
 
@@ -141,7 +140,7 @@ extension LoginViewModel {
                 return
             }
             authResult!.user.sendEmailVerification { (error) in
-                print("verification email sent error is: ", error!.localizedDescription)
+                print("Verification email sent error is: ", error!.localizedDescription)
             }
             switch authResult {
             case .none:  // Could not create account

@@ -90,58 +90,66 @@ struct LoginView: View {
         VStack {
             HStack {
                 Spacer(minLength: 100)
-                Button(
-                    action: {
-                        withAnimation(.easeOut) {
-                            viewModel.loginWithEmail()
-                        }
-                    },
-                    label: {
-                        HStack {
-                            Image(systemName: "envelope")
-                                .renderingMode(.template)
-                                .frame(maxWidth: 24, maxHeight: 24)
-                            Text("Login")
-                                .font(.subheadline)
-                                .fontWeight(.semibold)
-                        }
-                        .foregroundColor(.white)
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                        .padding()
-                        .background(
-                            RoundedRectangle(cornerRadius: 16).fill(Color.c745CF1)
-                                .shadow(color: .gray, radius: 2, x: 0, y: 2)
-                        )
-                    })
+                loginEmailButton
                 Spacer(minLength: 100)
             }
             HStack {
                 Spacer(minLength: 100)
-                Button(
-                    action: {
-                        withAnimation(.easeOut) {
-                            viewModel.loginWithFacebook()
-                        }
-                    },
-                    label: {
-                        HStack {
-                            Image("facebook")
-                                .frame(maxWidth: 24, maxHeight: 24)
-                            Text("Login with Facebook")
-                                .font(.subheadline)
-                                .fontWeight(.semibold)
-                        }
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                        .padding()
-                        .background(
-                            RoundedRectangle(cornerRadius: 16).fill(Color.c5CCBF1)
-                                .shadow(color: .gray, radius: 2, x: 0, y: 2)
-                        )
-                        .frame(maxWidth: .infinity)
-                    })
+                facebookLoginButton
                 Spacer(minLength: 100)
             }
         }
+    }
+
+    var loginEmailButton: some View {
+        Button(
+            action: {
+                withAnimation(.easeOut) {
+                    viewModel.loginWithEmail()
+                }
+            },
+            label: {
+                HStack {
+                    Image(systemName: "envelope")
+                        .renderingMode(.template)
+                        .frame(maxWidth: 24, maxHeight: 24)
+                    Text("Login")
+                        .font(.subheadline)
+                        .fontWeight(.semibold)
+                }
+                .foregroundColor(.white)
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .padding()
+                .background(
+                    RoundedRectangle(cornerRadius: 16).fill(Color.c745CF1)
+                        .shadow(color: .gray, radius: 2, x: 0, y: 2)
+                )
+            })
+    }
+
+    var facebookLoginButton: some View {
+        Button(
+            action: {
+                withAnimation(.easeOut) {
+                    viewModel.loginWithFacebook()
+                }
+            },
+            label: {
+                HStack {
+                    Image("facebook")
+                        .frame(maxWidth: 24, maxHeight: 24)
+                    Text("Login with Facebook")
+                        .font(.subheadline)
+                        .fontWeight(.semibold)
+                }
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .padding()
+                .background(
+                    RoundedRectangle(cornerRadius: 16).fill(Color.c5CCBF1)
+                        .shadow(color: .gray, radius: 2, x: 0, y: 2)
+                )
+                .frame(maxWidth: .infinity)
+            })
     }
 }
 

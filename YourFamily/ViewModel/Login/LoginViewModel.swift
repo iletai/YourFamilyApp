@@ -8,8 +8,8 @@
 import FBSDKLoginKit
 import Firebase
 import Foundation
-import LegacyCoreKit
 import SwiftUI
+import FirebaseAuth
 
 final class LoginViewModel: ObservableObject {
     @Published var loginFacebookManager = LoginManager()
@@ -21,6 +21,7 @@ final class LoginViewModel: ObservableObject {
     @Published var yourEmail = String.empty
     @Published var isSignUp = false
     @Published var isShowError = false
+    @Published var authenError = AuthencationError(title: .empty, message: .empty)
 
     init() {
         Settings.appID = AppConstant.kAppIdFacebook
@@ -38,6 +39,14 @@ extension LoginViewModel {
         case none
         case signIn
         case signOut
+    }
+}
+
+// MARK: - Struct
+extension LoginViewModel {
+    struct AuthencationError {
+        let title: String
+        let message: String
     }
 }
 
@@ -69,8 +78,8 @@ extension LoginViewModel {
             guard let profileDataUser = res as? [String: Any] else {
                 return
             }
-            // self.loggedInApp = true
-            SettingManager.emailLoggedIn = profileDataUser[ServerConstant.Param.email] as? String ?? .empty
+            SettingManager.emailLoggedIn =
+                profileDataUser[ServerConstant.Param.email] as? String ?? .empty
             guard let token = AccessToken.current?.tokenString else {
                 return
             }
@@ -80,6 +89,32 @@ extension LoginViewModel {
                     print(error)
                     return
                 }
+                firebaseReference(.user).document(FUser.currentId()).getDocument(completion: { snapShot, error in
+                    guard let snapShot else {
+                        return
+                    }
+                    let userObject = ["username": "Taile"]
+
+                    if snapShot.exists {
+                        self.saveUserLocally(userDictionary: snapShot.data()! as NSDictionary)
+                    } else {
+                        let user = FUser(
+                            id: FUser.currentId(),
+                            emailAdress: self.email,
+                            phoneNumber: "01234",
+                            onBoarding: true
+                        )
+                        firebaseReference(.user).document(FUser.currentId()).setData(userObject as [String: Any]) { (error) in
+                        }
+                    }
+//                    UserDefaults.standard.set(object: userObject, forKey: ServerConstant.Param.currentUser)
+//                    firebaseReference(.user).document(FUser.currentId()).updateData(["username": "Taile"]) { (error) in
+//                        if error == nil {
+//                            self.saveUserLocally(userDictionary: userObject as NSDictionary)
+//                            self.loggedInApp = true
+//                        }
+//                    }
+                })
                 print(res?.user.displayName ?? .empty)
                 self.loggedInApp = true
 
@@ -93,6 +128,11 @@ extension LoginViewModel {
         if loggedInApp {
             AppRouterManager.shared.setRouterState(.home)
         }
+    }
+
+    func saveUserLocally(userDictionary: NSDictionary) {
+        UserDefaults.standard.set(userDictionary, forKey: ServerConstant.Param.currentUser)
+        UserDefaults.standard.synchronize()
     }
 
     func loginWithFirebase() {
@@ -120,7 +160,16 @@ extension LoginViewModel {
                 return
             }
             if authResult!.user.isEmailVerified {
-                // Download User Info
+            } else {
+                self.authenError = AuthencationError(
+                    title: "Notice", message: "Your email adress not yet verify!")
+                authResult!.user.sendEmailVerification { (error) in
+                    if let error = error {
+                        print("Verification email sent error is: ", error.localizedDescription)
+                    }
+                }
+                self.isShowError = true
+                return
             }
             switch authResult {
             case .none:  // Could not create account
@@ -141,13 +190,6 @@ extension LoginViewModel {
             }
             authResult!.user.sendEmailVerification { (error) in
                 print("Verification email sent error is: ", error!.localizedDescription)
-            }
-            switch authResult {
-            case .none:  // Could not create account
-                self.signUpProcessing = false
-            case .some:
-                self.signUpProcessing = false
-                self.moveToHome()
             }
         }
     }

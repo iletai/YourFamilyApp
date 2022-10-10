@@ -27,4 +27,8 @@ class FUser {
         }
         return nil
     }
+
+    class func currentId() -> String {
+        return Auth.auth().currentUser!.uid
+    }
 }

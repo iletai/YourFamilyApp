@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import AlertToast
 
 // swiftlint:disable type_body_length
 struct ProfileView: View {

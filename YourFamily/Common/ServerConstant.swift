@@ -23,12 +23,26 @@ struct ServerConstant {
 
     struct Param {
         #if DEBUG
+        /// firstname
+            static let firstName = "firstname"
+        /// lastname
+            static let lastName = "lastname"
+        /// fullname
+            static let fullName = "fullname"
+        /// currentUser
+            static let currentUser = "currentUser"
+        /// fullAdress
+            static let fullAdress = "fullAddress"
+        /// phoneNumber
+            static let phoneNumber = "phoneNumber"
+        /// onBoard
+            static let onBoard = "onBoard"
         /// me
-            static var me = "me"
+            static let me = "me"
         /// email
-            static var email = "email"
+            static let email = "email"
         /// ["fields": "email"]
-            static var paramRequest = ["fields": "email"]
+            static let paramRequest = ["fields": "email"]
         #else
         #endif
     }

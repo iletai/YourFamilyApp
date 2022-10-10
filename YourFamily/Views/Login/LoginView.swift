@@ -5,6 +5,7 @@
 //  Created by Lê Quang Trọng Tài on 8/25/22.
 //
 
+import AlertToast
 import FBSDKLoginKit
 import FacebookCore
 import SwiftUI
@@ -22,9 +23,10 @@ struct LoginView: View {
                     .clipShape(RoundedRectangle(cornerRadius: 20))
                     .frame(maxWidth: 96, maxHeight: 96)
                 Text("Your Family")
-                    .font(.title)
+                    .font(.system(size: 30))
                     .fontWeight(.bold)
                     .foregroundColor(Color(hex: "3D6670"))
+                    .shadow(color: .blue, radius: 1, x: 0, y: 2)
                 VStack(spacing: 16) {
                     makeTextInputArea()
                     makeButtonArea()
@@ -57,6 +59,9 @@ struct LoginView: View {
         })
         .onAppear {
             viewModel.moveToHome()
+        }
+        .toast(isPresenting: $viewModel.isShowError) {
+            AlertToast(type: .systemImage("exclamationmark.octagon", .red), title: "Warnung", subTitle: "Warning")
         }
         .environmentObject(viewModel)
     }

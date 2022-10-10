@@ -63,7 +63,9 @@ extension LoginViewModel {
                 return
             } else {
                 if !result!.isCancelled {
-                    self.requestGrapFacebook(result: result!)
+                    DispatchQueue.main.async {
+                        self.requestGrapFacebook(result: result!)
+                    }
                 }
             }
         }
@@ -75,52 +77,51 @@ extension LoginViewModel {
             parameters: ServerConstant.Param.paramRequest
         )
         request.start { (_, res, _) in
-            guard let profileDataUser = res as? [String: Any] else {
+            guard let profileDataUser = res as? [String: Any],
+                  let token = AccessToken.current?.tokenString else {
                 return
             }
             SettingManager.emailLoggedIn =
                 profileDataUser[ServerConstant.Param.email] as? String ?? .empty
-            guard let token = AccessToken.current?.tokenString else {
-                return
-            }
             let credential = FacebookAuthProvider.credential(withAccessToken: token)
             Auth.auth().signIn(with: credential) { res, error in
                 if let error = error {
                     print(error)
                     return
                 }
-                firebaseReference(.user).document(FUser.currentId()).getDocument(completion: { snapShot, error in
+                guard let res else {
+                    return
+                }
+                FStoreage.shared
+                    .firebaseReference(.user)
+                    .document(FUser.currentId())
+                    .getDocument(completion: { snapShot, error in
                     guard let snapShot else {
                         return
                     }
-                    let userObject = ["username": "Taile"]
-
                     if snapShot.exists {
                         self.saveUserLocally(userDictionary: snapShot.data()! as NSDictionary)
+                        self.loggedInApp = true
+                        self.moveToHome()
                     } else {
                         let user = FUser(
                             id: FUser.currentId(),
-                            emailAdress: self.email,
-                            phoneNumber: "01234",
+                            emailAdress: profileDataUser[ServerConstant.Param.email] as? String ?? .empty,
+                            phoneNumber: res.user.phoneNumber ?? .empty,
                             onBoarding: true
                         )
-                        firebaseReference(.user).document(FUser.currentId()).setData(userObject as [String: Any]) { (error) in
+                        FStoreage.shared
+                            .firebaseReference(.user)
+                            .document(FUser.currentId())
+                            .setData(FUserMapper.mapUserToFireStorage(user)) { (error) in
+                                if error == nil {
+                                    self.loggedInApp = true
+                                    self.moveToHome()
+                                }
                         }
                     }
-//                    UserDefaults.standard.set(object: userObject, forKey: ServerConstant.Param.currentUser)
-//                    firebaseReference(.user).document(FUser.currentId()).updateData(["username": "Taile"]) { (error) in
-//                        if error == nil {
-//                            self.saveUserLocally(userDictionary: userObject as NSDictionary)
-//                            self.loggedInApp = true
-//                        }
-//                    }
                 })
-                print(res?.user.displayName ?? .empty)
-                self.loggedInApp = true
-
             }
-            self.moveToHome()
-            print("Email Requested: " + self.email)
         }
     }
 

@@ -79,6 +79,7 @@
 		16FAAB8728F0011600E30F65 /* SessionNetworkExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16FAAB8628F0011600E30F65 /* SessionNetworkExtension.swift */; };
 		16FAAB8928F40C4500E30F65 /* UserDefaultExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16FAAB8828F40C4500E30F65 /* UserDefaultExtension.swift */; };
 		16FAAB8B28F4139D00E30F65 /* EndCodableExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16FAAB8A28F4139D00E30F65 /* EndCodableExtension.swift */; };
+		16FAAB8E28F442C700E30F65 /* FUserMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16FAAB8D28F442C700E30F65 /* FUserMapper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -144,6 +145,7 @@
 		16FAAB8628F0011600E30F65 /* SessionNetworkExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionNetworkExtension.swift; sourceTree = "<group>"; };
 		16FAAB8828F40C4500E30F65 /* UserDefaultExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultExtension.swift; sourceTree = "<group>"; };
 		16FAAB8A28F4139D00E30F65 /* EndCodableExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndCodableExtension.swift; sourceTree = "<group>"; };
+		16FAAB8D28F442C700E30F65 /* FUserMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FUserMapper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -378,6 +380,7 @@
 		16B95A8E28B747CE00CA3B72 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				16FAAB8C28F442BD00E30F65 /* Mapper */,
 				162F766028C877F000BD49A8 /* Settings */,
 				16AB078228C5F1C9005D885F /* Profile */,
 				1639BD3628B9DA2A002CCDF5 /* DateMemory */,
@@ -467,6 +470,14 @@
 				16FAAB8028EFFB3300E30F65 /* FirebaseNetworkService.swift */,
 			);
 			path = FirebaseDB;
+			sourceTree = "<group>";
+		};
+		16FAAB8C28F442BD00E30F65 /* Mapper */ = {
+			isa = PBXGroup;
+			children = (
+				16FAAB8D28F442C700E30F65 /* FUserMapper.swift */,
+			);
+			path = Mapper;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -595,6 +606,7 @@
 				16FAAB8528F0009800E30F65 /* AlamofireNetworkService.swift in Sources */,
 				167090CE28D42E300022BA8F /* CalendarCoordinator.swift in Sources */,
 				16828E1D28BD14E50054081A /* DateFormatterExtension.swift in Sources */,
+				16FAAB8E28F442C700E30F65 /* FUserMapper.swift in Sources */,
 				1682049128E57A440085C8B6 /* BarcodeScanerView.swift in Sources */,
 				1665E16628B7427D00CCEA09 /* ContentView.swift in Sources */,
 				16828E1328BCBB150054081A /* MemoryCalendarView.swift in Sources */,

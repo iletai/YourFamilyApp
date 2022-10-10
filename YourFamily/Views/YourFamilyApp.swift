@@ -8,6 +8,7 @@
 import FacebookCore
 import SwiftUI
 import Firebase
+import FirebaseFirestore
 
 @main
 struct YourFamilyApp: App {

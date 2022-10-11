@@ -131,6 +131,7 @@ extension LoginViewModel {
                             .setData(FUserMapper.mapUserToFireStorage(user)) { (error) in
                                 if error == nil {
                                     self.loggedInApp = true
+                                    self.saveUserLocally(userDictionary: FUserMapper.mapUserToFireStorage(user) as NSDictionary)
                                     self.moveToHome()
                                 }
                         }
@@ -183,6 +184,7 @@ extension LoginViewModel {
                                 .document(FUser.currentId())
                                 .setData(FUserMapper.mapUserToFireStorage(user)) { (error) in
                                     if error == nil {
+                                        self.saveUserLocally(userDictionary: FUserMapper.mapUserToFireStorage(user) as NSDictionary)
                                         self.loggedInApp = true
                                         self.moveToHome()
                                     }

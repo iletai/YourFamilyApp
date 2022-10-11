@@ -22,6 +22,13 @@ class FUser {
         self.onBoarding = false
     }
 
+    init(_ dictionary: NSDictionary) {
+        id = dictionary[ServerConstant.Param.currentUser] as? String ?? .empty
+        emailAdress = dictionary[ServerConstant.Param.email] as? String ?? .empty
+        phoneNumber = dictionary[ServerConstant.Param.phoneNumber] as? String ?? .empty
+        onBoarding = dictionary[ServerConstant.Param.onBoard] as? Bool ?? false
+    }
+
     class func currentUser() -> FUser? {
         if Auth.auth().currentUser != nil {
         }

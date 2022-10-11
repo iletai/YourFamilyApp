@@ -20,10 +20,13 @@ final class ProfileViewModel: ObservableObject {
     @Published var isShowPickerImage = false
     @Published var userData = UserData()
     @Published var storageManager = FileStoreManager()
+    @Published var currentProfile: FUser?
 
     init() {
         DispatchQueue.main.async {
-            self.isUserLoggedOut = Auth.auth().currentUser?.uid == nil
+            if Auth.auth().currentUser?.uid != nil {
+                self.currentProfile = self.getProfile()
+            }
         }
     }
 }
@@ -34,7 +37,13 @@ extension ProfileViewModel {
 
 // MARK: - Function
 extension ProfileViewModel {
-    func getProfileImage() {
+    // swiftlint:disable force_cast
+    func getProfile() -> FUser? {
+        let profile = UserDefaults.standard.object(forKey: ServerConstant.Param.currentUser)
+        if let dic = profile {
+            return FUser(dic as! NSDictionary)
+        }
+        return nil
     }
 
     func fetchUserImage() {
@@ -49,6 +58,7 @@ extension ProfileViewModel {
 
     func signOut() {
         try? Auth.auth().signOut()
+        SettingManager.loggedApp = false
         AppRouterManager.shared.setRouterState(.login)
     }
 

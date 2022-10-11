@@ -11,6 +11,7 @@ import AlertToast
 // swiftlint:disable type_body_length
 struct ProfileView: View {
     @StateObject var viewModel = ProfileViewModel()
+
     var body: some View {
         NavigationView {
             GeometryReader { geo in
@@ -181,7 +182,7 @@ struct ProfileView: View {
                     .font(.system(size: 14))
                     .fontWeight(.bold)
                     .foregroundColor(.c595085)
-                Text("Analyzer")
+                Text(viewModel.currentProfile?.emailAdress ?? .empty)
                     .font(.system(size: 12))
                     .fontWeight(.light)
                     .foregroundColor(.gray)

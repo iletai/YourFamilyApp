@@ -11,7 +11,12 @@ final class FUserMapper {
     // swiftlint:disable force_cast
     static func mapUserToFireStorage(_ fUser: FUser) -> [String: Any] {
         return NSDictionary(
-            objects: [fUser.id, fUser.emailAdress, fUser.phoneNumber, fUser.onBoarding],
+            objects: [
+                fUser.id,
+                fUser.emailAdress,
+                fUser.phoneNumber,
+                fUser.onBoarding
+            ],
             forKeys: [
                 ServerConstant.Param.currentUser as NSCopying,
                 ServerConstant.Param.email as NSCopying,

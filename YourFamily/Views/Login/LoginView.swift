@@ -6,14 +6,15 @@
 //
 
 import AlertToast
+import Combine
 import FBSDKLoginKit
 import FacebookCore
 import SwiftUI
-import Combine
 
 struct LoginView: View {
     @StateObject var viewModel = LoginViewModel()
-    @State private var isStrongPassword = false
+    @FocusState var focused: LoginViewModel.PasswordState?
+
     var body: some View {
         ZStack {
             Color(hex: "F1F3F6").ignoresSafeArea()
@@ -33,15 +34,20 @@ struct LoginView: View {
                     Spacer()
                     HStack {
                         Text("Don't Have Account?")
+                            .font(.system(size: 14))
+                            .fontWeight(.regular)
                             .foregroundColor(Color.c232020)
                         Button {
-                            AppRouterManager.shared.setRouterState(.signUp, animation: .easeOut(duration: 1))
+                            AppRouterManager.shared.setRouterState(
+                                .signUp, animation: .easeOut(duration: 1))
                         } label: {
                             Text("Sign Up")
+                                .font(.system(size: 12))
                                 .padding(.vertical, 8)
                                 .padding(.horizontal, 16)
                                 .background(
-                                    RoundedRectangle(cornerRadius: 25) .strokeBorder(Color.blue, lineWidth: 2)
+                                    RoundedRectangle(cornerRadius: 25).strokeBorder(
+                                        Color.blue, lineWidth: 2)
                                 )
                         }
                     }
@@ -60,9 +66,20 @@ struct LoginView: View {
         .onAppear {
             viewModel.moveToHome()
         }
-        .toast(isPresenting: $viewModel.isShowError) {
-            AlertToast(type: .systemImage("exclamationmark.octagon", .red), title: "Warnung", subTitle: "Warning")
-        }
+        .toast(
+            isPresenting: $viewModel.isShowError,
+            tapToDismiss: false,
+            alert: {
+                AlertToast(
+                    type: .regular,
+                    title: viewModel.authenError.title,
+                    subTitle: viewModel.authenError.message
+                )
+            },
+            completion: {
+                viewModel.isShowToast(false)
+            }
+        )
         .environmentObject(viewModel)
     }
 
@@ -80,13 +97,45 @@ struct LoginView: View {
             }
             HStack {
                 Spacer(minLength: 24)
-                SecureField("Password", text: $viewModel.yourPassword)
-                    .padding(.vertical, 20)
-                    .padding(.horizontal, 20)
-                    .background(
-                        Color.white.clipShape(RoundedRectangle(cornerRadius: 14))
-                    )
+                makePasswordInputView()
                 Spacer(minLength: 24)
+            }
+        }
+    }
+
+    func makePasswordInputView() -> some View {
+        ZStack {
+            TextField("Password", text: $viewModel.yourPassword)
+                .focused($focused, equals: .unsecure)
+                .autocapitalization(.none)
+                .disableAutocorrection(true)
+                .keyboardType(.alphabet)
+                .opacity(viewModel.isShowPassword ? 1 : 0)
+                .padding(.vertical, 20)
+                .padding(.horizontal, 20)
+            SecureField("Password", text: $viewModel.yourPassword)
+                .focused($focused, equals: .secure)
+                .autocapitalization(.none)
+                .disableAutocorrection(true)
+                .keyboardType(.alphabet)
+                .opacity(viewModel.isShowPassword ? 0 : 1)
+                .padding(.vertical, 20)
+                .padding(.horizontal, 20)
+        }
+        .background(
+            Color.white.clipShape(RoundedRectangle(cornerRadius: 14))
+        )
+        .overlay {
+            HStack {
+                Spacer()
+                Button(action: {
+                    viewModel.isShowPassword.toggle()
+                    focused = focused == .secure ? .unsecure : .secure
+                }, label: {
+                    Image(systemName: self.viewModel.isShowPassword ? "eye.slash.fill" : "eye.fill")
+                        .padding()
+                })
+
             }
         }
     }
@@ -97,6 +146,23 @@ struct LoginView: View {
                 Spacer(minLength: 100)
                 loginEmailButton
                 Spacer(minLength: 100)
+            }
+            ZStack {
+                Divider()
+                    .padding(.horizontal, 32)
+                Circle()
+                    .strokeBorder(Color.gray, lineWidth: 0.5)
+                    .background(Circle().foregroundColor(Color(hex: "F1F3F6")))
+                    .frame(width: 24, height: 24)
+                Text("OR")
+                    .font(.system(size: 8))
+                    .fontWeight(.semibold)
+                    .foregroundColor(.gray)
+                    .padding(8)
+                    .zIndex(1)
+                    .overlay {
+
+                    }
             }
             HStack {
                 Spacer(minLength: 100)
@@ -118,7 +184,7 @@ struct LoginView: View {
                     Image(systemName: "envelope")
                         .renderingMode(.template)
                         .frame(maxWidth: 24, maxHeight: 24)
-                    Text("Login")
+                    Text("Login with Email")
                         .font(.subheadline)
                         .fontWeight(.semibold)
                 }

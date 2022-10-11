@@ -5,10 +5,12 @@
 //  Created by Lê Quang Trọng Tài on 9/14/22.
 //
 
+import AlertToast
 import SwiftUI
 
 struct SignUpView: View {
-    @State private(set) var viewModel = LoginViewModel()
+    @StateObject var viewModel = LoginViewModel()
+    @FocusState var focused: LoginViewModel.PasswordState?
 
     var body: some View {
         ZStack {
@@ -28,11 +30,14 @@ struct SignUpView: View {
                     Spacer()
                     HStack {
                         Text("Already Account?")
+                            .font(.system(size: 14))
+                            .fontWeight(.regular)
                             .foregroundColor(Color.c232020)
                         Button {
                             AppRouterManager.shared.setRouterState(.login, animation: .easeOut(duration: 1))
                         } label: {
                             Text("Login")
+                                .font(.system(size: 12))
                                 .padding(.vertical, 8)
                                 .padding(.horizontal, 16)
                                 .background(
@@ -44,6 +49,19 @@ struct SignUpView: View {
                 Spacer()
             }
         }
+        .toast(
+            isPresenting: $viewModel.isShowError,
+            alert: {
+                AlertToast(
+                    type: .regular,
+                    title: viewModel.authenError.title,
+                    subTitle: viewModel.authenError.message
+                )
+            },
+            completion: {
+                viewModel.isShowToast(false)
+            }
+        )
     }
 
     func makeTextInputArea() -> some View {
@@ -60,22 +78,12 @@ struct SignUpView: View {
             }
             HStack {
                 Spacer(minLength: 24)
-                SecureField("Password", text: $viewModel.yourPassword)
-                    .padding(.vertical, 20)
-                    .padding(.horizontal, 20)
-                    .background(
-                        Color.white.clipShape(RoundedRectangle(cornerRadius: 14))
-                    )
+                makePasswordInputView()
                 Spacer(minLength: 24)
             }
             HStack {
                 Spacer(minLength: 24)
-                SecureField("Repeat Password", text: $viewModel.yourPassword)
-                    .padding(.vertical, 20)
-                    .padding(.horizontal, 20)
-                    .background(
-                        Color.white.clipShape(RoundedRectangle(cornerRadius: 14))
-                    )
+                makeRepeatPassword()
                 Spacer(minLength: 24)
             }
         }
@@ -97,7 +105,7 @@ struct SignUpView: View {
                                 .renderingMode(.template)
                                 .foregroundColor(.white)
                                 .frame(maxWidth: 24, maxHeight: 24)
-                            Text("Sign Up")
+                            Text("Sign Up With Email")
                                 .font(.subheadline)
                                 .fontWeight(.semibold)
                                 .foregroundColor(.white)
@@ -110,6 +118,80 @@ struct SignUpView: View {
                         )
                     })
                 Spacer(minLength: 100)
+            }
+        }
+    }
+
+    func makePasswordInputView() -> some View {
+        ZStack {
+            TextField("Password", text: $viewModel.yourPassword)
+                .focused($focused, equals: .unsecure)
+                .autocapitalization(.none)
+                .disableAutocorrection(true)
+                .keyboardType(.alphabet)
+                .opacity(viewModel.isShowPassword ? 1 : 0)
+                .padding(.vertical, 20)
+                .padding(.horizontal, 20)
+            SecureField("Password", text: $viewModel.yourPassword)
+                .focused($focused, equals: .secure)
+                .autocapitalization(.none)
+                .disableAutocorrection(true)
+                .keyboardType(.alphabet)
+                .opacity(viewModel.isShowPassword ? 0 : 1)
+                .padding(.vertical, 20)
+                .padding(.horizontal, 20)
+        }
+        .background(
+            Color.white.clipShape(RoundedRectangle(cornerRadius: 14))
+        )
+        .overlay {
+            HStack {
+                Spacer()
+                Button(action: {
+                    viewModel.isShowPassword.toggle()
+                    focused = focused == .secure ? .unsecure : .secure
+                }, label: {
+                    Image(systemName: self.viewModel.isShowPassword ? "eye.slash.fill" : "eye.fill")
+                        .padding()
+                })
+
+            }
+        }
+    }
+
+    func makeRepeatPassword() -> some View {
+        ZStack {
+            TextField("Repeat Password", text: $viewModel.repeatPassword)
+                .focused($focused, equals: .unsecure)
+                .autocapitalization(.none)
+                .disableAutocorrection(true)
+                .keyboardType(.alphabet)
+                .opacity(viewModel.isShowRepeatPassword ? 1 : 0)
+                .padding(.vertical, 20)
+                .padding(.horizontal, 20)
+            SecureField("Repeat Password", text: $viewModel.repeatPassword)
+                .focused($focused, equals: .secure)
+                .autocapitalization(.none)
+                .disableAutocorrection(true)
+                .keyboardType(.alphabet)
+                .opacity(viewModel.isShowRepeatPassword ? 0 : 1)
+                .padding(.vertical, 20)
+                .padding(.horizontal, 20)
+        }
+        .background(
+            Color.white.clipShape(RoundedRectangle(cornerRadius: 14))
+        )
+        .overlay {
+            HStack {
+                Spacer()
+                Button(action: {
+                    viewModel.isShowRepeatPassword.toggle()
+                    focused = focused == .secure ? .unsecure : .secure
+                }, label: {
+                    Image(systemName: self.viewModel.isShowRepeatPassword ? "eye.slash.fill" : "eye.fill")
+                        .padding()
+                })
+
             }
         }
     }

@@ -23,6 +23,8 @@ struct ServerConstant {
 
     struct Param {
         #if DEBUG
+        /// nickname
+            static let nickname = "nickname"
         /// firstname
             static let firstName = "firstname"
         /// lastname
@@ -43,6 +45,9 @@ struct ServerConstant {
             static let email = "email"
         /// ["fields": "email"]
             static let paramRequest = ["fields": "email"]
+        /// birthday
+            static let birthday = "birthday"
+        
         #else
         #endif
     }

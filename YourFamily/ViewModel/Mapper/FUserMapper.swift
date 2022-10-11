@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Firebase
 
 final class FUserMapper {
     // swiftlint:disable force_cast

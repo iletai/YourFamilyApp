@@ -101,6 +101,9 @@ struct ProfileView: View {
             .onAppear {
                 viewModel.fetchUserImage()
             }
+            .sheet(isPresented: $viewModel.isShowUpdateProfileView) {
+                UpdateProfileView(viewModel: viewModel)
+            }
         }
     }
 
@@ -188,6 +191,7 @@ struct ProfileView: View {
                     .foregroundColor(.gray)
                 HStack {
                     Button {
+                        viewModel.updateProfile(true)
                     } label: {
                         Text("Update Profile")
                             .font(.system(size: 10))

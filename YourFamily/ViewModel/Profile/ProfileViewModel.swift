@@ -21,6 +21,7 @@ final class ProfileViewModel: ObservableObject {
     @Published var userData = UserData()
     @Published var storageManager = FileStoreManager()
     @Published var currentProfile: FUser?
+    @Published var isShowUpdateProfileView = false
 
     init() {
         DispatchQueue.main.async {
@@ -39,11 +40,34 @@ extension ProfileViewModel {
 extension ProfileViewModel {
     // swiftlint:disable force_cast
     func getProfile() -> FUser? {
-        let profile = UserDefaults.standard.object(forKey: ServerConstant.Param.currentUser)
-        if let dic = profile {
-            return FUser(dic as! NSDictionary)
-        }
-        return nil
+        var user: FUser?
+        FStorage
+            .shared
+            .firebaseReference(.user)
+            .whereField(
+                ServerConstant.Param.currentUser,
+                isEqualTo: FUser.currentId()
+            ).getDocuments { snapshot, error in
+                if error == nil {
+                    guard let snapshot else { return }
+                    if !snapshot.isEmpty {
+                        let userData = snapshot.documents.first!.data()
+                        user = FUser(userData as NSDictionary)
+                    } else {
+                        let profile = UserDefaults.standard.object(forKey: ServerConstant.Param.currentUser)
+                        if let dic = profile {
+                            user = FUser(dic as! NSDictionary)
+                        }
+                    }
+                } else {
+                    // Show Error Toast
+                }
+            }
+        return user
+    }
+
+    func updateProfile(_ isShow: Bool) {
+        isShowUpdateProfileView = isShow
     }
 
     func fetchUserImage() {
@@ -57,9 +81,12 @@ extension ProfileViewModel {
     }
 
     func signOut() {
-        try? Auth.auth().signOut()
-        SettingManager.loggedApp = false
-        AppRouterManager.shared.setRouterState(.login)
+        DispatchQueue.main.async {
+            try? Auth.auth().signOut()
+            SettingManager.loggedApp = false
+            UserDefaults.standard.synchronize()
+            AppRouterManager.shared.setRouterState(.login)
+        }
     }
 
     func backToHome() {

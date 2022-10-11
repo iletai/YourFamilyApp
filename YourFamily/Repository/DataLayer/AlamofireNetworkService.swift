@@ -45,7 +45,7 @@ extension AlamofireNetworkService: NetworkServiceProtocol {
         }
         .validate(statusCode: 200..<300)
         .validate(contentType: [
-            HTTPHeaderData.applicationJson.rawValue, HTTPHeaderData.textHTML.rawValue,
+            HTTPHeaderData.applicationJson.rawValue, HTTPHeaderData.textHTML.rawValue
         ])
         .publishData()
         .value()

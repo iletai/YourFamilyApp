@@ -40,8 +40,6 @@
 		1665E16B28B7427F00CCEA09 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1665E16A28B7427F00CCEA09 /* Preview Assets.xcassets */; };
 		167090CE28D42E300022BA8F /* CalendarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167090CD28D42E300022BA8F /* CalendarCoordinator.swift */; };
 		167090D028D484370022BA8F /* MemoryCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167090CF28D484370022BA8F /* MemoryCardView.swift */; };
-		1682048E28E578230085C8B6 /* BarcodeScanner in Frameworks */ = {isa = PBXBuildFile; productRef = 1682048D28E578230085C8B6 /* BarcodeScanner */; };
-		1682049128E57A440085C8B6 /* BarcodeScanerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1682049028E57A440085C8B6 /* BarcodeScanerView.swift */; };
 		16828E1028BCB7970054081A /* Parchment in Frameworks */ = {isa = PBXBuildFile; productRef = 16828E0F28BCB7970054081A /* Parchment */; };
 		16828E1328BCBB150054081A /* MemoryCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16828E1228BCBB150054081A /* MemoryCalendarView.swift */; };
 		16828E1528BCBBE90054081A /* CalendarMemoryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16828E1428BCBBE90054081A /* CalendarMemoryItem.swift */; };
@@ -80,6 +78,7 @@
 		16FAAB8928F40C4500E30F65 /* UserDefaultExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16FAAB8828F40C4500E30F65 /* UserDefaultExtension.swift */; };
 		16FAAB8B28F4139D00E30F65 /* EndCodableExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16FAAB8A28F4139D00E30F65 /* EndCodableExtension.swift */; };
 		16FAAB8E28F442C700E30F65 /* FUserMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16FAAB8D28F442C700E30F65 /* FUserMapper.swift */; };
+		16FAAB9028F56F2400E30F65 /* UpdateProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16FAAB8F28F56F2400E30F65 /* UpdateProfileView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -115,7 +114,6 @@
 		1665E16A28B7427F00CCEA09 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		167090CD28D42E300022BA8F /* CalendarCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarCoordinator.swift; sourceTree = "<group>"; };
 		167090CF28D484370022BA8F /* MemoryCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryCardView.swift; sourceTree = "<group>"; };
-		1682049028E57A440085C8B6 /* BarcodeScanerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeScanerView.swift; sourceTree = "<group>"; };
 		16828E1228BCBB150054081A /* MemoryCalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryCalendarView.swift; sourceTree = "<group>"; };
 		16828E1428BCBBE90054081A /* CalendarMemoryItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarMemoryItem.swift; sourceTree = "<group>"; };
 		16828E1628BCC0D60054081A /* CalendarPagingCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarPagingCellView.swift; sourceTree = "<group>"; };
@@ -146,6 +144,7 @@
 		16FAAB8828F40C4500E30F65 /* UserDefaultExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultExtension.swift; sourceTree = "<group>"; };
 		16FAAB8A28F4139D00E30F65 /* EndCodableExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndCodableExtension.swift; sourceTree = "<group>"; };
 		16FAAB8D28F442C700E30F65 /* FUserMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FUserMapper.swift; sourceTree = "<group>"; };
+		16FAAB8F28F56F2400E30F65 /* UpdateProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateProfileView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,7 +159,6 @@
 				16828E1028BCB7970054081A /* Parchment in Frameworks */,
 				16FAAB7328ED2B9C00E30F65 /* FirebaseFirestore in Frameworks */,
 				1639BD2A28B8BCAC002CCDF5 /* SwiftUIPager in Frameworks */,
-				1682048E28E578230085C8B6 /* BarcodeScanner in Frameworks */,
 				16828E3728C5B2240054081A /* AlertToast in Frameworks */,
 				16F41FCE28CA5BFD00ACA1DA /* FirebaseDatabase in Frameworks */,
 				1639BD2128B7E382002CCDF5 /* FacebookLogin in Frameworks */,
@@ -237,6 +235,7 @@
 			children = (
 				1639BD3428B91939002CCDF5 /* ProfileView.swift */,
 				16DBF79D28E1A097006DDBE7 /* MenuViewProfile.swift */,
+				16FAAB8F28F56F2400E30F65 /* UpdateProfileView.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -310,14 +309,6 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		1682048F28E57A330085C8B6 /* BarcodeScan */ = {
-			isa = PBXGroup;
-			children = (
-				1682049028E57A440085C8B6 /* BarcodeScanerView.swift */,
-			);
-			path = BarcodeScan;
-			sourceTree = "<group>";
-		};
 		16828E1128BCBAF40054081A /* CalendarMemoryView */ = {
 			isa = PBXGroup;
 			children = (
@@ -364,7 +355,6 @@
 		16B95A8D28B747C600CA3B72 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				1682048F28E57A330085C8B6 /* BarcodeScan */,
 				1639BD3328B9192E002CCDF5 /* Profile */,
 				1639BD3028B914AE002CCDF5 /* Setting */,
 				1639BD2D28B91259002CCDF5 /* DateMemory */,
@@ -508,7 +498,6 @@
 				16F41FCB28CA5BFD00ACA1DA /* FirebaseAuth */,
 				16F41FCD28CA5BFD00ACA1DA /* FirebaseDatabase */,
 				16F41FCF28CA5BFD00ACA1DA /* FirebaseStorage */,
-				1682048D28E578230085C8B6 /* BarcodeScanner */,
 				16FAAB7228ED2B9C00E30F65 /* FirebaseFirestore */,
 			);
 			productName = YourFamily;
@@ -607,7 +596,6 @@
 				167090CE28D42E300022BA8F /* CalendarCoordinator.swift in Sources */,
 				16828E1D28BD14E50054081A /* DateFormatterExtension.swift in Sources */,
 				16FAAB8E28F442C700E30F65 /* FUserMapper.swift in Sources */,
-				1682049128E57A440085C8B6 /* BarcodeScanerView.swift in Sources */,
 				1665E16628B7427D00CCEA09 /* ContentView.swift in Sources */,
 				16828E1328BCBB150054081A /* MemoryCalendarView.swift in Sources */,
 				16B95A9728B7707100CA3B72 /* RouterViewModel.swift in Sources */,
@@ -651,6 +639,7 @@
 				165E973B28B7C87A00490E01 /* AppConstant.swift in Sources */,
 				163639D828D225A4000B0B19 /* SignUpView.swift in Sources */,
 				16FAAB7628EEC18300E30F65 /* FUser.swift in Sources */,
+				16FAAB9028F56F2400E30F65 /* UpdateProfileView.swift in Sources */,
 				16828E1528BCBBE90054081A /* CalendarMemoryItem.swift in Sources */,
 				16FAAB8B28F4139D00E30F65 /* EndCodableExtension.swift in Sources */,
 				1639BD2328B85777002CCDF5 /* ColorExtension.swift in Sources */,
@@ -961,11 +950,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 1639BD2828B8BCAC002CCDF5 /* XCRemoteSwiftPackageReference "SwiftUIPager" */;
 			productName = SwiftUIPager;
-		};
-		1682048D28E578230085C8B6 /* BarcodeScanner */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 1682048C28E578230085C8B6 /* XCRemoteSwiftPackageReference "BarcodeScanner" */;
-			productName = BarcodeScanner;
 		};
 		16828E0F28BCB7970054081A /* Parchment */ = {
 			isa = XCSwiftPackageProductDependency;

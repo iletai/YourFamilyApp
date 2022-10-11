@@ -13,8 +13,8 @@ enum FCollectionReference: String {
     case memory
 }
 
-class FStoreage {
-    static let shared = FStoreage()
+class FStorage {
+    static let shared = FStorage()
 
     func firebaseReference(_ collectionRef: FCollectionReference) -> CollectionReference {
         return Firestore.firestore().collection(collectionRef.rawValue)

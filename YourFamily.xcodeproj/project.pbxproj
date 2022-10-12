@@ -80,6 +80,7 @@
 		16FAAB9028F56F2400E30F65 /* UpdateProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16FAAB8F28F56F2400E30F65 /* UpdateProfileView.swift */; };
 		16FAAB9328F65E7A00E30F65 /* FileStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16FAAB9228F65E7A00E30F65 /* FileStorage.swift */; };
 		16FAAB9528F660FF00E30F65 /* FileUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16FAAB9428F660FF00E30F65 /* FileUtils.swift */; };
+		16FAAB9828F6803B00E30F65 /* EditInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16FAAB9728F6803B00E30F65 /* EditInfoView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -147,6 +148,7 @@
 		16FAAB8F28F56F2400E30F65 /* UpdateProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateProfileView.swift; sourceTree = "<group>"; };
 		16FAAB9228F65E7A00E30F65 /* FileStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileStorage.swift; sourceTree = "<group>"; };
 		16FAAB9428F660FF00E30F65 /* FileUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileUtils.swift; sourceTree = "<group>"; };
+		16FAAB9728F6803B00E30F65 /* EditInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditInfoView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -235,6 +237,7 @@
 		1639BD3328B9192E002CCDF5 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				16FAAB9628F6802700E30F65 /* Sub */,
 				1639BD3428B91939002CCDF5 /* ProfileView.swift */,
 				16DBF79D28E1A097006DDBE7 /* MenuViewProfile.swift */,
 				16FAAB8F28F56F2400E30F65 /* UpdateProfileView.swift */,
@@ -481,6 +484,14 @@
 			path = Firebase;
 			sourceTree = "<group>";
 		};
+		16FAAB9628F6802700E30F65 /* Sub */ = {
+			isa = PBXGroup;
+			children = (
+				16FAAB9728F6803B00E30F65 /* EditInfoView.swift */,
+			);
+			path = Sub;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -624,6 +635,7 @@
 				162F765D28C79B2800BD49A8 /* SettingLunarCalendarView.swift in Sources */,
 				1639BD3228B914C2002CCDF5 /* SettingView.swift in Sources */,
 				162F766428C8787900BD49A8 /* SettingViewModel.swift in Sources */,
+				16FAAB9828F6803B00E30F65 /* EditInfoView.swift in Sources */,
 				16DBF79E28E1A097006DDBE7 /* MenuViewProfile.swift in Sources */,
 				16828E1928BCC53E0054081A /* DateMemoryViewModel.swift in Sources */,
 				162F765328C73C6F00BD49A8 /* CalendarBodyView.swift in Sources */,

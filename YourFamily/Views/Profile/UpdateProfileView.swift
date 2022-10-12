@@ -10,32 +10,34 @@ import SwiftUI
 struct UpdateProfileView: View {
     @StateObject var viewModel: ProfileViewModel
     var body: some View {
-        ZStack {
-            LinearGradient(
-                gradient: Gradient(colors: [
-                    .c051937,
-                    Color(hex: "051937"),
-                    Color(hex: "008793"),
-                    Color(hex: "00bf72"),
-                    .cA8EB12
-                ]), startPoint: .bottomLeading, endPoint: .topTrailing
-            )
-            .opacity(0.5)
-            VStack(spacing: .zero) {
-                makeHeaderView()
-                    .padding(.bottom, 20)
-                makeCenterView()
-                Spacer()
+        NavigationView {
+            ZStack {
+                LinearGradient(
+                    gradient: Gradient(colors: [
+                        .c051937,
+                        Color(hex: "051937"),
+                        Color(hex: "008793"),
+                        Color(hex: "00bf72"),
+                        .cA8EB12,
+                    ]), startPoint: .bottomLeading, endPoint: .topTrailing
+                )
+                .opacity(0.5)
+                VStack(spacing: .zero) {
+                    makeHeaderView()
+                        .padding(.bottom, 20)
+                    makeCenterView()
+                    Spacer()
+                }
+                .padding(.top, 36)
             }
-            .padding(.top, 36)
+            .ignoresSafeArea()
         }
-        .ignoresSafeArea()
     }
 
     func makeHeaderView() -> some View {
         VStack(spacing: 8) {
             Group {
-                Image("dummyAvatar")
+                Image(uiImage: viewModel.userData.image ?? UIImage())
                     .resizable()
                     .scaledToFit()
                     .clipShape(Circle())
@@ -59,7 +61,7 @@ struct UpdateProfileView: View {
                 VStack(spacing: 20) {
                     makeRegionMonthSetting()
                     Divider()
-                    makeRegionDayStartWeek()
+                    makePhoneRegion()
                 }
                 .padding(.horizontal, 21)
                 .padding(.vertical, 24)
@@ -71,9 +73,9 @@ struct UpdateProfileView: View {
                 .frame(maxWidth: .infinity, maxHeight: 150)
                 .padding(.top, 20)
                 VStack(spacing: 20) {
-                    makeRegionShowLunarDay()
+                    makeRegionEmailAdress()
                     Divider()
-                    makeRegionShowDayOut()
+                    makeRegionBirthday()
                 }
                 .padding(.horizontal, 21)
                 .padding(.vertical, 24)
@@ -107,16 +109,23 @@ struct UpdateProfileView: View {
                     .font(.system(size: 14))
                     .fontWeight(.regular)
                     .foregroundColor(Color.black)
-                Text(viewModel.currentProfile?.nickname ?? .empty)
-                    .font(.system(size: 12))
-                    .fontWeight(.thin)
-                    .foregroundColor(Color.c949494)
+                Spacer()
+                NavigationLink(
+                    destination: EditInfoView(
+                        viewModel: self.viewModel) {
+                            self.viewModel.updateProfile()
+                        }
+                ) {
+                    Text(viewModel.currentProfile.nickname)
+                        .foregroundColor(Color.c949494)
+                }
+
             }
             Spacer()
         }
     }
 
-    func makeRegionDayStartWeek() -> some View {
+    func makePhoneRegion() -> some View {
         HStack {
             Color.c745CF1
                 .clipShape(Rectangle())
@@ -129,21 +138,19 @@ struct UpdateProfileView: View {
                         .frame(width: 18, height: 14)
                 )
                 .frame(width: 30, height: 30)
-            VStack(alignment: .leading, spacing: 0) {
-                Text("Day start week")
+            HStack {
+                Text("Phone number:")
                     .font(.system(size: 14))
                     .fontWeight(.regular)
                     .foregroundColor(Color.black)
-                Text("First day of week")
-                    .font(.system(size: 12))
-                    .fontWeight(.thin)
-                    .foregroundColor(Color.c949494)
+                Spacer()
+                Text(viewModel.currentProfile.phoneNumber)
             }
             Spacer()
         }
     }
 
-    func makeRegionShowLunarDay() -> some View {
+    func makeRegionEmailAdress() -> some View {
         HStack {
             Color.c5CCBF1
                 .clipShape(Rectangle())
@@ -156,14 +163,13 @@ struct UpdateProfileView: View {
                         .frame(width: 18, height: 14)
                 )
                 .frame(width: 30, height: 30)
-            VStack(alignment: .leading, spacing: 0) {
-                Text("Enable Vietnamese Lunar Day")
+            HStack {
+                Text("Email Adress:")
                     .font(.system(size: 14))
                     .fontWeight(.regular)
                     .foregroundColor(Color.black)
-                    .fixedSize(horizontal: true, vertical: false)
-                    .frame(maxWidth: .infinity)
-                Text("Show Lunar Date")
+                Spacer()
+                Text(viewModel.currentProfile.emailAdress)
                     .font(.system(size: 12))
                     .fontWeight(.thin)
                     .foregroundColor(Color.c949494)
@@ -172,7 +178,7 @@ struct UpdateProfileView: View {
         }
     }
 
-    func makeRegionShowDayOut() -> some View {
+    func makeRegionBirthday() -> some View {
         HStack {
             Color.cF18A5C
                 .clipShape(Rectangle())
@@ -185,14 +191,13 @@ struct UpdateProfileView: View {
                         .frame(width: 18, height: 14)
                 )
                 .frame(width: 30, height: 30)
-            VStack(alignment: .leading, spacing: 0) {
-                Text("Show Date Out Of Month")
+            HStack {
+                Text("Date of Birth")
                     .font(.system(size: 14))
                     .fontWeight(.regular)
                     .foregroundColor(Color.black)
-                    .fixedSize(horizontal: true, vertical: false)
-                    .frame(maxWidth: .infinity)
-                Text("Show date out")
+                Spacer()
+                Text(viewModel.currentProfile.bithday.toFullDateString)
                     .font(.system(size: 12))
                     .fontWeight(.thin)
                     .foregroundColor(Color.c949494)

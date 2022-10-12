@@ -17,13 +17,14 @@ class FUser {
     var bithday: Date
     var onBoarding: Bool
 
-    init(id: String,
-         nickname: String,
-         emailAdress: String,
-         phoneNumber: String,
-         avatarImage: String,
-         onBoarding: Bool,
-         birthday: Date
+    init(
+        id: String,
+        nickname: String,
+        emailAdress: String,
+        phoneNumber: String,
+        avatarImage: String,
+        onBoarding: Bool,
+        birthday: Date
     ) {
         self.id = id
         self.emailAdress = emailAdress
@@ -44,6 +45,12 @@ class FUser {
         avatarImage = dictionary[ServerConstant.Param.avatarImage] as? String ?? .empty
     }
 
+    static func emptyUser() -> FUser {
+        return FUser(
+            id: UUID().uuidString, nickname: .empty, emailAdress: .empty, phoneNumber: .empty,
+            avatarImage: .empty, onBoarding: false, birthday: Date())
+    }
+
     class func currentUser() -> FUser? {
         if Auth.auth().currentUser != nil {
         }
@@ -51,6 +58,9 @@ class FUser {
     }
 
     class func currentId() -> String {
-        return Auth.auth().currentUser!.uid
+        guard let user = Auth.auth().currentUser else {
+            return .empty
+        }
+        return user.uid
     }
 }

@@ -9,9 +9,9 @@ import SwiftUI
 
 extension View {
     func debugAction(_ closure: () -> Void) -> Self {
-#if DEBUG
-        closure()
-#endif
+        #if DEBUG
+            closure()
+        #endif
 
         return self
     }
@@ -21,11 +21,11 @@ extension View {
     }
 
     func debugModifier<T: View>(_ modifier: (Self) -> T) -> some View {
-#if DEBUG
-        return modifier(self)
-#else
-        return self
-#endif
+        #if DEBUG
+            return modifier(self)
+        #else
+            return self
+        #endif
     }
 
     func debugBorder(_ color: Color = .red, width: CGFloat = 1) -> some View {
@@ -42,5 +42,17 @@ extension View {
 
     func cornerRadius(_ radius: CGFloat, corners: UIRectCorner) -> some View {
         clipShape(RoundedCorner(radius: radius, corners: corners))
+    }
+
+    func placeholder<Content: View>(
+        when shouldShow: Bool,
+        alignment: Alignment = .leading,
+        @ViewBuilder placeholder: () -> Content
+    ) -> some View {
+
+        ZStack(alignment: alignment) {
+            placeholder().opacity(shouldShow ? 1 : 0)
+            self
+        }
     }
 }

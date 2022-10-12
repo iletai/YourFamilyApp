@@ -154,8 +154,6 @@ extension LoginViewModel {
         }
     }
 
-    
-
     func loginWithEmail() {
         guard !yourEmail.isEmpty, !yourPassword.isEmpty else {
             isShowError = true
@@ -173,10 +171,8 @@ extension LoginViewModel {
                     .getDocument(completion: { snapShot, error in
                         guard let snapShot else { return }
                         if snapShot.exists {
-                            FileStorage.saveUserLocally(userDictionary: snapShot.data()! as NSDictionary)
                             self.loggedInApp = true
                             self.moveToHome()
-                            UserDefaults.standard.synchronize()
                         } else {
                             let user = FUser(
                                 id: FUser.currentId(),

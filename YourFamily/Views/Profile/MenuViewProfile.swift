@@ -24,7 +24,7 @@ struct MenuViewProfile: View {
                         Spacer()
                     }
                     HStack {
-                        Text("Hello, " + viewModel.username)
+                        Text("Hello, \(viewModel.currentProfile.nickname)")
                             .font(.system(size: 20))
                         Spacer()
                     }

@@ -181,11 +181,11 @@ struct ProfileView: View {
                 )
                 .shadow(radius: 4, x: 0, y: 2)
             VStack(alignment: .leading, spacing: 4) {
-                Text(viewModel.username.uppercased())
+                Text(viewModel.currentProfile.nickname.uppercased())
                     .font(.system(size: 14))
                     .fontWeight(.bold)
                     .foregroundColor(.c595085)
-                Text(viewModel.currentProfile?.emailAdress ?? .empty)
+                Text(viewModel.currentProfile.emailAdress)
                     .font(.system(size: 12))
                     .fontWeight(.light)
                     .foregroundColor(.gray)

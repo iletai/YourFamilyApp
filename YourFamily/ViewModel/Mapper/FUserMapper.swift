@@ -18,8 +18,8 @@ final class FUserMapper {
                 fUser.phoneNumber,
                 fUser.onBoarding,
                 fUser.avatarImage,
-                fUser.nickname,
-                fUser.bithday
+                fUser.bithday,
+                fUser.nickname
             ],
             forKeys: [
                 ServerConstant.Param.currentUser as NSCopying,

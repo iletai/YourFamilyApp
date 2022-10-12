@@ -12,7 +12,7 @@ import Foundation
 class FirebaseNetworkService {
     internal let sessionManager: Session
     var cancellables = [AnyCancellable]()
-    
+
     init(with sessionManager: Session = Session.defaultSession(.defaultsession)) {
         self.sessionManager = sessionManager
     }
@@ -20,19 +20,20 @@ class FirebaseNetworkService {
 
 extension FirebaseNetworkService: NetworkServiceProtocol {
     // TODO: - Handle Later
-    func makeRequest<T: Codable>(info: RequestInfo, params: T) -> AnyPublisher<Data, NetworkServiceError> {
+    func makeRequest<T: Codable>(info: RequestInfo, params: T) -> AnyPublisher<
+        Data, NetworkServiceError
+    > {
         guard let api = ServerConstant.FirebasePathAPI(rawValue: info.urlInfo.path) else {
             return Fail(error: NetworkServiceError.noResponse).eraseToAnyPublisher()
         }
 
         switch api {
-            case .login:
-                break
-            default:
-                break
+        case .login:
+            break
+        default:
+            break
         }
         return Fail(error: NetworkServiceError.noResponse).eraseToAnyPublisher()
     }
-
 
 }

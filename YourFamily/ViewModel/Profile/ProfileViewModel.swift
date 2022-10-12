@@ -14,14 +14,13 @@ import FirebaseAuth
 final class ProfileViewModel: ObservableObject {
     @Published var showSettingProfile = false
     @Published var showMenuProfile = false
-    @Published var username = SettingManager.emailLoggedIn
     @Published var isUserLoggedOut = false
     @Published var isShowActionSheet = false
     @Published var isShowPickerImage = false
     @Published var userData = UserData()
-    @Published var storageManager = FileStoreManager()
-    @Published var currentProfile: FUser?
+    @Published var currentProfile = FUser.emptyUser()
     @Published var isShowUpdateProfileView = false
+    @Published var updateNickname = String.empty
 
     init() {
         DispatchQueue.main.async {
@@ -72,11 +71,9 @@ extension ProfileViewModel {
     func fetchUserImage() {
         DispatchQueue.main.async {
             self.getProfile()
-            if let profile = self.currentProfile {
-                FileStorage.downloadImage(imageUrl: profile.avatarImage, completion: { image in
-                    self.userData.image = image
-                })
-            }
+            FileStorage.downloadImage(imageUrl: self.currentProfile.avatarImage, completion: { image in
+                self.userData.image = image
+            })
         }
     }
 
@@ -85,11 +82,14 @@ extension ProfileViewModel {
     }
 
     func signOut() {
-        DispatchQueue.main.async {
-            try? Auth.auth().signOut()
-            SettingManager.loggedApp = false
+        do {
+            try Auth.auth().signOut()
+            UserDefaults.standard.removeObject(forKey: ServerConstant.Param.currentUser)
             UserDefaults.standard.synchronize()
             AppRouterManager.shared.setRouterState(.login)
+
+        } catch let error as Error {
+            return
         }
     }
 
@@ -99,22 +99,27 @@ extension ProfileViewModel {
 
     func uploadFirebaseImage(_ image: UIImage) {
         let fileDirectory = "Avatars/" + "_\(FUser.currentId())" + ".jpg"
-        if let profile = self.currentProfile {
-            FileStorage.uploadImage(image, directory: fileDirectory) { documentLink in
-                print(documentLink ?? .empty)
-                profile.avatarImage = (documentLink ?? .empty) as String
-                FStorage.shared
-                    .firebaseReference(.user)
-                    .document(FUser.currentId())
-                    .updateData(FUserMapper.mapUserToFireStorage(profile)) { (error) in
-                        if error == nil {
-                            FileStorage.saveUserLocally(
-                                userDictionary:
-                                    FUserMapper.mapUserToFireStorage(profile) as NSDictionary
-                            )
-                        }
-                    }
-            }
+        FileStorage.uploadImage(image, directory: fileDirectory) { documentLink in
+            print(documentLink ?? .empty)
+            self.currentProfile.avatarImage = (documentLink ?? .empty) as String
+            self.updateProfile()
         }
+    }
+
+    func updateProfile() {
+        if FUser.currentId().isEmpty {
+            return
+        }
+        FStorage.shared
+            .firebaseReference(.user)
+            .document(FUser.currentId())
+            .updateData(FUserMapper.mapUserToFireStorage(self.currentProfile)) { (error) in
+                if error == nil {
+                    FileStorage.saveUserLocally(
+                        userDictionary:
+                            FUserMapper.mapUserToFireStorage(self.currentProfile) as NSDictionary
+                    )
+                }
+            }
     }
 }

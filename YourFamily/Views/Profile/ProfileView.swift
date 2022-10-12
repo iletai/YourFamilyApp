@@ -96,7 +96,7 @@ struct ProfileView: View {
                     .environmentObject(self.viewModel.userData)
             }
             .onChange(of: viewModel.userData.image ?? UIImage()) { newValue in
-                viewModel.storageManager.uploadFirebaseImage(newValue)
+                viewModel.uploadFirebaseImage(newValue)
             }
             .onAppear {
                 viewModel.fetchUserImage()

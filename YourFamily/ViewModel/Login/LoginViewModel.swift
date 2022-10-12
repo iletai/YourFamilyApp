@@ -113,7 +113,7 @@ extension LoginViewModel {
                         return
                     }
                     if snapShot.exists {
-                        self.saveUserLocally(userDictionary: snapShot.data()! as NSDictionary)
+                        FileStorage.saveUserLocally(userDictionary: snapShot.data()! as NSDictionary)
                         self.loggedInApp = true
                         self.moveToHome()
                     } else {
@@ -122,6 +122,7 @@ extension LoginViewModel {
                             nickname: .empty,
                             emailAdress: profileDataUser[ServerConstant.Param.email] as? String ?? .empty,
                             phoneNumber: res.user.phoneNumber ?? .empty,
+                            avatarImage: .empty,
                             onBoarding: true,
                             birthday: Date()
                         )
@@ -132,7 +133,7 @@ extension LoginViewModel {
                             .setData(FUserMapper.mapUserToFireStorage(user)) { (error) in
                                 if error == nil {
                                     self.loggedInApp = true
-                                    self.saveUserLocally(
+                                    FileStorage.saveUserLocally(
                                         userDictionary:
                                             FUserMapper.mapUserToFireStorage(user) as NSDictionary
                                     )
@@ -153,10 +154,7 @@ extension LoginViewModel {
         }
     }
 
-    func saveUserLocally(userDictionary: NSDictionary) {
-        UserDefaults.standard.set(userDictionary, forKey: ServerConstant.Param.currentUser)
-        UserDefaults.standard.synchronize()
-    }
+    
 
     func loginWithEmail() {
         guard !yourEmail.isEmpty, !yourPassword.isEmpty else {
@@ -175,7 +173,7 @@ extension LoginViewModel {
                     .getDocument(completion: { snapShot, error in
                         guard let snapShot else { return }
                         if snapShot.exists {
-                            self.saveUserLocally(userDictionary: snapShot.data()! as NSDictionary)
+                            FileStorage.saveUserLocally(userDictionary: snapShot.data()! as NSDictionary)
                             self.loggedInApp = true
                             self.moveToHome()
                             UserDefaults.standard.synchronize()
@@ -185,6 +183,7 @@ extension LoginViewModel {
                                 nickname: .empty,
                                 emailAdress: authResult?.user.email ?? .empty,
                                 phoneNumber: authResult?.user.phoneNumber ?? .empty,
+                                avatarImage: .empty,
                                 onBoarding: true,
                                 birthday: Date()
                             )
@@ -193,7 +192,7 @@ extension LoginViewModel {
                                 .document(FUser.currentId())
                                 .setData(FUserMapper.mapUserToFireStorage(user)) { (error) in
                                     if error == nil {
-                                        self.saveUserLocally(
+                                        FileStorage.saveUserLocally(
                                             userDictionary: FUserMapper
                                                 .mapUserToFireStorage(user) as NSDictionary
                                         )

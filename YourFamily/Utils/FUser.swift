@@ -13,6 +13,7 @@ class FUser {
     var nickname: String
     let emailAdress: String
     let phoneNumber: String
+    var avatarImage: String
     var bithday: Date
     var onBoarding: Bool
 
@@ -20,6 +21,7 @@ class FUser {
          nickname: String,
          emailAdress: String,
          phoneNumber: String,
+         avatarImage: String,
          onBoarding: Bool,
          birthday: Date
     ) {
@@ -27,6 +29,7 @@ class FUser {
         self.emailAdress = emailAdress
         self.nickname = nickname
         self.phoneNumber = phoneNumber
+        self.avatarImage = avatarImage
         self.onBoarding = false
         self.bithday = birthday
     }
@@ -38,6 +41,7 @@ class FUser {
         phoneNumber = dictionary[ServerConstant.Param.phoneNumber] as? String ?? .empty
         onBoarding = dictionary[ServerConstant.Param.onBoard] as? Bool ?? false
         bithday = dictionary[ServerConstant.Param.birthday] as? Date ?? Date()
+        avatarImage = dictionary[ServerConstant.Param.avatarImage] as? String ?? .empty
     }
 
     class func currentUser() -> FUser? {

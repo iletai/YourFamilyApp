@@ -11,6 +11,7 @@ struct ServerConstant {
     struct BaseAPIURL {
         #if DEBUG
         static var baseURL = "https://yourfamily-562e9-default-rtdb.asia-southeast1.firebasedatabase.app"
+        static var storageURL = "gs://yourfamily-562e9.appspot.com"
         #else
         #endif
     }
@@ -47,7 +48,8 @@ struct ServerConstant {
             static let paramRequest = ["fields": "email"]
         /// birthday
             static let birthday = "birthday"
-        
+        /// avatarImage
+            static let avatarImage = "avatarImage"
         #else
         #endif
     }

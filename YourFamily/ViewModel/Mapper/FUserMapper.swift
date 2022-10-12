@@ -16,13 +16,19 @@ final class FUserMapper {
                 fUser.id,
                 fUser.emailAdress,
                 fUser.phoneNumber,
-                fUser.onBoarding
+                fUser.onBoarding,
+                fUser.avatarImage,
+                fUser.nickname,
+                fUser.bithday
             ],
             forKeys: [
                 ServerConstant.Param.currentUser as NSCopying,
                 ServerConstant.Param.email as NSCopying,
                 ServerConstant.Param.phoneNumber as NSCopying,
-                ServerConstant.Param.onBoard as NSCopying
+                ServerConstant.Param.onBoard as NSCopying,
+                ServerConstant.Param.avatarImage as NSCopying,
+                ServerConstant.Param.birthday as NSCopying,
+                ServerConstant.Param.nickname as NSCopying
             ]) as! [String: Any]
     }
 }

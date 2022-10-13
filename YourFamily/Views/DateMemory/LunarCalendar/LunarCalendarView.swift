@@ -62,7 +62,14 @@ struct LunarCalendarView: View {
             view: {
                 OnThisDateView(memoryModel: viewModel)
                     .padding()
-            })
+            }
+        )
+        .popup(
+            isPresented: $viewModel.showingToastInform, type: .floater(), position: .bottom,
+            animation: .spring(), autohideIn: 2
+        ) {
+            makeFloatToastMessage()
+        }
     }
 
     func makeDateRegionView() -> some View {
@@ -121,6 +128,22 @@ struct LunarCalendarView: View {
 
         }
         .padding(8)
+    }
+
+    func makeFloatToastMessage() -> some View {
+        HStack(spacing: 0) {
+            Text(viewModel.floatToastInfo.message)
+                .font(.system(size: 15))
+                .foregroundColor(.black)
+            Spacer()
+            Image(uiImage: viewModel.userData.image ?? UIImage())
+                .frame(width: 32, height: 32)
+                .cornerRadius(16)
+        }
+        .padding(16)
+        .background(Color.white.cornerRadius(12))
+        .shadowedStyle()
+        .padding(.horizontal, 16)
     }
 }
 

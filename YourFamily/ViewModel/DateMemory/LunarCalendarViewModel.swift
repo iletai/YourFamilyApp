@@ -19,8 +19,18 @@ final class LunarCalendarViewModel: ObservableObject {
     @Published var location = String.empty
     @Published var userData = UserData()
     @Published var isShowPickerImage = false
+    @Published var showingToastInform = false
+    @Published var floatToastInfo = InformFloatToast(title: .empty, message: .empty)
 
     init() {
+    }
+}
+
+// MARK: - Struct
+extension LunarCalendarViewModel {
+    struct InformFloatToast {
+        let title: String
+        let message: String
     }
 }
 
@@ -40,45 +50,36 @@ extension LunarCalendarViewModel {
 
     func saveTheDayToFirestore() {
         if let image = userData.image {
-            let fileDirectory = "Memory/" + "\(location)_\(FUser.currentId())" + ".jpg"
+            let fileDirectory = "Memory/" + "\(location)_\(UUID().uuidString)" + ".jpg"
             FileStorage.uploadImage(image, directory: fileDirectory) { documentLink in
                 self.memory = OnThisDayModel(
-                    id: FUser.currentId(), title: self.titleMemory, location: self.location,
+                    id: UUID().uuidString, title: self.titleMemory, location: self.location,
                     time: self.travelOnTime, imageLink: documentLink ?? .empty)
-                FStorage.shared
-                    .firebaseReference(.memory)
-                    .document(self.memory.id)
-                    .setData(
-                        OnThisDateMapper.mapMemoryToFirebase(self.memory)
-                    ) { error in
-                        if error == nil {
-                            print("Upload to Firebase Sucessfully")
-                        } else {
-                            // Show Error
-                            print(error?.localizedDescription ?? .empty)
-                        }
-
-                    }
             }
         } else {
             memory = OnThisDayModel(
-                id: FUser.currentId(), title: titleMemory, location: location, time: travelOnTime,
+                id: UUID().uuidString, title: titleMemory, location: location, time: travelOnTime,
                 imageLink: .empty)
-            FStorage.shared
-                .firebaseReference(.memory)
-                .document(memory.id)
-                .setData(
-                    OnThisDateMapper.mapMemoryToFirebase(memory)
-                ) { error in
-                    if error == nil {
-                        print("Upload to Firebase Sucessfully")
-                    } else {
-                        // Show Error
-                        print(error?.localizedDescription ?? .empty)
-                    }
-
-                }
         }
-        isShowAddMemory.toggle()
+        FStorage.shared
+            .firebaseReference(.memory)
+            .document(self.memory.id)
+            .setData(
+                OnThisDateMapper.mapMemoryToFirebase(self.memory)
+            ) { error in
+                if error == nil {
+                    self.floatToastInfo = InformFloatToast(
+                        title: .empty,
+                        message: "Upload to Firebase Sucessfully"
+                    )
+                } else {
+                    self.floatToastInfo = InformFloatToast(
+                        title: "Error!",
+                        message: error?.localizedDescription ?? .empty
+                    )
+                }
+                self.showingToastInform = true
+            }
+        isShowAddMemory = false
     }
 }

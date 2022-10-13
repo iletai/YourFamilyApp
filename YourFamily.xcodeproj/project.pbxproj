@@ -26,6 +26,7 @@
 		16365DED28F7C16B0013CC8D /* OnThisDateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16365DEC28F7C16B0013CC8D /* OnThisDateView.swift */; };
 		16365DEF28F7E7200013CC8D /* CustomDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16365DEE28F7E7200013CC8D /* CustomDialog.swift */; };
 		16365DF228F7EDBE0013CC8D /* PopupView in Frameworks */ = {isa = PBXBuildFile; productRef = 16365DF128F7EDBE0013CC8D /* PopupView */; };
+		16365DF428F812060013CC8D /* MemoryCardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16365DF328F812060013CC8D /* MemoryCardViewModel.swift */; };
 		1639BD2128B7E382002CCDF5 /* FacebookLogin in Frameworks */ = {isa = PBXBuildFile; productRef = 1639BD2028B7E382002CCDF5 /* FacebookLogin */; };
 		1639BD2328B85777002CCDF5 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1639BD2228B85777002CCDF5 /* ColorExtension.swift */; };
 		1639BD2728B868DD002CCDF5 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1639BD2628B868DD002CCDF5 /* HomeView.swift */; };
@@ -107,6 +108,7 @@
 		16365DE828F7BB880013CC8D /* OnThisDateMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnThisDateMapper.swift; sourceTree = "<group>"; };
 		16365DEC28F7C16B0013CC8D /* OnThisDateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnThisDateView.swift; sourceTree = "<group>"; };
 		16365DEE28F7E7200013CC8D /* CustomDialog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDialog.swift; sourceTree = "<group>"; };
+		16365DF328F812060013CC8D /* MemoryCardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryCardViewModel.swift; sourceTree = "<group>"; };
 		1639BD2228B85777002CCDF5 /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
 		1639BD2628B868DD002CCDF5 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		1639BD2B28B8BDB0002CCDF5 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
@@ -284,6 +286,7 @@
 				16828E1428BCBBE90054081A /* CalendarMemoryItem.swift */,
 				16828E1828BCC53E0054081A /* DateMemoryViewModel.swift */,
 				162F765A28C796C600BD49A8 /* LunarCalendarViewModel.swift */,
+				16365DF328F812060013CC8D /* MemoryCardViewModel.swift */,
 			);
 			path = DateMemory;
 			sourceTree = "<group>";
@@ -683,6 +686,7 @@
 				1639BD2728B868DD002CCDF5 /* HomeView.swift in Sources */,
 				1639BD3528B91939002CCDF5 /* ProfileView.swift in Sources */,
 				16B95A9528B7703C00CA3B72 /* RouterView.swift in Sources */,
+				16365DF428F812060013CC8D /* MemoryCardViewModel.swift in Sources */,
 				16365DEF28F7E7200013CC8D /* CustomDialog.swift in Sources */,
 				16DBF7A028E47F2B006DDBE7 /* ImagePicker.swift in Sources */,
 				16F056CF28F72174005A65B6 /* OnThisDayModel.swift in Sources */,

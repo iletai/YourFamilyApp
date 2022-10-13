@@ -49,6 +49,14 @@ extension LunarCalendarViewModel {
     }
 
     func saveTheDayToFirestore() {
+        if titleMemory.isEmpty && location.isEmpty {
+            self.floatToastInfo = InformFloatToast(
+                title: "Please fill info!",
+                message: "Please fill your infomation"
+            )
+            isShowAddMemory = false
+            return
+        }
         if let image = userData.image {
             let fileDirectory = "Memory/" + "\(location)_\(UUID().uuidString)" + ".jpg"
             FileStorage.uploadImage(image, directory: fileDirectory) { documentLink in

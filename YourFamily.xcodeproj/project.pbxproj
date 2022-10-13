@@ -22,6 +22,10 @@
 		162F766428C8787900BD49A8 /* SettingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162F766328C8787900BD49A8 /* SettingViewModel.swift */; };
 		163639D828D225A4000B0B19 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163639D728D225A4000B0B19 /* SignUpView.swift */; };
 		163639DA28D238B7000B0B19 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 163639D928D238B7000B0B19 /* GoogleService-Info.plist */; };
+		16365DE928F7BB880013CC8D /* OnThisDateMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16365DE828F7BB880013CC8D /* OnThisDateMapper.swift */; };
+		16365DED28F7C16B0013CC8D /* OnThisDateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16365DEC28F7C16B0013CC8D /* OnThisDateView.swift */; };
+		16365DEF28F7E7200013CC8D /* CustomDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16365DEE28F7E7200013CC8D /* CustomDialog.swift */; };
+		16365DF228F7EDBE0013CC8D /* PopupView in Frameworks */ = {isa = PBXBuildFile; productRef = 16365DF128F7EDBE0013CC8D /* PopupView */; };
 		1639BD2128B7E382002CCDF5 /* FacebookLogin in Frameworks */ = {isa = PBXBuildFile; productRef = 1639BD2028B7E382002CCDF5 /* FacebookLogin */; };
 		1639BD2328B85777002CCDF5 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1639BD2228B85777002CCDF5 /* ColorExtension.swift */; };
 		1639BD2728B868DD002CCDF5 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1639BD2628B868DD002CCDF5 /* HomeView.swift */; };
@@ -59,6 +63,8 @@
 		16B95A9728B7707100CA3B72 /* RouterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16B95A9628B7707100CA3B72 /* RouterViewModel.swift */; };
 		16DBF79E28E1A097006DDBE7 /* MenuViewProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16DBF79D28E1A097006DDBE7 /* MenuViewProfile.swift */; };
 		16DBF7A028E47F2B006DDBE7 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16DBF79F28E47F2B006DDBE7 /* ImagePicker.swift */; };
+		16F056CD28F72134005A65B6 /* OnThisDayCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16F056CC28F72134005A65B6 /* OnThisDayCardView.swift */; };
+		16F056CF28F72174005A65B6 /* OnThisDayModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16F056CE28F72174005A65B6 /* OnThisDayModel.swift */; };
 		16F41FC628C99F8800ACA1DA /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 16F41FC528C99F8800ACA1DA /* Alamofire */; };
 		16F41FCC28CA5BFD00ACA1DA /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 16F41FCB28CA5BFD00ACA1DA /* FirebaseAuth */; };
 		16F41FCE28CA5BFD00ACA1DA /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 16F41FCD28CA5BFD00ACA1DA /* FirebaseDatabase */; };
@@ -98,6 +104,9 @@
 		162F766328C8787900BD49A8 /* SettingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewModel.swift; sourceTree = "<group>"; };
 		163639D728D225A4000B0B19 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		163639D928D238B7000B0B19 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		16365DE828F7BB880013CC8D /* OnThisDateMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnThisDateMapper.swift; sourceTree = "<group>"; };
+		16365DEC28F7C16B0013CC8D /* OnThisDateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnThisDateView.swift; sourceTree = "<group>"; };
+		16365DEE28F7E7200013CC8D /* CustomDialog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDialog.swift; sourceTree = "<group>"; };
 		1639BD2228B85777002CCDF5 /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
 		1639BD2628B868DD002CCDF5 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		1639BD2B28B8BDB0002CCDF5 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
@@ -132,6 +141,8 @@
 		16B95A9628B7707100CA3B72 /* RouterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterViewModel.swift; sourceTree = "<group>"; };
 		16DBF79D28E1A097006DDBE7 /* MenuViewProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewProfile.swift; sourceTree = "<group>"; };
 		16DBF79F28E47F2B006DDBE7 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		16F056CC28F72134005A65B6 /* OnThisDayCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnThisDayCardView.swift; sourceTree = "<group>"; };
+		16F056CE28F72174005A65B6 /* OnThisDayModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnThisDayModel.swift; sourceTree = "<group>"; };
 		16FAAB6E28EC27FF00E30F65 /* UIImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtension.swift; sourceTree = "<group>"; };
 		16FAAB7028ED28FD00E30F65 /* FirebaseReference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseReference.swift; sourceTree = "<group>"; };
 		16FAAB7528EEC18300E30F65 /* FUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FUser.swift; path = YourFamily/Utils/FUser.swift; sourceTree = SOURCE_ROOT; };
@@ -156,6 +167,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				16365DF228F7EDBE0013CC8D /* PopupView in Frameworks */,
 				16828E2028BD15F10054081A /* SwiftDate in Frameworks */,
 				16F41FC628C99F8800ACA1DA /* Alamofire in Frameworks */,
 				162F764628C72D2200BD49A8 /* CVCalendar in Frameworks */,
@@ -196,6 +208,27 @@
 				162F766328C8787900BD49A8 /* SettingViewModel.swift */,
 			);
 			path = Settings;
+			sourceTree = "<group>";
+		};
+		16365DEA28F7C11A0013CC8D /* Lunar */ = {
+			isa = PBXGroup;
+			children = (
+				167090CD28D42E300022BA8F /* CalendarCoordinator.swift */,
+				162F765428C74AD300BD49A8 /* LunarDateView.swift */,
+				162F765228C73C6F00BD49A8 /* CalendarBodyView.swift */,
+				162F764A28C7305500BD49A8 /* CalendarConfig.swift */,
+				162F764828C7300500BD49A8 /* DateInWeekHeaderView.swift */,
+			);
+			path = Lunar;
+			sourceTree = "<group>";
+		};
+		16365DEB28F7C1500013CC8D /* OnThisDayView */ = {
+			isa = PBXGroup;
+			children = (
+				16F056CC28F72134005A65B6 /* OnThisDayCardView.swift */,
+				16365DEC28F7C16B0013CC8D /* OnThisDateView.swift */,
+			);
+			path = OnThisDayView;
 			sourceTree = "<group>";
 		};
 		1639BD2428B868C6002CCDF5 /* Home */ = {
@@ -335,13 +368,10 @@
 		16AB078928C72809005D885F /* LunarCalendar */ = {
 			isa = PBXGroup;
 			children = (
+				16365DEB28F7C1500013CC8D /* OnThisDayView */,
+				16365DEA28F7C11A0013CC8D /* Lunar */,
 				16AB078528C71C3A005D885F /* LunarCalendarView.swift */,
-				162F764828C7300500BD49A8 /* DateInWeekHeaderView.swift */,
-				162F764A28C7305500BD49A8 /* CalendarConfig.swift */,
 				162F764E28C731B300BD49A8 /* CalendarManager.swift */,
-				162F765228C73C6F00BD49A8 /* CalendarBodyView.swift */,
-				162F765428C74AD300BD49A8 /* LunarDateView.swift */,
-				167090CD28D42E300022BA8F /* CalendarCoordinator.swift */,
 			);
 			path = LunarCalendar;
 			sourceTree = "<group>";
@@ -393,6 +423,7 @@
 				16B95A9128B761AD00CA3B72 /* Manager */,
 				16DBF79F28E47F2B006DDBE7 /* ImagePicker.swift */,
 				16FAAB8228EFFC7600E30F65 /* ServerConstant.swift */,
+				16365DEE28F7E7200013CC8D /* CustomDialog.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -435,6 +466,7 @@
 			isa = PBXGroup;
 			children = (
 				16FAAB7528EEC18300E30F65 /* FUser.swift */,
+				16F056CE28F72174005A65B6 /* OnThisDayModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -471,6 +503,7 @@
 			isa = PBXGroup;
 			children = (
 				16FAAB8D28F442C700E30F65 /* FUserMapper.swift */,
+				16365DE828F7BB880013CC8D /* OnThisDateMapper.swift */,
 			);
 			path = Mapper;
 			sourceTree = "<group>";
@@ -521,6 +554,7 @@
 				16F41FCD28CA5BFD00ACA1DA /* FirebaseDatabase */,
 				16F41FCF28CA5BFD00ACA1DA /* FirebaseStorage */,
 				16FAAB7228ED2B9C00E30F65 /* FirebaseFirestore */,
+				16365DF128F7EDBE0013CC8D /* PopupView */,
 			);
 			productName = YourFamily;
 			productReference = 1665E16028B7427D00CCEA09 /* YourFamily.app */;
@@ -561,6 +595,7 @@
 				16F41FC428C99F8800ACA1DA /* XCRemoteSwiftPackageReference "Alamofire" */,
 				16F41FCA28CA5BFD00ACA1DA /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				1682048C28E578230085C8B6 /* XCRemoteSwiftPackageReference "BarcodeScanner" */,
+				16365DF028F7EDBE0013CC8D /* XCRemoteSwiftPackageReference "PopupView" */,
 			);
 			productRefGroup = 1665E16128B7427D00CCEA09 /* Products */;
 			projectDirPath = "";
@@ -624,6 +659,7 @@
 				16B95A9728B7707100CA3B72 /* RouterViewModel.swift in Sources */,
 				162F764B28C7305500BD49A8 /* CalendarConfig.swift in Sources */,
 				162F764F28C731B300BD49A8 /* CalendarManager.swift in Sources */,
+				16F056CD28F72134005A65B6 /* OnThisDayCardView.swift in Sources */,
 				16FAAB8928F40C4500E30F65 /* UserDefaultExtension.swift in Sources */,
 				16FAAB6F28EC27FF00E30F65 /* UIImageExtension.swift in Sources */,
 				162F765528C74AD300BD49A8 /* LunarDateView.swift in Sources */,
@@ -637,6 +673,7 @@
 				162F766428C8787900BD49A8 /* SettingViewModel.swift in Sources */,
 				16FAAB9828F6803B00E30F65 /* EditInfoView.swift in Sources */,
 				16DBF79E28E1A097006DDBE7 /* MenuViewProfile.swift in Sources */,
+				16365DED28F7C16B0013CC8D /* OnThisDateView.swift in Sources */,
 				16828E1928BCC53E0054081A /* DateMemoryViewModel.swift in Sources */,
 				162F765328C73C6F00BD49A8 /* CalendarBodyView.swift in Sources */,
 				16FAAB7A28EFD48600E30F65 /* NetworkServiceProtocol.swift in Sources */,
@@ -646,7 +683,9 @@
 				1639BD2728B868DD002CCDF5 /* HomeView.swift in Sources */,
 				1639BD3528B91939002CCDF5 /* ProfileView.swift in Sources */,
 				16B95A9528B7703C00CA3B72 /* RouterView.swift in Sources */,
+				16365DEF28F7E7200013CC8D /* CustomDialog.swift in Sources */,
 				16DBF7A028E47F2B006DDBE7 /* ImagePicker.swift in Sources */,
+				16F056CF28F72174005A65B6 /* OnThisDayModel.swift in Sources */,
 				1639BD2F28B91270002CCDF5 /* DateMemoryView.swift in Sources */,
 				16FAAB9528F660FF00E30F65 /* FileUtils.swift in Sources */,
 				16FAAB7128ED28FD00E30F65 /* FirebaseReference.swift in Sources */,
@@ -659,6 +698,7 @@
 				16FAAB8328EFFC7600E30F65 /* ServerConstant.swift in Sources */,
 				165E973D28B7CAA800490E01 /* StringExtension.swift in Sources */,
 				162F765B28C796C600BD49A8 /* LunarCalendarViewModel.swift in Sources */,
+				16365DE928F7BB880013CC8D /* OnThisDateMapper.swift in Sources */,
 				16AB078128C5E7EF005D885F /* ViewExtension.swift in Sources */,
 				165E973B28B7C87A00490E01 /* AppConstant.swift in Sources */,
 				163639D828D225A4000B0B19 /* SignUpView.swift in Sources */,
@@ -885,6 +925,14 @@
 				kind = branch;
 			};
 		};
+		16365DF028F7EDBE0013CC8D /* XCRemoteSwiftPackageReference "PopupView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/exyte/PopupView";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 		1639BD2828B8BCAC002CCDF5 /* XCRemoteSwiftPackageReference "SwiftUIPager" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/fermoya/SwiftUIPager.git";
@@ -964,6 +1012,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 162F764428C72D2200BD49A8 /* XCRemoteSwiftPackageReference "CVCalendar" */;
 			productName = CVCalendar;
+		};
+		16365DF128F7EDBE0013CC8D /* PopupView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 16365DF028F7EDBE0013CC8D /* XCRemoteSwiftPackageReference "PopupView" */;
+			productName = PopupView;
 		};
 		1639BD2028B7E382002CCDF5 /* FacebookLogin */ = {
 			isa = XCSwiftPackageProductDependency;

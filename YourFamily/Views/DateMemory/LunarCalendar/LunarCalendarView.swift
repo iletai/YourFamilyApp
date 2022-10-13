@@ -5,11 +5,13 @@
 //  Created by Lê Quang Trọng Tài on 9/6/22.
 //
 
+import PopupView
 import SwiftUI
 
 struct LunarCalendarView: View {
     @ObservedObject var viewModel = LunarCalendarViewModel()
     @StateObject var settingModel: SettingViewModel
+    @Environment(\.presentationMode) private var presentationMode
 
     init() {
         _settingModel = .init(wrappedValue: SettingViewModel())
@@ -32,6 +34,19 @@ struct LunarCalendarView: View {
                 .padding(.bottom, 16)
                 makeDateRegionView()
                 Spacer()
+                HStack {
+                    Spacer()
+                    Button {
+                        withAnimation(.linear) {
+                            viewModel.setStateShowAddMemory(true)
+                        }
+                    } label: {
+                        Image(systemName: "plus.rectangle.on.rectangle")
+                            .padding()
+                            .background(Color.c5CCBF1.clipShape(Circle()))
+                    }
+                    .shadow(color: .gray, radius: 2, x: 0, y: 2)
+                }
             }
             .padding()
         }
@@ -40,6 +55,14 @@ struct LunarCalendarView: View {
         .sheet(isPresented: $viewModel.isShowSetting) {
             SettingLunarCalendarView(viewModel: settingModel)
         }
+        .popup(
+            isPresented: $viewModel.isShowAddMemory, type: .default, closeOnTap: false,
+            closeOnTapOutside: true,
+            backgroundColor: .gray.opacity(0.4),
+            view: {
+                OnThisDateView(memoryModel: viewModel)
+                    .padding()
+            })
     }
 
     func makeDateRegionView() -> some View {

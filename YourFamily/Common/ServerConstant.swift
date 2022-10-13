@@ -50,6 +50,16 @@ struct ServerConstant {
             static let birthday = "birthday"
         /// avatarImage
             static let avatarImage = "avatarImage"
+        /// Memory Id
+            static let memoryId = "memory_id"
+        /// Memory Title
+            static let memoryTitle = "memory_title"
+        /// memory.imageLink
+            static let memoryImageLink = "memory_imageLink"
+        /// Memory Location
+            static let memoryLocation = "memory_location"
+        /// Memory Time
+            static let memoryTime = "memory_time"
         #else
         #endif
     }

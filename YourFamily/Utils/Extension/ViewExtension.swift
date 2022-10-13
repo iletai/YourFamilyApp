@@ -55,4 +55,11 @@ extension View {
             self
         }
     }
+
+    func customDialog<DialogContent: View>(
+        isShowing: Binding<Bool>,
+        @ViewBuilder dialogContent: @escaping () -> DialogContent
+    ) -> some View {
+        self.modifier(CustomDialog(isShowing: isShowing, dialogContent: dialogContent))
+    }
 }

@@ -30,7 +30,9 @@ extension MemoryCardViewModel {
 // MARK: - Function
 extension MemoryCardViewModel {
     func fetchMemoryInThisDate(_ date: Date) {
-        FStorage.shared.firebaseReference(.memory).getDocuments { snap, error in
+        FStorage.shared.firebaseReference(.memory)
+            .whereField(ServerConstant.Param.memoryId, isEqualTo: FUser.currentId())
+            .getDocuments { snap, error in
             guard let snap = snap else { return }
             if !snap.isEmpty {
                 let memorys = OnThisDateMapper.onThisDateFromDictionary(snap)

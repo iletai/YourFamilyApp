@@ -6,6 +6,7 @@
 //
 
 import FirebaseAuth
+import Firebase
 import Foundation
 
 class FUser {
@@ -41,7 +42,11 @@ class FUser {
         emailAdress = dictionary[ServerConstant.Param.email] as? String ?? .empty
         phoneNumber = dictionary[ServerConstant.Param.phoneNumber] as? String ?? .empty
         onBoarding = dictionary[ServerConstant.Param.onBoard] as? Bool ?? false
-        bithday = dictionary[ServerConstant.Param.birthday] as? Date ?? Date()
+        if let birthday = dictionary[ServerConstant.Param.birthday] as? Timestamp? {
+            bithday = birthday?.dateValue() as? Date ?? Date()
+        } else {
+            bithday = Date()
+        }
         avatarImage = dictionary[ServerConstant.Param.avatarImage] as? String ?? .empty
     }
 

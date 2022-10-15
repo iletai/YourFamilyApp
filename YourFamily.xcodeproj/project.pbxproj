@@ -55,6 +55,10 @@
 		16828E2028BD15F10054081A /* SwiftDate in Frameworks */ = {isa = PBXBuildFile; productRef = 16828E1F28BD15F10054081A /* SwiftDate */; };
 		16828E3428C5A6E40054081A /* DateUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16828E3328C5A6E30054081A /* DateUtils.swift */; };
 		16828E3728C5B2240054081A /* AlertToast in Frameworks */ = {isa = PBXBuildFile; productRef = 16828E3628C5B2240054081A /* AlertToast */; };
+		1693F50C28FB327D00C2412F /* SearchResponseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1693F50728FB327C00C2412F /* SearchResponseTableViewController.swift */; };
+		1693F50D28FB327D00C2412F /* MapItemPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1693F50828FB327D00C2412F /* MapItemPickerViewController.swift */; };
+		1693F50E28FB327D00C2412F /* MapItemPickerSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1693F50928FB327D00C2412F /* MapItemPickerSheet.swift */; };
+		1693F50F28FB327D00C2412F /* SearchCompletionsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1693F50A28FB327D00C2412F /* SearchCompletionsTableViewController.swift */; };
 		16AB078128C5E7EF005D885F /* ViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16AB078028C5E7EF005D885F /* ViewExtension.swift */; };
 		16AB078428C5F1D6005D885F /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16AB078328C5F1D6005D885F /* ProfileViewModel.swift */; };
 		16AB078628C71C3A005D885F /* LunarCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16AB078528C71C3A005D885F /* LunarCalendarView.swift */; };
@@ -134,6 +138,10 @@
 		16828E1A28BD11A40054081A /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
 		16828E1C28BD14E50054081A /* DateFormatterExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatterExtension.swift; sourceTree = "<group>"; };
 		16828E3328C5A6E30054081A /* DateUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateUtils.swift; sourceTree = "<group>"; };
+		1693F50728FB327C00C2412F /* SearchResponseTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResponseTableViewController.swift; sourceTree = "<group>"; };
+		1693F50828FB327D00C2412F /* MapItemPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapItemPickerViewController.swift; sourceTree = "<group>"; };
+		1693F50928FB327D00C2412F /* MapItemPickerSheet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapItemPickerSheet.swift; sourceTree = "<group>"; };
+		1693F50A28FB327D00C2412F /* SearchCompletionsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchCompletionsTableViewController.swift; sourceTree = "<group>"; };
 		16AB078028C5E7EF005D885F /* ViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtension.swift; sourceTree = "<group>"; };
 		16AB078328C5F1D6005D885F /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		16AB078528C71C3A005D885F /* LunarCalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LunarCalendarView.swift; sourceTree = "<group>"; };
@@ -360,6 +368,17 @@
 			path = CalendarMemoryView;
 			sourceTree = "<group>";
 		};
+		1693F50428FB2B8700C2412F /* MapView */ = {
+			isa = PBXGroup;
+			children = (
+				1693F50928FB327D00C2412F /* MapItemPickerSheet.swift */,
+				1693F50828FB327D00C2412F /* MapItemPickerViewController.swift */,
+				1693F50A28FB327D00C2412F /* SearchCompletionsTableViewController.swift */,
+				1693F50728FB327C00C2412F /* SearchResponseTableViewController.swift */,
+			);
+			path = MapView;
+			sourceTree = "<group>";
+		};
 		16AB078228C5F1C9005D885F /* Profile */ = {
 			isa = PBXGroup;
 			children = (
@@ -393,6 +412,7 @@
 		16B95A8D28B747C600CA3B72 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				1693F50428FB2B8700C2412F /* MapView */,
 				1639BD3328B9192E002CCDF5 /* Profile */,
 				1639BD3028B914AE002CCDF5 /* Setting */,
 				1639BD2D28B91259002CCDF5 /* DateMemory */,
@@ -693,11 +713,13 @@
 				1639BD2F28B91270002CCDF5 /* DateMemoryView.swift in Sources */,
 				16FAAB9528F660FF00E30F65 /* FileUtils.swift in Sources */,
 				16FAAB7128ED28FD00E30F65 /* FirebaseReference.swift in Sources */,
+				1693F50C28FB327D00C2412F /* SearchResponseTableViewController.swift in Sources */,
 				1639BD2C28B8BDB0002CCDF5 /* HomeViewModel.swift in Sources */,
 				16FAAB7C28EFD55800E30F65 /* NetworkServiceDefine.swift in Sources */,
 				162F764928C7300500BD49A8 /* DateInWeekHeaderView.swift in Sources */,
 				16AB078828C7252C005D885F /* YourNoteView.swift in Sources */,
 				162F765128C73C0400BD49A8 /* ShapeExtension.swift in Sources */,
+				1693F50D28FB327D00C2412F /* MapItemPickerViewController.swift in Sources */,
 				165E973928B7C4E200490E01 /* LoginViewModel.swift in Sources */,
 				16FAAB8328EFFC7600E30F65 /* ServerConstant.swift in Sources */,
 				165E973D28B7CAA800490E01 /* StringExtension.swift in Sources */,
@@ -706,6 +728,7 @@
 				16AB078128C5E7EF005D885F /* ViewExtension.swift in Sources */,
 				165E973B28B7C87A00490E01 /* AppConstant.swift in Sources */,
 				163639D828D225A4000B0B19 /* SignUpView.swift in Sources */,
+				1693F50E28FB327D00C2412F /* MapItemPickerSheet.swift in Sources */,
 				16FAAB7628EEC18300E30F65 /* FUser.swift in Sources */,
 				16FAAB9028F56F2400E30F65 /* UpdateProfileView.swift in Sources */,
 				16828E1528BCBBE90054081A /* CalendarMemoryItem.swift in Sources */,
@@ -713,6 +736,7 @@
 				1639BD2328B85777002CCDF5 /* ColorExtension.swift in Sources */,
 				16FAAB7E28EFD7A900E30F65 /* NetworkService.swift in Sources */,
 				162F765F28C84ECB00BD49A8 /* UserDefaultCommon.swift in Sources */,
+				1693F50F28FB327D00C2412F /* SearchCompletionsTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -81,5 +81,7 @@
 	</array>
 	<key>NSCameraUsageDescription</key>
 	<string>Allow App Using Camera</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Allow Access Location?</string>
 </dict>
 </plist>

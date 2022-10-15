@@ -21,6 +21,7 @@ final class LunarCalendarViewModel: ObservableObject {
     @Published var isShowPickerImage = false
     @Published var showingToastInform = false
     @Published var floatToastInfo = InformFloatToast(title: .empty, message: .empty)
+    @Published var pickerLocation = false
 
     init() {
     }

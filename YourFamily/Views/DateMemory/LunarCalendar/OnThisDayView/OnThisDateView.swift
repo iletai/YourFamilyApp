@@ -36,6 +36,9 @@ struct OnThisDateView: View {
                 ImagePicker()
                     .environmentObject(self.memoryModel.userData)
             }
+            .mapItemPicker(isPresented: $memoryModel.pickerLocation) { map in
+                memoryModel.location = map?.name ?? .empty
+            }
             .frame(width: geo.size.width, height: geo.size.height, alignment: .center)
         }
     }
@@ -104,12 +107,13 @@ struct OnThisDateView: View {
                 Spacer()
                 HStack {
                     Image(systemName: "plus.viewfinder")
-                    TextField(text: $memoryModel.location) {
-                        Text("Location?")
-                            .foregroundColor(.white)
-                            .font(.system(size: 14))
-                            .fontWeight(.bold)
-                    }
+                    Text(memoryModel.location.isEmpty ? "Location?" : memoryModel.location)
+                        .foregroundColor(.white)
+                        .font(.system(size: 14))
+                        .fontWeight(.bold)
+                        .onTapGesture {
+                            memoryModel.pickerLocation = true
+                        }
                 }
                 .frame(alignment: .trailing)
                 .fixedSize(horizontal: true, vertical: false)

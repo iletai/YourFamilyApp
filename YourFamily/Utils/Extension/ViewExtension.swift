@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import MapKit
 
 extension View {
     func debugAction(_ closure: () -> Void) -> Self {
@@ -67,5 +68,13 @@ extension View {
         self
             .shadow(color: .black.opacity(0.08), radius: 2, x: 0, y: 0)
             .shadow(color: .black.opacity(0.16), radius: 24, x: 0, y: 0)
+    }
+
+    @available(iOS 15.0, *)
+    func mapItemPicker(
+        isPresented: Binding<Bool>,
+        onDismiss: ((MKMapItem?) -> Void)? = nil
+    ) -> some View {
+        MapItemPickerSheet(isPresented: isPresented, onDismiss: onDismiss, content: self)
     }
 }

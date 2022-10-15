@@ -15,24 +15,23 @@ struct MemoryCardView: View {
 
     var body: some View {
         ZStack(alignment: .leading) {
-            ForEach(viewModel.isToDay, id: \.id) { item in
-                ScrollView {
-                    LazyVStack {
-                        Text(item.location)
-                            .overlay(
-                                VStack(alignment: .leading, spacing: 0) {
-                                    Spacer()
-                                    HStack {
-                                        Text(item.title)
-                                            .font(.system(size: 24))
-                                            .fontWeight(.bold)
-                                            .foregroundColor(.white)
-                                            .frame(alignment: .leading)
-                                        Spacer()
-                                    }
-                                    .padding(.leading, 16)
-                                    .padding(.bottom, 16)
-                                })
+            ScrollView {
+                LazyVStack {
+                    if viewModel.onThisDateModel.isEmpty {
+                        ZStack {
+                            Color.gray.opacity(0.3).scaledToFill()
+                            Image(systemName: "photo")
+                        }
+                        .overlay(alignment: .bottom) {
+                            Text("No Data To Date")
+                                .font(.system(size: 20))
+                                .fontWeight(.bold)
+                                .padding()
+                        }
+                    } else {
+                        ForEach(viewModel.onThisDateModel, id: \.time) { item in
+                            OnThisDayCardView(viewModel: item)
+                        }
                     }
                 }
             }

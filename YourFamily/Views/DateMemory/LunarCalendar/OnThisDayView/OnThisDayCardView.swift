@@ -8,13 +8,20 @@
 import SwiftUI
 
 struct OnThisDayCardView: View {
+    var viewModel: OnThisDayModel
+    @State private var image: UIImage?
+
+    init(viewModel: OnThisDayModel) {
+        self.viewModel = viewModel
+    }
+
     var body: some View {
         ZStack {
             VStack {
-                Image("dummyAvatar")
+                Image(uiImage: self.image ?? UIImage())
                     .resizable()
-                    .scaledToFit()
-                    .frame(width: .infinity, height: 400)
+                    .scaledToFill()
+                    .frame(width: 400, height: 400)
                     .overlay(alignment: .topTrailing, content: {
                         Image(systemName: "arrow.up.heart.fill")
                             .foregroundColor(.pink)
@@ -24,33 +31,44 @@ struct OnThisDayCardView: View {
                         VStack(alignment: .leading, spacing: 12) {
                             HStack {
                                 Image(systemName: "timelapse")
-                                Text("100 Days Ago")
-                                    .font(.system(size: 12))
+                                Text(viewModel.title)
+                                    .font(.system(size: 16))
                             }
-                            Text(Date().toDateAndMonthString)
+                            .foregroundColor(.white)
+                            Text(viewModel.time.toDayString)
                                 .font(.system(size: 20))
                                 .fontWeight(.bold)
+                                .foregroundColor(.white)
                             HStack {
                                 Image(systemName: "location.viewfinder")
-                                Text("Hoi An, Viet Nam")
+                                Text(viewModel.location)
                                     .font(.system(size: 20))
                                     .fontWeight(.bold)
                             }
-                            .foregroundColor(.gray)
+                            .foregroundColor(.white)
                         }
-                        .padding(8)
+                        .padding(16)
                         .frame(maxWidth: .infinity, alignment: .leading)
-                        .background(.white)
+                        .background(Color.c595085)
+                        .cornerRadius(16, corners: [.bottomLeft, .bottomRight])
                     })
-                    .cornerRadius(16)
                 }
-            .shadow(color: .gray, radius: 4, x: 0, y: 2)
+                .clipShape(RoundedRectangle(cornerRadius: 16))
+        }
+        .cornerRadius(16)
+        .onAppear {
+            guard !viewModel.imageLink.isEmpty else {
+                return
+            }
+            FileStorage.downloadImage(imageUrl: viewModel.imageLink) { image in
+                self.image = image ?? UIImage()
+            }
         }
     }
 }
 
 struct OnThisDayCardView_Previews: PreviewProvider {
     static var previews: some View {
-        OnThisDayCardView()
+        OnThisDayCardView(viewModel: OnThisDayModel.empty())
     }
 }

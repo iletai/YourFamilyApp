@@ -12,11 +12,10 @@ final class MemoryCardViewModel: ObservableObject {
     @Published var onThisDateModel: [OnThisDayModel] = []
     @Published var isShowToast = false
     @Published var memoryCardInfo = MemoryCardInfo(title: .empty, message: .empty)
-    var isToDay: [OnThisDayModel] = []
 
     init(date: Date) {
         self.date = date
-        self.fetchMemoryInThisDate()
+        self.fetchMemoryInThisDate(date)
     }
 }
 
@@ -30,14 +29,13 @@ extension MemoryCardViewModel {
 
 // MARK: - Function
 extension MemoryCardViewModel {
-    func fetchMemoryInThisDate() {
+    func fetchMemoryInThisDate(_ date: Date) {
         FStorage.shared.firebaseReference(.memory).getDocuments { snap, error in
             guard let snap = snap else { return }
             if !snap.isEmpty {
-                self.onThisDateModel = OnThisDateMapper.onThisDateFromDictionary(snap)
-                self.isToDay = self.onThisDateModel.filter({ model in
-                    print(model.time.toDayString + "|" + self.date.toDayString)
-                    return model.time.toDayString == self.date.toDayString
+                let memorys = OnThisDateMapper.onThisDateFromDictionary(snap)
+                self.onThisDateModel = memorys.filter({ model in
+                    model.time.compare(toDate: date, granularity: .day) == .orderedSame
                 })
             } else {
                 if let error = error {

@@ -51,6 +51,10 @@ struct DateUtils {
     static func addingDay(_ date: Date, day: TimeInterval) -> Date {
         return date.addingTimeInterval((60 * 60 * 24) * day)
     }
+
+    static func isToday(date: Date) -> Bool {
+        Calendar.gregorian.isDateInToday(date)
+    }
 }
 
 extension Calendar {

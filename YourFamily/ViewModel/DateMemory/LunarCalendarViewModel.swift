@@ -57,23 +57,32 @@ extension LunarCalendarViewModel {
             isShowAddMemory = false
             return
         }
-        if let image = userData.image {
-            let fileDirectory = "Memory/" + "\(location)_\(UUID().uuidString)" + ".jpg"
-            FileStorage.uploadImage(image, directory: fileDirectory) { documentLink in
+        DispatchQueue.main.async {
+            if let image = self.userData.image {
+                let fileDirectory = "Memory/" + "\(self.location)_\(UUID().uuidString)" + ".jpg"
+                FileStorage.uploadImage(image, directory: fileDirectory) { documentLink in
+                    self.memory = OnThisDayModel(
+                        id: UUID().uuidString, title: self.titleMemory, location: self.location,
+                        time: self.travelOnTime, imageLink: documentLink ?? .empty)
+                    self.addMemoryToFirebase()
+                }
+            } else {
                 self.memory = OnThisDayModel(
-                    id: UUID().uuidString, title: self.titleMemory, location: self.location,
-                    time: self.travelOnTime, imageLink: documentLink ?? .empty)
+                    id: UUID().uuidString, title: self.titleMemory, location: self.location, time: self.travelOnTime,
+                    imageLink: .empty)
+                self.addMemoryToFirebase()
             }
-        } else {
-            memory = OnThisDayModel(
-                id: UUID().uuidString, title: titleMemory, location: location, time: travelOnTime,
-                imageLink: .empty)
         }
+
+        isShowAddMemory = false
+    }
+
+    func addMemoryToFirebase() {
         FStorage.shared
             .firebaseReference(.memory)
             .document(self.memory.id)
             .setData(
-                OnThisDateMapper.mapMemoryToFirebase(self.memory)
+                OnThisDateMapper.mapMemoryToFirebase(memory)
             ) { error in
                 if error == nil {
                     self.floatToastInfo = InformFloatToast(
@@ -88,6 +97,5 @@ extension LunarCalendarViewModel {
                 }
                 self.showingToastInform = true
             }
-        isShowAddMemory = false
     }
 }

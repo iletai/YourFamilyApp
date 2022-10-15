@@ -31,15 +31,17 @@ final class OnThisDateMapper {
     static func onThisDateFromDictionary(_ snapShot: QuerySnapshot) -> [OnThisDayModel] {
         var memorys: [OnThisDayModel] = []
         for snapShot in snapShot.documents {
-            memorys.append(
-                OnThisDayModel(
-                    id: snapShot[ServerConstant.Param.memoryId] as? String ?? UUID().uuidString,
-                    title: snapShot[ServerConstant.Param.memoryTitle] as? String ?? .empty,
-                    location: snapShot[ServerConstant.Param.memoryLocation] as? String ?? .empty,
-                    time: snapShot[ServerConstant.Param.memoryTime] as? Date ?? Date(),
-                    imageLink: snapShot[ServerConstant.Param.memoryImageLink] as? String ?? .empty
+            if let timeStamp = snapShot[ServerConstant.Param.memoryTime] as? Timestamp? {
+                memorys.append(
+                    OnThisDayModel(
+                        id: snapShot[ServerConstant.Param.memoryId] as? String ?? UUID().uuidString,
+                        title: snapShot[ServerConstant.Param.memoryTitle] as? String ?? .empty,
+                        location: snapShot[ServerConstant.Param.memoryLocation] as? String ?? .empty,
+                        time: timeStamp?.dateValue() as? Date ?? Date(),
+                        imageLink: snapShot[ServerConstant.Param.memoryImageLink] as? String ?? .empty
+                    )
                 )
-            )
+            }
         }
         return memorys
     }

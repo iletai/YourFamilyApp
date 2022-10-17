@@ -22,11 +22,6 @@ struct OnThisDayCardView: View {
                     .resizable()
                     .scaledToFill()
                     .frame(width: 400, height: 400)
-                    .overlay(alignment: .topTrailing, content: {
-                        Image(systemName: "arrow.up.heart.fill")
-                            .foregroundColor(.pink)
-                            .padding(.trailing, 8)
-                    })
                     .overlay(alignment: .bottomLeading, content: {
                         VStack(alignment: .leading, spacing: 12) {
                             HStack {
@@ -50,12 +45,9 @@ struct OnThisDayCardView: View {
                         .padding(16)
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .background(Color.c595085)
-                        .cornerRadius(16, corners: [.bottomLeft, .bottomRight])
                     })
                 }
-                .clipShape(RoundedRectangle(cornerRadius: 16))
         }
-        .cornerRadius(16)
         .onAppear {
             guard !viewModel.imageLink.isEmpty else {
                 return

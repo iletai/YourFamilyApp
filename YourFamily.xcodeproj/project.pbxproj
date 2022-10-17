@@ -59,6 +59,7 @@
 		1693F50D28FB327D00C2412F /* MapItemPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1693F50828FB327D00C2412F /* MapItemPickerViewController.swift */; };
 		1693F50E28FB327D00C2412F /* MapItemPickerSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1693F50928FB327D00C2412F /* MapItemPickerSheet.swift */; };
 		1693F50F28FB327D00C2412F /* SearchCompletionsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1693F50A28FB327D00C2412F /* SearchCompletionsTableViewController.swift */; };
+		169C0ED528FDA476007DAF83 /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = 169C0ED428FDA476007DAF83 /* SwiftUICharts */; };
 		16AB078128C5E7EF005D885F /* ViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16AB078028C5E7EF005D885F /* ViewExtension.swift */; };
 		16AB078428C5F1D6005D885F /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16AB078328C5F1D6005D885F /* ProfileViewModel.swift */; };
 		16AB078628C71C3A005D885F /* LunarCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16AB078528C71C3A005D885F /* LunarCalendarView.swift */; };
@@ -179,6 +180,7 @@
 			files = (
 				16365DF228F7EDBE0013CC8D /* PopupView in Frameworks */,
 				16828E2028BD15F10054081A /* SwiftDate in Frameworks */,
+				169C0ED528FDA476007DAF83 /* SwiftUICharts in Frameworks */,
 				16F41FC628C99F8800ACA1DA /* Alamofire in Frameworks */,
 				162F764628C72D2200BD49A8 /* CVCalendar in Frameworks */,
 				16F41FD028CA5BFD00ACA1DA /* FirebaseStorage in Frameworks */,
@@ -578,6 +580,7 @@
 				16F41FCF28CA5BFD00ACA1DA /* FirebaseStorage */,
 				16FAAB7228ED2B9C00E30F65 /* FirebaseFirestore */,
 				16365DF128F7EDBE0013CC8D /* PopupView */,
+				169C0ED428FDA476007DAF83 /* SwiftUICharts */,
 			);
 			productName = YourFamily;
 			productReference = 1665E16028B7427D00CCEA09 /* YourFamily.app */;
@@ -617,8 +620,8 @@
 				162F764428C72D2200BD49A8 /* XCRemoteSwiftPackageReference "CVCalendar" */,
 				16F41FC428C99F8800ACA1DA /* XCRemoteSwiftPackageReference "Alamofire" */,
 				16F41FCA28CA5BFD00ACA1DA /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
-				1682048C28E578230085C8B6 /* XCRemoteSwiftPackageReference "BarcodeScanner" */,
 				16365DF028F7EDBE0013CC8D /* XCRemoteSwiftPackageReference "PopupView" */,
+				169C0ED328FDA476007DAF83 /* XCRemoteSwiftPackageReference "ChartView" */,
 			);
 			productRefGroup = 1665E16128B7427D00CCEA09 /* Products */;
 			projectDirPath = "";
@@ -977,14 +980,6 @@
 				minimumVersion = 9.0.0;
 			};
 		};
-		1682048C28E578230085C8B6 /* XCRemoteSwiftPackageReference "BarcodeScanner" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/hyperoslo/BarcodeScanner";
-			requirement = {
-				branch = master;
-				kind = branch;
-			};
-		};
 		16828E0E28BCB7970054081A /* XCRemoteSwiftPackageReference "Parchment" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/rechsteiner/Parchment";
@@ -1007,6 +1002,14 @@
 			requirement = {
 				branch = master;
 				kind = branch;
+			};
+		};
+		169C0ED328FDA476007DAF83 /* XCRemoteSwiftPackageReference "ChartView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/AppPear/ChartView";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.5.2;
 			};
 		};
 		16B95A9828B77B3E00CA3B72 /* XCRemoteSwiftPackageReference "SwiftLint" */ = {
@@ -1070,6 +1073,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 16828E3528C5B2240054081A /* XCRemoteSwiftPackageReference "AlertToast" */;
 			productName = AlertToast;
+		};
+		169C0ED428FDA476007DAF83 /* SwiftUICharts */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 169C0ED328FDA476007DAF83 /* XCRemoteSwiftPackageReference "ChartView" */;
+			productName = SwiftUICharts;
 		};
 		16F41FC528C99F8800ACA1DA /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;

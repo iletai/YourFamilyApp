@@ -37,7 +37,6 @@ struct MemoryCardView: View {
             }
 
         }
-        .cornerRadius(20)
         .padding()
     }
 }

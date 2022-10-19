@@ -7,53 +7,78 @@
 
 import SwiftUI
 import SwiftUICharts
+import PopupView
 
 struct YourNoteView: View {
+    @StateObject var viewModel = YourNoteViewModel()
+    @EnvironmentObject var profileViewModel: ProfileViewModel
+    @State private var isShowActionSheet = false
+
     var body: some View {
-        GeometryReader { geometry in
-            ZStack {
-                Color.gray.opacity(0.3)
-                VStack(spacing: 16) {
-                    HStack {
-                        Text("Good Morning, TaiLe")
-                        Spacer()
-                        Button {
-                        } label: {
-                            Image(systemName: "arrow.down.backward.square")
-                        }
-
-                    }
-                    ZStack {
-                        LineView(data: [8,23,54,32,12,37,7,23,43], title: "Line chart", legend: "Full screen")
-                            .padding()
-                    }
-                    HStack {
-                        Text("Chi tieu trong tuan")
-                        Spacer()
-                        Button {
-                        } label: {
-                            Text("See All")
-                        }
-
-                    }
-                    ScrollView {
-                        VStack {
-                            makeCellTransition(true)
-                            makeCellTransition(false)
-                            makeCellTransition(true)
-                            makeCellTransition(false)
-                            makeCellTransition(true)
-                            makeCellTransition(false)
-                            makeCellTransition(true)
-                            makeCellTransition(false)
-                            makeCellTransition(true)
-                            makeCellTransition(false)
-                        }
+        ZStack {
+            Color.white.ignoresSafeArea()
+            VStack(spacing: 16) {
+                HStack {
+                    Text("Good Morning \(profileViewModel.currentProfile.nickname)")
+                    Spacer()
+                    Button {
+                    } label: {
+                        Image(systemName: "arrow.down.backward.square")
                     }
                 }
-                .padding(.horizontal, 16)
+                TabView {
+                    makeChartView()
+                    makeChartView(false)
+                }
+                .tabViewStyle(.page(indexDisplayMode: .always))
+                .frame(maxHeight: 400)
+
+                HStack {
+                    Text("Chi tieu trong tuan")
+                    Spacer()
+                    Button {
+                    } label: {
+                        Text("See All")
+                    }
+                }
+                ScrollView {
+                    VStack {
+                        makeCellTransition(true)
+                        makeCellTransition(false)
+                        makeCellTransition(true)
+                        makeCellTransition(false)
+                        makeCellTransition(true)
+                        makeCellTransition(false)
+                        makeCellTransition(true)
+                        makeCellTransition(false)
+                        makeCellTransition(true)
+                        makeCellTransition(false)
+                    }
+                }
+            }
+            .padding(.horizontal, 16)
+        }
+        .overlay(alignment: .bottomTrailing) {
+            FloatingMenuView(firstAction: {
+                self.isShowActionSheet = true
+            }, secondAction: {
+                self.isShowActionSheet = true
+            }, thirdAction: {
+                self.isShowActionSheet = true
+            })
+                .padding()
+        }
+        .popup(isPresented: $isShowActionSheet,
+               type: .toast,
+               position: .bottom,
+               closeOnTap: false,
+               backgroundColor: .black.opacity(0.4)) {
+            ActionSheetCustom {
+                Color.gray
+                    .frame(height: 500)
             }
         }
+        .environmentObject(profileViewModel)
     }
 
     func makeCellTransition(_ isPlus: Bool) -> some View {
@@ -78,10 +103,29 @@ struct YourNoteView: View {
         }
         .frame(maxWidth: .infinity)
     }
+
+    func makeChartView(_ isInput: Bool = true) -> some View {
+        ZStack {
+            if isInput {
+                LineChartView(
+                    data: viewModel.dataInput.map({ cash in
+                        cash.cost
+                    }), title: "Cash In", style: Styles.barChartMidnightGreenDark, form: ChartForm.large
+                )
+            } else {
+                LineChartView(
+                    data: viewModel.dataOutput.map({ cash in
+                        cash.cost
+                    }), title: "Cash Out", style: Styles.barChartMidnightGreenLight, form: ChartForm.large
+                )
+            }
+        }
+    }
 }
 
 struct YourNoteView_Previews: PreviewProvider {
     static var previews: some View {
         YourNoteView()
+            .environmentObject(ProfileViewModel())
     }
 }

@@ -10,6 +10,7 @@ import SwiftUI
 
 struct HomeView: View {
     @StateObject var viewModel = HomeViewModel()
+    @StateObject var profileViewModel = ProfileViewModel()
 
     var body: some View {
         TabView(selection: $viewModel.tabViewCurrentIndex) {
@@ -34,6 +35,7 @@ struct HomeView: View {
                 }
                 .tag(HomeViewModel.HomeTabView.profile.tabIndexValue)
         }
+        .environmentObject(self.profileViewModel)
     }
 }
 

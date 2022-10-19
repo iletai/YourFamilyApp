@@ -10,7 +10,7 @@ import AlertToast
 
 // swiftlint:disable type_body_length
 struct ProfileView: View {
-    @StateObject var viewModel = ProfileViewModel()
+    @EnvironmentObject var viewModel: ProfileViewModel
 
     var body: some View {
         NavigationView {
@@ -105,6 +105,7 @@ struct ProfileView: View {
                 UpdateProfileView(viewModel: viewModel)
             }
         }
+        .environmentObject(self.viewModel)
     }
 
     // MARK: - Bookmark Center Profile

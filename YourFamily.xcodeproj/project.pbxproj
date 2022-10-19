@@ -60,6 +60,10 @@
 		1693F50E28FB327D00C2412F /* MapItemPickerSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1693F50928FB327D00C2412F /* MapItemPickerSheet.swift */; };
 		1693F50F28FB327D00C2412F /* SearchCompletionsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1693F50A28FB327D00C2412F /* SearchCompletionsTableViewController.swift */; };
 		169C0ED528FDA476007DAF83 /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = 169C0ED428FDA476007DAF83 /* SwiftUICharts */; };
+		169C0ED828FDB5FA007DAF83 /* YourNoteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 169C0ED728FDB5FA007DAF83 /* YourNoteViewModel.swift */; };
+		169C0EDA28FDBC0F007DAF83 /* CashInModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 169C0ED928FDBC0F007DAF83 /* CashInModel.swift */; };
+		169C0F4B28FFB45F007DAF83 /* FloatingMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 169C0F4A28FFB45F007DAF83 /* FloatingMenuView.swift */; };
+		169C0F4D28FFC185007DAF83 /* ActionSheetCustom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 169C0F4C28FFC185007DAF83 /* ActionSheetCustom.swift */; };
 		16AB078128C5E7EF005D885F /* ViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16AB078028C5E7EF005D885F /* ViewExtension.swift */; };
 		16AB078428C5F1D6005D885F /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16AB078328C5F1D6005D885F /* ProfileViewModel.swift */; };
 		16AB078628C71C3A005D885F /* LunarCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16AB078528C71C3A005D885F /* LunarCalendarView.swift */; };
@@ -143,6 +147,10 @@
 		1693F50828FB327D00C2412F /* MapItemPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapItemPickerViewController.swift; sourceTree = "<group>"; };
 		1693F50928FB327D00C2412F /* MapItemPickerSheet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapItemPickerSheet.swift; sourceTree = "<group>"; };
 		1693F50A28FB327D00C2412F /* SearchCompletionsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchCompletionsTableViewController.swift; sourceTree = "<group>"; };
+		169C0ED728FDB5FA007DAF83 /* YourNoteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YourNoteViewModel.swift; sourceTree = "<group>"; };
+		169C0ED928FDBC0F007DAF83 /* CashInModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CashInModel.swift; sourceTree = "<group>"; };
+		169C0F4A28FFB45F007DAF83 /* FloatingMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingMenuView.swift; sourceTree = "<group>"; };
+		169C0F4C28FFC185007DAF83 /* ActionSheetCustom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetCustom.swift; sourceTree = "<group>"; };
 		16AB078028C5E7EF005D885F /* ViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtension.swift; sourceTree = "<group>"; };
 		16AB078328C5F1D6005D885F /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		16AB078528C71C3A005D885F /* LunarCalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LunarCalendarView.swift; sourceTree = "<group>"; };
@@ -381,6 +389,14 @@
 			path = MapView;
 			sourceTree = "<group>";
 		};
+		169C0ED628FDB5EF007DAF83 /* YourNote */ = {
+			isa = PBXGroup;
+			children = (
+				169C0ED728FDB5FA007DAF83 /* YourNoteViewModel.swift */,
+			);
+			path = YourNote;
+			sourceTree = "<group>";
+		};
 		16AB078228C5F1C9005D885F /* Profile */ = {
 			isa = PBXGroup;
 			children = (
@@ -430,6 +446,7 @@
 		16B95A8E28B747CE00CA3B72 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				169C0ED628FDB5EF007DAF83 /* YourNote */,
 				16FAAB8C28F442BD00E30F65 /* Mapper */,
 				162F766028C877F000BD49A8 /* Settings */,
 				16AB078228C5F1C9005D885F /* Profile */,
@@ -449,6 +466,8 @@
 				16DBF79F28E47F2B006DDBE7 /* ImagePicker.swift */,
 				16FAAB8228EFFC7600E30F65 /* ServerConstant.swift */,
 				16365DEE28F7E7200013CC8D /* CustomDialog.swift */,
+				169C0F4A28FFB45F007DAF83 /* FloatingMenuView.swift */,
+				169C0F4C28FFC185007DAF83 /* ActionSheetCustom.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -492,6 +511,7 @@
 			children = (
 				16FAAB7528EEC18300E30F65 /* FUser.swift */,
 				16F056CE28F72174005A65B6 /* OnThisDayModel.swift */,
+				169C0ED928FDBC0F007DAF83 /* CashInModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -681,6 +701,7 @@
 				16828E1D28BD14E50054081A /* DateFormatterExtension.swift in Sources */,
 				16FAAB8E28F442C700E30F65 /* FUserMapper.swift in Sources */,
 				1665E16628B7427D00CCEA09 /* ContentView.swift in Sources */,
+				169C0EDA28FDBC0F007DAF83 /* CashInModel.swift in Sources */,
 				16828E1328BCBB150054081A /* MemoryCalendarView.swift in Sources */,
 				16B95A9728B7707100CA3B72 /* RouterViewModel.swift in Sources */,
 				162F764B28C7305500BD49A8 /* CalendarConfig.swift in Sources */,
@@ -695,6 +716,7 @@
 				16B95A9328B76FDF00CA3B72 /* AppRouterManager.swift in Sources */,
 				162F766228C877FF00BD49A8 /* SettingManager.swift in Sources */,
 				162F765D28C79B2800BD49A8 /* SettingLunarCalendarView.swift in Sources */,
+				169C0F4D28FFC185007DAF83 /* ActionSheetCustom.swift in Sources */,
 				1639BD3228B914C2002CCDF5 /* SettingView.swift in Sources */,
 				162F766428C8787900BD49A8 /* SettingViewModel.swift in Sources */,
 				16FAAB9828F6803B00E30F65 /* EditInfoView.swift in Sources */,
@@ -705,6 +727,7 @@
 				16FAAB7A28EFD48600E30F65 /* NetworkServiceProtocol.swift in Sources */,
 				167090D028D484370022BA8F /* MemoryCardView.swift in Sources */,
 				1665E16428B7427D00CCEA09 /* YourFamilyApp.swift in Sources */,
+				169C0ED828FDB5FA007DAF83 /* YourNoteViewModel.swift in Sources */,
 				16828E3428C5A6E40054081A /* DateUtils.swift in Sources */,
 				1639BD2728B868DD002CCDF5 /* HomeView.swift in Sources */,
 				1639BD3528B91939002CCDF5 /* ProfileView.swift in Sources */,
@@ -715,6 +738,7 @@
 				16F056CF28F72174005A65B6 /* OnThisDayModel.swift in Sources */,
 				1639BD2F28B91270002CCDF5 /* DateMemoryView.swift in Sources */,
 				16FAAB9528F660FF00E30F65 /* FileUtils.swift in Sources */,
+				169C0F4B28FFB45F007DAF83 /* FloatingMenuView.swift in Sources */,
 				16FAAB7128ED28FD00E30F65 /* FirebaseReference.swift in Sources */,
 				1693F50C28FB327D00C2412F /* SearchResponseTableViewController.swift in Sources */,
 				1639BD2C28B8BDB0002CCDF5 /* HomeViewModel.swift in Sources */,

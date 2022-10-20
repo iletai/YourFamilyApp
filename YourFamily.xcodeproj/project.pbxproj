@@ -64,6 +64,8 @@
 		169C0EDA28FDBC0F007DAF83 /* CashInModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 169C0ED928FDBC0F007DAF83 /* CashInModel.swift */; };
 		169C0F4B28FFB45F007DAF83 /* FloatingMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 169C0F4A28FFB45F007DAF83 /* FloatingMenuView.swift */; };
 		169C0F4D28FFC185007DAF83 /* ActionSheetCustom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 169C0F4C28FFC185007DAF83 /* ActionSheetCustom.swift */; };
+		169C0F4F28FFD5F5007DAF83 /* BudgeMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 169C0F4E28FFD5F5007DAF83 /* BudgeMenuView.swift */; };
+		169C0F512900006A007DAF83 /* BudgeMenuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 169C0F502900006A007DAF83 /* BudgeMenuViewModel.swift */; };
 		16AB078128C5E7EF005D885F /* ViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16AB078028C5E7EF005D885F /* ViewExtension.swift */; };
 		16AB078428C5F1D6005D885F /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16AB078328C5F1D6005D885F /* ProfileViewModel.swift */; };
 		16AB078628C71C3A005D885F /* LunarCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16AB078528C71C3A005D885F /* LunarCalendarView.swift */; };
@@ -151,6 +153,8 @@
 		169C0ED928FDBC0F007DAF83 /* CashInModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CashInModel.swift; sourceTree = "<group>"; };
 		169C0F4A28FFB45F007DAF83 /* FloatingMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingMenuView.swift; sourceTree = "<group>"; };
 		169C0F4C28FFC185007DAF83 /* ActionSheetCustom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetCustom.swift; sourceTree = "<group>"; };
+		169C0F4E28FFD5F5007DAF83 /* BudgeMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgeMenuView.swift; sourceTree = "<group>"; };
+		169C0F502900006A007DAF83 /* BudgeMenuViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgeMenuViewModel.swift; sourceTree = "<group>"; };
 		16AB078028C5E7EF005D885F /* ViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtension.swift; sourceTree = "<group>"; };
 		16AB078328C5F1D6005D885F /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		16AB078528C71C3A005D885F /* LunarCalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LunarCalendarView.swift; sourceTree = "<group>"; };
@@ -217,6 +221,7 @@
 			isa = PBXGroup;
 			children = (
 				16AB078728C7252C005D885F /* YourNoteView.swift */,
+				169C0F4E28FFD5F5007DAF83 /* BudgeMenuView.swift */,
 			);
 			path = Note;
 			sourceTree = "<group>";
@@ -393,6 +398,7 @@
 			isa = PBXGroup;
 			children = (
 				169C0ED728FDB5FA007DAF83 /* YourNoteViewModel.swift */,
+				169C0F502900006A007DAF83 /* BudgeMenuViewModel.swift */,
 			);
 			path = YourNote;
 			sourceTree = "<group>";
@@ -707,6 +713,7 @@
 				162F764B28C7305500BD49A8 /* CalendarConfig.swift in Sources */,
 				162F764F28C731B300BD49A8 /* CalendarManager.swift in Sources */,
 				16F056CD28F72134005A65B6 /* OnThisDayCardView.swift in Sources */,
+				169C0F4F28FFD5F5007DAF83 /* BudgeMenuView.swift in Sources */,
 				16FAAB8928F40C4500E30F65 /* UserDefaultExtension.swift in Sources */,
 				16FAAB6F28EC27FF00E30F65 /* UIImageExtension.swift in Sources */,
 				162F765528C74AD300BD49A8 /* LunarDateView.swift in Sources */,
@@ -764,6 +771,7 @@
 				16FAAB7E28EFD7A900E30F65 /* NetworkService.swift in Sources */,
 				162F765F28C84ECB00BD49A8 /* UserDefaultCommon.swift in Sources */,
 				1693F50F28FB327D00C2412F /* SearchCompletionsTableViewController.swift in Sources */,
+				169C0F512900006A007DAF83 /* BudgeMenuViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

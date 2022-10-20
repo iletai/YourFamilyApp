@@ -68,15 +68,9 @@ struct YourNoteView: View {
             })
                 .padding()
         }
-        .popup(isPresented: $isShowActionSheet,
-               type: .toast,
-               position: .bottom,
-               closeOnTap: false,
-               backgroundColor: .black.opacity(0.4)) {
-            ActionSheetCustom {
-                Color.gray
-                    .frame(height: 500)
-            }
+        .sheet(isPresented: $isShowActionSheet) {
+            BudgeMenuView()
+                .frame(height: 500)
         }
         .environmentObject(profileViewModel)
     }
@@ -108,13 +102,16 @@ struct YourNoteView: View {
         ZStack {
             if isInput {
                 LineChartView(
-                    data: viewModel.dataInput.map({ cash in
+                    data: viewModel.dataInput.filter {
+                        $0.isCashIn
+                    }.map({ cash in
                         cash.cost
-                    }), title: "Cash In", style: Styles.barChartMidnightGreenDark, form: ChartForm.large
+                    }
+                         ), title: "Cash In", style: Styles.barChartMidnightGreenDark, form: ChartForm.large
                 )
             } else {
                 LineChartView(
-                    data: viewModel.dataOutput.map({ cash in
+                    data: viewModel.dataInput.map({ cash in
                         cash.cost
                     }), title: "Cash Out", style: Styles.barChartMidnightGreenLight, form: ChartForm.large
                 )

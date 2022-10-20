@@ -13,4 +13,8 @@ struct CashInModel {
     let cost: Double
     let isCashIn: Bool
     let dayInWeek: WeekDay
+
+    static var dummyCashInModel: CashInModel {
+        return CashInModel(id: UUID().uuidString, cost: .zero, isCashIn: false, dayInWeek: .monday)
+    }
 }

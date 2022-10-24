@@ -33,7 +33,7 @@ struct FloatingMenuView: View {
                 }
             }
             if showMenuItem2 {
-                MenuItem(icon: "photo.on.rectangle") {
+                MenuItem(icon: "bitcoinsign.circle") {
                     secondAction()
                 }
             }

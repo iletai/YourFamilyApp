@@ -13,6 +13,7 @@ final class BudgeMenuViewModel: ObservableObject {
     @Published var billTitle = String.empty
     @Published var billDate = Date()
     @Published var billAmout = String.empty
+    @Published var menuBudget = BudgeMenuViewModel.QuickSelectionType.allCases
 
     init() {
     }
@@ -25,6 +26,10 @@ extension BudgeMenuViewModel {
         case drink
         case move
         case events
+
+        static var allCases: [BudgeMenuViewModel.QuickSelectionType] {
+            return [.love, .food, .drink, .move, .events]
+        }
 
         var imageName: String {
             switch self {

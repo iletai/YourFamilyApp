@@ -12,9 +12,10 @@ struct CashInModel {
     let id: String
     let cost: Double
     let isCashIn: Bool
+    let title: String
     let dayInWeek: WeekDay
 
     static var dummyCashInModel: CashInModel {
-        return CashInModel(id: UUID().uuidString, cost: .zero, isCashIn: false, dayInWeek: .monday)
+        return CashInModel(id: UUID().uuidString, cost: .zero, isCashIn: false, title: .empty, dayInWeek: .monday)
     }
 }

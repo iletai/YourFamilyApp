@@ -14,31 +14,28 @@ struct BudgeMenuView: View {
             Color.gray.opacity(0.2).ignoresSafeArea()
             VStack(spacing: 12) {
                 Text("My Cash")
-                    .font(.system(.largeTitle))
+                    .font(.system(.title))
                     .fontWeight(.bold)
-                    .foregroundColor(Color.c745CF1)
+                    .foregroundColor(Color.c745CF1.opacity(0.7))
                 HStack {
-                    makeIconBought("heart")
-                    makeIconBought("drink-tea")
-                    makeIconBought("money")
+                    ForEach(viewModel.menuBudget, id: \.self) { item in
+                        makeIconBought(item.imageName)
+                    }
                 }
                 HStack {
                     Button {
                     } label: {
                         makeMoneyCard(500)
-
                     }
                     Button {
                     } label: {
                         makeMoneyCard(200)
-
                     }
                     Button {
                     } label: {
                         makeMoneyCard(50)
                     }
                     Button {
-
                     } label: {
                         makeMoneyCard(100)
                     }
@@ -79,11 +76,16 @@ struct BudgeMenuView: View {
 
                 }
                 .padding()
-                .background(Color.white
-                    .cornerRadius(14)
-                    .shadow(color: Color.c949494, radius: 2, x: 0, y: 2))
+                .background(
+                    Color.white
+                        .cornerRadius(14)
+                        .shadow(color: Color.c949494, radius: 2, x: 0, y: 2))
             }
             .padding()
+            .background(Color.white.cornerRadius(20)
+                .shadow(color: .gray, radius: 2, x: 0, y: 2)
+            )
+            .padding(.horizontal, 12)
             .frame(maxWidth: .infinity)
         }
     }

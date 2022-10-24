@@ -23,7 +23,7 @@ struct MemoryCardView: View {
                             Image(systemName: "photo")
                         }
                         .overlay(alignment: .bottom) {
-                            Text("No Data To Date")
+                            Text("No Data To Show")
                                 .font(.system(size: 20))
                                 .fontWeight(.bold)
                                 .padding()
@@ -31,6 +31,7 @@ struct MemoryCardView: View {
                     } else {
                         ForEach(viewModel.onThisDateModel, id: \.time) { item in
                             OnThisDayCardView(viewModel: item)
+                                .id(UUID())
                         }
                     }
                 }

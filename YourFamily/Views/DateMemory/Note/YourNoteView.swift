@@ -5,9 +5,9 @@
 //  Created by Lê Quang Trọng Tài on 9/6/22.
 //
 
+import PopupView
 import SwiftUI
 import SwiftUICharts
-import PopupView
 
 struct YourNoteView: View {
     @StateObject var viewModel = YourNoteViewModel()
@@ -19,19 +19,25 @@ struct YourNoteView: View {
             Color.white.ignoresSafeArea()
             VStack(spacing: 16) {
                 HStack {
-                    Text("Good Morning \(profileViewModel.currentProfile.nickname)")
+                    Text("Good Morning \(profileViewModel.currentProfile.nickname)!")
+                        .font(.system(.subheadline))
+                        .fontWeight(.bold)
                     Spacer()
                     Button {
                     } label: {
                         Image(systemName: "arrow.down.backward.square")
                     }
                 }
-                TabView {
+                HStack {
                     makeChartView()
                     makeChartView(false)
                 }
-                .tabViewStyle(.page(indexDisplayMode: .always))
-                .frame(maxHeight: 400)
+                .padding()
+                .background(
+                    Color.c595085
+                        .opacity(0.5)
+                        .cornerRadius(20)
+                )
 
                 HStack {
                     Text("Chi tieu trong tuan")
@@ -41,59 +47,58 @@ struct YourNoteView: View {
                         Text("See All")
                     }
                 }
-                ScrollView {
+                ScrollView(showsIndicators: false) {
                     VStack {
-                        makeCellTransition(true)
-                        makeCellTransition(false)
-                        makeCellTransition(true)
-                        makeCellTransition(false)
-                        makeCellTransition(true)
-                        makeCellTransition(false)
-                        makeCellTransition(true)
-                        makeCellTransition(false)
-                        makeCellTransition(true)
-                        makeCellTransition(false)
+                        ForEach(viewModel.dataInput, id: \.id) { item in
+                            makeCellTransition(item)
+                            Divider()
+                        }
                     }
                 }
             }
             .padding(.horizontal, 16)
         }
         .overlay(alignment: .bottomTrailing) {
-            FloatingMenuView(firstAction: {
-                self.isShowActionSheet = true
-            }, secondAction: {
-                self.isShowActionSheet = true
-            }, thirdAction: {
-                self.isShowActionSheet = true
-            })
-                .padding()
+            FloatingMenuView(
+                firstAction: {
+                    self.isShowActionSheet = true
+                },
+                secondAction: {
+                    self.isShowActionSheet = true
+                },
+                thirdAction: {
+                    self.isShowActionSheet = true
+                }
+            )
+            .padding()
         }
         .sheet(isPresented: $isShowActionSheet) {
             BudgeMenuView()
-                .frame(height: 500)
         }
         .environmentObject(profileViewModel)
     }
 
-    func makeCellTransition(_ isPlus: Bool) -> some View {
+    func makeCellTransition(_ item: CashInModel) -> some View {
         HStack(spacing: 20) {
-            Image(systemName: isPlus ? "arrow.up" : "arrow.down")
+            Image(systemName: item.isCashIn ? "arrow.up" : "arrow.down")
+                .foregroundColor(item.isCashIn ? .blue : .red)
                 .frame(width: 60, height: 60)
-                .overlay(content: {
-                    Color.c595085.opacity(0.3)
+                .background(
+                    Color("PurpleF1")
                         .clipShape(RoundedRectangle(cornerRadius: 10))
-                })
+                )
             VStack(alignment: .leading) {
-                Text("Buy a shoes")
-                Text(Date().toFullDayString)
+                Text(item.title)
+                    .font(.system(size: 16))
+                    .fontWeight(.bold)
+                Text(item.dayInWeek.name())
+                    .font(.system(.callout))
+                    .foregroundColor(Color.c595085)
             }
             Spacer()
-            Text("$100")
-            Button {
-            } label: {
-                Image(systemName: "greaterthan")
-            }
-
+            Text(String(format: "$%.2f", item.cost))
+                .font(.system(size: 14))
+                .fontWeight(.semibold)
         }
         .frame(maxWidth: .infinity)
     }
@@ -107,16 +112,19 @@ struct YourNoteView: View {
                     }.map({ cash in
                         cash.cost
                     }
-                         ), title: "Cash In", style: Styles.barChartMidnightGreenDark, form: ChartForm.large
+                         ), title: "Cash In", style: Styles.barChartStyleOrangeLight,
+                    form: ChartForm.small
                 )
             } else {
                 LineChartView(
                     data: viewModel.dataInput.map({ cash in
                         cash.cost
-                    }), title: "Cash Out", style: Styles.barChartMidnightGreenLight, form: ChartForm.large
+                    }), title: "Cash Out", style: Styles.barChartMidnightGreenLight,
+                    form: ChartForm.small
                 )
             }
         }
+
     }
 }
 

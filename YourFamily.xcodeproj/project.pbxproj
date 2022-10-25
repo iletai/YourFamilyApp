@@ -69,6 +69,7 @@
 		169C0F532907A05E007DAF83 /* OnNotesMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 169C0F522907A05E007DAF83 /* OnNotesMapper.swift */; };
 		169C0F552907CCA9007DAF83 /* ForgotPassword.swift in Sources */ = {isa = PBXBuildFile; fileRef = 169C0F542907CCA9007DAF83 /* ForgotPassword.swift */; };
 		169C0F572907CD13007DAF83 /* ForgotPasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 169C0F562907CD13007DAF83 /* ForgotPasswordViewModel.swift */; };
+		169C0F5A2907E87E007DAF83 /* SwiftUICommon in Frameworks */ = {isa = PBXBuildFile; productRef = 169C0F592907E87E007DAF83 /* SwiftUICommon */; };
 		16AB078128C5E7EF005D885F /* ViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16AB078028C5E7EF005D885F /* ViewExtension.swift */; };
 		16AB078428C5F1D6005D885F /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16AB078328C5F1D6005D885F /* ProfileViewModel.swift */; };
 		16AB078628C71C3A005D885F /* LunarCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16AB078528C71C3A005D885F /* LunarCalendarView.swift */; };
@@ -207,6 +208,7 @@
 				1639BD2A28B8BCAC002CCDF5 /* SwiftUIPager in Frameworks */,
 				16828E3728C5B2240054081A /* AlertToast in Frameworks */,
 				16F41FCE28CA5BFD00ACA1DA /* FirebaseDatabase in Frameworks */,
+				169C0F5A2907E87E007DAF83 /* SwiftUICommon in Frameworks */,
 				1639BD2128B7E382002CCDF5 /* FacebookLogin in Frameworks */,
 				16F41FCC28CA5BFD00ACA1DA /* FirebaseAuth in Frameworks */,
 			);
@@ -616,6 +618,7 @@
 				16FAAB7228ED2B9C00E30F65 /* FirebaseFirestore */,
 				16365DF128F7EDBE0013CC8D /* PopupView */,
 				169C0ED428FDA476007DAF83 /* SwiftUICharts */,
+				169C0F592907E87E007DAF83 /* SwiftUICommon */,
 			);
 			productName = YourFamily;
 			productReference = 1665E16028B7427D00CCEA09 /* YourFamily.app */;
@@ -657,6 +660,7 @@
 				16F41FCA28CA5BFD00ACA1DA /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				16365DF028F7EDBE0013CC8D /* XCRemoteSwiftPackageReference "PopupView" */,
 				169C0ED328FDA476007DAF83 /* XCRemoteSwiftPackageReference "ChartView" */,
+				169C0F582907E87E007DAF83 /* XCRemoteSwiftPackageReference "SwiftUICommon" */,
 			);
 			productRefGroup = 1665E16128B7427D00CCEA09 /* Products */;
 			projectDirPath = "";
@@ -1056,6 +1060,14 @@
 				minimumVersion = 1.5.2;
 			};
 		};
+		169C0F582907E87E007DAF83 /* XCRemoteSwiftPackageReference "SwiftUICommon" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/iletai/SwiftUICommon";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 		16B95A9828B77B3E00CA3B72 /* XCRemoteSwiftPackageReference "SwiftLint" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/realm/SwiftLint.git";
@@ -1122,6 +1134,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 169C0ED328FDA476007DAF83 /* XCRemoteSwiftPackageReference "ChartView" */;
 			productName = SwiftUICharts;
+		};
+		169C0F592907E87E007DAF83 /* SwiftUICommon */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 169C0F582907E87E007DAF83 /* XCRemoteSwiftPackageReference "SwiftUICommon" */;
+			productName = SwiftUICommon;
 		};
 		16F41FC528C99F8800ACA1DA /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;

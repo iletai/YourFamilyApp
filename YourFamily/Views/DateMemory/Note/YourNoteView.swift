@@ -9,6 +9,7 @@ import PopupView
 import SwiftUI
 import SwiftUICharts
 import Foundation
+import SwiftUICommon
 
 struct YourNoteView: View {
     @ObservedObject var viewModel = YourNoteViewModel()
@@ -78,6 +79,7 @@ struct YourNoteView: View {
             BudgeMenuView()
                 .environmentObject(self.viewModel)
         }
+        .padding(.top, 16)
     }
 
     func makeCellTransition(_ item: CashInModel) -> some View {

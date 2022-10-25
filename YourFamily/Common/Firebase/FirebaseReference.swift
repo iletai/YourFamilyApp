@@ -11,6 +11,7 @@ import Foundation
 enum FCollectionReference: String {
     case user
     case memory
+    case note
 }
 
 class FStorage {

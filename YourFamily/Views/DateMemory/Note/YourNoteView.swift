@@ -8,11 +8,11 @@
 import PopupView
 import SwiftUI
 import SwiftUICharts
+import Foundation
 
 struct YourNoteView: View {
-    @StateObject var viewModel = YourNoteViewModel()
+    @ObservedObject var viewModel = YourNoteViewModel()
     @EnvironmentObject var profileViewModel: ProfileViewModel
-    @State private var isShowActionSheet = false
 
     var body: some View {
         ZStack {
@@ -41,6 +41,8 @@ struct YourNoteView: View {
 
                 HStack {
                     Text("Chi tieu trong tuan")
+                        .font(.system(.callout))
+                        .fontWeight(.semibold)
                     Spacer()
                     Button {
                     } label: {
@@ -49,7 +51,7 @@ struct YourNoteView: View {
                 }
                 ScrollView(showsIndicators: false) {
                     VStack {
-                        ForEach(viewModel.dataInput, id: \.id) { item in
+                        ForEach(viewModel.dataInput, id: \.dayInWeek) { item in
                             makeCellTransition(item)
                             Divider()
                         }
@@ -61,21 +63,21 @@ struct YourNoteView: View {
         .overlay(alignment: .bottomTrailing) {
             FloatingMenuView(
                 firstAction: {
-                    self.isShowActionSheet = true
+                    self.viewModel.isShowActionSheet = true
                 },
                 secondAction: {
-                    self.isShowActionSheet = true
+                    self.viewModel.isShowActionSheet = true
                 },
                 thirdAction: {
-                    self.isShowActionSheet = true
+                    self.viewModel.isShowActionSheet = true
                 }
             )
             .padding()
         }
-        .sheet(isPresented: $isShowActionSheet) {
+        .sheet(isPresented: $viewModel.isShowActionSheet) {
             BudgeMenuView()
+                .environmentObject(self.viewModel)
         }
-        .environmentObject(profileViewModel)
     }
 
     func makeCellTransition(_ item: CashInModel) -> some View {
@@ -91,7 +93,7 @@ struct YourNoteView: View {
                 Text(item.title)
                     .font(.system(size: 16))
                     .fontWeight(.bold)
-                Text(item.dayInWeek.name())
+                Text(item.dayInWeek.toFullDayString)
                     .font(.system(.callout))
                     .foregroundColor(Color.c595085)
             }

@@ -9,6 +9,8 @@ import SwiftUI
 
 struct BudgeMenuView: View {
     @StateObject var viewModel = BudgeMenuViewModel()
+    @EnvironmentObject private var noteViewModel: YourNoteViewModel
+
     var body: some View {
         ZStack {
             Color.gray.opacity(0.2).ignoresSafeArea()
@@ -17,27 +19,24 @@ struct BudgeMenuView: View {
                     .font(.system(.title))
                     .fontWeight(.bold)
                     .foregroundColor(Color.c745CF1.opacity(0.7))
+                    .padding(.horizontal, 16)
+                    .padding(.vertical, 8)
+                    .background(Color.c745CF1.opacity(0.2).clipShape(Capsule()))
                 HStack {
                     ForEach(viewModel.menuBudget, id: \.self) { item in
                         makeIconBought(item.imageName)
+                            .onTapGesture {
+                                viewModel.billTitle = item.titleName
+                            }
                     }
                 }
                 HStack {
-                    Button {
-                    } label: {
-                        makeMoneyCard(500)
-                    }
-                    Button {
-                    } label: {
-                        makeMoneyCard(200)
-                    }
-                    Button {
-                    } label: {
-                        makeMoneyCard(50)
-                    }
-                    Button {
-                    } label: {
-                        makeMoneyCard(100)
+                    ForEach(viewModel.bugdetDefine, id: \.self) { item in
+                        Button {
+                            viewModel.setBillCost(item)
+                        } label: {
+                            makeMoneyCard(Int(item))
+                        }
                     }
                 }
 
@@ -45,45 +44,73 @@ struct BudgeMenuView: View {
                     HStack {
                         Text("Amount:")
                         Spacer()
-                        TextField("Your cost", text: $viewModel.billAmout)
-                            .keyboardType(.numberPad)
-                            .fixedSize()
+                        TextField(
+                            "Your cost", value: $viewModel.billAmout, formatter: NumberFormatter()
+                        )
+                        .keyboardType(.numberPad)
+                        .multilineTextAlignment(.trailing)
+                        .fixedSize()
 
                     }
                     HStack {
                         Text("Bill date:")
                         Spacer()
-                        TextField("MM / DD / YY", value: $viewModel.billDate, format: .dateTime)
-                            .fixedSize()
-
+                        DatePicker(
+                            "Bill date", selection: $viewModel.billDate, displayedComponents: .date
+                        )
+                        .labelsHidden()
+                        .pickerStyle(.menu)
                     }
                     HStack {
                         Text("Cost For:")
                         Spacer()
                         TextField("Your cost for", text: $viewModel.billTitle)
+                            .multilineTextAlignment(.trailing)
                             .fixedSize()
 
                     }
+                    HStack {
+                        Text("Is Cash In:")
+                        Spacer()
+                        Toggle(
+                            isOn: $viewModel.billCashIn,
+                            label: {
+                            }
+                        )
+                        .multilineTextAlignment(.trailing)
+                        .fixedSize()
+                    }
                     Button {
+                        noteViewModel.updateListNote(
+                            item: CashInModel(
+                                id: UUID().uuidString,
+                                cost: viewModel.billAmout,
+                                isCashIn: viewModel.billCashIn,
+                                title: viewModel.billTitle,
+                                dayInWeek: viewModel.billDate)
+                        )
                     } label: {
                         Text("Save Bill")
                             .font(.system(size: 20))
+                            .fontWeight(.semibold)
                             .foregroundColor(.white)
                             .frame(maxWidth: .infinity)
                             .padding(14)
-                            .background(Color.blue.cornerRadius(14))
+                            .background(Color.c745CF1.opacity(0.7).cornerRadius(14))
                     }
 
                 }
                 .padding()
                 .background(
-                    Color.white
+                    Color.c745CF1
+                        .opacity(0.1)
                         .cornerRadius(14)
                         .shadow(color: Color.c949494, radius: 2, x: 0, y: 2))
             }
             .padding()
-            .background(Color.white.cornerRadius(20)
-                .shadow(color: .gray, radius: 2, x: 0, y: 2)
+            .background(
+                Color.white.cornerRadius(20)
+                    .shadow(color: .gray, radius: 2, x: 0, y: 2)
             )
             .padding(.horizontal, 12)
             .frame(maxWidth: .infinity)

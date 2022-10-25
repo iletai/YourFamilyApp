@@ -12,10 +12,20 @@ final class BudgeMenuViewModel: ObservableObject {
     @Published var budgetPayment = [CashInModel.dummyCashInModel]
     @Published var billTitle = String.empty
     @Published var billDate = Date()
-    @Published var billAmout = String.empty
-    @Published var menuBudget = BudgeMenuViewModel.QuickSelectionType.allCases
+    @Published var billAmout = Double.zero
+    @Published var billCashIn = false
+
+    var menuBudget = BudgeMenuViewModel.QuickSelectionType.allCases
+    var bugdetDefine = [50.0, 100.0, 200.0, 500.0, 1000.0]
 
     init() {
+    }
+}
+
+// MARK: - Function
+extension BudgeMenuViewModel {
+    func setBillCost(_ value: Double) {
+        billAmout = value
     }
 }
 
@@ -29,6 +39,21 @@ extension BudgeMenuViewModel {
 
         static var allCases: [BudgeMenuViewModel.QuickSelectionType] {
             return [.love, .food, .drink, .move, .events]
+        }
+
+        var titleName: String {
+            switch self {
+            case .love:
+                return "Send Gift"
+            case .drink:
+                return "Drink Milk Tea"
+            case .events:
+                return "Join Events"
+            case .food:
+                return "Food"
+            case .move:
+                return "Travel"
+            }
         }
 
         var imageName: String {

@@ -6,16 +6,15 @@
 //
 
 import Foundation
-import SwiftDate
 
 struct CashInModel {
     let id: String
     let cost: Double
-    let isCashIn: Bool
+    var isCashIn: Bool
     let title: String
-    let dayInWeek: WeekDay
+    let dayInWeek: Date
 
     static var dummyCashInModel: CashInModel {
-        return CashInModel(id: UUID().uuidString, cost: .zero, isCashIn: false, title: .empty, dayInWeek: .monday)
+        return CashInModel(id: UUID().uuidString, cost: .zero, isCashIn: false, title: .empty, dayInWeek: Date())
     }
 }

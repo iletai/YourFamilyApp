@@ -66,6 +66,7 @@
 		169C0F4D28FFC185007DAF83 /* ActionSheetCustom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 169C0F4C28FFC185007DAF83 /* ActionSheetCustom.swift */; };
 		169C0F4F28FFD5F5007DAF83 /* BudgeMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 169C0F4E28FFD5F5007DAF83 /* BudgeMenuView.swift */; };
 		169C0F512900006A007DAF83 /* BudgeMenuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 169C0F502900006A007DAF83 /* BudgeMenuViewModel.swift */; };
+		169C0F532907A05E007DAF83 /* OnNotesMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 169C0F522907A05E007DAF83 /* OnNotesMapper.swift */; };
 		16AB078128C5E7EF005D885F /* ViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16AB078028C5E7EF005D885F /* ViewExtension.swift */; };
 		16AB078428C5F1D6005D885F /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16AB078328C5F1D6005D885F /* ProfileViewModel.swift */; };
 		16AB078628C71C3A005D885F /* LunarCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16AB078528C71C3A005D885F /* LunarCalendarView.swift */; };
@@ -155,6 +156,7 @@
 		169C0F4C28FFC185007DAF83 /* ActionSheetCustom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetCustom.swift; sourceTree = "<group>"; };
 		169C0F4E28FFD5F5007DAF83 /* BudgeMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgeMenuView.swift; sourceTree = "<group>"; };
 		169C0F502900006A007DAF83 /* BudgeMenuViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgeMenuViewModel.swift; sourceTree = "<group>"; };
+		169C0F522907A05E007DAF83 /* OnNotesMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnNotesMapper.swift; sourceTree = "<group>"; };
 		16AB078028C5E7EF005D885F /* ViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtension.swift; sourceTree = "<group>"; };
 		16AB078328C5F1D6005D885F /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		16AB078528C71C3A005D885F /* LunarCalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LunarCalendarView.swift; sourceTree = "<group>"; };
@@ -555,6 +557,7 @@
 			children = (
 				16FAAB8D28F442C700E30F65 /* FUserMapper.swift */,
 				16365DE828F7BB880013CC8D /* OnThisDateMapper.swift */,
+				169C0F522907A05E007DAF83 /* OnNotesMapper.swift */,
 			);
 			path = Mapper;
 			sourceTree = "<group>";
@@ -765,6 +768,7 @@
 				1693F50E28FB327D00C2412F /* MapItemPickerSheet.swift in Sources */,
 				16FAAB7628EEC18300E30F65 /* FUser.swift in Sources */,
 				16FAAB9028F56F2400E30F65 /* UpdateProfileView.swift in Sources */,
+				169C0F532907A05E007DAF83 /* OnNotesMapper.swift in Sources */,
 				16828E1528BCBBE90054081A /* CalendarMemoryItem.swift in Sources */,
 				16FAAB8B28F4139D00E30F65 /* EndCodableExtension.swift in Sources */,
 				1639BD2328B85777002CCDF5 /* ColorExtension.swift in Sources */,

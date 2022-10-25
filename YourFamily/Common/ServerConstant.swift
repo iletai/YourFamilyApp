@@ -60,6 +60,16 @@ struct ServerConstant {
             static let memoryLocation = "memory_location"
         /// Memory Time
             static let memoryTime = "memory_time"
+        /// Note Title
+            static let noteTitle = "note_title"
+        /// Note Cost
+            static let noteCost = "note_cost"
+        /// Note Date
+            static let noteDate = "note_date"
+        /// Note Id
+            static let noteId = "note_id"
+        /// Note Cash In
+            static let noteCashIn = "note_cash"
         #else
         #endif
     }

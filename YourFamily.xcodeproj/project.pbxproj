@@ -67,6 +67,8 @@
 		169C0F4F28FFD5F5007DAF83 /* BudgeMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 169C0F4E28FFD5F5007DAF83 /* BudgeMenuView.swift */; };
 		169C0F512900006A007DAF83 /* BudgeMenuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 169C0F502900006A007DAF83 /* BudgeMenuViewModel.swift */; };
 		169C0F532907A05E007DAF83 /* OnNotesMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 169C0F522907A05E007DAF83 /* OnNotesMapper.swift */; };
+		169C0F552907CCA9007DAF83 /* ForgotPassword.swift in Sources */ = {isa = PBXBuildFile; fileRef = 169C0F542907CCA9007DAF83 /* ForgotPassword.swift */; };
+		169C0F572907CD13007DAF83 /* ForgotPasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 169C0F562907CD13007DAF83 /* ForgotPasswordViewModel.swift */; };
 		16AB078128C5E7EF005D885F /* ViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16AB078028C5E7EF005D885F /* ViewExtension.swift */; };
 		16AB078428C5F1D6005D885F /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16AB078328C5F1D6005D885F /* ProfileViewModel.swift */; };
 		16AB078628C71C3A005D885F /* LunarCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16AB078528C71C3A005D885F /* LunarCalendarView.swift */; };
@@ -157,6 +159,8 @@
 		169C0F4E28FFD5F5007DAF83 /* BudgeMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgeMenuView.swift; sourceTree = "<group>"; };
 		169C0F502900006A007DAF83 /* BudgeMenuViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgeMenuViewModel.swift; sourceTree = "<group>"; };
 		169C0F522907A05E007DAF83 /* OnNotesMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnNotesMapper.swift; sourceTree = "<group>"; };
+		169C0F542907CCA9007DAF83 /* ForgotPassword.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPassword.swift; sourceTree = "<group>"; };
+		169C0F562907CD13007DAF83 /* ForgotPasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewModel.swift; sourceTree = "<group>"; };
 		16AB078028C5E7EF005D885F /* ViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtension.swift; sourceTree = "<group>"; };
 		16AB078328C5F1D6005D885F /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		16AB078528C71C3A005D885F /* LunarCalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LunarCalendarView.swift; sourceTree = "<group>"; };
@@ -321,6 +325,7 @@
 			children = (
 				165E973528B7C4BE00490E01 /* LoginView.swift */,
 				163639D728D225A4000B0B19 /* SignUpView.swift */,
+				169C0F542907CCA9007DAF83 /* ForgotPassword.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -329,6 +334,7 @@
 			isa = PBXGroup;
 			children = (
 				165E973828B7C4E200490E01 /* LoginViewModel.swift */,
+				169C0F562907CD13007DAF83 /* ForgotPasswordViewModel.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -714,6 +720,7 @@
 				16828E1328BCBB150054081A /* MemoryCalendarView.swift in Sources */,
 				16B95A9728B7707100CA3B72 /* RouterViewModel.swift in Sources */,
 				162F764B28C7305500BD49A8 /* CalendarConfig.swift in Sources */,
+				169C0F572907CD13007DAF83 /* ForgotPasswordViewModel.swift in Sources */,
 				162F764F28C731B300BD49A8 /* CalendarManager.swift in Sources */,
 				16F056CD28F72134005A65B6 /* OnThisDayCardView.swift in Sources */,
 				169C0F4F28FFD5F5007DAF83 /* BudgeMenuView.swift in Sources */,
@@ -722,6 +729,7 @@
 				162F765528C74AD300BD49A8 /* LunarDateView.swift in Sources */,
 				162F765728C779C100BD49A8 /* CGFloatExtension.swift in Sources */,
 				16AB078428C5F1D6005D885F /* ProfileViewModel.swift in Sources */,
+				169C0F552907CCA9007DAF83 /* ForgotPassword.swift in Sources */,
 				16828E1728BCC0D60054081A /* CalendarPagingCellView.swift in Sources */,
 				16B95A9328B76FDF00CA3B72 /* AppRouterManager.swift in Sources */,
 				162F766228C877FF00BD49A8 /* SettingManager.swift in Sources */,

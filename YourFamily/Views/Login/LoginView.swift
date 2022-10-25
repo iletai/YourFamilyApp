@@ -16,71 +16,73 @@ struct LoginView: View {
     @FocusState var focused: LoginViewModel.PasswordState?
 
     var body: some View {
-        ZStack {
-            Color(hex: "F1F3F6").ignoresSafeArea()
-            VStack {
-                Spacer()
-                Color.red
-                    .clipShape(RoundedRectangle(cornerRadius: 20))
-                    .frame(maxWidth: 96, maxHeight: 96)
-                Text("Your Family")
-                    .font(.system(size: 30))
-                    .fontWeight(.bold)
-                    .foregroundColor(Color(hex: "3D6670"))
-                    .shadow(color: .blue, radius: 1, x: 0, y: 2)
-                VStack(spacing: 16) {
-                    makeTextInputArea()
-                    makeButtonArea()
+        NavigationView {
+            ZStack {
+                Color(hex: "F1F3F6").ignoresSafeArea()
+                VStack {
                     Spacer()
-                    HStack {
-                        Text("Don't Have Account?")
-                            .font(.system(size: 14))
-                            .fontWeight(.regular)
-                            .foregroundColor(Color.c232020)
-                        Button {
-                            AppRouterManager.shared.setRouterState(
-                                .signUp, animation: .easeOut(duration: 1))
-                        } label: {
-                            Text("Sign Up")
+                    Color.red
+                        .clipShape(RoundedRectangle(cornerRadius: 20))
+                        .frame(maxWidth: 96, maxHeight: 96)
+                    Text("Your Family")
+                        .font(.system(size: 30))
+                        .fontWeight(.bold)
+                        .foregroundColor(Color(hex: "3D6670"))
+                        .shadow(color: .blue, radius: 1, x: 0, y: 2)
+                    VStack(spacing: 16) {
+                        makeTextInputArea()
+                        makeButtonArea()
+                        Spacer()
+                        HStack {
+                            Text("Don't Have Account?")
                                 .font(.system(size: 12))
-                                .padding(.vertical, 8)
-                                .padding(.horizontal, 16)
-                                .background(
-                                    RoundedRectangle(cornerRadius: 25).strokeBorder(
-                                        Color.blue, lineWidth: 2)
-                                )
+                                .fontWeight(.regular)
+                                .foregroundColor(Color.c232020)
+                            Button {
+                                AppRouterManager.shared.setRouterState(
+                                    .signUp, animation: .easeOut(duration: 1))
+                            } label: {
+                                Text("Sign Up")
+                                    .font(.system(size: 12))
+                                    .padding(.vertical, 8)
+                                    .padding(.horizontal, 16)
+                                    .background(
+                                        RoundedRectangle(cornerRadius: 25).strokeBorder(
+                                            Color.blue, lineWidth: 2)
+                                    )
+                            }
                         }
                     }
+                    Spacer()
                 }
-                Spacer()
             }
-        }
-        .onOpenURL(perform: { url in
-            ApplicationDelegate.shared.application(
-                UIApplication.shared,
-                open: url,
-                sourceApplication: nil,
-                annotation: UIApplication.OpenURLOptionsKey.annotation
-            )
-        })
-        .onAppear {
-            viewModel.moveToHome()
-        }
-        .toast(
-            isPresenting: $viewModel.isShowError,
-            tapToDismiss: false,
-            alert: {
-                AlertToast(
-                    type: .regular,
-                    title: viewModel.authenError.title,
-                    subTitle: viewModel.authenError.message
+            .onOpenURL(perform: { url in
+                ApplicationDelegate.shared.application(
+                    UIApplication.shared,
+                    open: url,
+                    sourceApplication: nil,
+                    annotation: UIApplication.OpenURLOptionsKey.annotation
                 )
-            },
-            completion: {
-                viewModel.isShowToast(false)
+            })
+            .onAppear {
+                viewModel.moveToHome()
             }
-        )
+            .toast(
+                isPresenting: $viewModel.isShowError,
+                tapToDismiss: false,
+                alert: {
+                    AlertToast(
+                        type: .regular,
+                        title: viewModel.authenError.title,
+                        subTitle: viewModel.authenError.message
+                    )
+                },
+                completion: {
+                    viewModel.isShowToast(false)
+                }
+            )
         .environmentObject(viewModel)
+        }
     }
 
     func makeTextInputArea() -> some View {
@@ -147,27 +149,20 @@ struct LoginView: View {
                 loginEmailButton
                 Spacer(minLength: 100)
             }
-            ZStack {
-                Divider()
-                    .padding(.horizontal, 32)
-                Circle()
-                    .strokeBorder(Color.gray, lineWidth: 0.5)
-                    .background(Circle().foregroundColor(Color(hex: "F1F3F6")))
-                    .frame(width: 24, height: 24)
-                Text("OR")
-                    .font(.system(size: 8))
-                    .fontWeight(.semibold)
-                    .foregroundColor(.gray)
-                    .padding(8)
-                    .zIndex(1)
-                    .overlay {
-
-                    }
-            }
+            makeLableOr()
             HStack {
                 Spacer(minLength: 100)
                 facebookLoginButton
                 Spacer(minLength: 100)
+            }
+            NavigationLink {
+                ForgotPassword()
+            } label: {
+                Text("Forgot the password?")
+                    .font(.system(.callout))
+                    .fontWeight(.bold)
+                    .foregroundColor(Color.c745CF1)
+                    .padding(.top, 20)
             }
         }
     }
@@ -221,6 +216,23 @@ struct LoginView: View {
                 )
                 .frame(maxWidth: .infinity)
             })
+    }
+
+    func makeLableOr() -> some View {
+        ZStack {
+            Divider()
+                .padding(.horizontal, 32)
+            Circle()
+                .strokeBorder(Color.gray, lineWidth: 0.5)
+                .background(Circle().foregroundColor(Color(hex: "F1F3F6")))
+                .frame(width: 24, height: 24)
+            Text("OR")
+                .font(.system(size: 8))
+                .fontWeight(.semibold)
+                .foregroundColor(.gray)
+                .padding(8)
+                .zIndex(1)
+        }
     }
 }
 

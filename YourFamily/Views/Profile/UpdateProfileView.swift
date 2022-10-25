@@ -18,7 +18,7 @@ struct UpdateProfileView: View {
                         Color(hex: "051937"),
                         Color(hex: "008793"),
                         Color(hex: "00bf72"),
-                        .cA8EB12,
+                        .cA8EB12
                     ]), startPoint: .bottomLeading, endPoint: .topTrailing
                 )
                 .opacity(0.5)

@@ -13,29 +13,31 @@ struct HomeView: View {
     @StateObject var profileViewModel = ProfileViewModel()
 
     var body: some View {
-        TabView(selection: $viewModel.tabViewCurrentIndex) {
-            Text("Home View")
-                .tabItem {
-                    Label("Home", systemImage: "house.circle")
-                }
-                .tag(HomeViewModel.HomeTabView.home.tabIndexValue)
-            DateMemoryView()
-                .tabItem {
-                    Label("Memories", systemImage: "arrow.clockwise.heart")
-                }
-                .tag(HomeViewModel.HomeTabView.memories.tabIndexValue)
-            SettingView()
-                .tabItem {
-                    Label("Settings", systemImage: "circle.grid.cross")
-                }
-                .tag(HomeViewModel.HomeTabView.setting.tabIndexValue)
-            ProfileView()
-                .tabItem {
-                    Label("Profile", systemImage: "person.crop.square")
-                }
-                .tag(HomeViewModel.HomeTabView.profile.tabIndexValue)
+        NavigationView {
+            TabView(selection: $viewModel.tabViewCurrentIndex) {
+                Text("Home View")
+                    .tabItem {
+                        Label("Home", systemImage: "house.circle")
+                    }
+                    .tag(HomeViewModel.HomeTabView.home.tabIndexValue)
+                DateMemoryView()
+                    .tabItem {
+                        Label("Memories", systemImage: "arrow.clockwise.heart")
+                    }
+                    .tag(HomeViewModel.HomeTabView.memories.tabIndexValue)
+                SettingView()
+                    .tabItem {
+                        Label("Settings", systemImage: "circle.grid.cross")
+                    }
+                    .tag(HomeViewModel.HomeTabView.setting.tabIndexValue)
+                ProfileView()
+                    .tabItem {
+                        Label("Profile", systemImage: "person.crop.square")
+                    }
+                    .tag(HomeViewModel.HomeTabView.profile.tabIndexValue)
+            }
+            .environmentObject(self.profileViewModel)
         }
-        .environmentObject(self.profileViewModel)
     }
 }
 

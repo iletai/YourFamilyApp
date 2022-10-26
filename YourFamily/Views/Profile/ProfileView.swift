@@ -7,10 +7,12 @@
 
 import SwiftUI
 import AlertToast
+import SwiftUICommon
 
 // swiftlint:disable type_body_length
 struct ProfileView: View {
     @EnvironmentObject var viewModel: ProfileViewModel
+    @State var uiTabarController: UITabBarController?
 
     var body: some View {
         NavigationView {
@@ -33,6 +35,12 @@ struct ProfileView: View {
                     .frame(width: geo.size.width, height: geo.size.height)
                     if viewModel.showMenuProfile {
                         menuView
+                            .introspectTabBarController { (UITabBarController) in
+                                UITabBarController.tabBar.isHidden = true
+                                uiTabarController = UITabBarController
+                            }.onDisappear {
+                                uiTabarController?.tabBar.isHidden = false
+                            }
                     }
                 }
                 .toolbar {
@@ -105,6 +113,7 @@ struct ProfileView: View {
                 UpdateProfileView(viewModel: viewModel)
             }
         }
+        .navigationViewStyle(.stack)
         .environmentObject(self.viewModel)
     }
 

@@ -5,8 +5,8 @@
 //  Created by Lê Quang Trọng Tài on 8/26/22.
 //
 
-import SwiftUI
 import AlertToast
+import SwiftUI
 import SwiftUICommon
 
 // swiftlint:disable type_body_length
@@ -180,13 +180,16 @@ struct ProfileView: View {
                         .stroke(.blue, lineWidth: 2)
                 )
                 .overlay(
-                    Button(action: {
-                        viewModel.isShowPickerImage.toggle()
-                    }, label: {
-                        Image(systemName: "plus.app")
-                            .padding(4)
-                            .background(Color.white.clipShape(Capsule()))
-                    })
+                    Button(
+                        action: {
+                            viewModel.isShowPickerImage.toggle()
+                        },
+                        label: {
+                            Image(systemName: "plus.app")
+                                .padding(4)
+                                .background(Color.white.clipShape(Capsule()))
+                        }
+                    )
                     .offset(x: 30, y: 45)
                 )
                 .shadow(radius: 4, x: 0, y: 2)

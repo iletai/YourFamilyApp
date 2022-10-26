@@ -121,9 +121,12 @@ struct YourNoteView: View {
                 )
             } else {
                 LineChartView(
-                    data: viewModel.dataInput.map({ cash in
-                        cash.cost
-                    }), title: "Cash Out", style: Styles.barChartMidnightGreenLight,
+                    data: viewModel.dataInput
+                        .filter {
+                            !$0.isCashIn
+                        }.map({ cash in
+                            cash.cost
+                        }), title: "Cash Out", style: Styles.barChartMidnightGreenLight,
                     form: ChartForm.small
                 )
             }

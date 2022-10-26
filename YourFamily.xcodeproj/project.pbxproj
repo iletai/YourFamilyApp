@@ -45,6 +45,7 @@
 		1665E16B28B7427F00CCEA09 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1665E16A28B7427F00CCEA09 /* Preview Assets.xcassets */; };
 		167090CE28D42E300022BA8F /* CalendarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167090CD28D42E300022BA8F /* CalendarCoordinator.swift */; };
 		167090D028D484370022BA8F /* MemoryCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167090CF28D484370022BA8F /* MemoryCardView.swift */; };
+		16725F0B29093DF400810567 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 16725F0A29093DF400810567 /* RealmSwift */; };
 		16828E1028BCB7970054081A /* Parchment in Frameworks */ = {isa = PBXBuildFile; productRef = 16828E0F28BCB7970054081A /* Parchment */; };
 		16828E1328BCBB150054081A /* MemoryCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16828E1228BCBB150054081A /* MemoryCalendarView.swift */; };
 		16828E1528BCBBE90054081A /* CalendarMemoryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16828E1428BCBBE90054081A /* CalendarMemoryItem.swift */; };
@@ -200,6 +201,7 @@
 				16365DF228F7EDBE0013CC8D /* PopupView in Frameworks */,
 				16828E2028BD15F10054081A /* SwiftDate in Frameworks */,
 				169C0ED528FDA476007DAF83 /* SwiftUICharts in Frameworks */,
+				16725F0B29093DF400810567 /* RealmSwift in Frameworks */,
 				16F41FC628C99F8800ACA1DA /* Alamofire in Frameworks */,
 				162F764628C72D2200BD49A8 /* CVCalendar in Frameworks */,
 				16F41FD028CA5BFD00ACA1DA /* FirebaseStorage in Frameworks */,
@@ -619,6 +621,7 @@
 				16365DF128F7EDBE0013CC8D /* PopupView */,
 				169C0ED428FDA476007DAF83 /* SwiftUICharts */,
 				169C0F592907E87E007DAF83 /* SwiftUICommon */,
+				16725F0A29093DF400810567 /* RealmSwift */,
 			);
 			productName = YourFamily;
 			productReference = 1665E16028B7427D00CCEA09 /* YourFamily.app */;
@@ -661,6 +664,7 @@
 				16365DF028F7EDBE0013CC8D /* XCRemoteSwiftPackageReference "PopupView" */,
 				169C0ED328FDA476007DAF83 /* XCRemoteSwiftPackageReference "ChartView" */,
 				169C0F582907E87E007DAF83 /* XCRemoteSwiftPackageReference "SwiftUICommon" */,
+				16725F0929093DF400810567 /* XCRemoteSwiftPackageReference "realm-swift" */,
 			);
 			productRefGroup = 1665E16128B7427D00CCEA09 /* Products */;
 			projectDirPath = "";
@@ -1028,6 +1032,14 @@
 				minimumVersion = 9.0.0;
 			};
 		};
+		16725F0929093DF400810567 /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-swift";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 		16828E0E28BCB7970054081A /* XCRemoteSwiftPackageReference "Parchment" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/rechsteiner/Parchment";
@@ -1114,6 +1126,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 1639BD2828B8BCAC002CCDF5 /* XCRemoteSwiftPackageReference "SwiftUIPager" */;
 			productName = SwiftUIPager;
+		};
+		16725F0A29093DF400810567 /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 16725F0929093DF400810567 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
 		};
 		16828E0F28BCB7970054081A /* Parchment */ = {
 			isa = XCSwiftPackageProductDependency;

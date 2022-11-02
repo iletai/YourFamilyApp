@@ -34,6 +34,9 @@ struct LunarCalendarView: View {
                 .padding(.bottom, 16)
                 makeDateRegionView()
                 Spacer()
+                Image("calendar_image")
+                    .resizable()
+                    .scaledToFit()
                 HStack {
                     Spacer()
                     Button {
@@ -41,7 +44,10 @@ struct LunarCalendarView: View {
                             viewModel.setStateShowAddMemory(true)
                         }
                     } label: {
-                        Image(systemName: "plus.rectangle.on.rectangle")
+                        Image("calendar")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 30, height: 30)
                             .padding()
                             .background(Color.c5CCBF1.clipShape(Circle()))
                     }
@@ -123,7 +129,10 @@ struct LunarCalendarView: View {
             Button {
                 viewModel.setStateShowSetting(true)
             } label: {
-                Image(systemName: "gearshape.fill")
+                Image("cog")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 24, height: 24)
             }
 
         }

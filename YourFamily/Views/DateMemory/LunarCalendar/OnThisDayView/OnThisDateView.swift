@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SwiftUICommon
 
 struct OnThisDateView: View {
     @Environment(\.redactionReasons) private var reasons
@@ -27,7 +28,7 @@ struct OnThisDateView: View {
                         .fontWeight(.bold)
                         .padding()
                         .background(
-                            Color.c5CCBF1.clipShape(RoundedCorner(radius: 20))
+                            Color.c5CCBF1.clipShape(RoundedRectangle(cornerRadius: 20))
                         )
                         .shadow(color: .gray, radius: 16, x: 0, y: 2)
                 }

@@ -11,7 +11,6 @@
 		162F764928C7300500BD49A8 /* DateInWeekHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162F764828C7300500BD49A8 /* DateInWeekHeaderView.swift */; };
 		162F764B28C7305500BD49A8 /* CalendarConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162F764A28C7305500BD49A8 /* CalendarConfig.swift */; };
 		162F764F28C731B300BD49A8 /* CalendarManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162F764E28C731B300BD49A8 /* CalendarManager.swift */; };
-		162F765128C73C0400BD49A8 /* ShapeExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162F765028C73C0400BD49A8 /* ShapeExtension.swift */; };
 		162F765328C73C6F00BD49A8 /* CalendarBodyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162F765228C73C6F00BD49A8 /* CalendarBodyView.swift */; };
 		162F765528C74AD300BD49A8 /* LunarDateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162F765428C74AD300BD49A8 /* LunarDateView.swift */; };
 		162F765728C779C100BD49A8 /* CGFloatExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162F765628C779C100BD49A8 /* CGFloatExtension.swift */; };
@@ -110,7 +109,6 @@
 		162F764828C7300500BD49A8 /* DateInWeekHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateInWeekHeaderView.swift; sourceTree = "<group>"; };
 		162F764A28C7305500BD49A8 /* CalendarConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarConfig.swift; sourceTree = "<group>"; };
 		162F764E28C731B300BD49A8 /* CalendarManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarManager.swift; sourceTree = "<group>"; };
-		162F765028C73C0400BD49A8 /* ShapeExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShapeExtension.swift; sourceTree = "<group>"; };
 		162F765228C73C6F00BD49A8 /* CalendarBodyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarBodyView.swift; sourceTree = "<group>"; };
 		162F765428C74AD300BD49A8 /* LunarDateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LunarDateView.swift; sourceTree = "<group>"; };
 		162F765628C779C100BD49A8 /* CGFloatExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGFloatExtension.swift; sourceTree = "<group>"; };
@@ -498,7 +496,6 @@
 				16828E1A28BD11A40054081A /* DateExtension.swift */,
 				16828E1C28BD14E50054081A /* DateFormatterExtension.swift */,
 				16AB078028C5E7EF005D885F /* ViewExtension.swift */,
-				162F765028C73C0400BD49A8 /* ShapeExtension.swift */,
 				162F765628C779C100BD49A8 /* CGFloatExtension.swift */,
 				16FAAB6E28EC27FF00E30F65 /* UIImageExtension.swift */,
 				16FAAB8628F0011600E30F65 /* SessionNetworkExtension.swift */,
@@ -771,7 +768,6 @@
 				16FAAB7C28EFD55800E30F65 /* NetworkServiceDefine.swift in Sources */,
 				162F764928C7300500BD49A8 /* DateInWeekHeaderView.swift in Sources */,
 				16AB078828C7252C005D885F /* YourNoteView.swift in Sources */,
-				162F765128C73C0400BD49A8 /* ShapeExtension.swift in Sources */,
 				1693F50D28FB327D00C2412F /* MapItemPickerViewController.swift in Sources */,
 				165E973928B7C4E200490E01 /* LoginViewModel.swift in Sources */,
 				16FAAB8328EFFC7600E30F65 /* ServerConstant.swift in Sources */,

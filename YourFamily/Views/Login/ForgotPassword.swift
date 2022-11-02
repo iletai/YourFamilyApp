@@ -13,6 +13,10 @@ struct ForgotPassword: View {
 
     var body: some View {
         VStack(alignment: .leading) {
+            Image("forgotpass")
+                .resizable()
+                .scaledToFit()
+
             Text("Forgot Password")
                 .font(.system(.title))
                 .fontWeight(.bold)

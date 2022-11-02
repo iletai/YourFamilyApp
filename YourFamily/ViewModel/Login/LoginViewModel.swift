@@ -113,7 +113,6 @@ extension LoginViewModel {
                         return
                     }
                     if snapShot.exists {
-                        FileStorage.saveUserLocally(userDictionary: snapShot.data()! as NSDictionary)
                         self.loggedInApp = true
                         self.moveToHome()
                     } else {

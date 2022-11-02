@@ -13,6 +13,10 @@ class AppRouterManager {
 
     private var routerView = RouterView()
 
+    private init() {
+
+    }
+
     enum RouterState {
         case splash
         case home

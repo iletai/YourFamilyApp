@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SwiftUICommon
 
 struct UpdateProfileView: View {
     @StateObject var viewModel: ProfileViewModel

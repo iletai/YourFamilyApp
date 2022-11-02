@@ -21,41 +21,48 @@ struct LoginView: View {
                 Color(hex: "F1F3F6").ignoresSafeArea()
                 VStack {
                     Spacer()
-                    Color.red
-                        .clipShape(RoundedRectangle(cornerRadius: 20))
-                        .frame(maxWidth: 96, maxHeight: 96)
-                    Text("Your Family")
-                        .font(.system(size: 30))
-                        .fontWeight(.bold)
-                        .foregroundColor(Color(hex: "3D6670"))
-                        .shadow(color: .blue, radius: 1, x: 0, y: 2)
-                    VStack(spacing: 16) {
-                        makeTextInputArea()
-                        makeButtonArea()
-                        Spacer()
-                        HStack {
-                            Text("Don't Have Account?")
-                                .font(.system(size: 12))
-                                .fontWeight(.regular)
-                                .foregroundColor(Color.c232020)
-                            Button {
-                                AppRouterManager.shared.setRouterState(
-                                    .signUp, animation: .easeOut(duration: 1))
-                            } label: {
-                                Text("Sign Up")
+                    Image("login_image")
+                        .resizable()
+                        .scaledToFit()
+                    VStack {
+                        Text("Your Family")
+                            .font(.system(size: 30))
+                            .fontWeight(.bold)
+                            .foregroundColor(Color(hex: "3D6670"))
+                            .shadow(color: .blue, radius: 1, x: 0, y: 2)
+                        VStack(spacing: 16) {
+                            makeTextInputArea()
+                            makeButtonArea()
+                            Spacer()
+                            HStack {
+                                Text("Don't Have Account?")
                                     .font(.system(size: 12))
-                                    .padding(.vertical, 8)
-                                    .padding(.horizontal, 16)
-                                    .background(
-                                        RoundedRectangle(cornerRadius: 25).strokeBorder(
-                                            Color.blue, lineWidth: 2)
-                                    )
+                                    .fontWeight(.regular)
+                                    .foregroundColor(Color.c232020)
+                                Button {
+                                    AppRouterManager.shared.setRouterState(
+                                        .signUp, animation: .easeOut(duration: 1))
+                                } label: {
+                                    Text("Sign Up")
+                                        .font(.system(size: 12))
+                                        .padding(.vertical, 8)
+                                        .padding(.horizontal, 16)
+                                        .background(
+                                            RoundedRectangle(cornerRadius: 25).strokeBorder(
+                                                Color.blue, lineWidth: 2)
+                                        )
+                                }
                             }
                         }
                     }
+                    .background(
+                        Color(hex: "F1F3F6")
+                            .cornerRadius(20, corners: [.topLeft, .topRight])
+                    )
                     Spacer()
                 }
             }
+            .ignoresSafeArea()
             .onOpenURL(perform: { url in
                 ApplicationDelegate.shared.application(
                     UIApplication.shared,
@@ -64,9 +71,6 @@ struct LoginView: View {
                     annotation: UIApplication.OpenURLOptionsKey.annotation
                 )
             })
-            .onAppear {
-                viewModel.moveToHome()
-            }
             .toast(
                 isPresenting: $viewModel.isShowError,
                 tapToDismiss: false,

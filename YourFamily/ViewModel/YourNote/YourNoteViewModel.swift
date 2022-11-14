@@ -44,7 +44,8 @@ extension YourNoteViewModel {
                 if error != nil {
                     self.isShowToast = true
                     self.noteInform = NoteInform(
-                        message: error?.localizedDescription ?? .empty, title: "Error!")
+                        message: error?.localizedDescription ?? .empty, title: "Error!"
+                    )
                 }
             }
     }
@@ -63,7 +64,8 @@ extension YourNoteViewModel {
             ) { error in
                 guard let error = error else {
                     self.noteInform = NoteInform(
-                        message: "Add Cash Notes Sucessfully!", title: "Inform!")
+                        message: "Add Cash Notes Sucessfully!", title: "Inform!"
+                    )
                     return
                 }
                 self.noteInform = NoteInform(message: error.localizedDescription, title: "Error!")

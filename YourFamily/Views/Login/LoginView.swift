@@ -85,7 +85,7 @@ struct LoginView: View {
                     viewModel.isShowToast(false)
                 }
             )
-        .environmentObject(viewModel)
+            .environmentObject(viewModel)
         }
     }
 
@@ -134,13 +134,18 @@ struct LoginView: View {
         .overlay {
             HStack {
                 Spacer()
-                Button(action: {
-                    viewModel.isShowPassword.toggle()
-                    focused = focused == .secure ? .unsecure : .secure
-                }, label: {
-                    Image(systemName: self.viewModel.isShowPassword ? "eye.slash.fill" : "eye.fill")
+                Button(
+                    action: {
+                        viewModel.isShowPassword.toggle()
+                        focused = focused == .secure ? .unsecure : .secure
+                    },
+                    label: {
+                        Image(
+                            systemName: self.viewModel.isShowPassword
+                                ? "eye.slash.fill" : "eye.fill"
+                        )
                         .padding()
-                })
+                    })
 
             }
         }

@@ -44,7 +44,8 @@ struct ActionSheetCustom<Content: View>: View {
                         !fixedHeight,
                         apply: {
                             $0.frame(maxHeight: UIScreen.main.bounds.height - topPadding)
-                        })
+                        }
+                    )
             }
         }
         .fixedSize(horizontal: false, vertical: true)

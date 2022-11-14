@@ -5,10 +5,10 @@
 //  Created by Lê Quang Trọng Tài on 9/6/22.
 //
 
+import Foundation
 import PopupView
 import SwiftUI
 import SwiftUICharts
-import Foundation
 import SwiftUICommon
 
 struct YourNoteView: View {
@@ -111,27 +111,20 @@ struct YourNoteView: View {
         ZStack {
             if isInput {
                 LineChartView(
-                    data: viewModel.dataInput.filter {
-                        $0.isCashIn
-                    }.map({ cash in
-                        cash.cost
-                    }
-                         ), title: "Cash In", style: Styles.barChartStyleOrangeLight,
+                    data: viewModel.dataInput.filter { $0.isCashIn }.map { $0.cost },
+                    title: "Cash In",
+                    style: Styles.barChartStyleOrangeLight,
                     form: ChartForm.small
                 )
             } else {
                 LineChartView(
-                    data: viewModel.dataInput
-                        .filter {
-                            !$0.isCashIn
-                        }.map({ cash in
-                            cash.cost
-                        }), title: "Cash Out", style: Styles.barChartMidnightGreenLight,
+                    data: viewModel.dataInput.filter { !$0.isCashIn }.map { $0.cost },
+                    title: "Cash Out",
+                    style: Styles.barChartMidnightGreenLight,
                     form: ChartForm.small
                 )
             }
         }
-
     }
 }
 

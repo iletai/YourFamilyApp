@@ -12,7 +12,8 @@ import UIKit
 
 class CalendarPagingCellView: PagingCell {
     lazy var weekdayHostingController: UIHostingController = UIHostingController(
-        rootView: weekdayLabelView)
+        rootView: weekdayLabelView
+    )
 
     lazy var weekdayLabelView: WeekdayLabelView = {
         let weekdayLabelView = WeekdayLabelView(viewModel: DateMemoryViewModel())
@@ -24,8 +25,9 @@ class CalendarPagingCellView: PagingCell {
         return dateLable
     }()
 
-    lazy var dateHostingController: UIHostingController = UIHostingController.init(
-        rootView: dateLableView)
+    lazy var dateHostingController: UIHostingController = UIHostingController(
+        rootView: dateLableView
+    )
     lazy var date = Date()
 
     override init(frame: CGRect) {

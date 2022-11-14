@@ -16,7 +16,8 @@ struct FloatingMenuView: View {
     let thirdAction: () -> Void
 
     init(
-        firstAction: @escaping () -> Void, secondAction: @escaping () -> Void,
+        firstAction: @escaping () -> Void,
+        secondAction: @escaping () -> Void,
         thirdAction: @escaping () -> Void
     ) {
         self.firstAction = firstAction
@@ -66,14 +67,16 @@ struct FloatingMenuView: View {
                 withAnimation {
                     self.showMenuItem2.toggle()
                 }
-            })
+            }
+        )
         DispatchQueue.main.asyncAfter(
             deadline: .now() + 0.2,
             execute: {
                 withAnimation {
                     self.showMenuItem1.toggle()
                 }
-            })
+            }
+        )
     }
 }
 

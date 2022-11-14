@@ -9,12 +9,11 @@ import Foundation
 import SwiftUI
 
 class AppRouterManager {
-    public static let shared = AppRouterManager()
+    static let shared = AppRouterManager()
 
     private var routerView = RouterView()
 
     private init() {
-
     }
 
     enum RouterState {
@@ -33,9 +32,15 @@ class AppRouterManager {
         return routerView
     }
 
-    func setRouterState(_ state: AppRouterManager.RouterState,
-                        transtion: AnyTransition? = nil,
-                        animation: Animation = .default) {
-        routerView.viewModel.changeRouterStatus(state: state, transtion: transtion, animation: animation)
+    func setRouterState(
+        _ state: AppRouterManager.RouterState,
+        transtion: AnyTransition? = nil,
+        animation: Animation = .default
+    ) {
+        routerView.viewModel.changeRouterStatus(
+            state: state,
+            transtion: transtion,
+            animation: animation
+        )
     }
 }

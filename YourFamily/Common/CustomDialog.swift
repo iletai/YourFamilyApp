@@ -28,7 +28,8 @@ struct CustomDialog<DialogContent: View>: ViewModifier {
                     dialogContent
                         .background(
                             RoundedRectangle(cornerRadius: 8)
-                                .foregroundColor(.white))
+                                .foregroundColor(.white)
+                        )
                 }.padding(40)
             }
         }

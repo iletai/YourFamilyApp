@@ -25,12 +25,12 @@ struct EditInfoView: View {
                     .ignoresSafeArea()
                 VStack {
                     TextField(viewModel.currentProfile.nickname, text: $viewModel.updateNickname)
-                        .overlay(content: {
+                        .overlay {
                             VStack {
                                 Spacer()
                                 Divider()
                             }
-                        })
+                        }
                         .padding()
                         .background(
                             Color.c949494
@@ -54,16 +54,25 @@ struct EditInfoView: View {
                     }
                 }
             }
-            .navigationBarItems(leading: Button(action: {
-                presentation.wrappedValue.dismiss()
-            }, label: {
-                Text("Cancel")
-            }), trailing: Button(action: {
-                onUpdateProfile()
-                presentation.wrappedValue.dismiss()
-            }, label: {
-                Text("Update")
-            }))
+            .navigationBarItems(
+                leading: Button(
+                    action: {
+                        presentation.wrappedValue.dismiss()
+                    },
+                    label: {
+                        Text("Cancel")
+                    }
+                ),
+                trailing: Button(
+                    action: {
+                        onUpdateProfile()
+                        presentation.wrappedValue.dismiss()
+                    },
+                    label: {
+                        Text("Update")
+                    }
+                )
+            )
         }
         .navigationBarBackButtonHidden(true)
     }

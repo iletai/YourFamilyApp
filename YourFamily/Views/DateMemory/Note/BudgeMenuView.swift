@@ -50,7 +50,6 @@ struct BudgeMenuView: View {
                         .keyboardType(.numberPad)
                         .multilineTextAlignment(.trailing)
                         .fixedSize()
-
                     }
                     HStack {
                         Text("Bill date:")
@@ -67,7 +66,6 @@ struct BudgeMenuView: View {
                         TextField("Your cost for", text: $viewModel.billTitle)
                             .multilineTextAlignment(.trailing)
                             .fixedSize()
-
                     }
                     HStack {
                         Text("Is Cash In:")
@@ -87,7 +85,8 @@ struct BudgeMenuView: View {
                                 cost: viewModel.billAmout,
                                 isCashIn: viewModel.billCashIn,
                                 title: viewModel.billTitle,
-                                dayInWeek: viewModel.billDate)
+                                dayInWeek: viewModel.billDate
+                            )
                         )
                     } label: {
                         Text("Save Bill")
@@ -96,16 +95,18 @@ struct BudgeMenuView: View {
                             .foregroundColor(.white)
                             .frame(maxWidth: .infinity)
                             .padding(14)
-                            .background(Color.c745CF1.opacity(0.7).cornerRadius(14))
+                            .background(
+                                Color.c745CF1.opacity(0.7).cornerRadius(14)
+                            )
                     }
-
                 }
                 .padding()
                 .background(
                     Color.c745CF1
                         .opacity(0.1)
                         .cornerRadius(14)
-                        .shadow(color: Color.c949494, radius: 2, x: 0, y: 2))
+                        .shadow(color: Color.c949494, radius: 2, x: 0, y: 2)
+                )
             }
             .padding()
             .background(

@@ -5,12 +5,12 @@
 //  Created by Lê Quang Trọng Tài on 9/6/22.
 //
 
+import CoreGraphics
+import CVCalendar
 import Foundation
 import SwiftDate
-import CVCalendar
-import CoreGraphics
 
-public class CalendarManager {
+class CalendarManager {
     private init() {
         calendar = Calendar.gregorian
         calendar.locale = Locales.vietnamese.toLocale()
@@ -24,7 +24,8 @@ public class CalendarManager {
         )
         calendarMenuView = CVCalendarMenuView(
             frame: CGRect(
-                x: 0, y: 0,
+                x: 0,
+                y: 0,
                 width: CalendarConfig.calendarMonthSize.width,
                 height: CalendarConfig.calendarHeaderHeight
             )

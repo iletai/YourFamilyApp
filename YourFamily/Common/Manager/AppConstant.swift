@@ -8,6 +8,7 @@
 import Foundation
 
 // MARK: - App Constant
+// swiftlint:disable missing_docs
 public struct AppConstant {
     public static let kLoginParamRequest = ["public_profile", "email"]
 

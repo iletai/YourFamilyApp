@@ -14,8 +14,7 @@ struct FileUtils {
             .components(separatedBy: ".").first!
     }
 
-
-    //Helpers
+    // Helpers
     static func fileInDocumentsDirectory(fileName: String) -> String {
         return getDocumentsURL().appendingPathComponent(fileName).path
     }
@@ -27,5 +26,4 @@ struct FileUtils {
     static func fileExistsAtPath(path: String) -> Bool {
         return FileManager.default.fileExists(atPath: fileInDocumentsDirectory(fileName: path))
     }
-
 }

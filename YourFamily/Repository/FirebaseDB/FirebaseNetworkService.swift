@@ -35,5 +35,4 @@ extension FirebaseNetworkService: NetworkServiceProtocol {
         }
         return Fail(error: NetworkServiceError.noResponse).eraseToAnyPublisher()
     }
-
 }

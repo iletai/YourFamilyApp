@@ -243,7 +243,7 @@ extension LoginViewModel {
     }
 
     // swiftlint:disable line_length
-    public func isValidPassword(_ validateValue: String) -> Bool {
+    func isValidPassword(_ validateValue: String) -> Bool {
         let passwordRegex =
             "(?:(?:(?=.*?[0-9])(?=.*?[-!@#$%&*ˆ+=_])|(?:(?=.*?[0-9])|(?=.*?[A-Z])|(?=.*?[-!@#$%&*ˆ+=_])))|(?=.*?[a-z])(?=.*?[0-9])(?=.*?[-!@#$%&*ˆ+=_]))[A-Za-z0-9-!@#$%&*ˆ+=_]{6,15}"
         return NSPredicate(format: "SELF MATCHES %@", passwordRegex).evaluate(with: validateValue)

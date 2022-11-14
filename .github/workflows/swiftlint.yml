@@ -25,4 +25,4 @@ jobs:
             - name: GitHub Action for SwiftLint
               uses: norio-nomura/action-swiftlint@3.2.0
               with:
-        args: --strict
+                args: --strict

@@ -12,3 +12,5 @@ extension String {
         return ""
     }
 }
+
+enum StringExtension {}

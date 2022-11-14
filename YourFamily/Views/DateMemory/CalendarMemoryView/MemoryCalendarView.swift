@@ -49,10 +49,10 @@ extension MemoryCalendarView {
             context: UIViewControllerRepresentableContext<CalendarPageController>
         ) -> PagingViewController {
             let pagingViewController = PagingViewController()
-
             pagingViewController.register(CalendarPagingCellView.self, for: CalendarMemoryItem.self)
             pagingViewController.menuItemSize = .fixed(
-                width: UIScreen.main.bounds.width / 7, height: 80)
+                width: UIScreen.main.bounds.width / 7, height: 80
+            )
             pagingViewController.textColor = UIColor.gray
             pagingViewController.indicatorColor = UIColor.clear
             pagingViewController.borderOptions = .hidden
@@ -74,7 +74,6 @@ extension MemoryCalendarView {
             }
         }
     }
-
 }
 
 extension MemoryCalendarView {
@@ -116,7 +115,8 @@ extension MemoryCalendarView {
                 return UIHostingController(rootView: self.parent.contentCalendar(calendarItem))
             }
             return UIHostingController(
-                rootView: self.parent.contentCalendar(CalendarMemoryItem(Date())))
+                rootView: self.parent.contentCalendar(CalendarMemoryItem(Date()))
+            )
         }
     }
 }

@@ -35,10 +35,11 @@ struct ProfileView: View {
                     .frame(width: geo.size.width, height: geo.size.height)
                     if viewModel.showMenuProfile {
                         menuView
-                            .introspectTabBarController { (UITabBarController) in
+                            .introspectTabBarController { UITabBarController in
                                 UITabBarController.tabBar.isHidden = true
                                 uiTabarController = UITabBarController
-                            }.onDisappear {
+                            }
+                            .onDisappear {
                                 uiTabarController?.tabBar.isHidden = false
                             }
                     }
@@ -83,7 +84,8 @@ struct ProfileView: View {
                                 Image(systemName: "line.3.horizontal")
                                     .renderingMode(.template)
                                     .foregroundColor(.c595085)
-                            }),
+                            }
+                        ),
                     trailing:
                         Button(
                             action: {
@@ -92,7 +94,8 @@ struct ProfileView: View {
                                 Image(systemName: "circle.hexagonpath")
                                     .renderingMode(.template)
                                     .foregroundColor(.c595085)
-                            })
+                            }
+                        )
                 )
                 .navigationBarTitleDisplayMode(.inline)
             }
@@ -168,6 +171,7 @@ struct ProfileView: View {
     }
 
     // swiftlint:disable function_body_length
+    // swiftlint:disable trailing_closure
     func makeHeaderProfileArea() -> some View {
         HStack(spacing: 32) {
             Image(uiImage: viewModel.userData.image ?? UIImage())
@@ -308,15 +312,17 @@ struct ProfileView: View {
 
     var actionSheetLogOut: ActionSheet {
         ActionSheet(
-            title: Text("Settings"), message: Text("What do you want to do?"),
+            title: Text("Settings"),
+            message: Text("What do you want to do?"),
             buttons: [
                 .destructive(
-                    Text("Sign Out"),
-                    action: {
-                        viewModel.signOut()
-                    }),
-                .cancel()
-            ])
+                    Text("Sign Out")
+                ) {
+                    viewModel.signOut()
+                },
+                .cancel(),
+            ]
+        )
     }
 }
 

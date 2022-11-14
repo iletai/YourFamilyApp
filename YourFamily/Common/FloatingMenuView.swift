@@ -61,22 +61,16 @@ struct FloatingMenuView: View {
         withAnimation {
             self.showMenuItem3.toggle()
         }
-        DispatchQueue.main.asyncAfter(
-            deadline: .now() + 0.1,
-            execute: {
-                withAnimation {
-                    self.showMenuItem2.toggle()
-                }
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+            withAnimation {
+                self.showMenuItem2.toggle()
             }
-        )
-        DispatchQueue.main.asyncAfter(
-            deadline: .now() + 0.2,
-            execute: {
-                withAnimation {
-                    self.showMenuItem1.toggle()
-                }
+        }
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+            withAnimation {
+                self.showMenuItem1.toggle()
             }
-        )
+        }
     }
 }
 

@@ -5,10 +5,11 @@
 //  Created by Lê Quang Trọng Tài on 10/6/22.
 //
 
-import FirebaseAuth
 import Firebase
+import FirebaseAuth
 import Foundation
 
+// swiftlint:disable legacy_objc_type
 class FUser {
     let id: String
     var nickname: String
@@ -52,8 +53,14 @@ class FUser {
 
     static func emptyUser() -> FUser {
         return FUser(
-            id: UUID().uuidString, nickname: .empty, emailAdress: .empty, phoneNumber: .empty,
-            avatarImage: .empty, onBoarding: false, birthday: Date())
+            id: UUID().uuidString,
+            nickname: .empty,
+            emailAdress: .empty,
+            phoneNumber: .empty,
+            avatarImage: .empty,
+            onBoarding: false,
+            birthday: Date()
+        )
     }
 
     class func currentUser() -> FUser? {

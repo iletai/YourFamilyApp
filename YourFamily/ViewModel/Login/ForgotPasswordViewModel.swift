@@ -29,7 +29,8 @@ extension ForgotPasswordViewModel {
     func requestResetPassword() {
         if emailAdress.isEmpty {
             forgotPasswordInform = ForgotPasswordInform(
-                title: "Warning!", message: "Your Emaill Adress Could Be Not Null")
+                title: "Warning!", message: "Your Emaill Adress Could Be Not Null"
+            )
             isShowToast = true
             return
         } else {

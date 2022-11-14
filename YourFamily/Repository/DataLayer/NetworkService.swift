@@ -9,7 +9,7 @@ import Combine
 import Foundation
 
 struct NetworkService {
-    public enum NetworkServiceType {
+    enum NetworkServiceType {
         case alamofire
         case urlSession
     }
@@ -28,8 +28,9 @@ struct NetworkService {
 }
 
 extension NetworkService: NetworkServiceProtocol {
-    func makeRequest<T: Codable>(info: RequestInfo, params: T) -> AnyPublisher<Data, NetworkServiceError> {
+    func makeRequest<T: Codable>(info: RequestInfo, params: T) -> AnyPublisher<
+        Data, NetworkServiceError
+    > {
         return pNetworkService.makeRequest(info: info, params: params)
     }
-
 }

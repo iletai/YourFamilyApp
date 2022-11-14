@@ -11,9 +11,11 @@ final class RouterViewModel: ObservableObject {
     @Published var state: AppRouterManager.RouterState = .login
     @Published var transition: AnyTransition = .identity
 
-    func changeRouterStatus(state: AppRouterManager.RouterState,
-                            transtion: AnyTransition?,
-                            animation: Animation) {
+    func changeRouterStatus(
+        state: AppRouterManager.RouterState,
+        transtion: AnyTransition?,
+        animation: Animation
+    ) {
         DispatchQueue.main.async {
             if let transtion = transtion {
                 self.transition = .asymmetric(insertion: transtion, removal: .opacity)

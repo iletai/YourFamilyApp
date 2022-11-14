@@ -21,3 +21,5 @@ class FStorage {
         return Firestore.firestore().collection(collectionRef.rawValue)
     }
 }
+
+enum FirebaseReference {}

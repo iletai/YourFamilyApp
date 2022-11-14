@@ -10,6 +10,7 @@ import Foundation
 
 final class OnThisDateMapper {
     // swiftlint:disable force_cast
+    // swiftlint:disable legacy_objc_type
     static func mapMemoryToFirebase(_ memory: OnThisDayModel) -> [String: Any] {
         return NSDictionary(
             objects: [
@@ -17,15 +18,16 @@ final class OnThisDateMapper {
                 memory.title,
                 memory.imageLink,
                 memory.location,
-                memory.time
+                memory.time,
             ],
             forKeys: [
                 ServerConstant.Param.memoryId as NSCopying,
                 ServerConstant.Param.memoryTitle as NSCopying,
                 ServerConstant.Param.memoryImageLink as NSCopying,
                 ServerConstant.Param.memoryLocation as NSCopying,
-                ServerConstant.Param.memoryTime as NSCopying
-            ]) as! [String: Any]
+                ServerConstant.Param.memoryTime as NSCopying,
+            ]
+        ) as! [String: Any]
     }
 
     static func onThisDateFromDictionary(_ snapShot: QuerySnapshot) -> [OnThisDayModel] {
@@ -36,9 +38,11 @@ final class OnThisDateMapper {
                     OnThisDayModel(
                         id: snapShot[ServerConstant.Param.memoryId] as? String ?? UUID().uuidString,
                         title: snapShot[ServerConstant.Param.memoryTitle] as? String ?? .empty,
-                        location: snapShot[ServerConstant.Param.memoryLocation] as? String ?? .empty,
+                        location: snapShot[ServerConstant.Param.memoryLocation] as? String
+                            ?? .empty,
                         time: timeStamp?.dateValue() as? Date ?? Date(),
-                        imageLink: snapShot[ServerConstant.Param.memoryImageLink] as? String ?? .empty
+                        imageLink: snapShot[ServerConstant.Param.memoryImageLink] as? String
+                            ?? .empty
                     )
                 )
             }

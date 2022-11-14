@@ -51,3 +51,5 @@ extension Color {
         )
     }
 }
+
+enum ColorExtension {}

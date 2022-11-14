@@ -7,9 +7,9 @@
 
 import FBSDKLoginKit
 import Firebase
+import FirebaseAuth
 import Foundation
 import SwiftUI
-import FirebaseAuth
 
 final class LoginViewModel: ObservableObject {
     @Published var loginFacebookManager = LoginManager()
@@ -36,8 +36,7 @@ extension LoginViewModel {
         var id: Self {
             self
         }
-
-        case none
+        case noStatus
         case signIn
         case signOut
     }
@@ -63,7 +62,7 @@ extension LoginViewModel {
         loginFacebookManager.logIn(
             permissions: AppConstant.kLoginParamRequest,
             from: nil
-        ) { (result, error) in
+        ) { result, error in
             if error != nil {
                 print(error!.localizedDescription)
                 return
@@ -87,14 +86,16 @@ extension LoginViewModel {
         isShowError = isShow
     }
 
+    // swiftlint:disable legacy_objc_type
+    // swiftlint:disable function_body_length
     private func requestGrapFacebook(result: LoginManagerLoginResult) {
         let request = GraphRequest(
             graphPath: ServerConstant.Param.me,
             parameters: ServerConstant.Param.paramRequest
         )
-        request.start { (_, res, _) in
+        request.start { _, res, _ in
             guard let profileDataUser = res as? [String: Any],
-                  let token = AccessToken.current?.tokenString else {
+                let token = AccessToken.current?.tokenString else {
                 return
             }
             let credential = FacebookAuthProvider.credential(withAccessToken: token)
@@ -108,39 +109,39 @@ extension LoginViewModel {
                 FStorage.shared
                     .firebaseReference(.user)
                     .document(FUser.currentId())
-                    .getDocument(completion: { snapShot, error in
-                    guard let snapShot else {
-                        return
-                    }
-                    if snapShot.exists {
-                        self.loggedInApp = true
-                        self.moveToHome()
-                    } else {
-                        let user = FUser(
-                            id: FUser.currentId(),
-                            nickname: .empty,
-                            emailAdress: profileDataUser[ServerConstant.Param.email] as? String ?? .empty,
-                            phoneNumber: res.user.phoneNumber ?? .empty,
-                            avatarImage: .empty,
-                            onBoarding: true,
-                            birthday: Date()
-                        )
+                    .getDocument { snapShot, error in
+                        guard let snapShot else {
+                            return
+                        }
+                        if snapShot.exists {
+                            self.loggedInApp = true
+                            self.moveToHome()
+                        } else {
+                            let user = FUser(
+                                id: FUser.currentId(),
+                                nickname: .empty,
+                                emailAdress: profileDataUser[ServerConstant.Param.email] as? String ?? .empty,
+                                phoneNumber: res.user.phoneNumber ?? .empty,
+                                avatarImage: .empty,
+                                onBoarding: true,
+                                birthday: Date()
+                            )
 
-                        FStorage.shared
-                            .firebaseReference(.user)
-                            .document(FUser.currentId())
-                            .setData(FUserMapper.mapUserToFireStorage(user)) { (error) in
-                                if error == nil {
-                                    self.loggedInApp = true
-                                    FileStorage.saveUserLocally(
-                                        userDictionary:
-                                            FUserMapper.mapUserToFireStorage(user) as NSDictionary
-                                    )
-                                    self.moveToHome()
+                            FStorage.shared
+                                .firebaseReference(.user)
+                                .document(FUser.currentId())
+                                .setData(FUserMapper.mapUserToFireStorage(user)) { error in
+                                    if error == nil {
+                                        self.loggedInApp = true
+                                        FileStorage.saveUserLocally(
+                                            userDictionary:
+                                                FUserMapper.mapUserToFireStorage(user) as NSDictionary
+                                        )
+                                        self.moveToHome()
+                                    }
                                 }
                         }
                     }
-                })
             }
         }
     }
@@ -153,6 +154,8 @@ extension LoginViewModel {
         }
     }
 
+    // swiftlint:disable legacy_objc_type
+    // swiftlint:disable function_body_length
     func loginWithEmail() {
         guard !yourEmail.isEmpty, !yourPassword.isEmpty else {
             isShowError = true
@@ -160,14 +163,12 @@ extension LoginViewModel {
             return
         }
         Auth.auth().signIn(withEmail: yourEmail, password: yourPassword) { authResult, error in
-            guard error == nil else {
-                return
-            }
+            guard error == nil else { return }
             if authResult!.user.isEmailVerified {
                 FStorage.shared
                     .firebaseReference(.user)
                     .document(FUser.currentId())
-                    .getDocument(completion: { snapShot, error in
+                    .getDocument { snapShot, error in
                         guard let snapShot else { return }
                         if snapShot.exists {
                             self.loggedInApp = true
@@ -185,7 +186,7 @@ extension LoginViewModel {
                             FStorage.shared
                                 .firebaseReference(.user)
                                 .document(FUser.currentId())
-                                .setData(FUserMapper.mapUserToFireStorage(user)) { (error) in
+                                .setData(FUserMapper.mapUserToFireStorage(user)) { error in
                                     if error == nil {
                                         FileStorage.saveUserLocally(
                                             userDictionary: FUserMapper
@@ -196,12 +197,12 @@ extension LoginViewModel {
                                     }
                                 }
                         }
-                    })
-
+                    }
             } else {
                 self.authenError = AuthencationError(
-                    title: "Notice", message: "Your email adress not yet verify!")
-                authResult!.user.sendEmailVerification { (error) in
+                    title: "Notice", message: "Your email adress not yet verify!"
+                )
+                authResult!.user.sendEmailVerification { error in
                     if let error = error {
                         print("Verification email sent error is: ", error.localizedDescription)
                     }
@@ -224,7 +225,7 @@ extension LoginViewModel {
                 self.authenError = AuthencationError(title: "Error!", message: error?.localizedDescription ?? .empty)
                 return
             }
-            authResult!.user.sendEmailVerification { (error) in
+            authResult!.user.sendEmailVerification { error in
                 if let error = error {
                     self.authenError = AuthencationError(
                         title: "Error",

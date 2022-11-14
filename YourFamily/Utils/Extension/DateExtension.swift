@@ -7,6 +7,7 @@
 
 import Foundation
 
+enum DateExtension {}
 extension Date {
     func year(from: Date) -> Int {
         return Calendar.current.component(.year, from: from)

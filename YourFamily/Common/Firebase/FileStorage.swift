@@ -9,6 +9,8 @@ import FirebaseStorage
 import Foundation
 import UIKit
 
+// swiftlint:disable legacy_objc_type
+// swiftlint:disable object_literal
 class FileStorage {
     static let shared = FileStorage()
     let storage = Storage.storage()
@@ -19,36 +21,39 @@ class FileStorage {
     ) {
         let storageRef = FileStorage.shared.storage.reference(
             forURL: ServerConstant.BaseAPIURL.storageURL
-        ).child(directory)
+        )
+        .child(directory)
         let imageData = image.jpegData(compressionQuality: 0.6)
         var task: StorageUploadTask!
         let metadata = StorageMetadata()
         metadata.contentType = "image/jpg"
         task = storageRef.putData(
-            imageData!, metadata: metadata,
-            completion: { (meta, error) in
-                task.removeAllObservers()
-                if error != nil {
-                    print("error uploading image \(error!.localizedDescription)")
+            imageData!,
+            metadata: metadata
+        ) { _, error in
+            task.removeAllObservers()
+            if error != nil {
+                print("error uploading image \(error!.localizedDescription)")
+                return
+            }
+            storageRef.downloadURL { url, _ in
+                guard let downloadUrl = url else {
+                    completion(nil)
                     return
                 }
-                storageRef.downloadURL { (url, error) in
-                    guard let downloadUrl = url else {
-                        completion(nil)
-                        return
-                    }
-                    completion(downloadUrl.absoluteString)
-                }
-            })
-        task.observe(StorageTaskStatus.progress) { (snapshot) in
-            let progress = snapshot.progress!.completedUnitCount / snapshot.progress!.totalUnitCount
+                completion(downloadUrl.absoluteString)
+            }
+        }
+        task.observe(StorageTaskStatus.progress) { _ in
         }
     }
 
     // MARK: - Save Locally
     class func saveFileLocally(fileData: NSData, fileName: String) {
         let docUrl = FileUtils.getDocumentsURL().appendingPathComponent(
-            fileName, isDirectory: false)
+            fileName,
+            isDirectory: false
+        )
         fileData.write(to: docUrl, atomically: true)
     }
 
@@ -63,7 +68,6 @@ class FileStorage {
                 print("couldnt convert local image")
                 completion(UIImage(named: "avatar"))
             }
-
         } else {
             if imageUrl != .empty {
                 let documentUrl = URL(string: imageUrl)

@@ -10,6 +10,7 @@ import Foundation
 
 final class OnNotesMapper {
     // swiftlint:disable force_cast
+    // swiftlint:disable legacy_objc_type
     static func mapNotesToFirebase(_ note: CashInModel) -> [String: Any] {
         return NSDictionary(
             objects: [
@@ -17,15 +18,16 @@ final class OnNotesMapper {
                 note.title,
                 note.isCashIn,
                 note.cost,
-                note.dayInWeek
+                note.dayInWeek,
             ],
             forKeys: [
                 ServerConstant.Param.noteId as NSCopying,
                 ServerConstant.Param.noteTitle as NSCopying,
                 ServerConstant.Param.noteCashIn as NSCopying,
                 ServerConstant.Param.noteCost as NSCopying,
-                ServerConstant.Param.noteDate as NSCopying
-            ]) as! [String: Any]
+                ServerConstant.Param.noteDate as NSCopying,
+            ]
+        ) as! [String: Any]
     }
 
     static func onNoteFromDictionary(_ snapShot: QuerySnapshot) -> [CashInModel] {

@@ -9,8 +9,7 @@ import MapKit
 import UIKit
 
 class SearchCompletionsTableViewController: UITableViewController {
-
-    static private let cellReuseID = "CellReuseID"
+    private static let cellReuseID = "CellReuseID"
 
     private var searchCompleter: MKLocalSearchCompleter?
     var searchRegion: MKCoordinateRegion = MKCoordinateRegion(.world) {
@@ -34,7 +33,8 @@ class SearchCompletionsTableViewController: UITableViewController {
         super.viewDidLoad()
         tableView.register(
             UITableViewCell.self,
-            forCellReuseIdentifier: SearchCompletionsTableViewController.cellReuseID)
+            forCellReuseIdentifier: SearchCompletionsTableViewController.cellReuseID
+        )
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -81,21 +81,23 @@ extension SearchCompletionsTableViewController {
             let text = NSMutableAttributedString(string: completion.title)
             for value in completion.titleHighlightRanges {
                 text.setAttributes(
-                    [.font: content.textProperties.font.bold()], range: value.rangeValue)
+                    [.font: content.textProperties.font.bold()], range: value.rangeValue
+                )
             }
             content.attributedText = text
             let secondaryText = NSMutableAttributedString(string: completion.subtitle)
             for value in completion.subtitleHighlightRanges {
                 secondaryText.setAttributes(
                     [.font: content.secondaryTextProperties.font.bold()],
-                    range: value.rangeValue)
+                    range: value.rangeValue
+                )
             }
             content.secondaryAttributedText = secondaryText
             cell.contentConfiguration = content
             cell.backgroundColor = .clear
             return cell
         } else {
-            fatalError()
+            fatalError("Fail")
         }
     }
 
@@ -112,9 +114,7 @@ extension SearchCompletionsTableViewController: MKLocalSearchCompleterDelegate {
 
     func completer(_ completer: MKLocalSearchCompleter, didFailWithError error: Error) {
         if let error = error as NSError? {
-            print(
-                "MKLocalSearchCompleter encountered an error: \(error.localizedDescription). The query fragment is: \"\(completer.queryFragment)\""
-            )
+            print(error.localizedDescription)
         }
     }
 }
@@ -131,14 +131,14 @@ extension SearchCompletionsTableViewController: UISearchResultsUpdating {
 }
 
 extension UIFont {
-    fileprivate func withTraits(_ traits: UIFontDescriptor.SymbolicTraits) -> UIFont {
-        guard let fd = fontDescriptor.withSymbolicTraits(traits) else {
+    func withTraits(_ traits: UIFontDescriptor.SymbolicTraits) -> UIFont {
+        guard let fsd = fontDescriptor.withSymbolicTraits(traits) else {
             return self
         }
-        return UIFont(descriptor: fd, size: pointSize)
+        return UIFont(descriptor: fsd, size: pointSize)
     }
 
-    fileprivate func bold() -> UIFont {
+    func bold() -> UIFont {
         withTraits(.traitBold)
     }
 }

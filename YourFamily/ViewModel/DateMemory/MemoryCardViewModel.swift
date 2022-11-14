@@ -33,18 +33,18 @@ extension MemoryCardViewModel {
         FStorage.shared.firebaseReference(.memory)
             .whereField(ServerConstant.Param.memoryId, isEqualTo: FUser.currentId())
             .getDocuments { snap, error in
-            guard let snap = snap else { return }
-            if !snap.isEmpty {
-                let memorys = OnThisDateMapper.onThisDateFromDictionary(snap)
-                self.onThisDateModel = memorys.filter({ model in
-                    model.time.compare(toDate: date, granularity: .day) == .orderedSame
-                })
-            } else {
-                if let error = error {
-                    self.memoryCardInfo = MemoryCardInfo(title: "Error!", message: error.localizedDescription)
-                    self.isShowToast = true
+                guard let snap = snap else { return }
+                if !snap.isEmpty {
+                    let memorys = OnThisDateMapper.onThisDateFromDictionary(snap)
+                    self.onThisDateModel = memorys.filter { model in
+                        model.time.compare(toDate: date, granularity: .day) == .orderedSame
+                    }
+                } else {
+                    if let error = error {
+                        self.memoryCardInfo = MemoryCardInfo(title: "Error!", message: error.localizedDescription)
+                        self.isShowToast = true
+                    }
                 }
             }
-        }
     }
 }

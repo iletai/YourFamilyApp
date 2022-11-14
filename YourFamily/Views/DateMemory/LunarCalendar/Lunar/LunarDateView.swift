@@ -18,7 +18,8 @@ class LunarDateView: UIStackView {
                 x: dayView.frame.origin.x,
                 y: dayView.frame.size.height * 0.7,
                 width: dayView.frame.size.width,
-                height: 10)
+                height: 10
+            )
         )
         label.font = .systemFont(ofSize: 10)
         label.text = lunarDate

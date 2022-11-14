@@ -13,10 +13,8 @@ extension UserDefaults {
     ) -> T? {
         guard let data = self.value(forKey: key) as? Data else { return nil }
         if let data = UserDefaults.standard.dictionary(forKey: key),
-           let dictData = try? JSONSerialization.data(withJSONObject: data)
-        {
+        let dictData = try? JSONSerialization.data(withJSONObject: data) {
             return try? decoder.decode(type.self, from: dictData)
-
         }
         return try? decoder.decode(type.self, from: data)
     }
@@ -25,8 +23,10 @@ extension UserDefaults {
         object: T, forKey key: String, usingEncoder encoder: JSONEncoder = JSONEncoder()
     ) {
         if let data = try? encoder.encode(object) {
-            let dict = try? JSONSerialization.jsonObject(with: data, options: .allowFragments)
+            _ = try? JSONSerialization.jsonObject(with: data, options: .allowFragments)
             self.set(data, forKey: key)
         }
     }
 }
+
+enum UserDefaultExtension {}

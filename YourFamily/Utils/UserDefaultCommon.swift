@@ -41,3 +41,5 @@ struct UserDefault<T> {
         }
     }
 }
+
+enum UserDefaultCommon {}

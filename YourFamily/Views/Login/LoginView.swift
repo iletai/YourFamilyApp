@@ -7,14 +7,15 @@
 
 import AlertToast
 import Combine
-import FBSDKLoginKit
 import FacebookCore
+import FBSDKLoginKit
 import SwiftUI
 
 struct LoginView: View {
     @StateObject var viewModel = LoginViewModel()
     @FocusState var focused: LoginViewModel.PasswordState?
 
+    // swiftlint:disable trailing_closure
     var body: some View {
         NavigationView {
             ZStack {
@@ -41,7 +42,8 @@ struct LoginView: View {
                                     .foregroundColor(Color.c232020)
                                 Button {
                                     AppRouterManager.shared.setRouterState(
-                                        .signUp, animation: .easeOut(duration: 1))
+                                        .signUp, animation: .easeOut(duration: 1)
+                                    )
                                 } label: {
                                     Text("Sign Up")
                                         .font(.system(size: 12))
@@ -49,7 +51,8 @@ struct LoginView: View {
                                         .padding(.horizontal, 16)
                                         .background(
                                             RoundedRectangle(cornerRadius: 25).strokeBorder(
-                                                Color.blue, lineWidth: 2)
+                                                Color.blue, lineWidth: 2
+                                            )
                                         )
                                 }
                             }
@@ -145,8 +148,8 @@ struct LoginView: View {
                                 ? "eye.slash.fill" : "eye.fill"
                         )
                         .padding()
-                    })
-
+                    }
+                )
             }
         }
     }
@@ -199,7 +202,8 @@ struct LoginView: View {
                     RoundedRectangle(cornerRadius: 16).fill(Color.c745CF1)
                         .shadow(color: .gray, radius: 2, x: 0, y: 2)
                 )
-            })
+            }
+        )
     }
 
     var facebookLoginButton: some View {
@@ -224,7 +228,8 @@ struct LoginView: View {
                         .shadow(color: .gray, radius: 2, x: 0, y: 2)
                 )
                 .frame(maxWidth: .infinity)
-            })
+            }
+        )
     }
 
     func makeLableOr() -> some View {

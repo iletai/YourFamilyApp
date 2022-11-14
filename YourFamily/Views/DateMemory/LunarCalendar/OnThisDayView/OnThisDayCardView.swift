@@ -15,6 +15,7 @@ struct OnThisDayCardView: View {
         self.viewModel = viewModel
     }
 
+    // swiftlint:disable trailing_closure
     var body: some View {
         ZStack {
             VStack {
@@ -22,31 +23,34 @@ struct OnThisDayCardView: View {
                     .resizable()
                     .scaledToFill()
                     .frame(width: 400, height: 400)
-                    .overlay(alignment: .bottomLeading, content: {
-                        VStack(alignment: .leading, spacing: 12) {
-                            HStack {
-                                Image(systemName: "timelapse")
-                                Text(viewModel.title)
-                                    .font(.system(size: 16))
-                            }
-                            .foregroundColor(.white)
-                            Text(viewModel.time.toDayString)
-                                .font(.system(size: 20))
-                                .fontWeight(.bold)
+                    .overlay(
+                        alignment: .bottomLeading,
+                        content: {
+                            VStack(alignment: .leading, spacing: 12) {
+                                HStack {
+                                    Image(systemName: "timelapse")
+                                    Text(viewModel.title)
+                                        .font(.system(size: 16))
+                                }
                                 .foregroundColor(.white)
-                            HStack {
-                                Image(systemName: "location.viewfinder")
-                                Text(viewModel.location)
+                                Text(viewModel.time.toDayString)
                                     .font(.system(size: 20))
                                     .fontWeight(.bold)
+                                    .foregroundColor(.white)
+                                HStack {
+                                    Image(systemName: "location.viewfinder")
+                                    Text(viewModel.location)
+                                        .font(.system(size: 20))
+                                        .fontWeight(.bold)
+                                }
+                                .foregroundColor(.white)
                             }
-                            .foregroundColor(.white)
+                            .padding(16)
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                            .background(Color.c595085)
                         }
-                        .padding(16)
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                        .background(Color.c595085)
-                    })
-                }
+                    )
+            }
         }
         .onAppear {
             guard !viewModel.imageLink.isEmpty else {

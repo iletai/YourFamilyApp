@@ -28,3 +28,5 @@ extension Session {
         return session
     }
 }
+
+enum SessionNetworkExtension {}

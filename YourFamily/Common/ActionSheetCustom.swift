@@ -25,6 +25,7 @@ struct ActionSheetCustom<Content: View>: View {
         self.bgColor = bgColor
     }
 
+    // swiftlint:disable trailing_closure
     var body: some View {
         ZStack {
             bgColor.cornerRadius(40, corners: [.topLeft, .topRight])

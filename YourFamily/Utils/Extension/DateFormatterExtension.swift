@@ -24,3 +24,5 @@ extension DateFormatter {
         return dateFormatter.string(from: date)
     }
 }
+
+enum DateFormatterExtension {}

@@ -7,6 +7,7 @@
 
 import Foundation
 
+// swiftlint:disable missing_docs
 public typealias HTTPHeader = [String: String]
 
 public enum RequestMethod: String {
@@ -39,6 +40,7 @@ public enum APIError: Error {
     case dataIsEmpty
 }
 
+// swiftlint:disable missing_docs
 public struct RequestInfo {
     let urlInfo: URL
     let httpMethod: RequestMethod
@@ -55,3 +57,5 @@ public enum NetworkServiceError: Error {
     case serverError
     case noResponse
 }
+
+enum NetworkServiceDefine {}

@@ -37,9 +37,6 @@ extension HomeViewModel {
             case .setting:
                 return 3
             }
-
         }
     }
-
 }
-

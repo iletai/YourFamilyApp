@@ -7,9 +7,9 @@
 
 import FacebookCore
 import FacebookLogin
+import FirebaseAuth
 import Foundation
 import SwiftUI
-import FirebaseAuth
 
 final class ProfileViewModel: ObservableObject {
     @Published var showSettingProfile = false
@@ -23,10 +23,8 @@ final class ProfileViewModel: ObservableObject {
     @Published var updateNickname = String.empty
 
     init() {
-        DispatchQueue.main.async {
-            if Auth.auth().currentUser?.uid != nil {
-               self.getProfile()
-            }
+        if Auth.auth().currentUser?.uid != nil {
+            self.getProfile()
         }
     }
 }
@@ -38,6 +36,7 @@ extension ProfileViewModel {
 // MARK: - Function
 extension ProfileViewModel {
     // swiftlint:disable force_cast
+    // swiftlint:disable legacy_objc_type
     func getProfile() {
         FStorage
             .shared
@@ -45,7 +44,8 @@ extension ProfileViewModel {
             .whereField(
                 ServerConstant.Param.currentUser,
                 isEqualTo: FUser.currentId()
-            ).getDocuments { snapshot, error in
+            )
+            .getDocuments { snapshot, error in
                 if error == nil {
                     guard let snapshot else { return }
                     if !snapshot.isEmpty {
@@ -71,9 +71,9 @@ extension ProfileViewModel {
     func fetchUserImage() {
         DispatchQueue.main.async {
             self.getProfile()
-            FileStorage.downloadImage(imageUrl: self.currentProfile.avatarImage, completion: { image in
+            FileStorage.downloadImage(imageUrl: self.currentProfile.avatarImage) { image in
                 self.userData.image = image
-            })
+            }
         }
     }
 
@@ -87,7 +87,6 @@ extension ProfileViewModel {
             UserDefaults.standard.removeObject(forKey: ServerConstant.Param.currentUser)
             UserDefaults.standard.synchronize()
             AppRouterManager.shared.setRouterState(.login)
-
         } catch let error as Error {
             return
         }
@@ -106,6 +105,7 @@ extension ProfileViewModel {
         }
     }
 
+    // swiftlint:disable legacy_objc_type
     func updateProfile() {
         if FUser.currentId().isEmpty {
             return
@@ -113,7 +113,7 @@ extension ProfileViewModel {
         FStorage.shared
             .firebaseReference(.user)
             .document(FUser.currentId())
-            .updateData(FUserMapper.mapUserToFireStorage(self.currentProfile)) { (error) in
+            .updateData(FUserMapper.mapUserToFireStorage(self.currentProfile)) { error in
                 if error == nil {
                     FileStorage.saveUserLocally(
                         userDictionary:

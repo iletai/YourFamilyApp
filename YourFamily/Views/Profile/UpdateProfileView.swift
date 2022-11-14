@@ -19,8 +19,10 @@ struct UpdateProfileView: View {
                         Color(hex: "051937"),
                         Color(hex: "008793"),
                         Color(hex: "00bf72"),
-                        .cA8EB12
-                    ]), startPoint: .bottomLeading, endPoint: .topTrailing
+                        .cA8EB12,
+                    ]),
+                    startPoint: .bottomLeading,
+                    endPoint: .topTrailing
                 )
                 .opacity(0.5)
                 VStack(spacing: .zero) {
@@ -46,7 +48,6 @@ struct UpdateProfileView: View {
                     .padding(8)
             }
             .foregroundColor(.white)
-
         }
         .frame(maxWidth: .infinity)
     }
@@ -113,14 +114,14 @@ struct UpdateProfileView: View {
                 Spacer()
                 NavigationLink(
                     destination: EditInfoView(
-                        viewModel: self.viewModel) {
-                            self.viewModel.updateProfile()
-                        }
+                        viewModel: self.viewModel
+                    ) {
+                        self.viewModel.updateProfile()
+                    }
                 ) {
                     Text(viewModel.currentProfile.nickname)
                         .foregroundColor(Color.c949494)
                 }
-
             }
             Spacer()
         }

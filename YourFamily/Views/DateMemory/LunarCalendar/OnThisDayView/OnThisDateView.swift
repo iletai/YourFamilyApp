@@ -44,6 +44,7 @@ struct OnThisDateView: View {
         }
     }
 
+    // swiftlint:disable trailing_closure
     func makeImageDetail(geo: CGSize) -> some View {
         ZStack {
             Color.gray.scaledToFill()
@@ -90,7 +91,6 @@ struct OnThisDateView: View {
                     .font(.system(size: 20))
                     .fontWeight(.bold)
                     .frame(maxWidth: .infinity)
-
             }
             HStack {
                 Text("On time:")
@@ -98,7 +98,8 @@ struct OnThisDateView: View {
                     .font(.system(size: 15))
                     .fontWeight(.bold)
                 DatePicker(
-                    "Travel On Time", selection: $memoryModel.travelOnTime,
+                    "Travel On Time",
+                    selection: $memoryModel.travelOnTime,
                     displayedComponents: [.date]
                 )
                 .labelsHidden()
@@ -145,7 +146,8 @@ struct OnThisDateView: View {
                 .background(
                     LinearGradient(
                         gradient: Gradient(colors: [Color("DarkGreen"), Color("LightGreen")]),
-                        startPoint: .leading, endPoint: .trailing
+                        startPoint: .leading,
+                        endPoint: .trailing
                     )
                     .cornerRadius(16)
                     .shadow(color: .white, radius: 2, x: 0, y: 2)

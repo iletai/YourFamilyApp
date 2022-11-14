@@ -5,8 +5,8 @@
 //  Created by Lê Quang Trọng Tài on 9/6/22.
 //
 
-import SwiftUI
 import CVCalendar
+import SwiftUI
 
 struct SettingLunarCalendarView: View {
     @StateObject var viewModel: SettingViewModel
@@ -18,8 +18,10 @@ struct SettingLunarCalendarView: View {
                     Color(hex: "051937"),
                     Color(hex: "008793"),
                     Color(hex: "00bf72"),
-                    .cA8EB12
-                ]), startPoint: .bottomLeading, endPoint: .topTrailing
+                    .cA8EB12,
+                ]),
+                startPoint: .bottomLeading,
+                endPoint: .topTrailing
             )
             .opacity(0.5)
             VStack(spacing: .zero) {
@@ -52,7 +54,6 @@ struct SettingLunarCalendarView: View {
                     .font(.system(size: 20))
             }
             .foregroundColor(.white)
-
         }
         .frame(maxWidth: .infinity)
     }

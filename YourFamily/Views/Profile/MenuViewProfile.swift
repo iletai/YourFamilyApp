@@ -12,6 +12,7 @@ struct MenuViewProfile: View {
     @StateObject var viewModel: ProfileViewModel
     @State private var tabBar: UITabBar! = nil
 
+    // swiftlint:disable trailing_closure
     var body: some View {
         ZStack {
             VStack(spacing: 16) {

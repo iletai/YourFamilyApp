@@ -5,8 +5,8 @@
 //  Created by Lê Quang Trọng Tài on 10/25/22.
 //
 
-import SwiftUI
 import AlertToast
+import SwiftUI
 
 struct ForgotPassword: View {
     @StateObject private var viewModel = ForgotPasswordViewModel()
@@ -29,7 +29,9 @@ struct ForgotPassword: View {
             }
             .padding()
             .background(
-                Color.c745CF1.cornerRadius(20).opacity(0.2)
+                Color.c745CF1
+                    .cornerRadius(20)
+                    .opacity(0.2)
                     .shadow(color: Color.c051937, radius: 2, x: 0, y: 2)
             )
             .padding(.bottom, 20)
@@ -46,7 +48,6 @@ struct ForgotPassword: View {
                         Color.c745CF1.opacity(0.7).cornerRadius(20)
                     )
             }
-
         }
         .toast(
             isPresenting: $viewModel.isShowToast,

@@ -5,11 +5,12 @@
 //  Created by Lê Quang Trọng Tài on 10/10/22.
 //
 
-import Foundation
 import Firebase
+import Foundation
 
 final class FUserMapper {
     // swiftlint:disable force_cast
+    // swiftlint:disable legacy_objc_type
     static func mapUserToFireStorage(_ fUser: FUser) -> [String: Any] {
         return NSDictionary(
             objects: [
@@ -19,7 +20,7 @@ final class FUserMapper {
                 fUser.onBoarding,
                 fUser.avatarImage,
                 fUser.bithday,
-                fUser.nickname
+                fUser.nickname,
             ],
             forKeys: [
                 ServerConstant.Param.currentUser as NSCopying,
@@ -28,7 +29,8 @@ final class FUserMapper {
                 ServerConstant.Param.onBoard as NSCopying,
                 ServerConstant.Param.avatarImage as NSCopying,
                 ServerConstant.Param.birthday as NSCopying,
-                ServerConstant.Param.nickname as NSCopying
-            ]) as! [String: Any]
+                ServerConstant.Param.nickname as NSCopying,
+            ]
+        ) as! [String: Any]
     }
 }

@@ -15,14 +15,15 @@ final class SettingViewModel: ObservableObject {
     @Published var dayStartWeek = Weekday(rawValue: SettingManager.startDayInWeek) ?? .monday
 
     var dayWeek =
-    [Weekday.sunday,
-     Weekday.monday,
-     Weekday.tuesday,
-     Weekday.wednesday,
-     Weekday.thursday,
-     Weekday.friday,
-     Weekday.saturday
-    ]
+        [
+            Weekday.sunday,
+            Weekday.monday,
+            Weekday.tuesday,
+            Weekday.wednesday,
+            Weekday.thursday,
+            Weekday.friday,
+            Weekday.saturday,
+        ]
 
     var calendarMode = [CalendarMode.monthView, CalendarMode.weekView]
 
@@ -41,7 +42,7 @@ extension SettingViewModel {
 
     func setDisplayMode(value: Int) {
         return
-        displayMode = CalendarMode(rawValue: value) ?? .monthView
+            displayMode = CalendarMode(rawValue: value) ?? .monthView
         SettingManager.displayMode = value
         CalendarManager.shared.calendarView.changeModeBySetting(mode: value)
     }

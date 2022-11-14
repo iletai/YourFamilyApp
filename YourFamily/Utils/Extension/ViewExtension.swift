@@ -5,8 +5,8 @@
 //  Created by Lê Quang Trọng Tài on 9/5/22.
 //
 
-import SwiftUI
 import MapKit
+import SwiftUI
 
 extension View {
     func customDialog<DialogContent: View>(
@@ -24,3 +24,5 @@ extension View {
         MapItemPickerSheet(isPresented: isPresented, onDismiss: onDismiss, content: self)
     }
 }
+
+enum ViewExtension {}

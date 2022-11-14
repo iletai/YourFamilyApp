@@ -5,11 +5,11 @@
 //  Created by Lorenzo Fiamingo on 21/02/22.
 //
 
-import UIKit
 import MapKit
+import UIKit
 
 class SearchResponseTableViewController: UITableViewController {
-    static private let cellReuseID = "CellReuseID"
+    private static let cellReuseID = "CellReuseID"
     private var currentPlacemark: CLPlacemark?
     var onMapItemSelection: ((Int) -> Void)?
     var onViewWillLayoutSubviews: (() -> Void)?
@@ -23,7 +23,8 @@ class SearchResponseTableViewController: UITableViewController {
         super.viewDidLoad()
         tableView.register(
             UITableViewCell.self,
-            forCellReuseIdentifier: SearchResponseTableViewController.cellReuseID)
+            forCellReuseIdentifier: SearchResponseTableViewController.cellReuseID
+        )
     }
 
     override func viewWillLayoutSubviews() {
@@ -50,7 +51,9 @@ extension SearchResponseTableViewController {
     -> UITableViewCell {
         if #available(iOS 14.0, *) {
             let cell = tableView.dequeueReusableCell(
-                withIdentifier: SearchResponseTableViewController.cellReuseID, for: indexPath)
+                withIdentifier: SearchResponseTableViewController.cellReuseID,
+                for: indexPath
+            )
             if let response = searchResponse {
                 let mapItem = response.mapItems[indexPath.item]
                 var content = cell.defaultContentConfiguration()
@@ -60,7 +63,7 @@ extension SearchResponseTableViewController {
             }
             return cell
         } else {
-            fatalError()
+            fatalError("Fail")
         }
     }
 

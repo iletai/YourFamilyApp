@@ -16,6 +16,8 @@ struct LunarCalendarView: View {
     init() {
         _settingModel = .init(wrappedValue: SettingViewModel())
     }
+
+    // swiftlint:disable trailing_closure
     var body: some View {
         ZStack(alignment: .top) {
             Color.gray.opacity(0.1)
@@ -62,7 +64,9 @@ struct LunarCalendarView: View {
             SettingLunarCalendarView(viewModel: settingModel)
         }
         .popup(
-            isPresented: $viewModel.isShowAddMemory, type: .default, closeOnTap: false,
+            isPresented: $viewModel.isShowAddMemory,
+            type: .default,
+            closeOnTap: false,
             closeOnTapOutside: true,
             backgroundColor: .gray.opacity(0.4),
             view: {
@@ -71,8 +75,11 @@ struct LunarCalendarView: View {
             }
         )
         .popup(
-            isPresented: $viewModel.showingToastInform, type: .floater(), position: .bottom,
-            animation: .spring(), autohideIn: 2
+            isPresented: $viewModel.showingToastInform,
+            type: .floater(),
+            position: .bottom,
+            animation: .spring(),
+            autohideIn: 2
         ) {
             makeFloatToastMessage()
         }
@@ -102,7 +109,6 @@ struct LunarCalendarView: View {
                                 .shadow(color: .blue, radius: 2, x: 0, y: 2)
                         )
                 }
-
             }
             .padding(.horizontal, 16)
             .frame(maxWidth: .infinity)
@@ -134,7 +140,6 @@ struct LunarCalendarView: View {
                     .scaledToFit()
                     .frame(width: 24, height: 24)
             }
-
         }
         .padding(8)
     }

@@ -34,14 +34,18 @@ struct SignUpView: View {
                             .fontWeight(.regular)
                             .foregroundColor(Color.c232020)
                         Button {
-                            AppRouterManager.shared.setRouterState(.login, animation: .easeOut(duration: 1))
+                            AppRouterManager.shared.setRouterState(
+                                .login, animation: .easeOut(duration: 1)
+                            )
                         } label: {
                             Text("Login")
                                 .font(.system(size: 12))
                                 .padding(.vertical, 8)
                                 .padding(.horizontal, 16)
                                 .background(
-                                    RoundedRectangle(cornerRadius: 25) .strokeBorder(Color.blue, lineWidth: 2)
+                                    RoundedRectangle(cornerRadius: 25).strokeBorder(
+                                        Color.blue, lineWidth: 2
+                                    )
                                 )
                         }
                     }
@@ -116,7 +120,8 @@ struct SignUpView: View {
                             RoundedRectangle(cornerRadius: 16).fill(Color.c745CF1)
                                 .shadow(color: .gray, radius: 2, x: 0, y: 2)
                         )
-                    })
+                    }
+                )
                 Spacer(minLength: 100)
             }
         }
@@ -147,14 +152,19 @@ struct SignUpView: View {
         .overlay {
             HStack {
                 Spacer()
-                Button(action: {
-                    viewModel.isShowPassword.toggle()
-                    focused = focused == .secure ? .unsecure : .secure
-                }, label: {
-                    Image(systemName: self.viewModel.isShowPassword ? "eye.slash.fill" : "eye.fill")
+                Button(
+                    action: {
+                        viewModel.isShowPassword.toggle()
+                        focused = focused == .secure ? .unsecure : .secure
+                    },
+                    label: {
+                        Image(
+                            systemName: self.viewModel.isShowPassword
+                                ? "eye.slash.fill" : "eye.fill"
+                        )
                         .padding()
-                })
-
+                    }
+                )
             }
         }
     }
@@ -184,14 +194,19 @@ struct SignUpView: View {
         .overlay {
             HStack {
                 Spacer()
-                Button(action: {
-                    viewModel.isShowRepeatPassword.toggle()
-                    focused = focused == .secure ? .unsecure : .secure
-                }, label: {
-                    Image(systemName: self.viewModel.isShowRepeatPassword ? "eye.slash.fill" : "eye.fill")
+                Button(
+                    action: {
+                        viewModel.isShowRepeatPassword.toggle()
+                        focused = focused == .secure ? .unsecure : .secure
+                    },
+                    label: {
+                        Image(
+                            systemName: self.viewModel.isShowRepeatPassword
+                                ? "eye.slash.fill" : "eye.fill"
+                        )
                         .padding()
-                })
-
+                    }
+                )
             }
         }
     }

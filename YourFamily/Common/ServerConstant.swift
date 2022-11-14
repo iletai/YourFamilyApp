@@ -10,8 +10,9 @@ import Foundation
 struct ServerConstant {
     struct BaseAPIURL {
         #if DEBUG
-        static var baseURL = "https://yourfamily-562e9-default-rtdb.asia-southeast1.firebasedatabase.app"
-        static var storageURL = "gs://yourfamily-562e9.appspot.com"
+            static var baseURL =
+                "https://yourfamily-562e9-default-rtdb.asia-southeast1.firebasedatabase.app"
+            static var storageURL = "gs://yourfamily-562e9.appspot.com"
         #else
         #endif
     }
@@ -22,53 +23,54 @@ struct ServerConstant {
         case profile = "/users-profile"
     }
 
+    // swiftlint:disable identifier_name
     struct Param {
         #if DEBUG
-        /// nickname
+            /// nickname
             static let nickname = "nickname"
-        /// firstname
+            /// firstname
             static let firstName = "firstname"
-        /// lastname
+            /// lastname
             static let lastName = "lastname"
-        /// fullname
+            /// fullname
             static let fullName = "fullname"
-        /// currentUser
+            /// currentUser
             static let currentUser = "currentUser"
-        /// fullAdress
+            /// fullAdress
             static let fullAdress = "fullAddress"
-        /// phoneNumber
+            /// phoneNumber
             static let phoneNumber = "phoneNumber"
-        /// onBoard
+            /// onBoard
             static let onBoard = "onBoard"
-        /// me
+            /// me
             static let me = "me"
-        /// email
+            /// email
             static let email = "email"
-        /// ["fields": "email"]
+            /// ["fields": "email"]
             static let paramRequest = ["fields": "email"]
-        /// birthday
+            /// birthday
             static let birthday = "birthday"
-        /// avatarImage
+            /// avatarImage
             static let avatarImage = "avatarImage"
-        /// Memory Id
+            /// Memory Id
             static let memoryId = "memory_id"
-        /// Memory Title
+            /// Memory Title
             static let memoryTitle = "memory_title"
-        /// memory.imageLink
+            /// memory.imageLink
             static let memoryImageLink = "memory_imageLink"
-        /// Memory Location
+            /// Memory Location
             static let memoryLocation = "memory_location"
-        /// Memory Time
+            /// Memory Time
             static let memoryTime = "memory_time"
-        /// Note Title
+            /// Note Title
             static let noteTitle = "note_title"
-        /// Note Cost
+            /// Note Cost
             static let noteCost = "note_cost"
-        /// Note Date
+            /// Note Date
             static let noteDate = "note_date"
-        /// Note Id
+            /// Note Id
             static let noteId = "note_id"
-        /// Note Cash In
+            /// Note Cash In
             static let noteCashIn = "note_cash"
         #else
         #endif

@@ -20,7 +20,6 @@ final class YourNoteViewModel: ObservableObject {
 
 // MARK: - Enum
 extension YourNoteViewModel {
-
 }
 
 // MARK: - Struct

@@ -1,5 +1,5 @@
 //
-//  CGFloat.swift
+//  CoreGraphics.swift
 //  YourFamily
 //
 //  Created by Lê Quang Trọng Tài on 9/6/22.
@@ -16,3 +16,5 @@ extension CGFloat {
         return 1.0
     }
 }
+
+enum CGFloatExtension {}

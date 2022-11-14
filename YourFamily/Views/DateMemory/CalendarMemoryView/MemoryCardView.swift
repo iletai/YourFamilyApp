@@ -36,7 +36,6 @@ struct MemoryCardView: View {
                     }
                 }
             }
-
         }
         .padding()
     }

@@ -1,15 +1,8 @@
-//
-//  MapItemPickerSheet.swift
-//
-//
-//  Created by Lorenzo Fiamingo on 22/02/22.
-//
-import SwiftUI
 import MapKit
+import SwiftUI
 
 @available(iOS 15.0, *)
 struct MapItemPickerSheet<Content: View>: View {
-
     @Binding var isPresented: Bool
 
     @State private var pickerViewController: MapItemPickerViewController
@@ -46,7 +39,8 @@ struct MapItemPickerSheet<Content: View>: View {
                         .present(pickerViewController, animated: true)
                     pickerViewController
                         .present(
-                            pickerViewController.searchNavigationController, animated: true)
+                            pickerViewController.searchNavigationController, animated: true
+                        )
                 } else {
                     pickerViewController
                         .presentingViewController?
@@ -59,11 +53,12 @@ struct MapItemPickerSheet<Content: View>: View {
 }
 
 extension UIApplication {
-    fileprivate var topmostViewController: UIViewController? {
+    // swiftlint:disable first_where
+    var topmostViewController: UIViewController? {
         var viewController =
         connectedScenes
             .filter { $0.activationState == .foregroundActive }
-            .compactMap({ $0 as? UIWindowScene })
+            .compactMap { $0 as? UIWindowScene }
             .first?
             .windows
             .filter { $0.isKeyWindow }

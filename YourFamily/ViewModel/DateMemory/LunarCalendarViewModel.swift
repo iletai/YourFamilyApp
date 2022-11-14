@@ -5,8 +5,8 @@
 //  Created by Lê Quang Trọng Tài on 9/6/22.
 //
 
-import CVCalendar
 import CoreGraphics
+import CVCalendar
 import Foundation
 
 final class LunarCalendarViewModel: ObservableObject {
@@ -63,14 +63,22 @@ extension LunarCalendarViewModel {
                 let fileDirectory = "Memory/" + "\(self.location)_\(UUID().uuidString)" + ".jpg"
                 FileStorage.uploadImage(image, directory: fileDirectory) { documentLink in
                     self.memory = OnThisDayModel(
-                        id: UUID().uuidString, title: self.titleMemory, location: self.location,
-                        time: self.travelOnTime, imageLink: documentLink ?? .empty)
+                        id: UUID().uuidString,
+                        title: self.titleMemory,
+                        location: self.location,
+                        time: self.travelOnTime,
+                        imageLink: documentLink ?? .empty
+                    )
                     self.addMemoryToFirebase()
                 }
             } else {
                 self.memory = OnThisDayModel(
-                    id: UUID().uuidString, title: self.titleMemory, location: self.location, time: self.travelOnTime,
-                    imageLink: .empty)
+                    id: UUID().uuidString,
+                    title: self.titleMemory,
+                    location: self.location,
+                    time: self.travelOnTime,
+                    imageLink: .empty
+                )
                 self.addMemoryToFirebase()
             }
         }

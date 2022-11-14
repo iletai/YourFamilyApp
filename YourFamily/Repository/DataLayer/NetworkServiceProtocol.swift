@@ -8,6 +8,9 @@
 import Combine
 import Foundation
 
+// swiftlint:disable missing_docs
 public protocol NetworkServiceProtocol {
-    func makeRequest<T: Codable>(info: RequestInfo, params: T) -> AnyPublisher<Data, NetworkServiceError>
+    func makeRequest<T: Codable>(info: RequestInfo, params: T) -> AnyPublisher<
+        Data, NetworkServiceError
+    >
 }

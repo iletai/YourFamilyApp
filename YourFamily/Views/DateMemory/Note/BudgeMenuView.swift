@@ -70,11 +70,8 @@ struct BudgeMenuView: View {
                     HStack {
                         Text("Is Cash In:")
                         Spacer()
-                        Toggle(
-                            isOn: $viewModel.billCashIn,
-                            label: {
-                            }
-                        )
+                        Toggle(isOn: $viewModel.billCashIn) {
+                        }
                         .multilineTextAlignment(.trailing)
                         .fixedSize()
                     }

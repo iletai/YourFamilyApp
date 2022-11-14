@@ -125,11 +125,6 @@ opt_in_rules: # some rules are turned off by default, so you need to opt-in
 #  - unused_import
 
 ## Rule Configuration
-file_header:
-  required_pattern: |
-                    \/\/
-                    \/\/ Created by iletai.
-                    \/\/
 file_name:
   excluded:
     - main.swift

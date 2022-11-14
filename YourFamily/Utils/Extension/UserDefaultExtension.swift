@@ -23,7 +23,7 @@ extension UserDefaults {
         object: T, forKey key: String, usingEncoder encoder: JSONEncoder = JSONEncoder()
     ) {
         if let data = try? encoder.encode(object) {
-            _ = try? JSONSerialization.jsonObject(with: data, options: .allowFragments)
+            let _ = try? JSONSerialization.jsonObject(with: data, options: .allowFragments)
             self.set(data, forKey: key)
         }
     }

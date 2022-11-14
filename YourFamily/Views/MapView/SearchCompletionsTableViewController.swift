@@ -5,9 +5,8 @@
 //  Created by Lorenzo Fiamingo on 20/02/22.
 //
 
-
-import UIKit
 import MapKit
+import UIKit
 
 class SearchCompletionsTableViewController: UITableViewController {
 
@@ -62,20 +61,17 @@ class SearchCompletionsTableViewController: UITableViewController {
 }
 
 extension SearchCompletionsTableViewController {
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
-    {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         searchCompletions?.count ?? 0
     }
 
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int)
-    -> String?
-    {
+        -> String? {
         "Suggestions"
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath)
-    -> UITableViewCell
-    {
+        -> UITableViewCell {
         if #available(iOS 14.0, *) {
             let cell = tableView.dequeueReusableCell(
                 withIdentifier: SearchCompletionsTableViewController.cellReuseID, for: indexPath
@@ -110,7 +106,6 @@ extension SearchCompletionsTableViewController {
 }
 
 extension SearchCompletionsTableViewController: MKLocalSearchCompleterDelegate {
-
     func completerDidUpdateResults(_ completer: MKLocalSearchCompleter) {
         searchCompletions = completer.results
     }
@@ -125,9 +120,8 @@ extension SearchCompletionsTableViewController: MKLocalSearchCompleterDelegate {
 }
 
 extension SearchCompletionsTableViewController: UISearchResultsUpdating {
-
     func updateSearchResults(for searchController: UISearchController) {
-        if let text = searchController.searchBar.text, text.count > 0 {
+        if let text = searchController.searchBar.text, !text.isEmpty {
             searchCompleter?.queryFragment = text
         } else {
             searchCompleter?.cancel()
@@ -137,13 +131,10 @@ extension SearchCompletionsTableViewController: UISearchResultsUpdating {
 }
 
 extension UIFont {
-
     fileprivate func withTraits(_ traits: UIFontDescriptor.SymbolicTraits) -> UIFont {
-
         guard let fd = fontDescriptor.withSymbolicTraits(traits) else {
             return self
         }
-
         return UIFont(descriptor: fd, size: pointSize)
     }
 

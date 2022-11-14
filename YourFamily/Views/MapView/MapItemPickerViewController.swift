@@ -140,7 +140,7 @@
             didSet {
                 searchResponseTableViewController.searchResponse = searchResponse
                 annotations = searchResponse?.mapItems.map(\.placemark) ?? []
-                if annotations.count > 0 {
+                if !annotations.isEmpty {
                     selectedAnnotationIndex = 0
                 }
             }
@@ -244,7 +244,7 @@
         }
 
         func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-            if searchText.count > 0 {
+            if !searchText.isEmpty {
                 searchResponseTableViewController.tableView.isHidden = true
             } else {
                 searchResponseTableViewController.tableView.isHidden = false

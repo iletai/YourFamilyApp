@@ -13,6 +13,7 @@
 		1616F01629370ADC0086A491 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1665E16A28B7427F00CCEA09 /* Preview Assets.xcassets */; };
 		1616F01729370AE30086A491 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 163639D928D238B7000B0B19 /* GoogleService-Info.plist */; };
 		1616F01929370BD40086A491 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 16CB7E4B2935D9A200137C37 /* Localizable.strings */; };
+		1616F01D293728B60086A491 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 1616F01C293728B60086A491 /* .swiftlint.yml */; };
 		162F764628C72D2200BD49A8 /* CVCalendar in Frameworks */ = {isa = PBXBuildFile; productRef = 162F764528C72D2200BD49A8 /* CVCalendar */; };
 		162F764928C7300500BD49A8 /* DateInWeekHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162F764828C7300500BD49A8 /* DateInWeekHeaderView.swift */; };
 		162F764B28C7305500BD49A8 /* CalendarConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162F764A28C7305500BD49A8 /* CalendarConfig.swift */; };
@@ -122,6 +123,7 @@
 /* Begin PBXFileReference section */
 		1616F00A293704050086A491 /* BundleExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BundleExtension.swift; sourceTree = "<group>"; };
 		1616F010293709520086A491 /* YourFamilyBundle.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = YourFamilyBundle.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		1616F01C293728B60086A491 /* .swiftlint.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		162F764828C7300500BD49A8 /* DateInWeekHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateInWeekHeaderView.swift; sourceTree = "<group>"; };
 		162F764A28C7305500BD49A8 /* CalendarConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarConfig.swift; sourceTree = "<group>"; };
 		162F764E28C731B300BD49A8 /* CalendarManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarManager.swift; sourceTree = "<group>"; };
@@ -388,6 +390,7 @@
 		1665E16228B7427D00CCEA09 /* YourFamily */ = {
 			isa = PBXGroup;
 			children = (
+				1616F01C293728B60086A491 /* .swiftlint.yml */,
 				16CB7E4D2935DC6300137C37 /* Resources */,
 				16FAAB7728EFD46200E30F65 /* Repository */,
 				16FAAB7428EEC17A00E30F65 /* Model */,
@@ -754,6 +757,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1616F01D293728B60086A491 /* .swiftlint.yml in Resources */,
 				1616F01729370AE30086A491 /* GoogleService-Info.plist in Resources */,
 				1616F01629370ADC0086A491 /* Preview Assets.xcassets in Resources */,
 				1616F01529370AD40086A491 /* Assets.xcassets in Resources */,

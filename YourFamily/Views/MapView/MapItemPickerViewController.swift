@@ -9,6 +9,8 @@ import CoreLocation
 import MapKit
 import SwiftUI
 
+// swiftlint:disable superfluous_disable_command type_body_length
+// swiftlint:disable type_body_length
 @available(iOS 15.0, *)
 class MapItemPickerViewController: UIViewController,
     UISheetPresentationControllerDelegate,

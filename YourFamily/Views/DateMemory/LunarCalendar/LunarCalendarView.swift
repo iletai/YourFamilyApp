@@ -88,8 +88,9 @@ struct LunarCalendarView: View {
     func makeDateRegionView() -> some View {
         VStack {
             HStack(spacing: .zero) {
-                Image(systemName: "sun.max")
-                Text("Hôm nay: " + Date().toFullDateString)
+                Image(systemName: viewModel.date.compare(.isNight) ? "sun.max" : "cloud.moon")
+                    .foregroundColor(.yellow)
+                Text("Hôm nay: " + viewModel.date.toFullDateString)
                     .fontWeight(.semibold)
                     .font(.system(size: 16))
                     .padding()

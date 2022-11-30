@@ -13,8 +13,6 @@ import SwiftUI
 
 final class LoginViewModel: ObservableObject {
     @Published var loginFacebookManager = LoginManager()
-    @AppStorage(UserDefaultKey.loggedApp.rawValue) var loggedInApp = false
-    @AppStorage(UserDefaultKey.emailLoggedIn.rawValue) var email = String.empty
     @Published var yourPassword = String.empty
     @Published var repeatPassword = String.empty
     @Published var yourEmail = String.empty
@@ -26,7 +24,6 @@ final class LoginViewModel: ObservableObject {
 
     init() {
         Settings.appID = AppConstant.kAppIdFacebook
-        isSignUp = !loggedInApp
     }
 }
 
@@ -114,7 +111,7 @@ extension LoginViewModel {
                             return
                         }
                         if snapShot.exists {
-                            self.loggedInApp = true
+                            SettingManager.loggedApp = true
                             self.moveToHome()
                         } else {
                             let user = FUser(
@@ -132,7 +129,7 @@ extension LoginViewModel {
                                 .document(FUser.currentId())
                                 .setData(FUserMapper.mapUserToFireStorage(user)) { error in
                                     if error == nil {
-                                        self.loggedInApp = true
+                                        SettingManager.loggedApp = true
                                         FileStorage.saveUserLocally(
                                             userDictionary:
                                                 FUserMapper.mapUserToFireStorage(user) as NSDictionary
@@ -171,7 +168,7 @@ extension LoginViewModel {
                     .getDocument { snapShot, error in
                         guard let snapShot else { return }
                         if snapShot.exists {
-                            self.loggedInApp = true
+                            SettingManager.loggedApp = true
                             self.moveToHome()
                         } else {
                             let user = FUser(
@@ -192,7 +189,7 @@ extension LoginViewModel {
                                             userDictionary: FUserMapper
                                                 .mapUserToFireStorage(user) as NSDictionary
                                         )
-                                        self.loggedInApp = true
+                                        SettingManager.loggedApp = true
                                         self.moveToHome()
                                     }
                                 }

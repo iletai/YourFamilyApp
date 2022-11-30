@@ -32,6 +32,7 @@ extension DateMemoryViewModel {
         case memory
         case calendar
         case note
+        case tracking
 
         var titleText: String {
             switch self {
@@ -41,6 +42,8 @@ extension DateMemoryViewModel {
                 return "Calendar"
             case .note:
                 return "Notes"
+            case .tracking:
+                return "Track"
             }
         }
 
@@ -52,6 +55,8 @@ extension DateMemoryViewModel {
                 return "calendar"
             case .note:
                 return "highlighter"
+            case .tracking:
+                return "filemenu.and.selection"
             }
         }
     }

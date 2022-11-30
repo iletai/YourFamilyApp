@@ -20,6 +20,11 @@ struct YourFamilyApp: App {
     var body: some Scene {
         WindowGroup {
             AppRouterManager.shared.getRouterView()
+                .onAppear {
+                    if SettingManager.loggedApp {
+                        AppRouterManager.shared.setRouterState(.home)
+                    }
+                }
         }
     }
 }

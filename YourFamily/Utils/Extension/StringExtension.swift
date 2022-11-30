@@ -11,6 +11,10 @@ extension String {
     static var empty: String {
         return ""
     }
+
+    var toLocalizeString: String {
+        Bundle.Current.localizedString(forKey: self)
+    }
 }
 
 enum StringExtension {}

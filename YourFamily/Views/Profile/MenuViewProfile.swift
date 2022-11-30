@@ -15,7 +15,7 @@ struct MenuViewProfile: View {
     // swiftlint:disable trailing_closure
     var body: some View {
         ZStack {
-            VStack(spacing: 16) {
+            VStack(spacing: 16.0) {
                 VStack(spacing: 32) {
                     HStack {
                         Image(uiImage: viewModel.userData.image ?? UIImage())

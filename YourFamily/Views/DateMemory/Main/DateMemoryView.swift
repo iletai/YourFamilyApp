@@ -15,7 +15,7 @@ struct DateMemoryView: View {
         ZStack {
             VStack(spacing: 0) {
                 HStack {
-                    ForEach(viewModel.tabPageItem) { item in
+                    ForEach(viewModel.tabPageItem, id: \.self) { item in
                         tabButton(title: item.titleText, tag: item.id)
                     }
                 }
@@ -36,6 +36,8 @@ struct DateMemoryView: View {
                         .tag(DateMemoryViewModel.TabPage.calendar)
                     YourNoteView()
                         .tag(DateMemoryViewModel.TabPage.note)
+                    LunarCalendarView()
+                        .tag(DateMemoryViewModel.TabPage.tracking)
                 }
                 .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
             }

@@ -5,7 +5,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleDisplayName</key>
-	<string>YourFamily</string>
+	<string>Your Family</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -85,5 +85,10 @@
 	<string>Allow Access Location?</string>
 	<key>UIUserInterfaceStyle</key>
 	<string>Light</string>
+	<key>CFBundleLocalizations</key>
+	<array>
+		<string>en</string>
+		<string>Vietnamese</string>
+	</array>
 </dict>
 </plist>

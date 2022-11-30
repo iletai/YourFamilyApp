@@ -8,12 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		1616F00B293704050086A491 /* BundleExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1616F00A293704050086A491 /* BundleExtension.swift */; };
-		1616F014293709D10086A491 /* YourFamilyBundle.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 1616F010293709520086A491 /* YourFamilyBundle.bundle */; };
 		1616F01529370AD40086A491 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1665E16728B7427F00CCEA09 /* Assets.xcassets */; };
 		1616F01629370ADC0086A491 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1665E16A28B7427F00CCEA09 /* Preview Assets.xcassets */; };
 		1616F01729370AE30086A491 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 163639D928D238B7000B0B19 /* GoogleService-Info.plist */; };
 		1616F01929370BD40086A491 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 16CB7E4B2935D9A200137C37 /* Localizable.strings */; };
 		1616F01D293728B60086A491 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 1616F01C293728B60086A491 /* .swiftlint.yml */; };
+		1616F020293735360086A491 /* AppDefine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1616F01F293735360086A491 /* AppDefine.swift */; };
+		1616F022293735520086A491 /* AppKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1616F021293735520086A491 /* AppKey.swift */; };
+		1616F0242937359F0086A491 /* AppText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1616F0232937359F0086A491 /* AppText.swift */; };
+		1616F02529374EBD0086A491 /* YourFamilyBundle.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 1616F010293709520086A491 /* YourFamilyBundle.bundle */; };
 		162F764628C72D2200BD49A8 /* CVCalendar in Frameworks */ = {isa = PBXBuildFile; productRef = 162F764528C72D2200BD49A8 /* CVCalendar */; };
 		162F764928C7300500BD49A8 /* DateInWeekHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162F764828C7300500BD49A8 /* DateInWeekHeaderView.swift */; };
 		162F764B28C7305500BD49A8 /* CalendarConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162F764A28C7305500BD49A8 /* CalendarConfig.swift */; };
@@ -124,6 +127,10 @@
 		1616F00A293704050086A491 /* BundleExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BundleExtension.swift; sourceTree = "<group>"; };
 		1616F010293709520086A491 /* YourFamilyBundle.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = YourFamilyBundle.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		1616F01C293728B60086A491 /* .swiftlint.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
+		1616F01F293735360086A491 /* AppDefine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDefine.swift; sourceTree = "<group>"; };
+		1616F021293735520086A491 /* AppKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppKey.swift; sourceTree = "<group>"; };
+		1616F0232937359F0086A491 /* AppText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppText.swift; sourceTree = "<group>"; };
+		1616F026293756290086A491 /* BundleInfo.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = BundleInfo.plist; sourceTree = "<group>"; };
 		162F764828C7300500BD49A8 /* DateInWeekHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateInWeekHeaderView.swift; sourceTree = "<group>"; };
 		162F764A28C7305500BD49A8 /* CalendarConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarConfig.swift; sourceTree = "<group>"; };
 		162F764E28C731B300BD49A8 /* CalendarManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarManager.swift; sourceTree = "<group>"; };
@@ -245,6 +252,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1616F01E293735260086A491 /* Define */ = {
+			isa = PBXGroup;
+			children = (
+				1616F01F293735360086A491 /* AppDefine.swift */,
+				1616F021293735520086A491 /* AppKey.swift */,
+				1616F0232937359F0086A491 /* AppText.swift */,
+			);
+			path = Define;
+			sourceTree = "<group>";
+		};
 		162F765828C77AFB00BD49A8 /* Main */ = {
 			isa = PBXGroup;
 			children = (
@@ -372,6 +389,7 @@
 		1665E15728B7427D00CCEA09 = {
 			isa = PBXGroup;
 			children = (
+				16CB7E4D2935DC6300137C37 /* Resources */,
 				1665E16228B7427D00CCEA09 /* YourFamily */,
 				1665E16128B7427D00CCEA09 /* Products */,
 				16B95A9D28B7833000CA3B72 /* Frameworks */,
@@ -390,8 +408,8 @@
 		1665E16228B7427D00CCEA09 /* YourFamily */ = {
 			isa = PBXGroup;
 			children = (
+				1616F01E293735260086A491 /* Define */,
 				1616F01C293728B60086A491 /* .swiftlint.yml */,
-				16CB7E4D2935DC6300137C37 /* Resources */,
 				16FAAB7728EFD46200E30F65 /* Repository */,
 				16FAAB7428EEC17A00E30F65 /* Model */,
 				163639D928D238B7000B0B19 /* GoogleService-Info.plist */,
@@ -402,6 +420,7 @@
 				16B95A8C28B747BD00CA3B72 /* Utils */,
 				1665E16728B7427F00CCEA09 /* Assets.xcassets */,
 				1665E16928B7427F00CCEA09 /* Preview Content */,
+				1616F026293756290086A491 /* BundleInfo.plist */,
 			);
 			path = YourFamily;
 			sourceTree = "<group>";
@@ -757,11 +776,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1616F02529374EBD0086A491 /* YourFamilyBundle.bundle in Resources */,
 				1616F01D293728B60086A491 /* .swiftlint.yml in Resources */,
 				1616F01729370AE30086A491 /* GoogleService-Info.plist in Resources */,
 				1616F01629370ADC0086A491 /* Preview Assets.xcassets in Resources */,
 				1616F01529370AD40086A491 /* Assets.xcassets in Resources */,
-				1616F014293709D10086A491 /* YourFamilyBundle.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -862,6 +881,7 @@
 				1693F50D28FB327D00C2412F /* MapItemPickerViewController.swift in Sources */,
 				165E973928B7C4E200490E01 /* LoginViewModel.swift in Sources */,
 				16FAAB8328EFFC7600E30F65 /* ServerConstant.swift in Sources */,
+				1616F020293735360086A491 /* AppDefine.swift in Sources */,
 				165E973D28B7CAA800490E01 /* StringExtension.swift in Sources */,
 				162F765B28C796C600BD49A8 /* LunarCalendarViewModel.swift in Sources */,
 				16365DE928F7BB880013CC8D /* OnThisDateMapper.swift in Sources */,
@@ -873,8 +893,10 @@
 				16FAAB9028F56F2400E30F65 /* UpdateProfileView.swift in Sources */,
 				169C0F532907A05E007DAF83 /* OnNotesMapper.swift in Sources */,
 				16828E1528BCBBE90054081A /* CalendarMemoryItem.swift in Sources */,
+				1616F022293735520086A491 /* AppKey.swift in Sources */,
 				16FAAB8B28F4139D00E30F65 /* EndCodableExtension.swift in Sources */,
 				1639BD2328B85777002CCDF5 /* ColorExtension.swift in Sources */,
+				1616F0242937359F0086A491 /* AppText.swift in Sources */,
 				16FAAB7E28EFD7A900E30F65 /* NetworkService.swift in Sources */,
 				162F765F28C84ECB00BD49A8 /* UserDefaultCommon.swift in Sources */,
 				1693F50F28FB327D00C2412F /* SearchCompletionsTableViewController.swift in Sources */,

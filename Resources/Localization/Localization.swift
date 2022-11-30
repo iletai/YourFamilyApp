@@ -10,6 +10,12 @@ extension Localization {
         rawValue.toLocalizeString
     }
 }
+
 enum Localization: String {
     case btnUpdateProfileText
+    case tabSetting
+    case tabHome
+    case tabTrack
+    case tabMemories
+    case tabProfile
 }

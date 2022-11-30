@@ -17,22 +17,22 @@ struct HomeView: View {
             TabView(selection: $viewModel.tabViewCurrentIndex) {
                 Text("Home View")
                     .tabItem {
-                        Label("Home", systemImage: "house.circle")
+                        Label(Localization.tabHome.toLocalizeString, systemImage: "house.circle")
                     }
                     .tag(HomeViewModel.HomeTabView.home.tabIndexValue)
                 DateMemoryView()
                     .tabItem {
-                        Label("Memories", systemImage: "arrow.clockwise.heart")
+                        Label(Localization.tabMemories.toLocalizeString, systemImage: "arrow.clockwise.heart")
                     }
                     .tag(HomeViewModel.HomeTabView.memories.tabIndexValue)
                 SettingView()
                     .tabItem {
-                        Label("Settings", systemImage: "circle.grid.cross")
+                        Label(Localization.tabSetting.toLocalizeString, systemImage: "circle.grid.cross")
                     }
                     .tag(HomeViewModel.HomeTabView.setting.tabIndexValue)
                 ProfileView()
                     .tabItem {
-                        Label("Profile", systemImage: "person.crop.square")
+                        Label(Localization.tabProfile.toLocalizeString, systemImage: "person.crop.square")
                     }
                     .tag(HomeViewModel.HomeTabView.profile.tabIndexValue)
             }

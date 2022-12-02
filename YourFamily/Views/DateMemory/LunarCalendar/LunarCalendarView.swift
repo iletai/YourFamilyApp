@@ -31,7 +31,7 @@ struct LunarCalendarView: View {
                 .background(
                     Color.white
                         .clipShape(RoundedRectangle(cornerRadius: 20))
-                        .shadow(color: .gray, radius: 4)
+                        .shadow(color: .gray.opacity(0.3), radius: 2)
                 )
                 .padding(.bottom, 16)
                 makeDateRegionView()

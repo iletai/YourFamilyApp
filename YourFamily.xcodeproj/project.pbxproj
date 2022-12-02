@@ -29,6 +29,7 @@
 		162F765F28C84ECB00BD49A8 /* UserDefaultCommon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162F765E28C84ECB00BD49A8 /* UserDefaultCommon.swift */; };
 		162F766228C877FF00BD49A8 /* SettingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162F766128C877FF00BD49A8 /* SettingManager.swift */; };
 		162F766428C8787900BD49A8 /* SettingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162F766328C8787900BD49A8 /* SettingViewModel.swift */; };
+		163330192939BAD100F47FA8 /* TrackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163330182939BAD100F47FA8 /* TrackView.swift */; };
 		163639D828D225A4000B0B19 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163639D728D225A4000B0B19 /* SignUpView.swift */; };
 		16365DE928F7BB880013CC8D /* OnThisDateMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16365DE828F7BB880013CC8D /* OnThisDateMapper.swift */; };
 		16365DED28F7C16B0013CC8D /* OnThisDateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16365DEC28F7C16B0013CC8D /* OnThisDateView.swift */; };
@@ -142,6 +143,7 @@
 		162F765E28C84ECB00BD49A8 /* UserDefaultCommon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaultCommon.swift; sourceTree = "<group>"; };
 		162F766128C877FF00BD49A8 /* SettingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingManager.swift; sourceTree = "<group>"; };
 		162F766328C8787900BD49A8 /* SettingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewModel.swift; sourceTree = "<group>"; };
+		163330182939BAD100F47FA8 /* TrackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackView.swift; sourceTree = "<group>"; };
 		163639D728D225A4000B0B19 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		163639D928D238B7000B0B19 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		16365DE828F7BB880013CC8D /* OnThisDateMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnThisDateMapper.swift; sourceTree = "<group>"; };
@@ -288,6 +290,14 @@
 			path = Settings;
 			sourceTree = "<group>";
 		};
+		163330172939BAC100F47FA8 /* Track */ = {
+			isa = PBXGroup;
+			children = (
+				163330182939BAD100F47FA8 /* TrackView.swift */,
+			);
+			path = Track;
+			sourceTree = "<group>";
+		};
 		16365DEA28F7C11A0013CC8D /* Lunar */ = {
 			isa = PBXGroup;
 			children = (
@@ -328,6 +338,7 @@
 		1639BD2D28B91259002CCDF5 /* DateMemory */ = {
 			isa = PBXGroup;
 			children = (
+				163330172939BAC100F47FA8 /* Track */,
 				162F765928C77B6400BD49A8 /* Note */,
 				162F765828C77AFB00BD49A8 /* Main */,
 				16AB078928C72809005D885F /* LunarCalendar */,
@@ -876,6 +887,7 @@
 				1693F50C28FB327D00C2412F /* SearchResponseTableViewController.swift in Sources */,
 				1639BD2C28B8BDB0002CCDF5 /* HomeViewModel.swift in Sources */,
 				16FAAB7C28EFD55800E30F65 /* NetworkServiceDefine.swift in Sources */,
+				163330192939BAD100F47FA8 /* TrackView.swift in Sources */,
 				162F764928C7300500BD49A8 /* DateInWeekHeaderView.swift in Sources */,
 				16AB078828C7252C005D885F /* YourNoteView.swift in Sources */,
 				1693F50D28FB327D00C2412F /* MapItemPickerViewController.swift in Sources */,

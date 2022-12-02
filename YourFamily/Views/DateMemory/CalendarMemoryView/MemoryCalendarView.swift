@@ -32,6 +32,7 @@ struct MemoryCalendarView<Page: View>: View {
             )
                 .padding(8)
         }
+        .clipped()
     }
 }
 

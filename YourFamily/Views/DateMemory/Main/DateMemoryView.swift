@@ -13,9 +13,9 @@ struct DateMemoryView: View {
 
     var body: some View {
         ZStack {
-            VStack(spacing: 0) {
+            VStack(spacing: .zero) {
                 HStack {
-                    ForEach(viewModel.tabPageItem, id: \.self) { item in
+                    ForEach(viewModel.tabPageItem) { item in
                         tabButton(title: item.titleText, tag: item.id)
                     }
                 }
@@ -36,7 +36,7 @@ struct DateMemoryView: View {
                         .tag(DateMemoryViewModel.TabPage.calendar)
                     YourNoteView()
                         .tag(DateMemoryViewModel.TabPage.note)
-                    LunarCalendarView()
+                    TrackView()
                         .tag(DateMemoryViewModel.TabPage.tracking)
                 }
                 .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
@@ -52,9 +52,10 @@ struct DateMemoryView: View {
                 HStack(spacing: 4) {
                     Image(systemName: tag.image)
                     Text(title)
+                        .font(.system(size: 14))
                 }
             }
-            .frame(maxWidth: .infinity)
+            .widthInfinity()
             .foregroundColor(viewModel.tabPageIndex == tag ? .primary : .secondary)
 
             Color(viewModel.tabPageIndex == tag ? .white : .clear)

@@ -20,7 +20,7 @@ struct YourNoteView: View {
             Color.white.ignoresSafeArea()
             VStack(spacing: 16) {
                 HStack {
-                    Text("Good Morning \(profileViewModel.currentProfile.nickname)!")
+                    Text("Good Morning")
                         .font(.system(.subheadline))
                         .fontWeight(.bold)
                     Spacer()

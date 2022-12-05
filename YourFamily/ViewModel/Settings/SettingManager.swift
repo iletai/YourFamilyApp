@@ -26,4 +26,7 @@ struct SettingManager {
 
     @UserDefault(UserDefaultKey.emailLoggedIn, defaultValue: "")
     static var emailLoggedIn: String
+
+    @UserDefault(UserDefaultKey.finishOnboarding, defaultValue: false)
+    static var finishOnboarding: Bool
 }

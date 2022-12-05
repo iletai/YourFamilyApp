@@ -92,7 +92,7 @@ struct LunarCalendarView: View {
                     .foregroundColor(.yellow)
                 Text("Hôm nay: " + viewModel.date.toFullDateString)
                     .fontWeight(.semibold)
-                    .font(.system(size: 16))
+                    .font(.system(size: 12))
                     .padding()
                 Spacer()
                 Button {
@@ -100,14 +100,19 @@ struct LunarCalendarView: View {
                         viewModel.backToCurrentDate()
                     }
                 } label: {
-                    Image(systemName: "return")
-                        .renderingMode(.template)
-                        .overlay(
-                            Color.gray.opacity(0.2)
-                                .clipShape(Circle())
-                                .frame(width: 40, height: 40)
-                                .padding()
-                                .shadow(color: .blue, radius: 2, x: 0, y: 2)
+                    Text("To day")
+                        .foregroundColor(.white)
+                        .font(.system(size: 12))
+                        .fontWeight(.bold)
+                        .padding(.horizontal, 12)
+                        .padding(.vertical, 6)
+                        .background(
+                            Capsule()
+                                .fill(
+                                    Color.c232020
+                                    .opacity(0.3)
+                                )
+                                .shadow(color: .blue, radius: 1, x: 0, y: 1)
                         )
                 }
             }
@@ -117,9 +122,9 @@ struct LunarCalendarView: View {
         .background(
             Color.white
                 .clipShape(
-                    RoundedRectangle(cornerRadius: 16)
+                    RoundedRectangle(cornerRadius: 12)
                 )
-                .shadow(color: .gray, radius: 4)
+                .shadow(color: .gray, radius: 1)
         )
     }
 
@@ -131,7 +136,8 @@ struct LunarCalendarView: View {
             ) {
             }
             .labelsHidden()
-            .frame(maxWidth: 120, alignment: .leading)
+            .frame(maxWidth: 130, alignment: .leading)
+            .fixedSize()
             Spacer()
             Button {
                 viewModel.setStateShowSetting(true)
@@ -142,7 +148,7 @@ struct LunarCalendarView: View {
                     .frame(width: 24, height: 24)
             }
         }
-        .padding(8)
+        .padding(.bottom, 8)
     }
 
     func makeFloatToastMessage() -> some View {

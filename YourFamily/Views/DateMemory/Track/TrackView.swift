@@ -6,8 +6,18 @@
 import SwiftUI
 
 struct TrackView: View {
+    private var onBoardingViewModel = OnBoardingViewModel()
+
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Group {
+            if !onBoardingViewModel.finishOnBoarding {
+                OnboardingViewPure(data: onBoardingViewModel.dataOnBoarding) {
+                    self.onBoardingViewModel.saveFinishOnBoarding()
+                }
+            } else {
+                Text("Hello world")
+            }
+        }
     }
 }
 

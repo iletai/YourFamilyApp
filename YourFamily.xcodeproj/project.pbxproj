@@ -30,6 +30,10 @@
 		162F766228C877FF00BD49A8 /* SettingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162F766128C877FF00BD49A8 /* SettingManager.swift */; };
 		162F766428C8787900BD49A8 /* SettingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162F766328C8787900BD49A8 /* SettingViewModel.swift */; };
 		163330192939BAD100F47FA8 /* TrackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163330182939BAD100F47FA8 /* TrackView.swift */; };
+		1633302A2939CD8900F47FA8 /* OnboardingDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163330202939CD8800F47FA8 /* OnboardingDataModel.swift */; };
+		1633302B2939CD8900F47FA8 /* OnboardingStepView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163330212939CD8800F47FA8 /* OnboardingStepView.swift */; };
+		1633302D2939CD8900F47FA8 /* OnboardingViewPure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163330232939CD8800F47FA8 /* OnboardingViewPure.swift */; };
+		163330332939D72500F47FA8 /* OnBoardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163330322939D72500F47FA8 /* OnBoardingViewModel.swift */; };
 		163639D828D225A4000B0B19 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163639D728D225A4000B0B19 /* SignUpView.swift */; };
 		16365DE928F7BB880013CC8D /* OnThisDateMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16365DE828F7BB880013CC8D /* OnThisDateMapper.swift */; };
 		16365DED28F7C16B0013CC8D /* OnThisDateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16365DEC28F7C16B0013CC8D /* OnThisDateView.swift */; };
@@ -144,6 +148,10 @@
 		162F766128C877FF00BD49A8 /* SettingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingManager.swift; sourceTree = "<group>"; };
 		162F766328C8787900BD49A8 /* SettingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewModel.swift; sourceTree = "<group>"; };
 		163330182939BAD100F47FA8 /* TrackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackView.swift; sourceTree = "<group>"; };
+		163330202939CD8800F47FA8 /* OnboardingDataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingDataModel.swift; sourceTree = "<group>"; };
+		163330212939CD8800F47FA8 /* OnboardingStepView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingStepView.swift; sourceTree = "<group>"; };
+		163330232939CD8800F47FA8 /* OnboardingViewPure.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingViewPure.swift; sourceTree = "<group>"; };
+		163330322939D72500F47FA8 /* OnBoardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingViewModel.swift; sourceTree = "<group>"; };
 		163639D728D225A4000B0B19 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		163639D928D238B7000B0B19 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		16365DE828F7BB880013CC8D /* OnThisDateMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnThisDateMapper.swift; sourceTree = "<group>"; };
@@ -296,6 +304,23 @@
 				163330182939BAD100F47FA8 /* TrackView.swift */,
 			);
 			path = Track;
+			sourceTree = "<group>";
+		};
+		1633301A2939CD8800F47FA8 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				163330212939CD8800F47FA8 /* OnboardingStepView.swift */,
+				163330232939CD8800F47FA8 /* OnboardingViewPure.swift */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		163330312939D71300F47FA8 /* OnBoarding */ = {
+			isa = PBXGroup;
+			children = (
+				163330322939D72500F47FA8 /* OnBoardingViewModel.swift */,
+			);
+			path = OnBoarding;
 			sourceTree = "<group>";
 		};
 		16365DEA28F7C11A0013CC8D /* Lunar */ = {
@@ -507,6 +532,7 @@
 		16B95A8D28B747C600CA3B72 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				1633301A2939CD8800F47FA8 /* Onboarding */,
 				1693F50428FB2B8700C2412F /* MapView */,
 				1639BD3328B9192E002CCDF5 /* Profile */,
 				1639BD3028B914AE002CCDF5 /* Setting */,
@@ -523,6 +549,7 @@
 		16B95A8E28B747CE00CA3B72 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				163330312939D71300F47FA8 /* OnBoarding */,
 				169C0ED628FDB5EF007DAF83 /* YourNote */,
 				16FAAB8C28F442BD00E30F65 /* Mapper */,
 				162F766028C877F000BD49A8 /* Settings */,
@@ -603,6 +630,7 @@
 		16FAAB7428EEC17A00E30F65 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				163330202939CD8800F47FA8 /* OnboardingDataModel.swift */,
 				16FAAB7528EEC18300E30F65 /* FUser.swift */,
 				16F056CE28F72174005A65B6 /* OnThisDayModel.swift */,
 				169C0ED928FDBC0F007DAF83 /* CashInModel.swift */,
@@ -876,9 +904,11 @@
 				1639BD2728B868DD002CCDF5 /* HomeView.swift in Sources */,
 				1639BD3528B91939002CCDF5 /* ProfileView.swift in Sources */,
 				16B95A9528B7703C00CA3B72 /* RouterView.swift in Sources */,
+				1633302B2939CD8900F47FA8 /* OnboardingStepView.swift in Sources */,
 				16365DF428F812060013CC8D /* MemoryCardViewModel.swift in Sources */,
 				16365DEF28F7E7200013CC8D /* CustomDialog.swift in Sources */,
 				16DBF7A028E47F2B006DDBE7 /* ImagePicker.swift in Sources */,
+				163330332939D72500F47FA8 /* OnBoardingViewModel.swift in Sources */,
 				16F056CF28F72174005A65B6 /* OnThisDayModel.swift in Sources */,
 				1639BD2F28B91270002CCDF5 /* DateMemoryView.swift in Sources */,
 				16FAAB9528F660FF00E30F65 /* FileUtils.swift in Sources */,
@@ -897,6 +927,7 @@
 				165E973D28B7CAA800490E01 /* StringExtension.swift in Sources */,
 				162F765B28C796C600BD49A8 /* LunarCalendarViewModel.swift in Sources */,
 				16365DE928F7BB880013CC8D /* OnThisDateMapper.swift in Sources */,
+				1633302A2939CD8900F47FA8 /* OnboardingDataModel.swift in Sources */,
 				16AB078128C5E7EF005D885F /* ViewExtension.swift in Sources */,
 				165E973B28B7C87A00490E01 /* AppConstant.swift in Sources */,
 				163639D828D225A4000B0B19 /* SignUpView.swift in Sources */,
@@ -911,6 +942,7 @@
 				1616F0242937359F0086A491 /* AppText.swift in Sources */,
 				16FAAB7E28EFD7A900E30F65 /* NetworkService.swift in Sources */,
 				162F765F28C84ECB00BD49A8 /* UserDefaultCommon.swift in Sources */,
+				1633302D2939CD8900F47FA8 /* OnboardingViewPure.swift in Sources */,
 				1693F50F28FB327D00C2412F /* SearchCompletionsTableViewController.swift in Sources */,
 				169C0F512900006A007DAF83 /* BudgeMenuViewModel.swift in Sources */,
 			);

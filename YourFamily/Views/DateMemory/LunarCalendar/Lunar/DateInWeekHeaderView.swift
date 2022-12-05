@@ -24,9 +24,9 @@ struct DateInWeekHeaderView: View {
                 Color.gray
                     .opacity(0.1)
                     .clipShape(
-                        RoundedRectangle(cornerRadius: 12)
+                        RoundedRectangle(cornerRadius: 10)
                     )
-                    .shadow(color: .gray, radius: 2, x: 0, y: 2)
+                    .shadow(color: .blue, radius: 1, x: 0, y: 2)
             )
         }
         .frame(width: CalendarConfig.calendarMonthSize.width, height: 40)
